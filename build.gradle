@@ -2,6 +2,7 @@ plugins {
     id "application"
     id "org.jetbrains.kotlin.jvm" version "${jetbrainKotlinVersion}"
     id "org.jetbrains.kotlin.plugin.spring" version "${jetbrainKotlinVersion}"
+    id 'org.jetbrains.kotlin.plugin.jpa' version "${jetbrainKotlinVersion}"
     id "org.springframework.boot" version "${springbootVersion}"
     id "io.spring.dependency-management" version "${springDependencyManagementVersion}"
 }
@@ -24,6 +25,5 @@ application {
 apply from: "gradle/db.gradle"
 apply from: "gradle/etc.gradle"
 apply from: "gradle/test.gradle"
-apply from: "gradle/flyway.gradle"
 apply from: "gradle/spring.gradle"
 apply from: "gradle/jetbrains.gradle"
