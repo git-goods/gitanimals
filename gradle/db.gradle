@@ -1,0 +1,5 @@
+dependencies {
+    implementation "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+
+    testRuntimeOnly "com.h2database:h2"
+}

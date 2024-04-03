@@ -1,0 +1,13 @@
+compileKotlin {
+    kotlinOptions.jvmTarget = "${jvmTarget}"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "${jvmTarget}"
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
+}
