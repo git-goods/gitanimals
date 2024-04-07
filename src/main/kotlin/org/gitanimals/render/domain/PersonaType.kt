@@ -54,7 +54,7 @@ enum class PersonaType {
         override fun act(id: Long): String = StringBuilder()
             .moveRandomly("little-chick", id, "180s", 10)
             .toString()
-    }
+    },
     ;
 
     abstract fun load(persona: Persona): String
@@ -124,26 +124,26 @@ enum class PersonaType {
             return this
         }
 
-        private fun Long.toSvg(levelStartX: Double, xIncrese: Double): String {
+        private fun Long.toSvg(levelStartX: Double, xIncrease: Double): String {
             val level = this.toString()
             var currentX = levelStartX
             val builder = StringBuilder()
             level.withIndex().forEach {
                 val index = it.index
                 val number = it.value.digitToInt()
-                val numberSvgs = numberSvgs[number]
+                val numberSvg = numberSvgs[number]
 
                 builder.append("<g id=\"level$index\" transform=\"translate($currentX)\">")
-                    .append(numberSvgs)
+                    .append(numberSvg)
                     .append("</g>")
 
                 currentX += when (number) {
-                    1 -> xIncrese - 0.4
-                    3 -> xIncrese - 0.1
-                    4 -> xIncrese + 0.1
-                    5 -> xIncrese - 0.1
-                    8 -> xIncrese + 0.4
-                    else -> xIncrese
+                    1 -> xIncrease - 0.4
+                    3 -> xIncrease - 0.1
+                    4 -> xIncrease + 0.1
+                    5 -> xIncrease - 0.1
+                    8 -> xIncrease + 0.4
+                    else -> xIncrease
                 }
             }
             return builder.toString()
