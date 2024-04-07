@@ -54,33 +54,44 @@ enum class FieldType {
         private const val COMMIT_FIX = "*{commit-count}"
         private const val VISIT_FIX = "*{visit-count}"
 
-        private val largeTextWidth = listOf(
-            29.375 to "A",
-            25.5 to "B",
-            29.75 to "C",
-            25.5 to "D",
-            21.25 to "E",
-            21.25 to "F",
-            29.75 to "G",
-            29.75 to "H",
-            17.0 to "I",
-            17.0 to "J",
-            29.75 to "K",
-            21.25 to "L",
-            38.25 to "M",
-            29.75 to "N",
-            29.75 to "O",
-            25.5 to "P",
-            38.25 to "Q",
-            25.5 to "R",
-            21.25 to "S",
-            25.5 to "T",
-            25.5 to "U",
-            29.75 to "V",
-            51.0 to "W",
-            25.5 to "X",
-            25.5 to "Y",
-            21.25 to "Z"
+        private val largeTextWidth = mapOf(
+            "A" to 29.375,
+            "B" to 25.5,
+            "C" to 29.75,
+            "D" to 25.5,
+            "E" to 21.25,
+            "F" to 21.25,
+            "G" to 29.75,
+            "H" to 29.75,
+            "I" to 17.0,
+            "J" to 17.0,
+            "K" to 29.75,
+            "L" to 21.25,
+            "M" to 38.25,
+            "N" to 29.75,
+            "O" to 29.75,
+            "P" to 25.5,
+            "Q" to 38.25,
+            "R" to 25.5,
+            "S" to 21.25,
+            "T" to 25.5,
+            "U" to 25.5,
+            "V" to 29.75,
+            "W" to 51.0,
+            "X" to 25.5,
+            "Y" to 25.5,
+            "Z" to 21.25,
+            "-" to 7.5,
+            "0" to 18.89,
+            "1" to 11.33,
+            "2" to 22.67,
+            "3" to 18.89,
+            "4" to 26.44,
+            "5" to 18.89,
+            "6" to 22.67,
+            "7" to 18.89,
+            "8" to 26.44,
+            "9" to 22.67,
         )
 
         private val mediumNumberWidth = listOf(
@@ -100,15 +111,11 @@ enum class FieldType {
             val builder = StringBuilder()
             var currentX = startX
             this.forEach { char ->
+                val largeTextSvg = largeTextSvgs[char.toString()]
                 val index = char - 'A'
-                val largeTextSvg = when (char == '-') {
-                    true -> largeHypensSvg
-                    false -> largeTextSvgs[index]
-                }
-                val charWidth = when (char == '-') {
-                    true -> 7.5
-                    false -> largeTextWidth[index].first
-                }
+
+                val charWidth = largeTextWidth[char.toString()]
+                    ?: throw IllegalArgumentException("Cannot find matched charWidth by \"$char\"")
 
                 builder.append("<g id=\"name$index\" transform=\"translate($currentX)\">")
                     .append(largeTextSvg)

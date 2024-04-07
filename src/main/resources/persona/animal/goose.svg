@@ -53,14 +53,12 @@
     #head {
     animation-name:move-head;
     animation-duration:1s;
-    animation-delay:1s;
     animation-iteration-count:infinite;
     }
 
     #leg {
     animation-name:move-leg;
     animation-duration:0.5s;
-    animation-delay:1s;
     animation-iteration-count:*{leg-iteration-count};
     animation-timing-function: ease-in;
     }

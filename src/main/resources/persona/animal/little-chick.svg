@@ -54,14 +54,12 @@
     #little-chick-head {
     animation-name:little-chick-move-head;
     animation-duration:1s;
-    animation-delay:1s;
     animation-iteration-count:infinite;
     }
 
     #little-chick-leg {
     animation-name:little-chick-move-leg;
     animation-duration:0.5s;
-    animation-delay:1s;
     animation-iteration-count:*{leg-iteration-count};
     animation-timing-function: ease-in;
     }

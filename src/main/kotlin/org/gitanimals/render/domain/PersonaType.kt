@@ -117,7 +117,6 @@ enum class PersonaType {
                 .append("#$type-$id {")
                 .append("animation-name: move-$id;")
                 .append("animation-duration: $duration;")
-                .append("animation-delay: 1s;")
                 .append("animation-iteration-count: 1;")
                 .append("animation-fill-mode: forwards;")
                 .append("}")
