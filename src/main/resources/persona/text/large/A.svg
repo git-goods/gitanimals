@@ -1,4 +1,4 @@
-<rect y="2.5" width="5" height="17.5" fill="black"/>
-<path d="M12.5 2.5H17.5V20H12.5V2.5Z" fill="black"/>
-<rect width="12.5" height="5" transform="matrix(1 0 0 -1 2.5 5)" fill="black"/>
-<rect width="12.5" height="5" transform="matrix(1 0 0 -1 2.5 15)" fill="black"/>
+<rect y="4.25" width="8.5" height="29.75" fill="black"/>
+<path d="M21.25 4.25H29.75V34H21.25V4.25Z" fill="black"/>
+<rect width="21.25" height="8.5" transform="matrix(1 0 0 -1 4.25 8.5)" fill="black"/>
+<rect width="21.25" height="8.5" transform="matrix(1 0 0 -1 4.25 25.5)" fill="black"/>

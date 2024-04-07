@@ -6,6 +6,9 @@ import java.nio.charset.Charset
 val whiteFieldSvg: String = ClassPathResource("persona/field/white-field.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val snowyFieldSvg: String = ClassPathResource("persona/field/snowy-field.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 

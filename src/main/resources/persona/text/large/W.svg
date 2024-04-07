@@ -1,8 +1,8 @@
-<rect x="5" y="15" width="7.5" height="5" fill="black"/>
-<rect x="10" y="10" width="10" height="5" fill="black"/>
-<rect x="12.5" width="5" height="10" fill="black"/>
-<rect x="2.5" y="10" width="5" height="5" fill="black"/>
-<rect width="5" height="10" fill="black"/>
-<rect x="17.5" y="15" width="7.5" height="5" fill="black"/>
-<rect x="22.5" y="10" width="5" height="5" fill="black"/>
-<rect x="25" width="5" height="10" fill="black"/>
+<rect x="9" y="25.5" width="12.75" height="8.5" fill="black"/>
+<rect x="17.5" y="17" width="17" height="8.5" fill="black"/>
+<rect x="21.75" width="8.5" height="17" fill="black"/>
+<rect x="4.75" y="17" width="8.5" height="8.5" fill="black"/>
+<rect x="0.5" width="8.5" height="17" fill="black"/>
+<rect x="30.25" y="25.5" width="12.75" height="8.5" fill="black"/>
+<rect x="38.75" y="17" width="8.5" height="8.5" fill="black"/>
+<rect x="43" width="8.5" height="17" fill="black"/>

@@ -95,46 +95,46 @@
       </g>
 
       <g id="little-chick-leg" transform="translate(2, 6)">
-        <rect width="2" height="2" fill="#FFA713"/>
-        <rect x="1" y="1" width="2" height="1" fill="#FFA713"/>
+        <rect width="2" height="2" fill="#FF6F0F"/>
+        <rect x="1" y="1" width="2" height="1" fill="#FF6F0F"/>
       </g>
 
       <g id="little-chick-body">
-        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 4)" fill="#E3DCB7"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 4)" fill="#FFD600"/>
         <rect x="3" y="5" width="5" height="2" fill="white"/>
-        <rect x="3" y="5" width="5" height="2" fill="#FFE768"/>
-        <rect width="9" height="3" transform="matrix(-1 0 0 1 12 4)" fill="#E3DCB7"/>
-        <rect width="6" height="1" transform="matrix(-1 0 0 1 11 8)" fill="#E3DCB7"/>
-        <rect width="7" height="1" transform="matrix(-1 0 0 1 11 7)" fill="#E3DCB7"/>
-        <rect width="4" height="1" transform="matrix(-1 0 0 1 10 9)" fill="#E3DCB7"/>
-        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#E3DCB7"/>
-        <rect width="1" height="1" transform="matrix(-1 0 0 1 3 5)" fill="#E3DCB7"/>
-        <rect width="3" height="1" transform="matrix(-1 0 0 1 5 0)" fill="#E3DCB7"/>
-        <rect width="7" height="2" transform="matrix(-1 0 0 1 7 2)" fill="#E3DCB7"/>
+        <rect x="3" y="5" width="5" height="2" fill="#FFD600"/>
+        <rect width="9" height="3" transform="matrix(-1 0 0 1 12 4)" fill="#FFD600"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 11 8)" fill="#FFD600"/>
+        <rect width="7" height="1" transform="matrix(-1 0 0 1 11 7)" fill="#FFD600"/>
+        <rect width="4" height="1" transform="matrix(-1 0 0 1 10 9)" fill="#FFD600"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#FFD600"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 3 5)" fill="#FFD600"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 5 0)" fill="#FFD600"/>
+        <rect width="7" height="2" transform="matrix(-1 0 0 1 7 2)" fill="#FFD600"/>
         <rect x="1" y="2" width="5" height="2" fill="white"/>
-        <rect x="1" y="2" width="5" height="2" fill="#FFE768"/>
+        <rect x="1" y="2" width="5" height="2" fill="#FFD600"/>
         <rect x="2" y="1" width="3" height="2" fill="white"/>
-        <rect x="2" y="1" width="3" height="2" fill="#FFE768"/>
+        <rect x="2" y="1" width="3" height="2" fill="#FFD600"/>
         <rect x="2" y="3" width="5" height="2" fill="white"/>
-        <rect x="2" y="3" width="5" height="2" fill="#FFE768"/>
+        <rect x="2" y="3" width="5" height="2" fill="#FFD600"/>
         <rect x="4" y="2" width="7" height="5" fill="white"/>
-        <rect x="4" y="2" width="7" height="5" fill="#FFE768"/>
+        <rect x="4" y="2" width="7" height="5" fill="#FFD600"/>
         <rect x="5" y="7" width="5" height="1" fill="white"/>
-        <rect x="5" y="7" width="5" height="1" fill="#FFE768"/>
+        <rect x="5" y="7" width="5" height="1" fill="#FFD600"/>
         <rect x="6" y="8" width="4" height="1" fill="white"/>
-        <rect x="6" y="8" width="4" height="1" fill="#FFE768"/>
+        <rect x="6" y="8" width="4" height="1" fill="#FFD600"/>
       </g>
 
       <g id="little-chick-head" transform="translate(6,-2)">
-        <rect x="1" y="1" width="4" height="6" fill="#FFE768"/>
+        <rect x="1" y="1" width="4" height="6" fill="#FFD600"/>
         <rect x="2" y="3" width="1" height="1" fill="black"/>
         <rect x="4" y="2" width="1" height="1" fill="black"/>
-        <rect width="1" height="4" transform="matrix(-1 0 0 1 1 1)" fill="#E3DCB7"/>
-        <rect width="1" height="1" transform="matrix(-1 0 0 1 5 1)" fill="#E3DCB7"/>
-        <rect width="1" height="4" transform="matrix(-1 0 0 1 6 2)" fill="#E3DCB7"/>
-        <rect width="3" height="1" transform="matrix(-1 0 0 1 4 0)" fill="#E3DCB7"/>
-        <rect x="4" y="4" width="2" height="2" fill="#FFA713"/>
-        <rect x="5" y="5" width="2" height="1" fill="#FFA713"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 1 1)" fill="#FFD600"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 5 1)" fill="#FFD600"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 6 2)" fill="#FFD600"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 4 0)" fill="#FFD600"/>
+        <rect x="4" y="4" width="2" height="2" fill="#FF6F0F"/>
+        <rect x="5" y="5" width="2" height="1" fill="#FF6F0F"/>
       </g>
     </svg>
   </g>

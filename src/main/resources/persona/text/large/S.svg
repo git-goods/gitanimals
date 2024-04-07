@@ -1,5 +1,5 @@
-<rect x="0.5" width="12.5" height="5" fill="black"/>
-<rect x="0.5" y="7.5" width="12.5" height="5" fill="black"/>
-<rect x="0.5" y="15" width="12.5" height="5" fill="black"/>
-<rect x="0.5" y="2.5" width="5" height="7.5" fill="black"/>
-<rect x="8" y="10" width="5" height="7.5" fill="black"/>
+<rect x="0.75" width="21.25" height="8.5" fill="black"/>
+<rect x="0.75" y="12.75" width="21.25" height="8.5" fill="black"/>
+<rect x="0.75" y="25.5" width="21.25" height="8.5" fill="black"/>
+<rect x="0.75" y="4.25" width="8.5" height="12.75" fill="black"/>
+<rect x="13.5" y="17" width="8.5" height="12.75" fill="black"/>
