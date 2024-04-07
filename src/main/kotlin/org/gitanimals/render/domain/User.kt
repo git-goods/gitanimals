@@ -34,7 +34,7 @@ class User(
 
     companion object {
         fun newUser(name: String): User {
-            val defaultPersonas = mutableListOf(Persona(PersonaType.GOOSE, 0))
+            val defaultPersonas = mutableListOf(Persona(PersonaType.LITTLE_CHICK, 0))
             return User(name = name, personas = defaultPersonas)
         }
 

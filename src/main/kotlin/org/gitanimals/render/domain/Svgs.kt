@@ -3,7 +3,10 @@ package org.gitanimals.render.domain
 import org.springframework.core.io.ClassPathResource
 import java.nio.charset.Charset
 
-val gooseSvg: String = ClassPathResource("persona/goose/goose.svg")
+val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickSvg: String = ClassPathResource("persona/animal/little-chick.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val numberSvgs = listOf(
