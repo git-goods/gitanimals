@@ -2,6 +2,8 @@ package org.gitanimals.render.domain
 
 import jakarta.persistence.*
 import org.gitanimals.render.core.AggregateRoot
+import org.gitanimals.render.domain.value.Contribution
+import org.hibernate.annotations.BatchSize
 
 @AggregateRoot
 @Entity(name = "user")
@@ -18,8 +20,9 @@ class User(
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     private val personas: MutableList<Persona> = mutableListOf(),
 
-    @Column(name = "commit", nullable = false)
-    val commit: Long,
+    @BatchSize(size = 20)
+    @ElementCollection(fetch = FetchType.LAZY)
+    private val contributions: MutableList<Contribution> = mutableListOf(),
 
     @Column(name = "visit", nullable = false)
     val visit: Long,
@@ -31,6 +34,7 @@ class User(
 
     init {
         personas.forEach { it.user = this }
+        contributions.forEach {  }
     }
 
     fun createSvgAnimation(): String {
@@ -40,9 +44,15 @@ class User(
         personas.asSequence()
             .forEach { builder.append(it.toSvg()) }
 
-        return builder.append(field.loadComponent(name, commit, visit))
+        return builder.append(field.loadComponent(name, contributions.totalCount(), visit))
             .append(field.drawBorder())
             .closeSvg()
+    }
+
+    private fun List<Contribution>.totalCount(): Long {
+        var totalCount = 0L
+        this.forEach { totalCount += it.contribution }
+        return totalCount
     }
 
     private fun StringBuilder.openSvg(): StringBuilder =
@@ -51,13 +61,17 @@ class User(
     private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()
 
     companion object {
-        fun newUser(name: String): User {
+        fun newUser(name: String, contributions: Map<Int, Int>): User {
             val defaultPersonas = mutableListOf(Persona(PersonaType.GOOSE, 0))
             return User(
                 name = name,
                 personas = defaultPersonas,
-                commit = 1234567890,
                 field = FieldType.WHITE_FIELD,
+                contributions = contributions.map {
+                    val year = it.key
+                    val contribution = it.value
+                    Contribution(year, contribution)
+                }.toMutableList(),
                 visit = 4749,
             )
         }

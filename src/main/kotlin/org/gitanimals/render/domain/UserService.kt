@@ -11,11 +11,15 @@ class UserService(
 
     fun existsByName(name: String): Boolean = userRepository.existsByName(name)
 
+    fun getSvgAnimationByUsername(username: String): String =
+        getUserByName(username).createSvgAnimation()
+
     fun getUserByName(name: String): User {
         return userRepository.findByName(name)
             ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
     }
 
     @Transactional
-    fun createNewUser(name: String): User = userRepository.save(User.newUser(name))
+    fun createNewUser(name: String, contributions: Map<Int, Int>): User =
+        userRepository.save(User.newUser(name, contributions))
 }

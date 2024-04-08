@@ -73,7 +73,10 @@ enum class PersonaType {
             var currentY = random.nextInt(10, 90)
             var currentX = random.nextInt(10, 90)
             val startAngle = (random.nextDouble() * 10).toInt()
-            var scale = random.nextInt(0, 2) -1
+            var scale = random.nextInt(0, 2) - 1
+            if (scale == 0) {
+                scale++
+            }
             this.append("@keyframes move-$id {")
                 .append("0% {")
                 .append("-webkit-transform:translate($currentY%, $currentX%) rotate(${startAngle}deg) scaleX($scale);")
