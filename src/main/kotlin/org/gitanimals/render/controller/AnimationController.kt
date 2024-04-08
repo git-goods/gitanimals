@@ -3,9 +3,11 @@ package org.gitanimals.render.controller
 import org.gitanimals.render.app.AnimationFacade
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController("/farms")
+@RestController
+@RequestMapping("/farms")
 class AnimationController(
     private val animationFacade: AnimationFacade,
 ) {
