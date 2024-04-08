@@ -17,13 +17,17 @@ class AnimationFacade(
     private lateinit var registerNewUserOrchestrator: Orchestrator<String, User>
 
     fun getSvgAnimationByUsername(username: String): String {
-        when (userService.existsByName(username)) {
-            true -> userService.getUserByName(username)
-            false -> registerNewUserOrchestrator.sagaSync(10000, username)
-                .decodeResultOrThrow(User::class)
-        }
+        return when (userService.existsByName(username)) {
+            true -> {
+                userService.getSvgAnimationByUsername(username)
+            }
 
-        return userService.getSvgAnimationByUsername(username)
+            false -> {
+                registerNewUserOrchestrator.sagaSync(10000, username)
+
+                userService.getSvgAnimationByUsername(username)
+            }
+        }
     }
 
     @PostConstruct
