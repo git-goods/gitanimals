@@ -25,16 +25,23 @@ class User(
     private val contributions: MutableList<Contribution> = mutableListOf(),
 
     @Column(name = "visit", nullable = false)
-    val visit: Long,
+    private var visit: Long,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "field_type", nullable = false)
     val field: FieldType,
+
+    @Version
+    @Column(name = "version", nullable = false)
+    val version: Long,
 ) : AbstractTime() {
 
     init {
         personas.forEach { it.user = this }
-        contributions.forEach {  }
+    }
+
+    fun increaseVisitCount() {
+        visit += 1
     }
 
     fun createSvgAnimation(): String {
@@ -72,7 +79,8 @@ class User(
                     val contribution = it.value
                     Contribution(year, contribution)
                 }.toMutableList(),
-                visit = 4749,
+                visit = 1,
+                version = 0,
             )
         }
     }

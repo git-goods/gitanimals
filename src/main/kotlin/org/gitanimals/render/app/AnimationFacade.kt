@@ -3,15 +3,16 @@ package org.gitanimals.render.app
 import jakarta.annotation.PostConstruct
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
+import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.*
 import org.springframework.stereotype.Service
-
 
 @Service
 class AnimationFacade(
     private val userService: UserService,
     private val contributionApi: ContributionApi,
     private val orchestratorFactory: OrchestratorFactory,
+    private val sagaManager: SagaManager,
 ) {
 
     private lateinit var registerNewUserOrchestrator: Orchestrator<String, User>
@@ -19,7 +20,9 @@ class AnimationFacade(
     fun getSvgAnimationByUsername(username: String): String {
         return when (userService.existsByName(username)) {
             true -> {
-                userService.getSvgAnimationByUsername(username)
+                val svgAnimation = userService.getSvgAnimationByUsername(username)
+                sagaManager.startSync(Visited(username))
+                svgAnimation
             }
 
             false -> {

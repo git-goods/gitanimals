@@ -1,5 +1,7 @@
 package org.gitanimals.render.domain
 
+import org.springframework.dao.OptimisticLockingFailureException
+import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -13,6 +15,12 @@ class UserService(
 
     fun getSvgAnimationByUsername(username: String): String =
         getUserByName(username).createSvgAnimation()
+
+    @Retryable(retryFor = [OptimisticLockingFailureException::class], maxAttempts = 10)
+    @Transactional
+    fun increaseVisit(username: String) {
+        getUserByName(username).increaseVisitCount()
+    }
 
     fun getUserByName(name: String): User {
         return userRepository.findByName(name)

@@ -14,5 +14,5 @@ abstract class AbstractTime(
 
     @LastModifiedDate
     @Column(name = "modified_at")
-    val modifiedAt: Instant? = null,
+    val modifiedAt: Instant = createdAt,
 )
