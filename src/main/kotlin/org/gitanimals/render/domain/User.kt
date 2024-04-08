@@ -37,6 +37,10 @@ class User(
 ) : AbstractTime() {
 
     init {
+        require(!nameConvention.containsMatchIn(name)) {
+            throw IllegalArgumentException("Not supported word contained in \"${name}\"")
+        }
+
         personas.forEach { it.user = this }
     }
 
@@ -68,6 +72,9 @@ class User(
     private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()
 
     companion object {
+
+        private val nameConvention = Regex("[^a-zA-Z0-9-]")
+
         fun newUser(name: String, contributions: Map<Int, Int>): User {
             val defaultPersonas = mutableListOf(Persona(PersonaType.GOOSE, 0))
             return User(
