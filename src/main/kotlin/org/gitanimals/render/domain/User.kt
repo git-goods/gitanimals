@@ -10,6 +10,7 @@ import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.random.Random
 
 @AggregateRoot
 @Entity(name = "user")
@@ -69,7 +70,15 @@ class User(
         currentYearContribution.contribution += newContribution
         lastPersonaGivePoint += newContribution
         currentYearContribution.lastUpdatedContribution = Instant.now()
+        levelUpPersonas(newContribution)
         giveNewPersona()
+    }
+
+    private fun levelUpPersonas(newContribution: Int) {
+        repeat(newContribution) {
+            val persona = personas[Random.nextInt(0, personas.size)]
+            persona.level.value++
+        }
     }
 
     private fun giveNewPersona() {
@@ -121,7 +130,7 @@ class User(
                 throw IllegalArgumentException("Not supported word contained in \"${name}\"")
             }
 
-            return User(
+            val user = User(
                 name = name,
                 personas = createPersonas(contributions),
                 field = FieldType.WHITE_FIELD,
@@ -132,17 +141,20 @@ class User(
                 }.toMutableList(),
                 visit = 1,
                 version = 0,
-                lastPersonaGivePoint = (totalCount(contributions) / FOR_NEW_PERSONA_COUNT).toInt()
+                lastPersonaGivePoint = (totalContributionCount(contributions) / FOR_NEW_PERSONA_COUNT).toInt()
             )
+
+            user.levelUpPersonas(totalContributionCount(contributions).toInt())
+            return user
         }
 
         private fun createPersonas(contributions: Map<Int, Int>): MutableList<Persona> {
-            val contribution = totalCount(contributions)
+            val totalContributionCount = totalContributionCount(contributions)
             val personas = mutableListOf<Persona>()
             repeat(
                 min(
                     MAX_INIT_PERSONA_COUNT,
-                    max((contribution / FOR_NEW_PERSONA_COUNT), 1)
+                    max((totalContributionCount / FOR_NEW_PERSONA_COUNT), 1)
                 ).toInt()
             ) {
                 personas.add(Persona(PersonaType.random(), 0))
@@ -150,7 +162,7 @@ class User(
             return personas
         }
 
-        private fun totalCount(contributions: Map<Int, Int>): Long {
+        private fun totalContributionCount(contributions: Map<Int, Int>): Long {
             var totalCount = 0L
             contributions.forEach { totalCount += it.value }
             return totalCount

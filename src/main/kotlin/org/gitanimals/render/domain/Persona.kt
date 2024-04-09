@@ -28,7 +28,7 @@ class Persona(
     constructor(
         type: PersonaType,
         level: Long,
-    ) : this(type = type, level = Level(level, 0))
+    ) : this(type = type, level = Level(level))
 
 
     fun toSvg(): String = type.load(this)
