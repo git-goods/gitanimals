@@ -63,7 +63,7 @@ class User(
         val currentYearContribution =
             contributions.first { it.year == currentYear }
 
-        currentYearContribution.contribution += contribution
+        currentYearContribution.contribution = contribution
         currentYearContribution.lastUpdatedContribution = Instant.now()
     }
 
