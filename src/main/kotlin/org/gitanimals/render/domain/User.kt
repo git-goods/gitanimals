@@ -76,7 +76,7 @@ class User(
         if (lastPersonaGivePoint >= FOR_NEW_PERSONA_COUNT) {
             lastPersonaGivePoint /= FOR_NEW_PERSONA_COUNT.toInt()
         }
-        if (personas.size >= 10) {
+        if (personas.size >= MAX_PERSONA_COUNT) {
             return
         }
         personas.add(Persona(PersonaType.random(), 0))
@@ -110,6 +110,7 @@ class User(
     private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()
 
     companion object {
+        private const val MAX_PERSONA_COUNT = 30L
         private const val MAX_INIT_PERSONA_COUNT = 10L
         private const val FOR_NEW_PERSONA_COUNT = 100L
 

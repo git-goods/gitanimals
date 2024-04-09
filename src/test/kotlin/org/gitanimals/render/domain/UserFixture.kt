@@ -18,5 +18,6 @@ fun user(
         visit = visit,
         field = field,
         version = 0L,
+        lastPersonaGivePoint = 0,
     )
 }
