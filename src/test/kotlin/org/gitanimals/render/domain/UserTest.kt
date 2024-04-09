@@ -4,6 +4,10 @@ import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrowWithMessage
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.equals.shouldBeEqual
+import org.gitanimals.render.domain.value.Contribution
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 
 @DisplayName("User 클래스의")
 internal class UserTest : DescribeSpec({
@@ -22,6 +26,40 @@ internal class UserTest : DescribeSpec({
                 shouldThrowWithMessage<IllegalArgumentException>("Not supported word contained in \"d안b\"") {
                     User.newUser("d안b", mutableMapOf())
                 }
+            }
+        }
+    }
+
+    describe("isContributionUpdatedBeforeOneHour 메소드는") {
+        context("user의 contribution이 1시간 전에 마지막으로 업데이트 되었을 경우,") {
+            val user = user(
+                contributions = mutableListOf(
+                    Contribution(
+                        2024,
+                        0,
+                        Instant.now().minus(2, ChronoUnit.HOURS),
+                    )
+                )
+            )
+
+            it("true를 반환한다.") {
+                user.isContributionUpdatedBeforeOneHour() shouldBeEqual true
+            }
+        }
+
+        context("user의 현재년도에 해당하는 contribution을 찾을 수 없는 경우,") {
+            val user = user()
+            it("true를 반환한다.") {
+                user.isContributionUpdatedBeforeOneHour() shouldBeEqual true
+            }
+        }
+
+        context("user의 contribution이 업데이트 된지 1시간이 지나지 않았을 경우,") {
+            val user = user(
+                contributions = mutableListOf(Contribution(2024, 0, Instant.now()))
+            )
+            it("false를 반환한다.") {
+                user.isContributionUpdatedBeforeOneHour() shouldBeEqual false
             }
         }
     }

@@ -4,6 +4,10 @@ import jakarta.persistence.*
 import org.gitanimals.render.core.AggregateRoot
 import org.gitanimals.render.domain.value.Contribution
 import org.hibernate.annotations.BatchSize
+import java.time.Instant
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.temporal.ChronoUnit
 
 @AggregateRoot
 @Entity(name = "user")
@@ -42,6 +46,25 @@ class User(
         }
 
         personas.forEach { it.user = this }
+    }
+
+    fun isContributionUpdatedBeforeOneHour(): Boolean {
+        val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
+        val currentYearContribution =
+            contributions.firstOrNull { it.year == currentYear } ?: return true
+
+        return currentYearContribution.lastUpdatedContribution.isBefore(
+            Instant.now().minus(1, ChronoUnit.HOURS)
+        )
+    }
+
+    fun updateContribution(contribution: Int) {
+        val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
+        val currentYearContribution =
+            contributions.first { it.year == currentYear }
+
+        currentYearContribution.contribution += contribution
+        currentYearContribution.lastUpdatedContribution = Instant.now()
     }
 
     fun increaseVisitCount() {
@@ -84,7 +107,7 @@ class User(
                 contributions = contributions.map {
                     val year = it.key
                     val contribution = it.value
-                    Contribution(year, contribution)
+                    Contribution(year, contribution, Instant.now())
                 }.toMutableList(),
                 visit = 1,
                 version = 0,

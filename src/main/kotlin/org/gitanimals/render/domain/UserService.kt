@@ -22,10 +22,17 @@ class UserService(
         getUserByName(username).increaseVisitCount()
     }
 
-    fun getUserByName(name: String): User {
-        return userRepository.findByName(name)
-            ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
+    @Retryable(retryFor = [OptimisticLockingFailureException::class], maxAttempts = 10)
+    @Transactional
+    fun updateContributions(username: String, contribution: Int) {
+        getUserByName(username).updateContribution(contribution)
     }
+
+    fun isContributionUpdatedBeforeOneHour(name: String): Boolean =
+        getUserByName(name).isContributionUpdatedBeforeOneHour()
+
+    fun getUserByName(name: String): User = userRepository.findByName(name)
+        ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
 
     @Transactional
     fun createNewUser(name: String, contributions: Map<Int, Int>): User =
