@@ -21,7 +21,7 @@ class SagaHandlers(
         sagaStartEvent.setNextEvent(visited)
     }
 
-    @SagaCommitListener(event = Visited::class)
+    @SagaCommitListener(event = Visited::class, noRollbackFor = [NullPointerException::class])
     fun updateUserContributions(sagaCommitEvent: SagaCommitEvent) {
         val visited = sagaCommitEvent.decodeEvent(Visited::class)
         val username = visited.username
