@@ -1,4 +1,3 @@
-<rect width="8.5" height="34" fill="black"/>
-<rect y="12.75" width="29.75" height="8.5" fill="black"/>
-<rect x="21.25" width="8.5" height="34" fill="black"/>
-
+<svg width="20" height="30" viewBox="0 0 20 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.75 13.75H13.25V0.75H19.75V30H13.25V17H6.75V30H0.25V0.75H6.75V13.75Z" fill="black"/>
+</svg>

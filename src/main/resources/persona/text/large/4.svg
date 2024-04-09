@@ -1,6 +1,3 @@
-<rect x="15.3333" width="7.55556" height="34" fill="black"/>
-<rect x="0.222229" y="22.6667" width="26.4444" height="3.77778" fill="black"/>
-<rect x="0.222229" y="18.8889" width="7.55556" height="3.77778" fill="black"/>
-<rect x="4" y="11.3333" width="7.55556" height="7.55556" fill="black"/>
-<rect x="7.77777" y="7.55554" width="3.77778" height="7.55556" fill="black"/>
-<rect x="11.5555" y="3.77777" width="3.77778" height="7.55556" fill="black"/>
+<svg width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.5 0.75H10V17H6.75V20.25H13.25V7.25H19.75V20.25H23V23.5H19.75V30H13.25V23.5H0.25V17H3.5V0.75Z" fill="black"/>
+</svg>

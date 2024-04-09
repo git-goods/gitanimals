@@ -1,6 +1,3 @@
-<path d="M0.5 0H9V34H0.5V0Z" fill="black"/>
-<path d="M9 12.75H17.5V21.25H9V12.75Z" fill="black"/>
-<path d="M9 25.5H21.75V34H9V25.5Z" fill="black"/>
-<path d="M4.75 0H17.5V8.5H4.75V0Z" fill="black"/>
-<path d="M13.25 4.25H21.75V12.75H13.25V4.25Z" fill="black"/>
-<path d="M17.5 17H26V29.75H17.5V17Z" fill="black"/>
+<svg width="20" height="30" viewBox="0 0 20 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.75 13.75H16.5V17H19.75V26.75H16.5V30H0.25V0.75H16.5V4H19.75V13.75ZM13.25 13.75V4H6.75V13.75H13.25ZM13.25 26.75V17H6.75V26.75H13.25Z" fill="black"/>
+</svg>

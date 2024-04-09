@@ -1,5 +1,1 @@
-<rect width="7.11111" height="3.55556" transform="matrix(1 0 0 -1 1.77777 8.88889)" fill="black"/>
-<rect width="3.55556" height="7.11111" transform="matrix(1 0 0 -1 7.11111 14.2222)" fill="black"/>
-<rect width="7.11111" height="3.55556" transform="matrix(1 0 0 -1 1.77777 16)" fill="black"/>
-<rect width="3.55556" height="12.4444" transform="matrix(1 0 0 -1 0 14.2222)" fill="black"/>
-<rect width="7.11111" height="3.55556" transform="matrix(1 0 0 -1 1.77777 3.55556)" fill="black"/>
+<path d="M2.25 3.625H3.875V0.375H8.75V2H7.125V3.625H5.5V5.25H8.75V6.875H10.375V13.375H8.75V15H2.25V13.375H0.625V5.25H2.25V3.625ZM7.125 13.375V6.875H3.875V13.375H7.125Z" fill="black"/>

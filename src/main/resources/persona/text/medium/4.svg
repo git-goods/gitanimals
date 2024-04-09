@@ -1,6 +1,1 @@
-<rect x="7.33333" width="3.55556" height="16" fill="black"/>
-<rect x="0.222214" y="10.6667" width="12.4444" height="1.77778" fill="black"/>
-<rect x="0.222214" y="8.88889" width="3.55556" height="1.77778" fill="black"/>
-<rect x="2" y="5.33333" width="3.55556" height="3.55556" fill="black"/>
-<rect x="3.77777" y="3.55556" width="1.77778" height="3.55556" fill="black"/>
-<rect x="5.55556" y="1.77778" width="1.77778" height="3.55556" fill="black"/>
+<path d="M2.25 0.375H5.5V8.5H3.875V10.125H7.125V3.625H10.375V10.125H12V11.75H10.375V15H7.125V11.75H0.625V8.5H2.25V0.375Z" fill="black"/>

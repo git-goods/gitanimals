@@ -159,18 +159,11 @@ enum class PersonaType(private val weight: Double) {
                 val number = it.value.digitToInt()
                 val numberSvg = numberSvgs[number]
 
-                builder.append("<g id=\"level$index\" transform=\"translate($currentX)\">")
+                builder.append("<g id=\"level$index\" transform=\"translate($currentX, -1)\">")
                     .append(numberSvg)
                     .append("</g>")
 
-                currentX += when (number) {
-                    1 -> xIncrease - 0.4
-                    3 -> xIncrease - 0.1
-                    4 -> xIncrease + 0.1
-                    5 -> xIncrease - 0.1
-                    8 -> xIncrease + 0.4
-                    else -> xIncrease
-                }
+                currentX += xIncrease
             }
             return builder.toString()
         }

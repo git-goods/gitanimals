@@ -3,146 +3,15 @@
 </g>
 
 <g id="commit" transform="translate(15, 248)">
-<rect x="2" width="12" height="4" fill="black"/>
-<rect y="2" width="4" height="12" fill="black"/>
-<rect x="2" y="12" width="12" height="4" fill="black"/>
-<rect x="18" y="2" width="4" height="12" fill="black"/>
-<rect x="28" y="2" width="4" height="12" fill="black"/>
-<rect x="20" width="10" height="4" fill="black"/>
-<rect x="20" y="12" width="10" height="4" fill="black"/>
-<rect x="38" width="4" height="4" fill="black"/>
-<rect x="48" width="4" height="4" fill="black"/>
-<rect x="40" y="2" width="4" height="4" fill="black"/>
-<rect x="42" y="4" width="4" height="4" fill="black"/>
-<rect x="44" y="4" width="4" height="4" fill="black"/>
-<rect x="44" y="8" width="2" height="2" fill="black"/>
-<rect x="46" y="2" width="4" height="4" fill="black"/>
-<rect x="36" width="4" height="16" fill="black"/>
-<rect x="50" width="4" height="16" fill="black"/>
-<rect x="60" width="4" height="4" fill="black"/>
-<rect x="70" width="4" height="4" fill="black"/>
-<rect x="62" y="2" width="4" height="4" fill="black"/>
-<rect x="64" y="4" width="4" height="4" fill="black"/>
-<rect x="66" y="4" width="4" height="4" fill="black"/>
-<rect x="66" y="8" width="2" height="2" fill="black"/>
-<rect x="68" y="2" width="4" height="4" fill="black"/>
-<rect x="58" width="4" height="16" fill="black"/>
-<rect x="72" width="4" height="16" fill="black"/>
-<rect x="82" width="4" height="16" fill="black"/>
-<rect x="80" y="14" width="8" height="2" fill="black"/>
-<rect x="80" width="8" height="2" fill="black"/>
-<rect x="92" width="12" height="4" fill="black"/>
-<rect x="96" y="4" width="4" height="12" fill="black"/>
+<path d="M2.25 5.625H8.75V7.25H10.375V8.875H7.125V7.25H3.875V15.375H7.125V13.75H10.375V15.375H8.75V17H2.25V15.375H0.625V7.25H2.25V5.625ZM15.25 5.625H21.75V7.25H23.375V15.375H21.75V17H15.25V15.375H13.625V7.25H15.25V5.625ZM20.125 15.375V7.25H16.875V15.375H20.125ZM29.875 17H26.625V5.625H36.375V7.25H38V17H34.75V7.25H33.125V15.375H31.5V7.25H29.875V17ZM42.875 17H39.625V5.625H49.375V7.25H51V17H47.75V7.25H46.125V15.375H44.5V7.25H42.875V17ZM59.125 4H55.875V0.75H59.125V4ZM59.125 15.375H62.375V17H52.625V15.375H55.875V7.25H52.625V5.625H59.125V15.375ZM67.25 2.375H70.5V5.625H75.375V7.25H70.5V15.375H75.375V17H68.875V15.375H67.25V7.25H65.625V5.625H67.25V2.375Z" fill="black"/>
 *{commit-count}
 </g>
 
 <g id="visit" transform="translate(15, 274)">
-<rect x="20" width="4" height="16" fill="black"/>
-<rect x="18" y="14" width="8" height="2" fill="black"/>
-<rect x="18" width="8" height="2" fill="black"/>
-<rect x="56" width="12" height="4" fill="black"/>
-<rect x="60" y="4" width="4" height="12" fill="black"/>
-<rect x="4" y="12" width="6" height="4" fill="black"/>
-<rect x="8" y="8" width="4" height="4" fill="black"/>
-<rect x="10" width="4" height="8" fill="black"/>
-<rect x="2" y="8" width="4" height="4" fill="black"/>
-<rect width="4" height="8" fill="black"/>
-<rect x="30" width="10" height="4" fill="black"/>
-<rect x="30" y="6" width="10" height="4" fill="black"/>
-<rect x="30" y="12" width="10" height="4" fill="black"/>
-<rect x="30" y="2" width="4" height="6" fill="black"/>
-<rect x="36" y="8" width="4" height="6" fill="black"/>
-<rect x="46" width="4" height="16" fill="black"/>
-<rect x="44" y="14" width="8" height="2" fill="black"/>
-<rect x="44" width="8" height="2" fill="black"/>
+<path d="M2.25 13.75H0.625V5.625H3.875V13.75H7.125V5.625H10.375V13.75H8.75V15.375H7.125V17H3.875V15.375H2.25V13.75ZM20.125 4H16.875V0.75H20.125V4ZM20.125 15.375H23.375V17H13.625V15.375H16.875V7.25H13.625V5.625H20.125V15.375ZM28.25 10.5H26.625V7.25H28.25V5.625H36.375V7.25H29.875V10.5H34.75V12.125H36.375V15.375H34.75V17H26.625V15.375H33.125V12.125H28.25V10.5ZM46.125 4H42.875V0.75H46.125V4ZM46.125 15.375H49.375V17H39.625V15.375H42.875V7.25H39.625V5.625H46.125V15.375ZM54.25 2.375H57.5V5.625H62.375V7.25H57.5V15.375H62.375V17H55.875V15.375H54.25V7.25H52.625V5.625H54.25V2.375Z" fill="black"/>
 *{visit-count}
 </g>
 
-<g id="powered-by-gitanimals" transform="translate(449, 286)">
-<rect x="28" width="5" height="2" fill="black"/>
-<rect x="28" y="3" width="5" height="1.5" fill="black"/>
-<rect x="28" y="6" width="5" height="2" fill="black"/>
-<rect x="28" width="2" height="8" fill="black"/>
-<rect x="41" width="5" height="2" fill="black"/>
-<rect x="41" y="3" width="5" height="1.5" fill="black"/>
-<rect x="41" y="6" width="5" height="2" fill="black"/>
-<rect x="41" width="2" height="8" fill="black"/>
-<rect x="7" y="1" width="2" height="6" fill="black"/>
-<rect x="12" y="1" width="2" height="6" fill="black"/>
-<rect x="8" width="5" height="2" fill="black"/>
-<rect x="8" y="6" width="5" height="2" fill="black"/>
-<rect width="2" height="8" fill="black"/>
-<rect width="5" height="2" fill="black"/>
-<rect y="3" width="5" height="2" fill="black"/>
-<rect x="4" y="1" width="2" height="3" fill="black"/>
-<rect x="34" width="2" height="8" fill="black"/>
-<rect x="34" width="4" height="2" fill="black"/>
-<rect x="34" y="3" width="4" height="2" fill="black"/>
-<rect x="37" y="4" width="2" height="2" fill="black"/>
-<rect x="38" y="5" width="2" height="2" fill="black"/>
-<rect x="38" y="6" width="2" height="2" fill="black"/>
-<rect x="37" y="1" width="2" height="2" fill="black"/>
-<rect x="17" y="6" width="3" height="2" fill="black"/>
-<rect x="19" y="4" width="4" height="2" fill="black"/>
-<rect x="20" width="2" height="4" fill="black"/>
-<rect x="16" y="4" width="2" height="2" fill="black"/>
-<rect x="15" width="2" height="4" fill="black"/>
-<rect x="22" y="6" width="3" height="2" fill="black"/>
-<rect x="24" y="4" width="2" height="2" fill="black"/>
-<rect x="25" width="2" height="4" fill="black"/>
-<rect x="47" width="5" height="2" fill="black"/>
-<rect x="47" y="6" width="5" height="2" fill="black"/>
-<rect x="47" width="2" height="8" fill="black"/>
-<rect x="51" y="1" width="2" height="6" fill="black"/>
-<rect x="67" y="4" width="2" height="4" fill="black"/>
-<rect x="66" y="4" width="4" height="1" fill="black"/>
-<rect x="65" width="2" height="4" fill="black"/>
-<rect x="69" width="2" height="4" fill="black"/>
-<path d="M58 0H60V8H58V0Z" fill="black"/>
-<path d="M60 3H62V5H60V3Z" fill="black"/>
-<path d="M60 6H63V8H60V6Z" fill="black"/>
-<path d="M59 0H62V2H59V0Z" fill="black"/>
-<path d="M61 1H63V3H61V1Z" fill="black"/>
-<path d="M62 4H64V7H62V4Z" fill="black"/>
-<rect x="79" y="3" width="4" height="1.5" fill="black"/>
-<rect x="81" y="3" width="2" height="4" fill="black"/>
-<rect x="77" y="6" width="6" height="2" fill="black"/>
-<rect x="77" width="5" height="2" fill="black"/>
-<rect x="76" y="1" width="2" height="6" fill="black"/>
-<rect x="85" width="2" height="8" fill="black"/>
-<rect x="84" y="7" width="4" height="1" fill="black"/>
-<rect x="84" width="4" height="1" fill="black"/>
-<rect x="113" width="2" height="8" fill="black"/>
-<rect x="112" y="7" width="4" height="1" fill="black"/>
-<rect x="112" width="4" height="1" fill="black"/>
-<rect x="135" width="2" height="8" fill="black"/>
-<rect x="135" y="6" width="5" height="2" fill="black"/>
-<rect x="118" width="2" height="2" fill="black"/>
-<rect x="123" width="2" height="2" fill="black"/>
-<rect x="119" y="1" width="2" height="2" fill="black"/>
-<rect x="120" y="2" width="2" height="2" fill="black"/>
-<rect x="121" y="2" width="2" height="2" fill="black"/>
-<rect x="121" y="4" width="1" height="1" fill="black"/>
-<rect x="122" y="1" width="2" height="2" fill="black"/>
-<rect x="117" width="2" height="8" fill="black"/>
-<rect x="124" width="2" height="8" fill="black"/>
-<rect x="104" width="2" height="8" fill="black"/>
-<rect x="106" y="2" width="2" height="2" fill="black"/>
-<rect x="107" y="4" width="2" height="2" fill="black"/>
-<rect x="109" width="2" height="8" fill="black"/>
-<rect x="89" width="6" height="2" fill="black"/>
-<rect x="91" y="2" width="2" height="6" fill="black"/>
-<rect x="141" width="5" height="2" fill="black"/>
-<rect x="141" y="3" width="5" height="2" fill="black"/>
-<rect x="141" y="6" width="5" height="2" fill="black"/>
-<rect x="141" y="1" width="2" height="3" fill="black"/>
-<rect x="144" y="4" width="2" height="3" fill="black"/>
-<rect x="96" y="1" width="2" height="7" fill="black"/>
-<path d="M101 1H103V8H101V1Z" fill="black"/>
-<rect width="5" height="2" transform="matrix(1 0 0 -1 97 2)" fill="black"/>
-<rect width="5" height="2" transform="matrix(1 0 0 -1 97 6)" fill="black"/>
-<rect x="127" y="1" width="2" height="7" fill="black"/>
-<path d="M132 1H134V8H132V1Z" fill="black"/>
-<rect width="5" height="2" transform="matrix(1 0 0 -1 128 2)" fill="black"/>
-<rect width="5" height="2" transform="matrix(1 0 0 -1 128 6)" fill="black"/>
+<g id="powered-by-gitanimals" transform="translate(425, 281)">
+<path d="M5 4H6V9H5V10H2V13H0V3H5V4ZM4 9V4H2V9H4ZM9 3H13V4H14V9H13V10H9V9H8V4H9V3ZM12 9V4H10V9H12ZM16 3H18V8H19V10H17V8H16V3ZM21 8V3H23V8H22V10H20V8H21ZM19 8V4H20V8H19ZM24 4H25V3H29V4H30V7H26V9H29V10H25V9H24V4ZM28 6V4H26V6H28ZM32 3H34V5H35V6H34V10H32V3ZM38 3V5H35V4H36V3H38ZM40 4H41V3H45V4H46V7H42V9H45V10H41V9H40V4ZM44 6V4H42V6H44ZM52 1H54V10H49V9H48V4H49V3H52V1ZM52 9V4H50V9H52ZM69 4H70V9H69V10H64V1H66V3H69V4ZM68 9V4H66V9H68ZM71 12H74V11H75V10H73V9H72V3H74V9H76V3H78V9H77V11H76V12H75V13H71V12ZM89 9H88V4H89V3H94V12H93V13H88V12H92V10H89V9ZM92 9V4H90V9H92ZM100 2H98V0H100V2ZM100 9H102V10H96V9H98V4H96V3H100V9ZM105 1H107V3H110V4H107V9H110V10H106V9H105V4H104V3H105V1ZM116 4H113V3H117V4H118V10H113V9H112V7H113V6H116V4ZM116 9V7H114V9H116ZM125 4H126V10H124V4H122V10H120V3H125V4ZM132 2H130V0H132V2ZM132 9H134V10H128V9H130V4H128V3H132V9ZM138 10H136V3H142V4H143V10H141V4H140V9H139V4H138V10ZM148 4H145V3H149V4H150V10H145V9H144V7H145V6H148V4ZM148 9V7H146V9H148ZM156 9H158V10H152V9H154V2H152V1H156V9ZM161 6H160V4H161V3H166V4H162V6H165V7H166V9H165V10H160V9H164V7H161V6Z" fill="black"/>
 </g>

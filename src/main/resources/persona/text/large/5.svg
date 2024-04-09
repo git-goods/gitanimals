@@ -1,6 +1,3 @@
-<rect width="7.55556" height="18.8889" fill="black"/>
-<rect x="3.77777" y="11.3333" width="11.3333" height="7.55556" fill="black"/>
-<rect x="11.3333" y="15.1111" width="7.55556" height="15.1111" fill="black"/>
-<rect x="7.55554" y="26.4445" width="7.55556" height="7.55556" fill="black"/>
-<rect y="26.4445" width="7.55556" height="7.55556" fill="black"/>
-<rect width="18.8889" height="7.55556" transform="matrix(1 0 0 -1 0 7.55554)" fill="black"/>
+<svg width="20" height="30" viewBox="0 0 20 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 23.5H13.25V17H0.25V0.75H19.75V4H6.75V13.75H16.5V17H19.75V23.5H16.5V26.75H13.25V30H0.25V26.75H10V23.5Z" fill="black"/>
+</svg>

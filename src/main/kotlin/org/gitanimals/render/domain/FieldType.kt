@@ -5,8 +5,8 @@ enum class FieldType {
     WHITE_FIELD {
         override fun loadComponent(name: String, commit: Long, visit: Long): String {
             return whiteFieldSvg.replace(NAME_FIX, name.uppercase().toSvg(0.0, 3.0))
-                .replace(COMMIT_FIX, commit.toSvg("commit", 111.0, 4.0))
-                .replace(VISIT_FIX, visit.toSvg("visit", 75.0, 4.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 85.0, 4.0))
+                .replace(VISIT_FIX, visit.toSvg("visit", 70.0, 4.0))
         }
 
         override fun fillBackground(): String =
@@ -18,8 +18,8 @@ enum class FieldType {
     SNOWY_FIELD {
         override fun loadComponent(name: String, commit: Long, visit: Long): String {
             return snowyFieldSvg.replace(NAME_FIX, name.uppercase().toSvg(0.0, 3.0))
-                .replace(COMMIT_FIX, commit.toSvg("commit", 111.0, 4.0))
-                .replace(VISIT_FIX, visit.toSvg("visit", 75.0, 4.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 85.0, 4.0))
+                .replace(VISIT_FIX, visit.toSvg("visit", 70.0, 4.0))
         }
 
         override fun fillBackground(): String {
@@ -55,56 +55,82 @@ enum class FieldType {
         private const val VISIT_FIX = "*{visit-count}"
 
         private val largeTextWidth = mapOf(
-            "A" to 29.375,
-            "B" to 25.5,
-            "C" to 29.75,
-            "D" to 25.5,
-            "E" to 21.25,
-            "F" to 21.25,
-            "G" to 29.75,
-            "H" to 29.75,
-            "I" to 17.0,
-            "J" to 17.0,
-            "K" to 29.75,
-            "L" to 21.25,
-            "M" to 38.25,
-            "N" to 29.75,
-            "O" to 29.75,
-            "P" to 25.5,
-            "Q" to 38.25,
-            "R" to 25.5,
-            "S" to 21.25,
-            "T" to 25.5,
-            "U" to 25.5,
-            "V" to 29.75,
-            "W" to 51.0,
-            "X" to 25.5,
-            "Y" to 25.5,
-            "Z" to 21.25,
-            "-" to 7.5,
-            "0" to 18.89,
-            "1" to 11.33,
-            "2" to 22.67,
-            "3" to 18.89,
-            "4" to 26.44,
-            "5" to 18.89,
-            "6" to 22.67,
-            "7" to 18.89,
-            "8" to 26.44,
-            "9" to 22.67,
+            "A" to 20.0,
+            "B" to 20.0,
+            "C" to 20.0,
+            "D" to 20.0,
+            "E" to 20.0,
+            "F" to 20.0,
+            "G" to 20.0,
+            "H" to 20.0,
+            "I" to 14.0,
+            "J" to 20.0,
+            "K" to 20.0,
+            "L" to 20.0,
+            "M" to 23.0,
+            "N" to 23.0,
+            "O" to 20.0,
+            "P" to 20.0,
+            "Q" to 20.0,
+            "R" to 20.0,
+            "S" to 20.0,
+            "T" to 20.0,
+            "U" to 20.0,
+            "V" to 20.0,
+            "W" to 23.0,
+            "X" to 20.0,
+            "Y" to 20.0,
+            "Z" to 20.0,
+            "-" to 20.0,
+            "a" to 20.0,
+            "b" to 20.0,
+            "c" to 20.0,
+            "d" to 20.0,
+            "e" to 20.0,
+            "f" to 20.0,
+            "g" to 20.0,
+            "h" to 20.0,
+            "i" to 20.0,
+            "j" to 17.0,
+            "k" to 20.0,
+            "l" to 20.0,
+            "m" to 23.0,
+            "n" to 20.0,
+            "o" to 20.0,
+            "p" to 20.0,
+            "q" to 20.0,
+            "r" to 20.0,
+            "s" to 20.0,
+            "t" to 20.0,
+            "u" to 20.0,
+            "v" to 20.0,
+            "w" to 23.0,
+            "x" to 20.0,
+            "y" to 23.0,
+            "z" to 20.0,
+            "0" to 20.0,
+            "1" to 17.0,
+            "2" to 20.0,
+            "3" to 20.0,
+            "4" to 23.0,
+            "5" to 20.0,
+            "6" to 20.0,
+            "7" to 20.0,
+            "8" to 20.0,
+            "9" to 20.0,
         )
 
         private val mediumNumberWidth = listOf(
-            8.89,
-            5.33,
-            10.67,
-            8.89,
-            12.44,
-            8.89,
-            10.67,
-            8.89,
-            12.44,
-            10.67
+            11.0,
+            9.0,
+            11.0,
+            11.0,
+            12.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0,
         )
 
         private fun String.toSvg(startX: Double, xIncrease: Double): String {
@@ -117,7 +143,7 @@ enum class FieldType {
                 val charWidth = largeTextWidth[char.toString()]
                     ?: throw IllegalArgumentException("Cannot find matched charWidth by \"$char\"")
 
-                builder.append("<g id=\"name$index\" transform=\"translate($currentX)\">")
+                builder.append("<g id=\"name$index\" transform=\"translate($currentX, 2)\">")
                     .append(largeTextSvg)
                     .append("</g>")
 
@@ -132,7 +158,7 @@ enum class FieldType {
             this.toString().forEach { char ->
                 val index = char.digitToInt()
                 val mediumNumberSvg = mediumNumberSvgs[index]
-                builder.append("<g id=\"$id$index\" transform=\"translate($currentX)\">")
+                builder.append("<g id=\"$id$index\" transform=\"translate($currentX, 2)\">")
                     .append(mediumNumberSvg)
                     .append("</g>")
                 currentX += xIncrease + mediumNumberWidth[index]
