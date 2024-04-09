@@ -8,6 +8,8 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
+import kotlin.math.max
+import kotlin.math.min
 
 @AggregateRoot
 @Entity(name = "user")
@@ -35,16 +37,15 @@ class User(
     @Column(name = "field_type", nullable = false)
     val field: FieldType,
 
+    @Column(name = "last_persona_give_point", nullable = false)
+    private var lastPersonaGivePoint: Int,
+
     @Version
     @Column(name = "version", nullable = false)
     val version: Long,
 ) : AbstractTime() {
 
     init {
-        require(!nameConvention.containsMatchIn(name)) {
-            throw IllegalArgumentException("Not supported word contained in \"${name}\"")
-        }
-
         personas.forEach { it.user = this }
     }
 
@@ -63,8 +64,22 @@ class User(
         val currentYearContribution =
             contributions.first { it.year == currentYear }
 
-        currentYearContribution.contribution = contribution
+        val newContribution = contribution - currentYearContribution.contribution
+
+        currentYearContribution.contribution += newContribution
+        lastPersonaGivePoint += newContribution
         currentYearContribution.lastUpdatedContribution = Instant.now()
+        giveNewPersona()
+    }
+
+    private fun giveNewPersona() {
+        if (lastPersonaGivePoint >= FOR_NEW_PERSONA_COUNT) {
+            lastPersonaGivePoint /= FOR_NEW_PERSONA_COUNT.toInt()
+        }
+        if (personas.size >= 10) {
+            return
+        }
+        personas.add(Persona(PersonaType.random(), 0))
     }
 
     fun increaseVisitCount() {
@@ -95,14 +110,19 @@ class User(
     private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()
 
     companion object {
+        private const val MAX_INIT_PERSONA_COUNT = 10L
+        private const val FOR_NEW_PERSONA_COUNT = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
 
         fun newUser(name: String, contributions: Map<Int, Int>): User {
-            val defaultPersonas = mutableListOf(Persona(PersonaType.GOOSE, 0))
+            require(!nameConvention.containsMatchIn(name)) {
+                throw IllegalArgumentException("Not supported word contained in \"${name}\"")
+            }
+
             return User(
                 name = name,
-                personas = defaultPersonas,
+                personas = createPersonas(contributions),
                 field = FieldType.WHITE_FIELD,
                 contributions = contributions.map {
                     val year = it.key
@@ -111,7 +131,28 @@ class User(
                 }.toMutableList(),
                 visit = 1,
                 version = 0,
+                lastPersonaGivePoint = (totalCount(contributions) / FOR_NEW_PERSONA_COUNT).toInt()
             )
+        }
+
+        private fun createPersonas(contributions: Map<Int, Int>): MutableList<Persona> {
+            val contribution = totalCount(contributions)
+            val personas = mutableListOf<Persona>()
+            repeat(
+                min(
+                    MAX_INIT_PERSONA_COUNT,
+                    max((contribution / FOR_NEW_PERSONA_COUNT), 1)
+                ).toInt()
+            ) {
+                personas.add(Persona(PersonaType.random(), 0))
+            }
+            return personas
+        }
+
+        private fun totalCount(contributions: Map<Int, Int>): Long {
+            var totalCount = 0L
+            contributions.forEach { totalCount += it.value }
+            return totalCount
         }
     }
 }

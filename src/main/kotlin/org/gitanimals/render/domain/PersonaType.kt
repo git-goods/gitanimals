@@ -5,8 +5,8 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-enum class PersonaType {
-    GOOSE {
+enum class PersonaType(private val weight: Double) {
+    GOOSE(1.0) {
         override fun load(persona: Persona): String {
             check(persona.id != null) {
                 throw IllegalStateException("Save persona first before call load()")
@@ -31,7 +31,7 @@ enum class PersonaType {
             .toString()
     },
 
-    LITTLE_CHICK {
+    LITTLE_CHICK(0.9) {
         override fun load(persona: Persona): String {
             check(persona.id != null) {
                 throw IllegalStateException("Save persona first before call load()")
@@ -57,11 +57,35 @@ enum class PersonaType {
     },
     ;
 
+    init {
+        require(weight in 0.01..1.0) { "PersonaType's weight should be between 0.01 to 1.0" }
+    }
+
     abstract fun load(persona: Persona): String
 
     protected abstract fun act(id: Long): String
 
-    private companion object {
+    companion object {
+
+        private val maxWeight = lazy {
+            var maxWeight = 0
+            entries.forEach { personaType ->
+                maxWeight += (personaType.weight * 100).toInt()
+            }
+            maxWeight
+        }.value
+
+        private val personas = lazy {
+            val weightedPersonas = mutableListOf<PersonaType>()
+            entries.forEach { personaType ->
+                repeat((personaType.weight * 100).toInt()) {
+                    weightedPersonas.add(personaType)
+                }
+            }
+            weightedPersonas
+        }.value
+
+        fun random(): PersonaType = personas[Random.nextInt(0, maxWeight)]
 
         private fun StringBuilder.moveRandomly(
             type: String,
