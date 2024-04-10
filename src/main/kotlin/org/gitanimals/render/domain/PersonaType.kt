@@ -688,7 +688,7 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
-    SLIME_RED_KOTLIN(0.01) {
+    SLIME_RED_KOTLIN(0.001) {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
@@ -744,7 +744,7 @@ enum class PersonaType(private val weight: Double) {
     ;
 
     init {
-        require(weight in 0.01..1.0) { "PersonaType's weight should be between 0.01 to 1.0" }
+        require(weight in 0.001..1.0) { "PersonaType's weight should be between 0.01 to 1.0" }
     }
 
     abstract fun load(persona: Persona): String
@@ -756,7 +756,7 @@ enum class PersonaType(private val weight: Double) {
         private val maxWeight = lazy {
             var maxWeight = 0
             entries.forEach { personaType ->
-                maxWeight += (personaType.weight * 100).toInt()
+                maxWeight += (personaType.weight * 1000).toInt()
             }
             maxWeight
         }.value
@@ -764,7 +764,7 @@ enum class PersonaType(private val weight: Double) {
         private val personas = lazy {
             val weightedPersonas = mutableListOf<PersonaType>()
             entries.forEach { personaType ->
-                repeat((personaType.weight * 100).toInt()) {
+                repeat((personaType.weight * 1000).toInt()) {
                     weightedPersonas.add(personaType)
                 }
             }
