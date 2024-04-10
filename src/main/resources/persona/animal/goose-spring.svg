@@ -88,7 +88,7 @@
     animation-timing-function: ease-in;
     }
 
-    #swift-*{id}-logo {
+    #spring-*{id}-logo {
     animation-name:move-*{id}-logo;
     animation-duration:1s;
     animation-iteration-count:infinite;
@@ -187,7 +187,7 @@
       <rect x="10" y="12" width="2" height="1" fill="white"/>
     </g>
 
-    <g id="swift-*{id}-logo" transform="translate(3, 3)">
+    <g id="spring-*{id}-logo" transform="translate(3, 3)">
       <rect x="2.84032" y="7.15613" width="1.47368" height="2.21053"
         transform="rotate(-18 2.84032 7.15613)" fill="#6DB33F"/>
       <rect x="2.25339" y="7.73425" width="0.736842" height="1.84211"

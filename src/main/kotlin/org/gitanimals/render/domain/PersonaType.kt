@@ -358,6 +358,30 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
+    LITTLE_CHICK_SPRING(0.09)
+    {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            val littleChick = littleChickSpringSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+
+            return StringBuilder()
+                .append(littleChick)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("little-chick", id, 40, "180s", 17)
+            .toString()
+    },
+
     PENGUIN(0.5)
     {
         override fun load(persona: Persona): String {
