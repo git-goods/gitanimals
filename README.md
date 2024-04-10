@@ -61,7 +61,7 @@
 
 <img src="docs/pets.svg"/>
 
----
+##
 
 <div align="center">
 <p> 아이디어나 발견 한 버그가 있다면 제보 해주세요.
