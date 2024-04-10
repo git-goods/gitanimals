@@ -167,6 +167,29 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
+    GOOSE_SPRING(0.1) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            val goose = gooseSpringSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1 * (persona.level.value.toString().length)).toString()
+                )
+
+            return StringBuilder()
+                .append(goose)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("goose", id, 20, "180s", 30)
+            .toString()
+    },
+
     LITTLE_CHICK(0.9)
     {
         override fun load(persona: Persona): String {
