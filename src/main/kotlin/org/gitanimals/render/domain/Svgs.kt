@@ -69,6 +69,9 @@ val penguinJavaSvg: String = ClassPathResource("persona/animal/penguin-java.svg"
 val penguinJsSvg: String = ClassPathResource("persona/animal/penguin-js.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val penguinNodeSvg: String = ClassPathResource("persona/animal/penguin-node.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val figSvg: String = ClassPathResource("persona/animal/fig.svg")
     .getContentAsString(Charset.defaultCharset())
 
