@@ -634,6 +634,24 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
+    PIG_LINUX(0.05) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return pigLinuxSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+            .toString()
+    },
+
     SLIME_RED(0.1) {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }

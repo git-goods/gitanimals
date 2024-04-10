@@ -99,6 +99,9 @@ val pigNodeSvg: String = ClassPathResource("persona/animal/pig-node.svg")
 val pigSwiftSvg: String = ClassPathResource("persona/animal/pig-swift.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val pigLinuxSvg: String = ClassPathResource("persona/animal/pig-linux.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val slimeRedSvg: String = ClassPathResource("persona/animal/slime-red.svg")
     .getContentAsString(Charset.defaultCharset())
 
