@@ -29,7 +29,31 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
-    LITTLE_CHICK(0.9) {
+    GOOSE_KOTLIN(0.1) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            val goose = gooseKotlinSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1 * (persona.level.value.toString().length)).toString()
+                )
+
+            return StringBuilder()
+                .append(goose)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("goose", id, 20, "180s", 15)
+            .toString()
+    },
+
+    LITTLE_CHICK(0.9)
+    {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
@@ -52,7 +76,8 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
-    PENGUIN(0.5) {
+    PENGUIN(0.5)
+    {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
@@ -71,7 +96,8 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
-    FIG(0.2) {
+    FIG(0.2)
+    {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
@@ -89,7 +115,8 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
-    SLIME_RED(0.1) {
+    SLIME_RED(0.1)
+    {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
@@ -107,7 +134,8 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
-    SLIME_BLUE(0.1) {
+    SLIME_BLUE(0.1)
+    {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
@@ -125,7 +153,8 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
-    SLIME_GREEN(0.1) {
+    SLIME_GREEN(0.1)
+    {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
