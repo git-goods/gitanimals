@@ -29,24 +29,24 @@
 
     @keyframes move-*{id}-logo {
     0% {
-    -webkit-transform:translate(3px, 3px);
-    -ms-transform:translate(3px, 3px);
-    -o-transform:translate(3px, 3px);
-    -moz-transform:translate(3px, 3px);
+    -webkit-transform:translate(6px, 3px);
+    -ms-transform:translate(6px, 3px);
+    -o-transform:translate(6px, 3px);
+    -moz-transform:translate(6px, 3px);
     transform:translate(6px, 3px);
     }
     50% {
-    -webkit-transform:translate(3px, 2.5px);
-    -ms-transform:translate(3px, 2.5px);
-    -o-transform:translate(3px, 2.5px);
-    -moz-transform:translate(3px, 2.5px);
+    -webkit-transform:translate(6px, 2.5px);
+    -ms-transform:translate(6px, 2.5px);
+    -o-transform:translate(6px, 2.5px);
+    -moz-transform:translate(6px, 2.5px);
     transform:translate(6px, 2.5px);
     }
     100% {
-    -webkit-transform:translate(3px, 3px);
-    -ms-transform:translate(3px, 3px);
-    -o-transform:translate(3px, 3px);
-    -moz-transform:translate(3px, 3px);
+    -webkit-transform:translate(6px, 3px);
+    -ms-transform:translate(6px, 3px);
+    -o-transform:translate(6px, 3px);
+    -moz-transform:translate(6px, 3px);
     transform:translate(6px, 3px);
     }
     }
