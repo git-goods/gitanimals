@@ -121,7 +121,8 @@ class User(
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
         private const val MAX_INIT_PERSONA_COUNT = 10L
-        private const val FOR_NEW_PERSONA_COUNT = 100L
+        private const val FOR_NEW_PERSONA_COUNT = 30L
+        private const val FOR_INIT_PERSONA_COUNT = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
 
@@ -130,7 +131,7 @@ class User(
                 throw IllegalArgumentException("Not supported word contained in \"${name}\"")
             }
 
-            val user = User(
+            return User(
                 name = name,
                 personas = createPersonas(contributions),
                 field = FieldType.WHITE_FIELD,
@@ -143,9 +144,6 @@ class User(
                 version = 0,
                 lastPersonaGivePoint = (totalContributionCount(contributions) / FOR_NEW_PERSONA_COUNT).toInt()
             )
-
-            user.levelUpPersonas(totalContributionCount(contributions).toInt())
-            return user
         }
 
         private fun createPersonas(contributions: Map<Int, Int>): MutableList<Persona> {
@@ -154,7 +152,7 @@ class User(
             repeat(
                 min(
                     MAX_INIT_PERSONA_COUNT,
-                    max((totalContributionCount / FOR_NEW_PERSONA_COUNT), 1)
+                    max((totalContributionCount / FOR_INIT_PERSONA_COUNT), 1)
                 ).toInt()
             ) {
                 personas.add(Persona(PersonaType.random(), 0))
