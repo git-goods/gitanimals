@@ -1,300 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 200 100" fill="none"
-  overflow="visible">
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
   <style>
-    @keyframes move-2 {0% {-webkit-transform:translate(19%, 29%) rotate(9deg)
-    scaleX(-1);-ms-transform:translate(19%, 29%) rotate(9deg) scaleX(-1);-o-transform:translate(19%,
-    29%) rotate(9deg) scaleX(-1);-moz-transform:translate(19%, 29%) rotate(9deg)
-    scaleX(-1);transform:translate(19%, 29%) rotate(9deg) scaleX(-1);}1.0E-4% {-webkit-transform:
-    translate(-44, 19) scaleX(-1);-ms-transform: translate(-44, 19) scaleX(-1);-o-transform:
-    translate(-44, 19) scaleX(-1);-moz-transform: translate(-44, 19) scaleX(-1);transform:
-    translate(-44, 19) scaleX(-1);}5.0% {-webkit-transform:translate(13%, 19%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(13%, 19%) rotate(0deg) scaleX(-1);-o-transform:translate(13%,
-    19%) rotate(0deg) scaleX(-1);-moz-transform:translate(13%, 19%) rotate(0deg)
-    scaleX(-1);transform:translate(13%, 19%) rotate(0deg) scaleX(-1);}5.0001% {-webkit-transform:
-    translate(-34, 13) scaleX(-1);-ms-transform: translate(-34, 13) scaleX(-1);-o-transform:
-    translate(-34, 13) scaleX(-1);-moz-transform: translate(-34, 13) scaleX(-1);transform:
-    translate(-34, 13) scaleX(-1);}10.0% {-webkit-transform:translate(11%, 10%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(11%, 10%) rotate(0deg) scaleX(-1);-o-transform:translate(11%,
-    10%) rotate(0deg) scaleX(-1);-moz-transform:translate(11%, 10%) rotate(0deg)
-    scaleX(-1);transform:translate(11%, 10%) rotate(0deg) scaleX(-1);}10.0001% {-webkit-transform:
-    translate(25, 11) scaleX(1);-ms-transform: translate(25, 11) scaleX(1);-o-transform:
-    translate(25, 11) scaleX(1);-moz-transform: translate(25, 11) scaleX(1);transform: translate(25,
-    11) scaleX(1);}13.0% {-webkit-transform:translate(12%, 24%) rotate(-3deg)
-    scaleX(1);-ms-transform:translate(12%, 24%) rotate(-3deg) scaleX(1);-o-transform:translate(12%,
-    24%) rotate(-3deg) scaleX(1);-moz-transform:translate(12%, 24%) rotate(-3deg)
-    scaleX(1);transform:translate(12%, 24%) rotate(-3deg) scaleX(1);}13.0001% {-webkit-transform:
-    translate(39, 12) scaleX(1);-ms-transform: translate(39, 12) scaleX(1);-o-transform:
-    translate(39, 12) scaleX(1);-moz-transform: translate(39, 12) scaleX(1);transform: translate(39,
-    12) scaleX(1);}17.0% {-webkit-transform:translate(15%, 36%) rotate(-2deg)
-    scaleX(1);-ms-transform:translate(15%, 36%) rotate(-2deg) scaleX(1);-o-transform:translate(15%,
-    36%) rotate(-2deg) scaleX(1);-moz-transform:translate(15%, 36%) rotate(-2deg)
-    scaleX(1);transform:translate(15%, 36%) rotate(-2deg) scaleX(1);}17.0001% {-webkit-transform:
-    translate(-51, 15) scaleX(-1);-ms-transform: translate(-51, 15) scaleX(-1);-o-transform:
-    translate(-51, 15) scaleX(-1);-moz-transform: translate(-51, 15) scaleX(-1);transform:
-    translate(-51, 15) scaleX(-1);}21.0% {-webkit-transform:translate(15%, 36%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(15%, 36%) rotate(0deg) scaleX(-1);-o-transform:translate(15%,
-    36%) rotate(0deg) scaleX(-1);-moz-transform:translate(15%, 36%) rotate(0deg)
-    scaleX(-1);transform:translate(15%, 36%) rotate(0deg) scaleX(-1);}21.0001% {-webkit-transform:
-    translate(-51, 15) scaleX(-1);-ms-transform: translate(-51, 15) scaleX(-1);-o-transform:
-    translate(-51, 15) scaleX(-1);-moz-transform: translate(-51, 15) scaleX(-1);transform:
-    translate(-51, 15) scaleX(-1);}26.0% {-webkit-transform:translate(29%, 31%) rotate(-1deg)
-    scaleX(-1);-ms-transform:translate(29%, 31%) rotate(-1deg)
-    scaleX(-1);-o-transform:translate(29%, 31%) rotate(-1deg)
-    scaleX(-1);-moz-transform:translate(29%, 31%) rotate(-1deg) scaleX(-1);transform:translate(29%,
-    31%) rotate(-1deg) scaleX(-1);}26.0001% {-webkit-transform: translate(46, 29)
-    scaleX(1);-ms-transform: translate(46, 29) scaleX(1);-o-transform: translate(46, 29)
-    scaleX(1);-moz-transform: translate(46, 29) scaleX(1);transform: translate(46, 29)
-    scaleX(1);}29.0% {-webkit-transform:translate(42%, 41%) rotate(-2deg)
-    scaleX(1);-ms-transform:translate(42%, 41%) rotate(-2deg) scaleX(1);-o-transform:translate(42%,
-    41%) rotate(-2deg) scaleX(1);-moz-transform:translate(42%, 41%) rotate(-2deg)
-    scaleX(1);transform:translate(42%, 41%) rotate(-2deg) scaleX(1);}29.0001% {-webkit-transform:
-    translate(56, 42) scaleX(1);-ms-transform: translate(56, 42) scaleX(1);-o-transform:
-    translate(56, 42) scaleX(1);-moz-transform: translate(56, 42) scaleX(1);transform: translate(56,
-    42) scaleX(1);}34.0% {-webkit-transform:translate(45%, 55%) rotate(-2deg)
-    scaleX(1);-ms-transform:translate(45%, 55%) rotate(-2deg) scaleX(1);-o-transform:translate(45%,
-    55%) rotate(-2deg) scaleX(1);-moz-transform:translate(45%, 55%) rotate(-2deg)
-    scaleX(1);transform:translate(45%, 55%) rotate(-2deg) scaleX(1);}34.0001% {-webkit-transform:
-    translate(-70, 45) scaleX(-1);-ms-transform: translate(-70, 45) scaleX(-1);-o-transform:
-    translate(-70, 45) scaleX(-1);-moz-transform: translate(-70, 45) scaleX(-1);transform:
-    translate(-70, 45) scaleX(-1);}36.0% {-webkit-transform:translate(51%, 42%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(51%, 42%) rotate(0deg) scaleX(-1);-o-transform:translate(51%,
-    42%) rotate(0deg) scaleX(-1);-moz-transform:translate(51%, 42%) rotate(0deg)
-    scaleX(-1);transform:translate(51%, 42%) rotate(0deg) scaleX(-1);}36.0001% {-webkit-transform:
-    translate(57, 51) scaleX(1);-ms-transform: translate(57, 51) scaleX(1);-o-transform:
-    translate(57, 51) scaleX(1);-moz-transform: translate(57, 51) scaleX(1);transform: translate(57,
-    51) scaleX(1);}39.0% {-webkit-transform:translate(58%, 51%) rotate(-2deg)
-    scaleX(1);-ms-transform:translate(58%, 51%) rotate(-2deg) scaleX(1);-o-transform:translate(58%,
-    51%) rotate(-2deg) scaleX(1);-moz-transform:translate(58%, 51%) rotate(-2deg)
-    scaleX(1);transform:translate(58%, 51%) rotate(-2deg) scaleX(1);}39.0001% {-webkit-transform:
-    translate(-66, 58) scaleX(-1);-ms-transform: translate(-66, 58) scaleX(-1);-o-transform:
-    translate(-66, 58) scaleX(-1);-moz-transform: translate(-66, 58) scaleX(-1);transform:
-    translate(-66, 58) scaleX(-1);}41.0% {-webkit-transform:translate(71%, 38%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(71%, 38%) rotate(0deg) scaleX(-1);-o-transform:translate(71%,
-    38%) rotate(0deg) scaleX(-1);-moz-transform:translate(71%, 38%) rotate(0deg)
-    scaleX(-1);transform:translate(71%, 38%) rotate(0deg) scaleX(-1);}41.0001% {-webkit-transform:
-    translate(-53, 71) scaleX(-1);-ms-transform: translate(-53, 71) scaleX(-1);-o-transform:
-    translate(-53, 71) scaleX(-1);-moz-transform: translate(-53, 71) scaleX(-1);transform:
-    translate(-53, 71) scaleX(-1);}43.0% {-webkit-transform:translate(56%, 37%) rotate(1deg)
-    scaleX(-1);-ms-transform:translate(56%, 37%) rotate(1deg) scaleX(-1);-o-transform:translate(56%,
-    37%) rotate(1deg) scaleX(-1);-moz-transform:translate(56%, 37%) rotate(1deg)
-    scaleX(-1);transform:translate(56%, 37%) rotate(1deg) scaleX(-1);}43.0001% {-webkit-transform:
-    translate(52, 56) scaleX(1);-ms-transform: translate(52, 56) scaleX(1);-o-transform:
-    translate(52, 56) scaleX(1);-moz-transform: translate(52, 56) scaleX(1);transform: translate(52,
-    56) scaleX(1);}46.0% {-webkit-transform:translate(49%, 39%) rotate(1deg)
-    scaleX(1);-ms-transform:translate(49%, 39%) rotate(1deg) scaleX(1);-o-transform:translate(49%,
-    39%) rotate(1deg) scaleX(1);-moz-transform:translate(49%, 39%) rotate(1deg)
-    scaleX(1);transform:translate(49%, 39%) rotate(1deg) scaleX(1);}46.0001% {-webkit-transform:
-    translate(54, 49) scaleX(1);-ms-transform: translate(54, 49) scaleX(1);-o-transform:
-    translate(54, 49) scaleX(1);-moz-transform: translate(54, 49) scaleX(1);transform: translate(54,
-    49) scaleX(1);}48.0% {-webkit-transform:translate(63%, 53%) rotate(-2deg)
-    scaleX(1);-ms-transform:translate(63%, 53%) rotate(-2deg) scaleX(1);-o-transform:translate(63%,
-    53%) rotate(-2deg) scaleX(1);-moz-transform:translate(63%, 53%) rotate(-2deg)
-    scaleX(1);transform:translate(63%, 53%) rotate(-2deg) scaleX(1);}48.0001% {-webkit-transform:
-    translate(-68, 63) scaleX(-1);-ms-transform: translate(-68, 63) scaleX(-1);-o-transform:
-    translate(-68, 63) scaleX(-1);-moz-transform: translate(-68, 63) scaleX(-1);transform:
-    translate(-68, 63) scaleX(-1);}53.0% {-webkit-transform:translate(66%, 46%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(66%, 46%) rotate(0deg) scaleX(-1);-o-transform:translate(66%,
-    46%) rotate(0deg) scaleX(-1);-moz-transform:translate(66%, 46%) rotate(0deg)
-    scaleX(-1);transform:translate(66%, 46%) rotate(0deg) scaleX(-1);}53.0001% {-webkit-transform:
-    translate(61, 66) scaleX(1);-ms-transform: translate(61, 66) scaleX(1);-o-transform:
-    translate(61, 66) scaleX(1);-moz-transform: translate(61, 66) scaleX(1);transform: translate(61,
-    66) scaleX(1);}55.0% {-webkit-transform:translate(55%, 48%) rotate(1deg)
-    scaleX(1);-ms-transform:translate(55%, 48%) rotate(1deg) scaleX(1);-o-transform:translate(55%,
-    48%) rotate(1deg) scaleX(1);-moz-transform:translate(55%, 48%) rotate(1deg)
-    scaleX(1);transform:translate(55%, 48%) rotate(1deg) scaleX(1);}55.0001% {-webkit-transform:
-    translate(63, 55) scaleX(1);-ms-transform: translate(63, 55) scaleX(1);-o-transform:
-    translate(63, 55) scaleX(1);-moz-transform: translate(63, 55) scaleX(1);transform: translate(63,
-    55) scaleX(1);}57.0% {-webkit-transform:translate(67%, 52%) rotate(-1deg)
-    scaleX(1);-ms-transform:translate(67%, 52%) rotate(-1deg) scaleX(1);-o-transform:translate(67%,
-    52%) rotate(-1deg) scaleX(1);-moz-transform:translate(67%, 52%) rotate(-1deg)
-    scaleX(1);transform:translate(67%, 52%) rotate(-1deg) scaleX(1);}57.0001% {-webkit-transform:
-    translate(-67, 67) scaleX(-1);-ms-transform: translate(-67, 67) scaleX(-1);-o-transform:
-    translate(-67, 67) scaleX(-1);-moz-transform: translate(-67, 67) scaleX(-1);transform:
-    translate(-67, 67) scaleX(-1);}61.0% {-webkit-transform:translate(58%, 42%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(58%, 42%) rotate(0deg) scaleX(-1);-o-transform:translate(58%,
-    42%) rotate(0deg) scaleX(-1);-moz-transform:translate(58%, 42%) rotate(0deg)
-    scaleX(-1);transform:translate(58%, 42%) rotate(0deg) scaleX(-1);}61.0001% {-webkit-transform:
-    translate(57, 58) scaleX(1);-ms-transform: translate(57, 58) scaleX(1);-o-transform:
-    translate(57, 58) scaleX(1);-moz-transform: translate(57, 58) scaleX(1);transform: translate(57,
-    58) scaleX(1);}65.0% {-webkit-transform:translate(64%, 54%) rotate(-2deg)
-    scaleX(1);-ms-transform:translate(64%, 54%) rotate(-2deg) scaleX(1);-o-transform:translate(64%,
-    54%) rotate(-2deg) scaleX(1);-moz-transform:translate(64%, 54%) rotate(-2deg)
-    scaleX(1);transform:translate(64%, 54%) rotate(-2deg) scaleX(1);}65.0001% {-webkit-transform:
-    translate(69, 64) scaleX(1);-ms-transform: translate(69, 64) scaleX(1);-o-transform:
-    translate(69, 64) scaleX(1);-moz-transform: translate(69, 64) scaleX(1);transform: translate(69,
-    64) scaleX(1);}69.0% {-webkit-transform:translate(76%, 59%) rotate(-1deg)
-    scaleX(1);-ms-transform:translate(76%, 59%) rotate(-1deg) scaleX(1);-o-transform:translate(76%,
-    59%) rotate(-1deg) scaleX(1);-moz-transform:translate(76%, 59%) rotate(-1deg)
-    scaleX(1);transform:translate(76%, 59%) rotate(-1deg) scaleX(1);}69.0001% {-webkit-transform:
-    translate(74, 76) scaleX(1);-ms-transform: translate(74, 76) scaleX(1);-o-transform:
-    translate(74, 76) scaleX(1);-moz-transform: translate(74, 76) scaleX(1);transform: translate(74,
-    76) scaleX(1);}72.0% {-webkit-transform:translate(65%, 70%) rotate(2deg)
-    scaleX(1);-ms-transform:translate(65%, 70%) rotate(2deg) scaleX(1);-o-transform:translate(65%,
-    70%) rotate(2deg) scaleX(1);-moz-transform:translate(65%, 70%) rotate(2deg)
-    scaleX(1);transform:translate(65%, 70%) rotate(2deg) scaleX(1);}72.0001% {-webkit-transform:
-    translate(-85, 65) scaleX(-1);-ms-transform: translate(-85, 65) scaleX(-1);-o-transform:
-    translate(-85, 65) scaleX(-1);-moz-transform: translate(-85, 65) scaleX(-1);transform:
-    translate(-85, 65) scaleX(-1);}76.0% {-webkit-transform:translate(70%, 60%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(70%, 60%) rotate(0deg) scaleX(-1);-o-transform:translate(70%,
-    60%) rotate(0deg) scaleX(-1);-moz-transform:translate(70%, 60%) rotate(0deg)
-    scaleX(-1);transform:translate(70%, 60%) rotate(0deg) scaleX(-1);}76.0001% {-webkit-transform:
-    translate(75, 70) scaleX(1);-ms-transform: translate(75, 70) scaleX(1);-o-transform:
-    translate(75, 70) scaleX(1);-moz-transform: translate(75, 70) scaleX(1);transform: translate(75,
-    70) scaleX(1);}79.0% {-webkit-transform:translate(63%, 66%) rotate(2deg)
-    scaleX(1);-ms-transform:translate(63%, 66%) rotate(2deg) scaleX(1);-o-transform:translate(63%,
-    66%) rotate(2deg) scaleX(1);-moz-transform:translate(63%, 66%) rotate(2deg)
-    scaleX(1);transform:translate(63%, 66%) rotate(2deg) scaleX(1);}79.0001% {-webkit-transform:
-    translate(-81, 63) scaleX(-1);-ms-transform: translate(-81, 63) scaleX(-1);-o-transform:
-    translate(-81, 63) scaleX(-1);-moz-transform: translate(-81, 63) scaleX(-1);transform:
-    translate(-81, 63) scaleX(-1);}84.0% {-webkit-transform:translate(70%, 55%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(70%, 55%) rotate(0deg) scaleX(-1);-o-transform:translate(70%,
-    55%) rotate(0deg) scaleX(-1);-moz-transform:translate(70%, 55%) rotate(0deg)
-    scaleX(-1);transform:translate(70%, 55%) rotate(0deg) scaleX(-1);}84.0001% {-webkit-transform:
-    translate(-70, 70) scaleX(-1);-ms-transform: translate(-70, 70) scaleX(-1);-o-transform:
-    translate(-70, 70) scaleX(-1);-moz-transform: translate(-70, 70) scaleX(-1);transform:
-    translate(-70, 70) scaleX(-1);}88.0% {-webkit-transform:translate(71%, 54%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(71%, 54%) rotate(0deg) scaleX(-1);-o-transform:translate(71%,
-    54%) rotate(0deg) scaleX(-1);-moz-transform:translate(71%, 54%) rotate(0deg)
-    scaleX(-1);transform:translate(71%, 54%) rotate(0deg) scaleX(-1);}88.0001% {-webkit-transform:
-    translate(-69, 71) scaleX(-1);-ms-transform: translate(-69, 71) scaleX(-1);-o-transform:
-    translate(-69, 71) scaleX(-1);-moz-transform: translate(-69, 71) scaleX(-1);transform:
-    translate(-69, 71) scaleX(-1);}91.0% {-webkit-transform:translate(69%, 40%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(69%, 40%) rotate(0deg) scaleX(-1);-o-transform:translate(69%,
-    40%) rotate(0deg) scaleX(-1);-moz-transform:translate(69%, 40%) rotate(0deg)
-    scaleX(-1);transform:translate(69%, 40%) rotate(0deg) scaleX(-1);}91.0001% {-webkit-transform:
-    translate(-55, 69) scaleX(-1);-ms-transform: translate(-55, 69) scaleX(-1);-o-transform:
-    translate(-55, 69) scaleX(-1);-moz-transform: translate(-55, 69) scaleX(-1);transform:
-    translate(-55, 69) scaleX(-1);}96.0% {-webkit-transform:translate(64%, 32%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(64%, 32%) rotate(0deg) scaleX(-1);-o-transform:translate(64%,
-    32%) rotate(0deg) scaleX(-1);-moz-transform:translate(64%, 32%) rotate(0deg)
-    scaleX(-1);transform:translate(64%, 32%) rotate(0deg) scaleX(-1);}96.0001% {-webkit-transform:
-    translate(-47, 64) scaleX(-1);-ms-transform: translate(-47, 64) scaleX(-1);-o-transform:
-    translate(-47, 64) scaleX(-1);-moz-transform: translate(-47, 64) scaleX(-1);transform:
-    translate(-47, 64) scaleX(-1);}100.0% {-webkit-transform:translate(59%, 20%) rotate(0deg)
-    scaleX(-1);-ms-transform:translate(59%, 20%) rotate(0deg) scaleX(-1);-o-transform:translate(59%,
-    20%) rotate(0deg) scaleX(-1);-moz-transform:translate(59%, 20%) rotate(0deg)
-    scaleX(-1);transform:translate(59%, 20%) rotate(0deg) scaleX(-1);}}#slime-2 {animation-name:
-    move-2;animation-duration: 180s;animation-iteration-count: 1;animation-fill-mode: forwards;}
+    @keyframes move-8 {0% {-webkit-transform:translate(67%, 71%) rotate(0deg) scaleX(1);-ms-transform:translate(67%, 71%) rotate(0deg) scaleX(1);-o-transform:translate(67%, 71%) rotate(0deg) scaleX(1);-moz-transform:translate(67%, 71%) rotate(0deg) scaleX(1);transform:translate(67%, 71%) rotate(0deg) scaleX(1);}1.0E-4% {-webkit-transform: translate(86, 67) scaleX(1);-ms-transform: translate(86, 67) scaleX(1);-o-transform: translate(86, 67) scaleX(1);-moz-transform: translate(86, 67) scaleX(1);transform: translate(86, 67) scaleX(1);}4.0% {-webkit-transform:translate(70%, 79%) rotate(-2deg) scaleX(1);-ms-transform:translate(70%, 79%) rotate(-2deg) scaleX(1);-o-transform:translate(70%, 79%) rotate(-2deg) scaleX(1);-moz-transform:translate(70%, 79%) rotate(-2deg) scaleX(1);transform:translate(70%, 79%) rotate(-2deg) scaleX(1);}4.0001% {-webkit-transform: translate(-94, 70) scaleX(-1);-ms-transform: translate(-94, 70) scaleX(-1);-o-transform: translate(-94, 70) scaleX(-1);-moz-transform: translate(-94, 70) scaleX(-1);transform: translate(-94, 70) scaleX(-1);}6.0% {-webkit-transform:translate(71%, 75%) rotate(0deg) scaleX(-1);-ms-transform:translate(71%, 75%) rotate(0deg) scaleX(-1);-o-transform:translate(71%, 75%) rotate(0deg) scaleX(-1);-moz-transform:translate(71%, 75%) rotate(0deg) scaleX(-1);transform:translate(71%, 75%) rotate(0deg) scaleX(-1);}6.0001% {-webkit-transform: translate(90, 71) scaleX(1);-ms-transform: translate(90, 71) scaleX(1);-o-transform: translate(90, 71) scaleX(1);-moz-transform: translate(90, 71) scaleX(1);transform: translate(90, 71) scaleX(1);}11.0% {-webkit-transform:translate(67%, 78%) rotate(2deg) scaleX(1);-ms-transform:translate(67%, 78%) rotate(2deg) scaleX(1);-o-transform:translate(67%, 78%) rotate(2deg) scaleX(1);-moz-transform:translate(67%, 78%) rotate(2deg) scaleX(1);transform:translate(67%, 78%) rotate(2deg) scaleX(1);}11.0001% {-webkit-transform: translate(-93, 67) scaleX(-1);-ms-transform: translate(-93, 67) scaleX(-1);-o-transform: translate(-93, 67) scaleX(-1);-moz-transform: translate(-93, 67) scaleX(-1);transform: translate(-93, 67) scaleX(-1);}14.0% {-webkit-transform:translate(73%, 72%) rotate(0deg) scaleX(-1);-ms-transform:translate(73%, 72%) rotate(0deg) scaleX(-1);-o-transform:translate(73%, 72%) rotate(0deg) scaleX(-1);-moz-transform:translate(73%, 72%) rotate(0deg) scaleX(-1);transform:translate(73%, 72%) rotate(0deg) scaleX(-1);}14.0001% {-webkit-transform: translate(87, 73) scaleX(1);-ms-transform: translate(87, 73) scaleX(1);-o-transform: translate(87, 73) scaleX(1);-moz-transform: translate(87, 73) scaleX(1);transform: translate(87, 73) scaleX(1);}16.0% {-webkit-transform:translate(74%, 77%) rotate(-2deg) scaleX(1);-ms-transform:translate(74%, 77%) rotate(-2deg) scaleX(1);-o-transform:translate(74%, 77%) rotate(-2deg) scaleX(1);-moz-transform:translate(74%, 77%) rotate(-2deg) scaleX(1);transform:translate(74%, 77%) rotate(-2deg) scaleX(1);}16.0001% {-webkit-transform: translate(-92, 74) scaleX(-1);-ms-transform: translate(-92, 74) scaleX(-1);-o-transform: translate(-92, 74) scaleX(-1);-moz-transform: translate(-92, 74) scaleX(-1);transform: translate(-92, 74) scaleX(-1);}18.0% {-webkit-transform:translate(77%, 68%) rotate(0deg) scaleX(-1);-ms-transform:translate(77%, 68%) rotate(0deg) scaleX(-1);-o-transform:translate(77%, 68%) rotate(0deg) scaleX(-1);-moz-transform:translate(77%, 68%) rotate(0deg) scaleX(-1);transform:translate(77%, 68%) rotate(0deg) scaleX(-1);}18.0001% {-webkit-transform: translate(-83, 77) scaleX(-1);-ms-transform: translate(-83, 77) scaleX(-1);-o-transform: translate(-83, 77) scaleX(-1);-moz-transform: translate(-83, 77) scaleX(-1);transform: translate(-83, 77) scaleX(-1);}23.0% {-webkit-transform:translate(71%, 67%) rotate(1deg) scaleX(-1);-ms-transform:translate(71%, 67%) rotate(1deg) scaleX(-1);-o-transform:translate(71%, 67%) rotate(1deg) scaleX(-1);-moz-transform:translate(71%, 67%) rotate(1deg) scaleX(-1);transform:translate(71%, 67%) rotate(1deg) scaleX(-1);}23.0001% {-webkit-transform: translate(-82, 71) scaleX(-1);-ms-transform: translate(-82, 71) scaleX(-1);-o-transform: translate(-82, 71) scaleX(-1);-moz-transform: translate(-82, 71) scaleX(-1);transform: translate(-82, 71) scaleX(-1);}26.0% {-webkit-transform:translate(76%, 64%) rotate(-1deg) scaleX(-1);-ms-transform:translate(76%, 64%) rotate(-1deg) scaleX(-1);-o-transform:translate(76%, 64%) rotate(-1deg) scaleX(-1);-moz-transform:translate(76%, 64%) rotate(-1deg) scaleX(-1);transform:translate(76%, 64%) rotate(-1deg) scaleX(-1);}26.0001% {-webkit-transform: translate(-79, 76) scaleX(-1);-ms-transform: translate(-79, 76) scaleX(-1);-o-transform: translate(-79, 76) scaleX(-1);-moz-transform: translate(-79, 76) scaleX(-1);transform: translate(-79, 76) scaleX(-1);}28.0% {-webkit-transform:translate(71%, 64%) rotate(1deg) scaleX(-1);-ms-transform:translate(71%, 64%) rotate(1deg) scaleX(-1);-o-transform:translate(71%, 64%) rotate(1deg) scaleX(-1);-moz-transform:translate(71%, 64%) rotate(1deg) scaleX(-1);transform:translate(71%, 64%) rotate(1deg) scaleX(-1);}28.0001% {-webkit-transform: translate(-79, 71) scaleX(-1);-ms-transform: translate(-79, 71) scaleX(-1);-o-transform: translate(-79, 71) scaleX(-1);-moz-transform: translate(-79, 71) scaleX(-1);transform: translate(-79, 71) scaleX(-1);}33.0% {-webkit-transform:translate(78%, 55%) rotate(0deg) scaleX(-1);-ms-transform:translate(78%, 55%) rotate(0deg) scaleX(-1);-o-transform:translate(78%, 55%) rotate(0deg) scaleX(-1);-moz-transform:translate(78%, 55%) rotate(0deg) scaleX(-1);transform:translate(78%, 55%) rotate(0deg) scaleX(-1);}33.0001% {-webkit-transform: translate(70, 78) scaleX(1);-ms-transform: translate(70, 78) scaleX(1);-o-transform: translate(70, 78) scaleX(1);-moz-transform: translate(70, 78) scaleX(1);transform: translate(70, 78) scaleX(1);}37.0% {-webkit-transform:translate(79%, 58%) rotate(-2deg) scaleX(1);-ms-transform:translate(79%, 58%) rotate(-2deg) scaleX(1);-o-transform:translate(79%, 58%) rotate(-2deg) scaleX(1);-moz-transform:translate(79%, 58%) rotate(-2deg) scaleX(1);transform:translate(79%, 58%) rotate(-2deg) scaleX(1);}37.0001% {-webkit-transform: translate(-73, 79) scaleX(-1);-ms-transform: translate(-73, 79) scaleX(-1);-o-transform: translate(-73, 79) scaleX(-1);-moz-transform: translate(-73, 79) scaleX(-1);transform: translate(-73, 79) scaleX(-1);}40.0% {-webkit-transform:translate(75%, 52%) rotate(0deg) scaleX(-1);-ms-transform:translate(75%, 52%) rotate(0deg) scaleX(-1);-o-transform:translate(75%, 52%) rotate(0deg) scaleX(-1);-moz-transform:translate(75%, 52%) rotate(0deg) scaleX(-1);transform:translate(75%, 52%) rotate(0deg) scaleX(-1);}40.0001% {-webkit-transform: translate(67, 75) scaleX(1);-ms-transform: translate(67, 75) scaleX(1);-o-transform: translate(67, 75) scaleX(1);-moz-transform: translate(67, 75) scaleX(1);transform: translate(67, 75) scaleX(1);}43.0% {-webkit-transform:translate(74%, 59%) rotate(2deg) scaleX(1);-ms-transform:translate(74%, 59%) rotate(2deg) scaleX(1);-o-transform:translate(74%, 59%) rotate(2deg) scaleX(1);-moz-transform:translate(74%, 59%) rotate(2deg) scaleX(1);transform:translate(74%, 59%) rotate(2deg) scaleX(1);}43.0001% {-webkit-transform: translate(-74, 74) scaleX(-1);-ms-transform: translate(-74, 74) scaleX(-1);-o-transform: translate(-74, 74) scaleX(-1);-moz-transform: translate(-74, 74) scaleX(-1);transform: translate(-74, 74) scaleX(-1);}45.0% {-webkit-transform:translate(70%, 50%) rotate(0deg) scaleX(-1);-ms-transform:translate(70%, 50%) rotate(0deg) scaleX(-1);-o-transform:translate(70%, 50%) rotate(0deg) scaleX(-1);-moz-transform:translate(70%, 50%) rotate(0deg) scaleX(-1);transform:translate(70%, 50%) rotate(0deg) scaleX(-1);}45.0001% {-webkit-transform: translate(65, 70) scaleX(1);-ms-transform: translate(65, 70) scaleX(1);-o-transform: translate(65, 70) scaleX(1);-moz-transform: translate(65, 70) scaleX(1);transform: translate(65, 70) scaleX(1);}48.0% {-webkit-transform:translate(66%, 52%) rotate(2deg) scaleX(1);-ms-transform:translate(66%, 52%) rotate(2deg) scaleX(1);-o-transform:translate(66%, 52%) rotate(2deg) scaleX(1);-moz-transform:translate(66%, 52%) rotate(2deg) scaleX(1);transform:translate(66%, 52%) rotate(2deg) scaleX(1);}48.0001% {-webkit-transform: translate(-67, 66) scaleX(-1);-ms-transform: translate(-67, 66) scaleX(-1);-o-transform: translate(-67, 66) scaleX(-1);-moz-transform: translate(-67, 66) scaleX(-1);transform: translate(-67, 66) scaleX(-1);}50.0% {-webkit-transform:translate(73%, 47%) rotate(0deg) scaleX(-1);-ms-transform:translate(73%, 47%) rotate(0deg) scaleX(-1);-o-transform:translate(73%, 47%) rotate(0deg) scaleX(-1);-moz-transform:translate(73%, 47%) rotate(0deg) scaleX(-1);transform:translate(73%, 47%) rotate(0deg) scaleX(-1);}50.0001% {-webkit-transform: translate(-62, 73) scaleX(-1);-ms-transform: translate(-62, 73) scaleX(-1);-o-transform: translate(-62, 73) scaleX(-1);-moz-transform: translate(-62, 73) scaleX(-1);transform: translate(-62, 73) scaleX(-1);}52.0% {-webkit-transform:translate(71%, 38%) rotate(0deg) scaleX(-1);-ms-transform:translate(71%, 38%) rotate(0deg) scaleX(-1);-o-transform:translate(71%, 38%) rotate(0deg) scaleX(-1);-moz-transform:translate(71%, 38%) rotate(0deg) scaleX(-1);transform:translate(71%, 38%) rotate(0deg) scaleX(-1);}52.0001% {-webkit-transform: translate(-53, 71) scaleX(-1);-ms-transform: translate(-53, 71) scaleX(-1);-o-transform: translate(-53, 71) scaleX(-1);-moz-transform: translate(-53, 71) scaleX(-1);transform: translate(-53, 71) scaleX(-1);}56.0% {-webkit-transform:translate(71%, 32%) rotate(0deg) scaleX(-1);-ms-transform:translate(71%, 32%) rotate(0deg) scaleX(-1);-o-transform:translate(71%, 32%) rotate(0deg) scaleX(-1);-moz-transform:translate(71%, 32%) rotate(0deg) scaleX(-1);transform:translate(71%, 32%) rotate(0deg) scaleX(-1);}56.0001% {-webkit-transform: translate(-47, 71) scaleX(-1);-ms-transform: translate(-47, 71) scaleX(-1);-o-transform: translate(-47, 71) scaleX(-1);-moz-transform: translate(-47, 71) scaleX(-1);transform: translate(-47, 71) scaleX(-1);}61.0% {-webkit-transform:translate(71%, 24%) rotate(0deg) scaleX(-1);-ms-transform:translate(71%, 24%) rotate(0deg) scaleX(-1);-o-transform:translate(71%, 24%) rotate(0deg) scaleX(-1);-moz-transform:translate(71%, 24%) rotate(0deg) scaleX(-1);transform:translate(71%, 24%) rotate(0deg) scaleX(-1);}61.0001% {-webkit-transform: translate(-39, 71) scaleX(-1);-ms-transform: translate(-39, 71) scaleX(-1);-o-transform: translate(-39, 71) scaleX(-1);-moz-transform: translate(-39, 71) scaleX(-1);transform: translate(-39, 71) scaleX(-1);}66.0% {-webkit-transform:translate(61%, 21%) rotate(1deg) scaleX(-1);-ms-transform:translate(61%, 21%) rotate(1deg) scaleX(-1);-o-transform:translate(61%, 21%) rotate(1deg) scaleX(-1);-moz-transform:translate(61%, 21%) rotate(1deg) scaleX(-1);transform:translate(61%, 21%) rotate(1deg) scaleX(-1);}66.0001% {-webkit-transform: translate(-36, 61) scaleX(-1);-ms-transform: translate(-36, 61) scaleX(-1);-o-transform: translate(-36, 61) scaleX(-1);-moz-transform: translate(-36, 61) scaleX(-1);transform: translate(-36, 61) scaleX(-1);}69.0% {-webkit-transform:translate(59%, 16%) rotate(0deg) scaleX(-1);-ms-transform:translate(59%, 16%) rotate(0deg) scaleX(-1);-o-transform:translate(59%, 16%) rotate(0deg) scaleX(-1);-moz-transform:translate(59%, 16%) rotate(0deg) scaleX(-1);transform:translate(59%, 16%) rotate(0deg) scaleX(-1);}69.0001% {-webkit-transform: translate(31, 59) scaleX(1);-ms-transform: translate(31, 59) scaleX(1);-o-transform: translate(31, 59) scaleX(1);-moz-transform: translate(31, 59) scaleX(1);transform: translate(31, 59) scaleX(1);}73.0% {-webkit-transform:translate(65%, 22%) rotate(-2deg) scaleX(1);-ms-transform:translate(65%, 22%) rotate(-2deg) scaleX(1);-o-transform:translate(65%, 22%) rotate(-2deg) scaleX(1);-moz-transform:translate(65%, 22%) rotate(-2deg) scaleX(1);transform:translate(65%, 22%) rotate(-2deg) scaleX(1);}73.0001% {-webkit-transform: translate(37, 65) scaleX(1);-ms-transform: translate(37, 65) scaleX(1);-o-transform: translate(37, 65) scaleX(1);-moz-transform: translate(37, 65) scaleX(1);transform: translate(37, 65) scaleX(1);}76.0% {-webkit-transform:translate(74%, 28%) rotate(-2deg) scaleX(1);-ms-transform:translate(74%, 28%) rotate(-2deg) scaleX(1);-o-transform:translate(74%, 28%) rotate(-2deg) scaleX(1);-moz-transform:translate(74%, 28%) rotate(-2deg) scaleX(1);transform:translate(74%, 28%) rotate(-2deg) scaleX(1);}76.0001% {-webkit-transform: translate(-43, 74) scaleX(-1);-ms-transform: translate(-43, 74) scaleX(-1);-o-transform: translate(-43, 74) scaleX(-1);-moz-transform: translate(-43, 74) scaleX(-1);transform: translate(-43, 74) scaleX(-1);}80.0% {-webkit-transform:translate(64%, 24%) rotate(1deg) scaleX(-1);-ms-transform:translate(64%, 24%) rotate(1deg) scaleX(-1);-o-transform:translate(64%, 24%) rotate(1deg) scaleX(-1);-moz-transform:translate(64%, 24%) rotate(1deg) scaleX(-1);transform:translate(64%, 24%) rotate(1deg) scaleX(-1);}80.0001% {-webkit-transform: translate(39, 64) scaleX(1);-ms-transform: translate(39, 64) scaleX(1);-o-transform: translate(39, 64) scaleX(1);-moz-transform: translate(39, 64) scaleX(1);transform: translate(39, 64) scaleX(1);}82.0% {-webkit-transform:translate(70%, 29%) rotate(-2deg) scaleX(1);-ms-transform:translate(70%, 29%) rotate(-2deg) scaleX(1);-o-transform:translate(70%, 29%) rotate(-2deg) scaleX(1);-moz-transform:translate(70%, 29%) rotate(-2deg) scaleX(1);transform:translate(70%, 29%) rotate(-2deg) scaleX(1);}82.0001% {-webkit-transform: translate(44, 70) scaleX(1);-ms-transform: translate(44, 70) scaleX(1);-o-transform: translate(44, 70) scaleX(1);-moz-transform: translate(44, 70) scaleX(1);transform: translate(44, 70) scaleX(1);}87.0% {-webkit-transform:translate(62%, 36%) rotate(2deg) scaleX(1);-ms-transform:translate(62%, 36%) rotate(2deg) scaleX(1);-o-transform:translate(62%, 36%) rotate(2deg) scaleX(1);-moz-transform:translate(62%, 36%) rotate(2deg) scaleX(1);transform:translate(62%, 36%) rotate(2deg) scaleX(1);}87.0001% {-webkit-transform: translate(51, 62) scaleX(1);-ms-transform: translate(51, 62) scaleX(1);-o-transform: translate(51, 62) scaleX(1);-moz-transform: translate(51, 62) scaleX(1);transform: translate(51, 62) scaleX(1);}91.0% {-webkit-transform:translate(66%, 40%) rotate(-2deg) scaleX(1);-ms-transform:translate(66%, 40%) rotate(-2deg) scaleX(1);-o-transform:translate(66%, 40%) rotate(-2deg) scaleX(1);-moz-transform:translate(66%, 40%) rotate(-2deg) scaleX(1);transform:translate(66%, 40%) rotate(-2deg) scaleX(1);}91.0001% {-webkit-transform: translate(-55, 66) scaleX(-1);-ms-transform: translate(-55, 66) scaleX(-1);-o-transform: translate(-55, 66) scaleX(-1);-moz-transform: translate(-55, 66) scaleX(-1);transform: translate(-55, 66) scaleX(-1);}94.0% {-webkit-transform:translate(74%, 39%) rotate(-1deg) scaleX(-1);-ms-transform:translate(74%, 39%) rotate(-1deg) scaleX(-1);-o-transform:translate(74%, 39%) rotate(-1deg) scaleX(-1);-moz-transform:translate(74%, 39%) rotate(-1deg) scaleX(-1);transform:translate(74%, 39%) rotate(-1deg) scaleX(-1);}94.0001% {-webkit-transform: translate(54, 74) scaleX(1);-ms-transform: translate(54, 74) scaleX(1);-o-transform: translate(54, 74) scaleX(1);-moz-transform: translate(54, 74) scaleX(1);transform: translate(54, 74) scaleX(1);}99.0% {-webkit-transform:translate(76%, 48%) rotate(-2deg) scaleX(1);-ms-transform:translate(76%, 48%) rotate(-2deg) scaleX(1);-o-transform:translate(76%, 48%) rotate(-2deg) scaleX(1);-moz-transform:translate(76%, 48%) rotate(-2deg) scaleX(1);transform:translate(76%, 48%) rotate(-2deg) scaleX(1);}99.0001% {-webkit-transform: translate(-63, 76) scaleX(-1);-ms-transform: translate(-63, 76) scaleX(-1);-o-transform: translate(-63, 76) scaleX(-1);-moz-transform: translate(-63, 76) scaleX(-1);transform: translate(-63, 76) scaleX(-1);}100.0% {-webkit-transform:translate(72%, 38%) rotate(0deg) scaleX(-1);-ms-transform:translate(72%, 38%) rotate(0deg) scaleX(-1);-o-transform:translate(72%, 38%) rotate(0deg) scaleX(-1);-moz-transform:translate(72%, 38%) rotate(0deg) scaleX(-1);transform:translate(72%, 38%) rotate(0deg) scaleX(-1);}}#penguin-8 {animation-name: move-8;animation-duration: 180s;animation-iteration-count: 1;animation-fill-mode: forwards;}
 
-    @keyframes slime-2-move-body {
+    @keyframes penguin-8-move-body {
     0% {
-    -webkit-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    transform: scaleY(1);
+    -webkit-transform:translate(0px, 0px);
+    -ms-transform:translate(0px, 0px);
+    -o-transform:translate(0px, 0px);
+    -moz-transform:translate(0px, 0px);
+    transform:translate(0px, 0px);
     }
     50% {
-    -webkit-transform: scaleY(0.9);
-    -ms-transform: scaleY(0.9);
-    -o-transform: scaleY(0.9);
-    -moz-transform: scaleY(0.9);
-    transform: scaleY(0.9);
+    -webkit-transform:translate(0px, -0.5px);
+    -ms-transform:translate(0px, -0.5px);
+    -o-transform:translate(0px, -0.5px);
+    -moz-transform:translate(0px, -0.5px);
+    transform:translate(0px, -0.5px);
     }
     100% {
-    -webkit-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    transform: scaleY(1);
+    -webkit-transform:translate(0px, 0px);
+    -ms-transform:translate(0px, 0px);
+    -o-transform:translate(0px, 0px);
+    -moz-transform:translate(0px, 0px);
+    transform:translate(0px, 0px);
     }
     }
 
-    @keyframes slime-2-move-shadow {
+    @keyframes penguin-8-move-leg {
     0% {
-    -webkit-transform: translate(0px, 6px) scaleY(1);
-    -ms-transform: translate(0px, 6px) scaleY(1);
-    -o-transform: translate(0px, 6px) scaleY(1);
-    -moz-transform: translate(0px, 6px) scaleY(1);
-    transform: translate(0px, 6px) scaleY(1);
+    -webkit-transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    transform:rotate(0deg);
     }
     50% {
-    -webkit-transform: translate(0px, 6px) scaleY(1.1);
-    -ms-transform: translate(0px, 6px) scaleY(1.1);
-    -o-transform: translate(0px, 6px) scaleY(1.1);
-    -moz-transform: translate(0px, 6px) scaleY(1.1);
-    transform: translate(0px, 6px) scaleY(1.1);
+    -webkit-transform:rotate(1deg);
+    -ms-transform:rotate(1deg);
+    -o-transform:rotate(1deg);
+    -moz-transform:rotate(1deg);
+    transform:rotate(1deg);
     }
     100% {
-    -webkit-transform: translate(0px, 6px) scaleY(1);
-    -ms-transform: translate(0px, 6px) scaleY(1);
-    -o-transform: translate(0px, 6px) scaleY(1);
-    -moz-transform: translate(0px, 6px) scaleY(1);
-    transform: translate(0px, 6px) scaleY(1);
+    -webkit-transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    transform:rotate(0deg);
     }
     }
 
-    #slime-2-body {
-    animation-name:slime-2-move-body;
+    #penguin-8-body {
+    animation-name:penguin-8-move-body;
     animation-duration:1s;
     animation-iteration-count:infinite;
     }
 
-    #slime-2-shadow {
-    animation-name:slime-2-move-shadow;
-    animation-duration:1s;
-    animation-iteration-count:infinite;
+    #penguin-8-leg {
+    animation-name:penguin-8-move-leg;
+    animation-duration:0.5s;
+    animation-iteration-count:360;
+    animation-timing-function: ease-in;
     }
-
-
   </style>
 
-  <g id="slime-2">
-    <g id="level" transform="translate(-8, -4)">
+  <g id="penguin-8" transform="translate(-100, -100)">
+
+    <g id="shadow" transform="translate(0.5, 8.5)">
+      <rect width="13.3359" height="3.89813" transform="matrix(1 2.26611e-08 -2.79767e-08 -1 0 6.90123)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="11.1133" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.11133 8.20061)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="11.1133" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.14059 2.9689)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="8.89062" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.22266 9.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="8.89062" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.28119 1.6353)" fill="#2B4447" fill-opacity="0.1"/>
+    </g>
+
+    <g id="level" transform="translate(-7, -10)">
       <rect x="10" width="0.6" height="1.8" fill="black"/>
       <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
       <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
       <rect x="11.2" y="0.600002" width="0.6" height="0.6" fill="black"/>
       <rect x="12.4" y="0.600002" width="0.6" height="0.6" fill="black"/>
-      <g id="level0" transform="translate(14.0, -1)">
-        <path d="M0.5 0.75H1V2H0.75V2.25H1.25V1.25H1.75V2.25H2V2.5H1.75V3H1.25V2.5H0.25V2H0.5V0.75Z"
-          fill="black"/>
-      </g>
-      <g id="level1" transform="translate(16.0, -1)">
-        <path
-          d="M0.75 2.75H1.25V2H0.75V1.75H1.25V1H0.75V1.5H0.25V1H0.5V0.75H1.5V1H1.75V1.75H1.5V2H1.75V2.75H1.5V3H0.5V2.75H0.25V2.25H0.75V2.75Z"
-          fill="black"/>
-      </g>
-      <g id="level2" transform="translate(18.0, -1)">
-        <path
-          d="M0.75 2.75H1.25V2H0.75V1.75H1.25V1H0.75V1.5H0.25V1H0.5V0.75H1.5V1H1.75V1.75H1.5V2H1.75V2.75H1.5V3H0.5V2.75H0.25V2.25H0.75V2.75Z"
-          fill="black"/>
+      <g id="level0" transform="translate(14.0, -1)"><path d="M0.5 0.75H1V2H0.75V2.25H1.25V1.25H1.75V2.25H2V2.5H1.75V3H1.25V2.5H0.25V2H0.5V0.75Z" fill="black"/>
+      </g><g id="level1" transform="translate(16.0, -1)"><path d="M1 2.5H1.25V2H0.25V0.75H1.75V1H0.75V1.75H1.5V2H1.75V2.5H1.5V2.75H1.25V3H0.25V2.75H1V2.5Z" fill="black"/>
+    </g><g id="level2" transform="translate(18.0, -1)"><path d="M1 2.5H1.25V2H0.25V0.75H1.75V1H0.75V1.75H1.5V2H1.75V2.5H1.5V2.75H1.25V3H0.25V2.75H1V2.5Z" fill="black"/>
+    </g>
+    </g>
+
+    <g id="penguin-8-leg-out" transform="translate(2, 12)">
+      <g id="penguin-8-leg">
+        <rect x="0.667175" y="0.3367" width="2.66718" height="2.66719" fill="#FF6F0F"/>
+        <rect x="2.00076" y="1.67029" width="2.66718" height="1.33359" fill="#FF6F0F"/>
+        <rect x="6.00153" y="0.3367" width="2.66718" height="2.66719" fill="#FF6F0F"/>
+        <rect x="7.33511" y="1.67029" width="2.66718" height="1.33359" fill="#FF6F0F"/>
       </g>
     </g>
 
-    <g id="slime-2-shadow" transform="translate(0, 6)">
-      <rect width="13.3359" height="3.89813"
-        transform="matrix(1 2.26611e-08 -2.79767e-08 -1 0 6.56531)" fill="#2B4447"
-        fill-opacity="0.1"/>
-      <rect width="11.1133" height="1.29938"
-        transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.11133 7.86469)" fill="#2B4447"
-        fill-opacity="0.1"/>
-      <rect width="11.1133" height="1.29938"
-        transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.14059 2.63298)" fill="#2B4447"
-        fill-opacity="0.1"/>
-      <rect width="8.89062" height="1.29938"
-        transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.22266 9.16408)" fill="#2B4447"
-        fill-opacity="0.1"/>
-      <rect width="8.89062" height="1.29938"
-        transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.28119 1.29938)" fill="#2B4447"
-        fill-opacity="0.1"/>
+    <g id="penguin-8-body">
+      <rect x="2.66718" width="9.33515" height="12.1514" fill="white"/>
+      <rect width="1.33359" height="7.59461" transform="matrix(-1 0 0 1 12.0023 1.51892)" fill="#2D2D2D"/>
+      <rect width="1.33359" height="9.11353" transform="matrix(-1 0 0 1 13.3359 3.03784)" fill="#2D2D2D"/>
+      <rect width="1.33359" height="7.59461" transform="matrix(-1 0 0 1 1.33359 3.03784)" fill="#2D2D2D"/>
+      <rect width="1.33359" height="10.6325" transform="matrix(-1 0 0 1 2.66718 1.51892)" fill="#2D2D2D"/>
+      <rect width="1" height="9" transform="matrix(-1 0 0 1 3.66666 0)" fill="#2D2D2D"/>
+      <rect width="9.33515" height="1.51892" transform="matrix(1 0 0 -1 2.66718 13.6703)" fill="#2D2D2D"/>
     </g>
 
-    <g id="slime-2-body">
-      <rect x="5" y="1" width="4" height="1" fill="#F6869F"/>
-      <rect x="11" y="3" width="1" height="1" fill="#F6869F"/>
-      <rect x="2" y="11" width="10" height="1" fill="#F6869F"/>
-      <rect x="1" y="10" width="12" height="1" fill="#F6869F"/>
-      <rect x="1" y="4" width="12" height="1" fill="#F6869F"/>
-      <rect x="2" y="2" width="9" height="2" fill="#F6869F"/>
-      <rect x="3" width="2" height="2" fill="#F6869F"/>
-      <rect y="5" width="14" height="5" fill="#F6869F"/>
-      <rect x="7" y="7" width="1" height="2" fill="black"/>
-      <rect x="11" y="7" width="1" height="2" fill="black"/>
-      <rect x="1" y="9" width="1" height="2" fill="#CB6F84"/>
-      <rect x="2" y="10" width="1" height="1" fill="#CB6F84"/>
-      <rect y="8" width="1" height="2" fill="#CB6F84"/>
-      <rect x="2" y="11" width="10" height="1" fill="#CB6F84"/>
+    <g id="penguin-8-head" transform="translate(2, -6.5)">
+      <rect width="8.33333" height="2.66667" transform="matrix(-1 0 0 1 10 1.33333)" fill="#2D2D2D"/>
+      <rect width="9.29025" height="2" transform="matrix(-1 0 0 1 9.95692 3)" fill="#2D2D2D"/>
+      <rect width="1" height="4" transform="matrix(-1 0 0 1 1.66667 3)" fill="#2D2D2D"/>
+      <rect width="3" height="2" transform="matrix(-1 0 0 1 10 4)" fill="#2D2D2D"/>
+      <rect x="3" y="1.33333" width="5.66667" height="8" fill="white"/>
+      <rect x="1.66667" y="4.66667" width="7" height="4.66667" fill="white"/>
+      <rect x="8.66667" y="1.33333" width="5.66667" height="1.33333" transform="rotate(-180 8.66667 1.33333)" fill="#2D2D2D"/>
+      <rect x="4.66667" y="4" width="1.33333" height="2" fill="black"/>
+      <rect x="7" y="2.66667" width="1.33333" height="2" fill="black"/>
+      <rect width="1.66667" height="1.33333" transform="matrix(-1 0 0 1 6.66667 1.33333)" fill="#2D2D2D"/>
+      <rect x="7.33334" y="5.33437" width="2.88889" height="2.66719" fill="#FF6F0F"/>
+      <rect x="8.77778" y="6.66795" width="2.88889" height="1.33359" fill="#FF6F0F"/>
     </g>
+
   </g>
 </svg>

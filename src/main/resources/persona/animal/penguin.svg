@@ -67,7 +67,7 @@
 
   <g id="penguin-*{id}" transform="translate(-100, -100)">
 
-    <g id="shadow">
+    <g id="shadow" transform="translate(0.5, 8.5)">
       <rect width="13.3359" height="3.89813"
         transform="matrix(1 2.26611e-08 -2.79767e-08 -1 0 6.90123)" fill="#2B4447"
         fill-opacity="0.1"/>
