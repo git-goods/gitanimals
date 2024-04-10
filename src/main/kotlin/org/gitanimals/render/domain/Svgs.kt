@@ -27,6 +27,10 @@ val gooseNodeSvg: String = ClassPathResource("persona/animal/goose-node.svg")
 val gooseSwiftSvg: String = ClassPathResource("persona/animal/goose-swift.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val gooseLinuxSvg: String = ClassPathResource("persona/animal/goose-linux.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+
 val littleChickSvg: String = ClassPathResource("persona/animal/little-chick.svg")
     .getContentAsString(Charset.defaultCharset())
 
