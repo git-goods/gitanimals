@@ -25,7 +25,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, "180s", 15)
+            .moveRandomly("goose", id, 20, "180s", 15)
             .toString()
     },
 
@@ -48,7 +48,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, "180s", 10)
+            .moveRandomly("little-chick", id, 40, "180s", 10)
             .toString()
     },
 
@@ -66,8 +66,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("penguin", id, "180s", 15)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 15)
+                .toString()
     },
 
     FIG(0.2) {
@@ -84,7 +85,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
             .toString()
     }
     ;
@@ -122,6 +123,7 @@ enum class PersonaType(private val weight: Double) {
         private fun StringBuilder.moveRandomly(
             type: String,
             id: Long,
+            speed: Int,
             duration: String,
             width: Long,
         ): StringBuilder {
@@ -145,8 +147,8 @@ enum class PersonaType(private val weight: Double) {
             while (animationPercentage < 100) {
                 val beforeAnimationPercentage = animationPercentage
                 animationPercentage += random.nextInt(2, 6)
-                val nextY = random.nextInt(max(10, currentY - 23), min(80, currentY + 23))
-                val nextX = random.nextInt(max(10, currentX - 23), min(80, currentX + 23))
+                val nextY = random.nextInt(max(10, currentY - speed), min(80, currentY + speed))
+                val nextX = random.nextInt(max(10, currentX - speed), min(80, currentX + speed))
                 val angle = (atan2(
                     currentY.toDouble() - nextY.toDouble(),
                     currentX.toDouble() - nextX.toDouble()
