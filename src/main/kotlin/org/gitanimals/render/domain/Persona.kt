@@ -12,7 +12,7 @@ class Persona(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
-    @Column(name = "type", nullable = false)
+    @Column(name = "type", nullable = false, columnDefinition = "TEXT")
     @Enumerated(EnumType.STRING)
     val type: PersonaType,
 

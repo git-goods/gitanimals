@@ -8,9 +8,7 @@ import kotlin.random.Random
 enum class PersonaType(private val weight: Double) {
     GOOSE(1.0) {
         override fun load(persona: Persona): String {
-            check(persona.id != null) {
-                throw IllegalStateException("Save persona first before call load()")
-            }
+            check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
@@ -33,9 +31,7 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK(0.9) {
         override fun load(persona: Persona): String {
-            check(persona.id != null) {
-                throw IllegalStateException("Save persona first before call load()")
-            }
+            check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
@@ -55,6 +51,24 @@ enum class PersonaType(private val weight: Double) {
             .moveRandomly("little-chick", id, "180s", 10)
             .toString()
     },
+
+    PENGUIN(0.5) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return penguinSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-7 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder().moveRandomly("penguin", id, "180s", 15)
+            .toString()
+    }
     ;
 
     init {
