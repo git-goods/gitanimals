@@ -48,6 +48,9 @@ val littleChickJsSvg: String = ClassPathResource("persona/animal/little-chick-js
 val littleChickNodeSvg: String = ClassPathResource("persona/animal/little-chick-node.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val littleChickSwiftSvg: String = ClassPathResource("persona/animal/little-chick-swift.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val penguinSvg: String = ClassPathResource("persona/animal/penguin.svg")
     .getContentAsString(Charset.defaultCharset())
 
