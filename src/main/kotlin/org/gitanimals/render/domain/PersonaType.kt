@@ -62,11 +62,29 @@ enum class PersonaType(private val weight: Double) {
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-7 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
                 )
         }
 
         override fun act(id: Long): String = StringBuilder().moveRandomly("penguin", id, "180s", 15)
+            .toString()
+    },
+
+    FIG(0.2) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return figSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, "180s", 15)
             .toString()
     }
     ;
