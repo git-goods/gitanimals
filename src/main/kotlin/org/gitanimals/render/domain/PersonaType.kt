@@ -469,6 +469,25 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
+    PENGUIN_SWIFT(0.05) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return penguinSwiftSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+                .toString()
+    },
+
     FIG(0.2) {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
