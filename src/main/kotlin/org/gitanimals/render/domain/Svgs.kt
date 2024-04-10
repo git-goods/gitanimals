@@ -117,6 +117,9 @@ val slimeRedJavaSvg: String = ClassPathResource("persona/animal/slime-red-java.s
 val slimeRedJsSvg: String = ClassPathResource("persona/animal/slime-red-js.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val slimeRedNodeSvg: String = ClassPathResource("persona/animal/slime-red-node.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val slimeBlueSvg: String = ClassPathResource("persona/animal/slime-blue.svg")
     .getContentAsString(Charset.defaultCharset())
 
