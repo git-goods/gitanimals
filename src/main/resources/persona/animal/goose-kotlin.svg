@@ -27,6 +27,30 @@
     }
     }
 
+    @keyframes move-*{id}-logo {
+    0% {
+    -webkit-transform:translate(3px, 3px);
+    -ms-transform:translate(3px, 3px);
+    -o-transform:translate(3px, 3px);
+    -moz-transform:translate(3px, 3px);
+    transform:translate(3px, 3px);
+    }
+    50% {
+    -webkit-transform:translate(3px, 2.5px);
+    -ms-transform:translate(3px, 2.5px);
+    -o-transform:translate(3px, 2.5px);
+    -moz-transform:translate(3px, 2.5px);
+    transform:translate(3px, 2.5px);
+    }
+    100% {
+    -webkit-transform:translate(3px, 3px);
+    -ms-transform:translate(3px, 3px);
+    -o-transform:translate(3px, 3px);
+    -moz-transform:translate(3px, 3px);
+    transform:translate(3px, 3px);
+    }
+    }
+
     @keyframes move-leg {
     0% {
     -webkit-transform:rotate(0deg);
@@ -62,6 +86,12 @@
     animation-duration:0.5s;
     animation-iteration-count:*{leg-iteration-count};
     animation-timing-function: ease-in;
+    }
+
+    #kotlin-*{id}-logo {
+    animation-name:move-*{id}-logo;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
     }
   </style>
 
