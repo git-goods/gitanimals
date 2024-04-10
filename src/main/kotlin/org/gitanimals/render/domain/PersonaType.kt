@@ -169,7 +169,7 @@ enum class PersonaType(private val weight: Double) {
                     weightedPersonas.add(personaType)
                 }
             }
-            weightedPersonas
+            weightedPersonas.shuffled()
         }.value
 
         fun random(): PersonaType = personas[Random.nextInt(0, maxWeight)]
@@ -201,8 +201,10 @@ enum class PersonaType(private val weight: Double) {
             while (animationPercentage < 100) {
                 val beforeAnimationPercentage = animationPercentage
                 animationPercentage += random.nextInt(2, 6)
-                val nextY = random.nextInt(max(10, currentY - speed), min(80, currentY + speed))
-                val nextX = random.nextInt(max(10, currentX - speed), min(80, currentX + speed))
+                val nextY =
+                    random.nextInt(max(10, min(79, currentY - speed)), min(80, currentY + speed))
+                val nextX =
+                    random.nextInt(max(10, min(79, currentX - speed)), min(80, currentX + speed))
                 val angle = (atan2(
                     currentY.toDouble() - nextY.toDouble(),
                     currentX.toDouble() - nextX.toDouble()
