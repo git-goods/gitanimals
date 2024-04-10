@@ -83,7 +83,7 @@ class User(
 
     private fun giveNewPersona() {
         if (lastPersonaGivePoint >= FOR_NEW_PERSONA_COUNT) {
-            lastPersonaGivePoint /= FOR_NEW_PERSONA_COUNT.toInt()
+            lastPersonaGivePoint %= FOR_NEW_PERSONA_COUNT.toInt()
         }
         if (personas.size >= MAX_PERSONA_COUNT) {
             return
@@ -142,7 +142,7 @@ class User(
                 }.toMutableList(),
                 visit = 1,
                 version = 0,
-                lastPersonaGivePoint = (totalContributionCount(contributions) / FOR_NEW_PERSONA_COUNT).toInt()
+                lastPersonaGivePoint = (totalContributionCount(contributions) % FOR_NEW_PERSONA_COUNT).toInt()
             )
         }
 
