@@ -29,6 +29,29 @@ enum class PersonaType(private val weight: Double) {
             .toString()
     },
 
+    GOOSE_SUNGLASSES(0.05) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            val goose = gooseSunglassesSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1 * (persona.level.value.toString().length)).toString()
+                )
+
+            return StringBuilder()
+                .append(goose)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("goose", id, 20, "180s", 15)
+            .toString()
+    },
+
     GOOSE_KOTLIN(0.01) {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
@@ -195,6 +218,29 @@ enum class PersonaType(private val weight: Double) {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+
+            return StringBuilder()
+                .append(littleChick)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("little-chick", id, 40, "180s", 10)
+            .toString()
+    },
+
+    LITTLE_CHICK_SUNGLASSES(0.4) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            val littleChick = littleChickSunglassesSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -393,6 +439,25 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
+    PENGUIN_SUNGLASSES(0.2) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return penguinSunglassesSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 15)
+                .toString()
+    },
+
     PENGUIN_KOTLIN(0.01) {
         override fun load(persona: Persona): String {
             check(persona.id != null) { "Save persona first before call load()" }
@@ -531,6 +596,24 @@ enum class PersonaType(private val weight: Double) {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+            .toString()
+    },
+
+    PIG_SUNGLASSES(0.08) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return pigSunglassesSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))

@@ -12,6 +12,9 @@ val snowyFieldSvg: String = ClassPathResource("persona/field/snowy-field.svg")
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val gooseSunglassesSvg: String = ClassPathResource("persona/animal/goose-sunglasses.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val gooseKotlinSvg: String = ClassPathResource("persona/animal/goose-kotlin.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -34,6 +37,9 @@ val gooseSpringSvg: String = ClassPathResource("persona/animal/goose-spring.svg"
     .getContentAsString(Charset.defaultCharset())
 
 val littleChickSvg: String = ClassPathResource("persona/animal/little-chick.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickSunglassesSvg: String = ClassPathResource("persona/animal/little-chick-sunglasses.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val littleChickKotlinSvg: String = ClassPathResource("persona/animal/little-chick-kotlin.svg")
@@ -60,6 +66,9 @@ val littleChickSpringSvg: String = ClassPathResource("persona/animal/little-chic
 val penguinSvg: String = ClassPathResource("persona/animal/penguin.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val penguinSunglassesSvg: String = ClassPathResource("persona/animal/penguin-sunglasses.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val penguinKotlinSvg: String = ClassPathResource("persona/animal/penguin-kotlin.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -82,6 +91,9 @@ val penguinSpringSvg: String = ClassPathResource("persona/animal/penguin-spring.
     .getContentAsString(Charset.defaultCharset())
 
 val pigSvg: String = ClassPathResource("persona/animal/pig.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val pigSunglassesSvg: String = ClassPathResource("persona/animal/pig-sunglasses.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val pigKotlinSvg: String = ClassPathResource("persona/animal/pig-kotlin.svg")
