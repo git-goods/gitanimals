@@ -36,6 +36,9 @@ val gooseSpringSvg: String = ClassPathResource("persona/animal/goose-spring.svg"
 val littleChickSvg: String = ClassPathResource("persona/animal/little-chick.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val littleChickKotlinSvg: String = ClassPathResource("persona/animal/little-chick-kotlin.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val penguinSvg: String = ClassPathResource("persona/animal/penguin.svg")
     .getContentAsString(Charset.defaultCharset())
 
