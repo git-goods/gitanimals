@@ -53,24 +53,24 @@
 
     @keyframes move-*{id}-logo {
     0% {
-    -webkit-transform:translate(3px, -1px) rotate(0deg);
-    -ms-transform:translate(3px, -1px) rotate(0deg);
-    -o-transform:translate(3px, -1px) rotate(0deg);
-    -moz-transform:translate(3px, -1px) rotate(0deg);
+    -webkit-transform:translate(2px, -1.4px) rotate(0deg);
+    -ms-transform:translate(2px, -1.4px) rotate(0deg);
+    -o-transform:translate(2px, -1.4px) rotate(0deg);
+    -moz-transform:translate(2px, -1.4px) rotate(0deg);
     transform:translate(2px, -1.4px) rotate(0deg);
     }
     50% {
-    -webkit-transform:translate(8px, -2.2px) rotate(19deg);
-    -ms-transform:translate(8px, -2.2px) rotate(21deg);
-    -o-transform:translate(8px, -2.2px) rotate(21deg);
-    -moz-transform:translate(8px, -2.2px) rotate(21deg);
+    -webkit-transform:translate(2px, -1.6px) rotate(14deg);
+    -ms-transform:translate(2px, -1.6px) rotate(14deg);
+    -o-transform:translate(2px, -1.6px) rotate(14deg);
+    -moz-transform:translate(2px, -1.6px) rotate(14deg);
     transform:translate(2px, -1.6px) rotate(14deg);
     }
     100% {
-    -webkit-transform:translate(6px, -2px) rotate(0deg);
-    -ms-transform:translate(6px, -2px) rotate(0deg);
-    -o-transform:translate(6px, -2px) rotate(0deg);
-    -moz-transform:translate(6px, -2px) rotate(0deg);
+    -webkit-transform:translate(2px, -1.4px) rotate(0deg);
+    -ms-transform:translate(2px, -1.4px) rotate(0deg);
+    -o-transform:translate(2px, -1.4px) rotate(0deg);
+    -moz-transform:translate(2px, -1.4px) rotate(0deg);
     transform:translate(2px, -1.4px) rotate(0deg);
     }
     }
