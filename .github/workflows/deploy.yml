@@ -63,7 +63,6 @@ jobs:
           platforms: linux/arm64/v8
           push: true
           tags: |
-#            ${{ steps.extract_version_name.outputs.version }}
             ghcr.io/devxb/gitanimals:0.0.2
           build-args: |
             "DB_URL=${{ secrets.DB_URL }}"
