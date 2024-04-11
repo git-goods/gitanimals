@@ -147,17 +147,17 @@ val slimeGreenSvg: String = ClassPathResource("classpath:persona/animal/slime-gr
 val largeTextSvgs = lazy {
     val map = mutableMapOf<String, String>()
     for (i in 'A'..'Z') {
-        val path = "persona/text/large/$i.svg"
+        val path = "classpath:persona/text/large/$i.svg"
         map[i.toString()] = ClassPathResource(path)
             .getContentAsString(Charset.defaultCharset())
     }
     for (i in 'a'..'z') {
-        val path = "persona/text/large/$i.svg"
+        val path = "classpath:persona/text/large/_$i.svg"
         map[i.toString()] = ClassPathResource(path)
             .getContentAsString(Charset.defaultCharset())
     }
     for (i in 0..9) {
-        val path = "persona/text/large/$i.svg"
+        val path = "classpath:persona/text/large/$i.svg"
         map[i.toString()] = ClassPathResource(path)
             .getContentAsString(Charset.defaultCharset())
     }
@@ -169,7 +169,7 @@ val largeTextSvgs = lazy {
 val mediumNumberSvgs = lazy {
     val list = mutableListOf<String>()
     for (i in 0..9) {
-        val path = "persona/text/medium/$i.svg"
+        val path = "classpath:persona/text/medium/$i.svg"
         list.add(
             ClassPathResource(path)
                 .getContentAsString(Charset.defaultCharset())
@@ -181,7 +181,7 @@ val mediumNumberSvgs = lazy {
 val numberSvgs = lazy {
     val list = mutableListOf<String>()
     for (i in 0..9) {
-        val path = "persona/text/small/$i.svg"
+        val path = "classpath:persona/text/small/$i.svg"
         list.add(
             ClassPathResource(path)
                 .getContentAsString(Charset.defaultCharset())
