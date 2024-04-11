@@ -29,7 +29,7 @@
 아래의 MARKDOWN 혹은 HTML 방식중 하나를 붙여넣기 하는것으로 쉽게 적용할 수 있어요.
 
 ```markdown
-[![gitanimals](http://render.gitanimals.org/farms/{username})](https://github.com/devxb/gitanimals)
+[![gitanimals](https://render.gitanimals.org/farms/{username})](https://github.com/devxb/gitanimals)
 ```
 
 ```html
@@ -59,7 +59,7 @@
 
 ### 등장 가능한 펫들
 
-<img src="docs/pets.svg"/>
+<img alt="docs/pets.svg" src="https://render.gitanimals.org/farms/devxb"/>
 
 ##
 
