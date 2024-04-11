@@ -50,7 +50,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: extract version
         run: echo "##[set-output name=version;]$(echo '${{ github.event.head_commit.message }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
@@ -63,7 +63,7 @@ jobs:
           platforms: linux/arm64/v8
           push: true
           tags: |
-            ghcr.io/devxb:gitanimals-0.0.2
+            ghcr.io/devxb/gitanimals:0.0.2
           build-args: |
             "DB_URL=${{ secrets.DB_URL }}"
             "DB_USERNAME=${{ secrets.DB_USERNAME }}"
