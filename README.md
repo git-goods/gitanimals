@@ -20,7 +20,7 @@
 </h4>
 <br>
 <a href="https://github.com/devxb/gitanimals">
-    <img src="docs/sample.svg"/>
+    <img alt="docs/sample.svg" src="https://render.gitanimals.org/farms/devxb"/>
 </a>
 </div>
 
@@ -59,7 +59,7 @@
 
 ### 등장 가능한 펫들
 
-<img alt="docs/pets.svg" src="https://render.gitanimals.org/farms/devxb"/>
+<img alt="docs/pets.svg" src="docs/pets.svg"/>
 
 ##
 
