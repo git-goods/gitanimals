@@ -63,7 +63,8 @@ jobs:
           platforms: linux/arm64/v8
           push: true
           tags: |
-            ghcr.io/devxb/gitanimals-render:${{ steps.extract_version_name.outputs.version }}
+#            ${{ steps.extract_version_name.outputs.version }}
+            ghcr.io/devxb/gitanimals:0.0.2
           build-args: |
             "DB_URL=${{ secrets.DB_URL }}"
             "DB_USERNAME=${{ secrets.DB_USERNAME }}"
@@ -91,6 +92,6 @@ jobs:
 
       - name: run server
         run: |
-          sudo docker pull ghcr.io/devxb/gitanimals-render:${{ steps.extract_version_name.outputs.version }}
+          sudo docker pull ghcr.io/devxb/gitanimals:${{ steps.extract_version_name.outputs.version }}
           sudo docker ps -q --filter "expose=8080" | xargs sudo docker stop | xargs sudo docker rm
-          sudo docker run -d -p ghcr.io/devxb/gitanimals-render:${{ steps.extract_version_name.outputs.version }}
+          sudo docker run -d -p ghcr.io/devxb/gitanimals:${{ steps.extract_version_name.outputs.version }}
