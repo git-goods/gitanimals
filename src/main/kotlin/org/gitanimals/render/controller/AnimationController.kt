@@ -2,8 +2,6 @@ package org.gitanimals.render.controller
 
 import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.render.app.AnimationFacade
-import org.springframework.http.HttpHeaders
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,8 +14,16 @@ class AnimationController(
 ) {
 
     @GetMapping(value = ["/{username}"], produces = ["image/svg+xml"])
-    fun getSvgAnimation(@PathVariable("username") username: String, response: HttpServletResponse): String {
-        response.setHeader(HttpHeaders.CACHE_CONTROL, "max-age=1")
+    fun getSvgAnimation(
+        @PathVariable("username") username: String,
+        response: HttpServletResponse
+    ): String {
+        response.noCache()
         return animationFacade.getSvgAnimationByUsername(username)
+    }
+
+    fun HttpServletResponse.noCache(): HttpServletResponse {
+        this.setHeader("Cache-Control", "no-cache, no-store, must-revalidate")
+        return this
     }
 }
