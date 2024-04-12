@@ -32,4 +32,6 @@ class Persona(
 
 
     fun toSvg(): String = type.load(this)
+
+    fun level(): Long = level.value
 }
