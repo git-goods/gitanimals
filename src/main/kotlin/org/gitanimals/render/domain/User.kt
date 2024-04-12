@@ -25,7 +25,7 @@ class User(
     val name: String,
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    private val personas: MutableList<Persona> = mutableListOf(),
+    val personas: MutableList<Persona> = mutableListOf(),
 
     @BatchSize(size = 20)
     @ElementCollection(fetch = FetchType.LAZY)
