@@ -1,7 +1,6 @@
 package org.gitanimals.render.app
 
 import jakarta.annotation.PostConstruct
-import org.gitanimals.render.domain.AnimationMode
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.Visited
@@ -18,11 +17,10 @@ class AnimationFacade(
 
     private lateinit var registerNewUserOrchestrator: Orchestrator<String, User>
 
-    fun getSvgAnimation(username: String, mode: String): String {
-        val animationMode = AnimationMode.valueOf(mode.uppercase())
+    fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
             true -> {
-                val svgAnimation = userService.getSvgAnimationByUsername(username, animationMode)
+                val svgAnimation = userService.getFarmAnimationByUsername(username)
                 sagaManager.startSync(Visited(username))
                 svgAnimation
             }
@@ -30,7 +28,23 @@ class AnimationFacade(
             false -> {
                 registerNewUserOrchestrator.sagaSync(10000, username)
 
-                userService.getSvgAnimationByUsername(username, animationMode)
+                userService.getFarmAnimationByUsername(username)
+            }
+        }
+    }
+
+    fun getLineAnimation(username: String, personaId: Long): String {
+        return when(userService.existsByName(username)) {
+            true -> {
+                val svgAnimation = userService.getLineAnimationByUsername(username, personaId)
+                sagaManager.startSync(Visited(username))
+                svgAnimation
+            }
+
+            false -> {
+                registerNewUserOrchestrator.sagaSync(10000, username)
+
+                userService.getLineAnimationByUsername(username ,personaId)
             }
         }
     }
