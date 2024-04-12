@@ -1,11 +1,10 @@
 
 <img src="./docs/logo.svg" width="30000"/>
 
+##
 <a href="https://github.com/devxb/gitanimals">
     <img src="https://render.gitanimals.org/farms/devxb?mode=line" width="2000" height="60"/>
 </a>
-
-##
 
 <div align = "center">  
 ⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
