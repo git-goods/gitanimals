@@ -1,6 +1,4 @@
-<svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
-  xmlns="http://www.w3.org/2000/svg">
-  <style>
+<style>
     *{act}
 
     @keyframes penguin-*{id}-move-body {
@@ -96,7 +94,7 @@
   </style>
 
   <g id="penguin-*{id}" transform="translate(-100, -100)">
-
+  <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
     <g id="shadow" transform="translate(0.5, 8.5)">
       <rect width="13.3359" height="3.89813"
         transform="matrix(1 2.26611e-08 -2.79767e-08 -1 0 6.90123)" fill="#2B4447"
@@ -178,5 +176,5 @@
       <rect x="11.9148" y="2.78154" width="1.25" height="1.875" transform="rotate(-18 11.9148 2.78154)" fill="black"/>
       <rect x="14.2775" y="3.98537" width="1.25" height="1.875" transform="rotate(-18 14.2775 3.98537)" fill="black"/>
     </g>
-  </g>
 </svg>
+  </g>

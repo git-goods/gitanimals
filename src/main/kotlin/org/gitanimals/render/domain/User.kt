@@ -101,6 +101,19 @@ class User(
         visit += 1
     }
 
+    fun createLineAnimation(): String {
+        val builder = StringBuilder().openLine()
+
+        val persona = personas.first()
+        builder.append(persona.toSvg())
+
+        return builder.closeSvg()
+    }
+
+    private fun StringBuilder.openLine(): StringBuilder {
+        return this.append("<svg width=\"1000\" height=\"100\" viewBox=\"0 0 1000 100\" fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
+    }
+
     fun createFarmAnimation(): String {
         val builder = StringBuilder().openFarm()
             .append(field.fillBackground())

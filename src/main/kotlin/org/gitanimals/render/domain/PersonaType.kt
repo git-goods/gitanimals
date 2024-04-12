@@ -951,9 +951,9 @@ enum class PersonaType(private val weight: Double) {
             id: Long,
             speed: Int,
             duration: String,
-            width: Long,
+            personaWidth: Long,
         ): StringBuilder {
-            var currentY = Random.nextInt(10, 90)
+            var currentY = Random.nextInt(10, 70)
             var currentX = Random.nextInt(10, 90)
             var currentAngle = (Random.nextDouble() * 10).toInt()
             var currentScale = Random.nextInt(0, 2) - 1
@@ -973,7 +973,7 @@ enum class PersonaType(private val weight: Double) {
                 val beforeAnimationPercentage = animationPercentage
                 animationPercentage += Random.nextInt(2, 6)
                 val nextY =
-                    Random.nextInt(max(10, min(79, currentY - speed)), min(80, currentY + speed))
+                    Random.nextInt(max(0, min(79, currentY - speed)), min(70, currentY + speed))
                 val nextX =
                     Random.nextInt(max(10, min(79, currentX - speed)), min(80, currentX + speed))
                 val nextAngle = (atan2(
@@ -986,11 +986,11 @@ enum class PersonaType(private val weight: Double) {
                 }
                 if (nextScale != currentScale) {
                     this.append("${min(100.0, beforeAnimationPercentage + 0.01)}% {")
-                        .append("-webkit-transform: translate(${currentX - (width * nextScale)}%, ${currentY}%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("-ms-transform: translate(${currentX - (width * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("-o-transform: translate(${currentX - (width * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("-moz-transform: translate(${currentX - (width * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("transform: translate(${{currentX - (width * nextScale)}}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-webkit-transform: translate(${currentX - (personaWidth * nextScale)}%, ${currentY}%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-ms-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-o-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-moz-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("transform: translate(${{currentX - (personaWidth * nextScale)}}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
                         .append("}")
                 }
                 this.append("${min(100.0, animationPercentage)}% {")
