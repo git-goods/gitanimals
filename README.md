@@ -82,7 +82,7 @@ _pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요
    
 ### 펫을 변경하는 방법
 펫은 다음 url을 웹에 요청 후, `$.personas.[].id` 에 해당하는 값을 url의 pet-id param에 입력하면서 변경할 수 있어요.   
-변경가능한 펫을 확인하려면, `https://render.gitanimals.org/users/{username}` 의 {username}을 자신의 깃허브 아이디로 변경 후, 요청해보세요.   
+변경가능한 펫을 확인하려면, `https://render.gitanimals.org/users/{username}` 의 {username}을 자신의 깃허브 아이디로 변경 후, 요청해보세요.   
 ```html
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="1000" height="60"/>
