@@ -5,6 +5,7 @@ enum class AnimationMode(
 ) {
 
     FARM({ it.createFarmAnimation() }),
+    LINE({ it.createLineAnimation() }),
     ;
     fun createAnimation(user: User): String = func.invoke(user)
 }

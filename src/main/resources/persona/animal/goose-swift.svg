@@ -1,6 +1,4 @@
-<svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
-  xmlns="http://www.w3.org/2000/svg">
-  <style>
+<style>
     *{act}
 
     @keyframes move-head {
@@ -96,7 +94,7 @@
   </style>
 
   <g id="goose-*{id}" transform="translate(-100, -100)">
-
+  <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
     <g id="level" transform="translate(*{levelx}, -4)">
       <rect x="10" width="0.6" height="1.8" fill="black"/>
       <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
@@ -225,5 +223,5 @@
       <rect width="0.555556" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 24.8065 3.1702)" fill="black"/>
       <rect width="1.11111" height="3.33333" transform="matrix(-0.951057 0.309017 0.309017 0.951057 23.063 1.40009)" fill="black"/>
     </g>
+  </svg>
   </g>
-</svg>
