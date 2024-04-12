@@ -120,11 +120,11 @@ class GithubContributionApi(
         private const val YEAR_FIX = "*{year}"
 
         private val contributionYearQuery: String =
-            ClassPathResource("classpath:github-graphql/contribution-year.graphql")
+            ClassPathResource("github-graphql/contribution-year.graphql")
                 .getContentAsString(Charset.defaultCharset())
 
         private val contributionCountByYearQuery =
-            ClassPathResource("classpath:github-graphql/contribution-count-by-year.graphql")
+            ClassPathResource("github-graphql/contribution-count-by-year.graphql")
                 .getContentAsString(Charset.defaultCharset())
     }
 }

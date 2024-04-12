@@ -5,7 +5,7 @@ import jakarta.persistence.Embeddable
 import java.time.Instant
 
 @Embeddable
-class Contribution(
+data class Contribution(
     @Column(name = "year", nullable = false)
     val year: Int,
     @Column(name = "contribution", nullable = false)
