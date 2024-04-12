@@ -955,18 +955,18 @@ enum class PersonaType(private val weight: Double) {
         ): StringBuilder {
             var currentY = Random.nextInt(10, 90)
             var currentX = Random.nextInt(10, 90)
-            val startAngle = (Random.nextDouble() * 10).toInt()
+            var currentAngle = (Random.nextDouble() * 10).toInt()
             var scale = Random.nextInt(0, 2) - 1
             if (scale == 0) {
                 scale++
             }
             this.append("@keyframes move-$id {")
                 .append("0% {")
-                .append("-webkit-transform:translate($currentY%, $currentX%) rotate(${startAngle}deg) scaleX($scale);")
-                .append("-ms-transform:translate($currentY%, $currentX%) rotate(${startAngle}deg) scaleX($scale);")
-                .append("-o-transform:translate($currentY%, $currentX%) rotate(${startAngle}deg) scaleX($scale);")
-                .append("-moz-transform:translate($currentY%, $currentX%) rotate(${startAngle}deg) scaleX($scale);")
-                .append("transform:translate($currentY%, $currentX%) rotate(${startAngle}deg) scaleX($scale);")
+                .append("-webkit-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
+                .append("-ms-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
+                .append("-o-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
+                .append("-moz-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
+                .append("transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
                 .append("}")
             var animationPercentage = 0.0
             while (animationPercentage < 100) {
@@ -976,7 +976,7 @@ enum class PersonaType(private val weight: Double) {
                     Random.nextInt(max(10, min(79, currentY - speed)), min(80, currentY + speed))
                 val nextX =
                     Random.nextInt(max(10, min(79, currentX - speed)), min(80, currentX + speed))
-                val angle = (atan2(
+                val nextAngle = (atan2(
                     currentY.toDouble() - nextY.toDouble(),
                     currentX.toDouble() - nextX.toDouble()
                 )).toInt()
@@ -984,22 +984,23 @@ enum class PersonaType(private val weight: Double) {
                     true -> 1
                     false -> -1
                 }
-                this.append("${min(100.0, beforeAnimationPercentage + 0.0001)}% {")
-                    .append("-webkit-transform: translate(${scale * (currentX + width)}, $currentY) scaleX($scale);")
-                    .append("-ms-transform: translate(${scale * (currentX + width)}, $currentY) scaleX($scale);")
-                    .append("-o-transform: translate(${scale * (currentX + width)}, $currentY) scaleX($scale);")
-                    .append("-moz-transform: translate(${scale * (currentX + width)}, $currentY) scaleX($scale);")
-                    .append("transform: translate(${scale * (currentX + width)}, $currentY) scaleX($scale);")
+                this.append("${min(100.0, beforeAnimationPercentage + 0.2)}% {")
+                    .append("-webkit-transform: translate($currentX%, ${currentY}%) rotate(${currentAngle}deg) scaleX($scale);")
+                    .append("-ms-transform: translate($currentX%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
+                    .append("-o-transform: translate($currentX%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
+                    .append("-moz-transform: translate($currentX%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
+                    .append("transform: translate(${currentX}%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
                     .append("}")
                     .append("${min(100.0, animationPercentage)}% {")
-                    .append("-webkit-transform:translate($nextY%, $nextX%) rotate(${angle}deg) scaleX($scale);")
-                    .append("-ms-transform:translate($nextY%, $nextX%) rotate(${angle}deg) scaleX($scale);")
-                    .append("-o-transform:translate($nextY%, $nextX%) rotate(${angle}deg) scaleX($scale);")
-                    .append("-moz-transform:translate($nextY%, $nextX%) rotate(${angle}deg) scaleX($scale);")
-                    .append("transform:translate($nextY%, $nextX%) rotate(${angle}deg) scaleX($scale);")
+                    .append("-webkit-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
+                    .append("-ms-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
+                    .append("-o-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
+                    .append("-moz-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
+                    .append("transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
                     .append("}")
                 currentY = nextY
                 currentX = nextX
+                currentAngle = nextAngle
             }
             this.append("}")
                 .append("#$type-$id {")
