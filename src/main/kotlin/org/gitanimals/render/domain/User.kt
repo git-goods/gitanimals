@@ -101,8 +101,8 @@ class User(
         visit += 1
     }
 
-    fun createSvgAnimation(): String {
-        val builder = StringBuilder().openSvg()
+    fun createFarmAnimation(): String {
+        val builder = StringBuilder().openFarm()
             .append(field.fillBackground())
 
         personas.asSequence()
@@ -119,7 +119,7 @@ class User(
         return totalCount
     }
 
-    private fun StringBuilder.openSvg(): StringBuilder =
+    private fun StringBuilder.openFarm(): StringBuilder =
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
 
     private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()

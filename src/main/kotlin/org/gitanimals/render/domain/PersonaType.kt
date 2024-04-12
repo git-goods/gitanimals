@@ -25,7 +25,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 15)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -48,7 +48,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 15)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -71,7 +71,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 25)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -94,7 +94,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 25)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -117,7 +117,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 27)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -140,7 +140,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 28)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -163,7 +163,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 26)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -186,7 +186,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 25)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -209,7 +209,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("goose", id, 20, "180s", 30)
+            .moveRandomly("goose", id, 20, "180s", 6)
             .toString()
     },
 
@@ -232,7 +232,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 10)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -255,7 +255,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 10)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -278,7 +278,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 13)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -301,7 +301,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 13)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -324,7 +324,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 13)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -347,7 +347,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 13)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -370,7 +370,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 13)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -393,7 +393,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 13)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -416,7 +416,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 17)
+            .moveRandomly("little-chick", id, 40, "180s", 2)
             .toString()
     },
 
@@ -435,7 +435,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 15)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 6)
                 .toString()
     },
 
@@ -454,7 +454,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 15)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 6)
                 .toString()
     },
 
@@ -473,7 +473,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -492,7 +492,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -511,7 +511,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -530,7 +530,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -549,7 +549,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -568,7 +568,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -587,7 +587,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 25)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
                 .toString()
     },
 
@@ -605,7 +605,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -623,7 +623,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -641,7 +641,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -659,7 +659,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -677,7 +677,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -695,7 +695,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -713,7 +713,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -731,7 +731,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -749,7 +749,7 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 15)
+        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
             .toString()
     },
 
@@ -767,7 +767,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -785,7 +785,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -803,7 +803,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -821,7 +821,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -839,7 +839,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -857,7 +857,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -875,7 +875,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -893,7 +893,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
 
@@ -911,7 +911,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("slime", id, 15, "180s", 15)
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 2)
                 .toString()
     },
     ;
@@ -956,17 +956,17 @@ enum class PersonaType(private val weight: Double) {
             var currentY = Random.nextInt(10, 90)
             var currentX = Random.nextInt(10, 90)
             var currentAngle = (Random.nextDouble() * 10).toInt()
-            var scale = Random.nextInt(0, 2) - 1
-            if (scale == 0) {
-                scale++
+            var currentScale = Random.nextInt(0, 2) - 1
+            if (currentScale == 0) {
+                currentScale++
             }
             this.append("@keyframes move-$id {")
                 .append("0% {")
-                .append("-webkit-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
-                .append("-ms-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
-                .append("-o-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
-                .append("-moz-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
-                .append("transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($scale);")
+                .append("-webkit-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
+                .append("-ms-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
+                .append("-o-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
+                .append("-moz-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
+                .append("transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
                 .append("}")
             var animationPercentage = 0.0
             while (animationPercentage < 100) {
@@ -980,27 +980,30 @@ enum class PersonaType(private val weight: Double) {
                     currentY.toDouble() - nextY.toDouble(),
                     currentX.toDouble() - nextX.toDouble()
                 )).toInt()
-                scale = when (nextX > currentX) {
+                val nextScale = when (nextX > currentX) {
                     true -> 1
                     false -> -1
                 }
-                this.append("${min(100.0, beforeAnimationPercentage + 0.2)}% {")
-                    .append("-webkit-transform: translate($currentX%, ${currentY}%) rotate(${currentAngle}deg) scaleX($scale);")
-                    .append("-ms-transform: translate($currentX%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
-                    .append("-o-transform: translate($currentX%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
-                    .append("-moz-transform: translate($currentX%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
-                    .append("transform: translate(${currentX}%, $currentY%) rotate(${currentAngle}deg) scaleX($scale);")
-                    .append("}")
-                    .append("${min(100.0, animationPercentage)}% {")
-                    .append("-webkit-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
-                    .append("-ms-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
-                    .append("-o-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
-                    .append("-moz-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
-                    .append("transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($scale);")
+                if (nextScale != currentScale) {
+                    this.append("${min(100.0, beforeAnimationPercentage + 0.01)}% {")
+                        .append("-webkit-transform: translate(${currentX - (width * nextScale)}%, ${currentY}%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-ms-transform: translate(${currentX - (width * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-o-transform: translate(${currentX - (width * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("-moz-transform: translate(${currentX - (width * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("transform: translate(${{currentX - (width * nextScale)}}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("}")
+                }
+                this.append("${min(100.0, animationPercentage)}% {")
+                    .append("-webkit-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
+                    .append("-ms-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
+                    .append("-o-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
+                    .append("-moz-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
+                    .append("transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
                     .append("}")
                 currentY = nextY
                 currentX = nextX
                 currentAngle = nextAngle
+                currentScale = nextScale
             }
             this.append("}")
                 .append("#$type-$id {")

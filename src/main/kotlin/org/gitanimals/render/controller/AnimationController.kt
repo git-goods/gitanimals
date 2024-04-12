@@ -5,6 +5,7 @@ import org.gitanimals.render.app.AnimationFacade
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -16,10 +17,11 @@ class AnimationController(
     @GetMapping(value = ["/{username}"], produces = ["image/svg+xml"])
     fun getSvgAnimation(
         @PathVariable("username") username: String,
+        @RequestParam(name = "mode", defaultValue = "FARM") mode: String,
         response: HttpServletResponse
     ): String {
         response.noCache()
-        return animationFacade.getSvgAnimationByUsername(username)
+        return animationFacade.getSvgAnimation(username, mode)
     }
 
     fun HttpServletResponse.noCache(): HttpServletResponse {
