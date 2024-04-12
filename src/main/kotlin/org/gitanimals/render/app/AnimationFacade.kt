@@ -1,6 +1,7 @@
 package org.gitanimals.render.app
 
 import jakarta.annotation.PostConstruct
+import org.gitanimals.render.domain.AnimationMode
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.Visited
@@ -17,10 +18,11 @@ class AnimationFacade(
 
     private lateinit var registerNewUserOrchestrator: Orchestrator<String, User>
 
-    fun getSvgAnimationByUsername(username: String): String {
+    fun getSvgAnimation(username: String, mode: String): String {
+        val animationMode = AnimationMode.valueOf(mode.uppercase())
         return when (userService.existsByName(username)) {
             true -> {
-                val svgAnimation = userService.getSvgAnimationByUsername(username)
+                val svgAnimation = userService.getSvgAnimationByUsername(username, animationMode)
                 sagaManager.startSync(Visited(username))
                 svgAnimation
             }
@@ -28,7 +30,7 @@ class AnimationFacade(
             false -> {
                 registerNewUserOrchestrator.sagaSync(10000, username)
 
-                userService.getSvgAnimationByUsername(username)
+                userService.getSvgAnimationByUsername(username, animationMode)
             }
         }
     }

@@ -101,8 +101,21 @@ class User(
         visit += 1
     }
 
-    fun createSvgAnimation(): String {
-        val builder = StringBuilder().openSvg()
+    fun createLineAnimation(): String {
+        val builder = StringBuilder().openLine()
+
+        val persona = personas.first()
+        builder.append(persona.toSvg())
+
+        return builder.closeSvg()
+    }
+
+    private fun StringBuilder.openLine(): StringBuilder {
+        return this.append("<svg width=\"1000\" height=\"100\" viewBox=\"0 0 1000 100\" fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
+    }
+
+    fun createFarmAnimation(): String {
+        val builder = StringBuilder().openFarm()
             .append(field.fillBackground())
 
         personas.asSequence()
@@ -119,7 +132,7 @@ class User(
         return totalCount
     }
 
-    private fun StringBuilder.openSvg(): StringBuilder =
+    private fun StringBuilder.openFarm(): StringBuilder =
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
 
     private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()
