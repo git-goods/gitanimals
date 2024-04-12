@@ -18,12 +18,12 @@ class Persona(
 
     @Embedded
     val level: Level,
-) : AbstractTime() {
 
     @JsonIgnore
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    lateinit var user: User
+    var user: User? = null,
+) : AbstractTime() {
 
     constructor(
         type: PersonaType,
