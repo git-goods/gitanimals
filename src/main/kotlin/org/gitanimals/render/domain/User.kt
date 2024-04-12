@@ -3,6 +3,7 @@ package org.gitanimals.render.domain
 import jakarta.persistence.*
 import org.gitanimals.render.core.AggregateRoot
 import org.gitanimals.render.domain.value.Contribution
+import org.gitanimals.render.domain.value.Level
 import org.hibernate.annotations.BatchSize
 import java.time.Instant
 import java.time.ZoneId
@@ -10,7 +11,6 @@ import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
 import kotlin.math.max
 import kotlin.math.min
-import kotlin.random.Random
 
 @AggregateRoot
 @Entity(name = "user")
@@ -76,8 +76,13 @@ class User(
 
     private fun levelUpPersonas(newContribution: Int) {
         repeat(newContribution) {
-            val persona = personas[Random.nextInt(0, personas.size)]
-            persona.level.value++
+            runCatching {
+                val persona = personas.random()
+                persona.level.value++
+            }.onFailure {
+                it.printStackTrace()
+                throw it
+            }
         }
     }
 
@@ -88,7 +93,8 @@ class User(
         if (personas.size >= MAX_PERSONA_COUNT) {
             return
         }
-        personas.add(Persona(PersonaType.random(), 0))
+        val newPersona = Persona(type = PersonaType.random(), level = Level(0), user = this)
+        personas.add(newPersona)
     }
 
     fun increaseVisitCount() {
