@@ -111,7 +111,7 @@ class User(
     }
 
     private fun StringBuilder.openLine(): StringBuilder {
-        return this.append("<svg width=\"1000\" height=\"100\" viewBox=\"0 0 1000 100\" fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
+        return this.append("<svg fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
     }
 
     fun createFarmAnimation(): String {
