@@ -52,6 +52,7 @@ farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
 ### line mode
 
 line mode는 자신이 갖고있는 펫중 하나를 지정해서, 길게 움직이게 해요.   
+이때, img의 width와 height를 조절해서 펫의 이동영역을 조절할 수 있어요.
 Readme에서 펫을 돌아다니게 하는데 사용할 수 있어요.
 
 ```markdown
@@ -60,7 +61,7 @@ Readme에서 펫을 돌아다니게 하는데 사용할 수 있어요.
 
 ```html
 <a href="https://github.com/devxb/gitanimals">
-    <img src = "https://render.gitanimals.org/farms/{username}?mode=line"/>
+    <img src = "https://render.gitanimals.org/farms/{username}?mode=line" width="1000" height="60"/>
 </a>
 ```
 
