@@ -25,7 +25,7 @@ class User(
     val name: String,
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    private val personas: MutableList<Persona> = mutableListOf(),
+    val personas: MutableList<Persona> = mutableListOf(),
 
     @BatchSize(size = 20)
     @ElementCollection(fetch = FetchType.LAZY)
@@ -101,10 +101,11 @@ class User(
         visit += 1
     }
 
-    fun createLineAnimation(): String {
+    fun createLineAnimation(personaId: Long): String {
         val builder = StringBuilder().openLine()
 
-        val persona = personas.first()
+        val persona = personas.find { it.id!! >= personaId }
+            ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
         builder.append(persona.toSvg())
 
         return builder.closeSvg()
