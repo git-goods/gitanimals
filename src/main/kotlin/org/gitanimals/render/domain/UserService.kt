@@ -13,8 +13,10 @@ class UserService(
 
     fun existsByName(name: String): Boolean = userRepository.existsByName(name)
 
-    fun getSvgAnimationByUsername(username: String): String =
-        getUserByName(username).createSvgAnimation()
+    fun getSvgAnimationByUsername(username: String, mode: AnimationMode): String {
+        val user = getUserByName(username)
+        return mode.createAnimation(user)
+    }
 
     @Retryable(retryFor = [OptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
