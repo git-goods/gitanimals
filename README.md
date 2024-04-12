@@ -1,6 +1,10 @@
 
 <img src="./docs/logo.svg" width="30000"/>
 
+<a href="https://github.com/devxb/gitanimals">
+    <img src="https://render.gitanimals.org/farms/devxb?mode=line" width="2000" height="60"/>
+</a>
+
 ##
 
 <div align = "center">  
@@ -26,7 +30,15 @@
 
 ## 빠르게 사용하기
 
-아래의 MARKDOWN 혹은 HTML 방식중 하나를 붙여넣기 하는것으로 쉽게 적용할 수 있어요.
+아래의 MARKDOWN 혹은 HTML 중 하나를 깃허브 Readme 에 붙여넣기 하는것으로 쉽게 적용할 수 있어요.
+
+> [!IMPORTANT]   
+> {username} 은 자신의 깃허브 닉네임 (ex. devxb) 으로 변경해주세요.    
+> 이때, {username} 은 반드시 자신의 깃허브 이름이 들어가야 합니다.   
+
+### farm mode
+
+farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
 
 ```markdown
 [![gitanimals](https://render.gitanimals.org/farms/{username})](https://github.com/devxb/gitanimals)
@@ -37,12 +49,21 @@
     <img src = "https://render.gitanimals.org/farms/{username}"/>
 </a>
 ```
-   
-> [!IMPORTANT]   
-> {username} 은 자신의 깃허브 닉네임 (ex. devxb) 으로 변경해주세요.    
-> 이때, {username} 은 반드시 자신의 깃허브 이름이 들어가야 합니다.   
 
+### line mode
 
+line mode는 자신이 갖고있는 펫중 하나를 지정해서, 길게 움직이게 해요.   
+Readme에서 펫을 돌아다니게 하는데 사용할 수 있어요.
+
+```markdown
+[![gitanimals](https://render.gitanimals.org/farms/{username}?mode=line)](https://github.com/devxb/gitanimals)
+```
+
+```html
+<a href="https://github.com/devxb/gitanimals">
+    <img src = "https://render.gitanimals.org/farms/{username}?mode=line"/>
+</a>
+```
 
 ## TIPS
 
