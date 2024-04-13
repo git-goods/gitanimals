@@ -38,6 +38,7 @@
 ### line mode
 
 line mode는 자신이 갖고있는 펫중 하나를 지정해서, 지정한 width, height범위에서 움직이게 해요.   
+line mode를 사용할때, markdown 방식으로 이미지를 요청하면, width, height를 설정할 수 없어서 펫이 보이지 않을 수 있으니, HTMl방식을 사용해주세요.   
 _pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요._   
 
 > [!TIP]   
