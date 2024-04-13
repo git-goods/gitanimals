@@ -136,7 +136,33 @@ class User(
     private fun StringBuilder.openFarm(): StringBuilder =
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
 
-    private fun StringBuilder.closeSvg(): String = this.append("</svg>").toString()
+    private fun StringBuilder.closeSvg(): String = this.blackBlurOnLevel()
+        .append("</svg>")
+        .toString()
+
+    private fun StringBuilder.blackBlurOnLevel(): StringBuilder =
+        this.append(
+            """
+                    <style>
+                        #level {
+                            filter: url(#level_shadow)
+                        }
+                    </style>
+                    
+                    <defs>
+                        <filter id="level_shadow" x="-200" y="-200" width="400" height="400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="0.5"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_138_125"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_138_125" result="shape"/>
+                        </filter>
+                    </defs>
+            """.trimIndent()
+        )
 
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
