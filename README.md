@@ -102,6 +102,11 @@ _pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요
     다른 유저가 판매하는 펫을 커밋포인트로 구매할 수 있어요.    
     커밋 1회당 일정량의 포인트가 지급됩니다. 혹은 자신의 펫을 판매해서 커밋포인트를 얻을수도 있어요.     
 
+### Total contributions
+
+Total contribtuions 는 깃허브에 가입 후 모든 Contribtuions 수를 집계해서 보여줍니다.   
+이때, 새로운 contribtuion은 반영은 최대 1시간이 소요될 수 있습니다. 
+
 ### 등장 가능한 펫들
 
 <img alt="docs/pets.svg" src="docs/pets.svg"/>
