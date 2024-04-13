@@ -18,7 +18,7 @@ class AnimationController(
         @PathVariable("username") username: String,
         response: HttpServletResponse
     ): String {
-        response.noCache()
+        response.cacheControl(3600)
         return animationFacade.getFarmAnimation(username)
     }
 
@@ -28,14 +28,16 @@ class AnimationController(
         @RequestParam(name = "pet-id", defaultValue = "0") personaId: Long,
         response: HttpServletResponse,
     ): String {
-        response.noCache()
+        response.cacheControl(3600)
         return animationFacade.getLineAnimation(username, personaId)
     }
 
-    fun HttpServletResponse.noCache(): HttpServletResponse {
-        this.setHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate")
+    fun HttpServletResponse.cacheControl(maxAgeSeconds: Int): HttpServletResponse {
+        this.setHeader(
+            HttpHeaders.CACHE_CONTROL,
+            "no-cache, no-store, must-revalidate, max-age=$maxAgeSeconds"
+        )
         this.setHeader(HttpHeaders.PRAGMA, "no-cache")
-        this.setHeader(HttpHeaders.EXPIRES, "0")
         return this
     }
 }
