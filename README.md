@@ -36,48 +36,58 @@
 > 이때, {username} 은 반드시 자신의 깃허브 이름이 들어가야 합니다.   
 
 ### farm mode
-
 farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
 
+<a href="https://github.com/devxb/gitanimals">
+    <img src = "https://render.gitanimals.org/farms/devxb" width="300"/>
+</a>
+
+**markdown**   
 ```markdown
 [![gitanimals](https://render.gitanimals.org/farms/{username})](https://github.com/devxb/gitanimals)
 ```
 
+**html**   
 ```html
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/farms/{username}"/>
 </a>
 ```
-
+         
 ### line mode
 
 line mode는 자신이 갖고있는 펫중 하나를 지정해서, 지정한 width, height범위에서 움직이게 해요.   
-펫이 Readme에서 자유롭게 움직이는모습을 표현할 수 있어요.   
-pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요.
+_pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요._   
 > [!TIP]   
-> **Img의 width와 height를 조절해서 펫의 이동영역을 조절할 수 있어요.**
+> **HTML을 붙여넣기 할 경우, Img의 width와 height를 조절해서 펫의 이동영역을 조절할 수 있어요.**   
 > width를 길게 height를 작게하면 (width = 1000, height = 60) 가로로 길게 움직이게 할 수 있어요.   
 > 반대로, width를 작게 height를 길게하면 (width = 60, height = 1000) 세로로 길게 움직이게 할 수 있어요.   
 
+<a href="https://github.com/devxb/gitanimals">
+    <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="60"/>
+</a>
+
+**markdown**
 ```markdown
-[![gitanimals](https://render.gitanimals.org/farms/{username}?mode=line)](https://github.com/devxb/gitanimals)
+[![gitanimals](https://render.gitanimals.org/lines/{username})](https://github.com/devxb/gitanimals)
 ```
 
+**html**
 ```html
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/lines/{username}" width="1000" height="60"/>
 </a>
-```
+```   
    
+   
+### 펫을 변경하는 방법
 펫은 다음 url을 웹에 요청 후, `$.personas.[].id` 에 해당하는 값을 url의 pet-id param에 입력하면서 변경할 수 있어요.   
-사용 가능한 펫을 확인하려면, `https://render.gitanimals.org/users/{username}` 을 url에 붙여넣으세요.   
+변경가능한 펫을 확인하려면, `https://render.gitanimals.org/users/{username}` 의 {username}을 자신의 깃허브 아이디로 변경 후, 요청해보세요.   
 ```html
-예시)
-
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="1000" height="60"/>
 </a>
-```
+```   
 
 ## TIPS
 
