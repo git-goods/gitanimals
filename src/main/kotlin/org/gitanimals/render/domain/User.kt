@@ -122,7 +122,7 @@ class User(
         personas.asSequence()
             .forEach { builder.append(it.toSvg()) }
 
-        return builder.append(field.loadComponent(name, contributions.totalCount(), visit))
+        return builder.append(field.loadComponent(name, contributions.totalCount()))
             .append(field.drawBorder())
             .closeSvg()
     }
