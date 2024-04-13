@@ -3,10 +3,9 @@ package org.gitanimals.render.domain
 enum class FieldType {
 
     WHITE_FIELD {
-        override fun loadComponent(name: String, commit: Long, visit: Long): String {
+        override fun loadComponent(name: String, commit: Long): String {
             return whiteFieldSvg.replace(NAME_FIX, name.uppercase().toSvg(0.0, 3.0))
                 .replace(COMMIT_FIX, commit.toSvg("commit", 85.0, 4.0))
-                .replace(VISIT_FIX, visit.toSvg("visit", 70.0, 4.0))
         }
 
         override fun fillBackground(): String =
@@ -16,10 +15,9 @@ enum class FieldType {
             "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#D9D9D9\" fill=\"none\"/>"
     },
     SNOWY_FIELD {
-        override fun loadComponent(name: String, commit: Long, visit: Long): String {
+        override fun loadComponent(name: String, commit: Long): String {
             return snowyFieldSvg.replace(NAME_FIX, name.uppercase().toSvg(0.0, 3.0))
                 .replace(COMMIT_FIX, commit.toSvg("commit", 85.0, 4.0))
-                .replace(VISIT_FIX, visit.toSvg("visit", 70.0, 4.0))
         }
 
         override fun fillBackground(): String {
@@ -43,7 +41,7 @@ enum class FieldType {
     },
     ;
 
-    abstract fun loadComponent(name: String, commit: Long, visit: Long): String
+    abstract fun loadComponent(name: String, commit: Long): String
 
     abstract fun fillBackground(): String
 
@@ -158,7 +156,7 @@ enum class FieldType {
             this.toString().forEach { char ->
                 val index = char.digitToInt()
                 val mediumNumberSvg = mediumNumberSvgs[index]
-                builder.append("<g id=\"$id$index\" transform=\"translate($currentX, 2)\">")
+                builder.append("<g id=\"$id$index\" transform=\"translate($currentX, 0)\">")
                     .append(mediumNumberSvg)
                     .append("</g>")
                 currentX += xIncrease + mediumNumberWidth[index]
