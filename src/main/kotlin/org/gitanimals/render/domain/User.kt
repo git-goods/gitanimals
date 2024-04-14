@@ -63,7 +63,12 @@ class User(
     fun updateContribution(contribution: Int) {
         val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
         val currentYearContribution =
-            contributions.first { it.year == currentYear }
+            contributions.firstOrNull { it.year == currentYear }
+                ?: run {
+                    val currentYearContribution = Contribution(currentYear, 0, Instant.now())
+                    contributions.add(currentYearContribution)
+                    currentYearContribution
+                }
 
         val newContribution = contribution - currentYearContribution.contribution
 
@@ -71,7 +76,6 @@ class User(
         lastPersonaGivePoint += newContribution
         currentYearContribution.lastUpdatedContribution = Instant.now()
         levelUpPersonas(newContribution)
-        giveNewPersona()
     }
 
     private fun levelUpPersonas(newContribution: Int) {
@@ -86,15 +90,27 @@ class User(
         }
     }
 
-    private fun giveNewPersona() {
+    fun giveNewPersona() {
         if (lastPersonaGivePoint < FOR_NEW_PERSONA_COUNT) {
             return
         }
         lastPersonaGivePoint %= FOR_NEW_PERSONA_COUNT.toInt()
-        if (personas.size >= MAX_PERSONA_COUNT) {
-            return
+
+        val newPersona = when (personas.size >= MAX_PERSONA_COUNT) {
+            true -> Persona(
+                type = PersonaType.random(),
+                level = Level(0),
+                visible = false,
+                user = this
+            )
+
+            false -> Persona(
+                type = PersonaType.random(),
+                level = Level(0),
+                visible = true,
+                user = this
+            )
         }
-        val newPersona = Persona(type = PersonaType.random(), level = Level(0), user = this)
         personas.add(newPersona)
     }
 
@@ -202,7 +218,7 @@ class User(
                     max((totalContributionCount / FOR_INIT_PERSONA_COUNT), 1)
                 ).toInt()
             ) {
-                personas.add(Persona(PersonaType.random(), 0))
+                personas.add(Persona(PersonaType.random(), 0, true))
             }
             return personas
         }
