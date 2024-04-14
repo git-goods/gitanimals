@@ -19,6 +19,9 @@ class Persona(
     @Embedded
     val level: Level,
 
+    @Column(name = "visible", nullable = false)
+    val visible: Boolean,
+
     @JsonIgnore
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -28,10 +31,16 @@ class Persona(
     constructor(
         type: PersonaType,
         level: Long,
-    ) : this(type = type, level = Level(level))
+        visible: Boolean
+    ) : this(type = type, level = Level(level), visible = visible)
 
 
-    fun toSvg(): String = type.load(this)
+    fun toSvg(): String {
+        if (!visible) {
+            return ""
+        }
+        return type.load(this)
+    }
 
     fun level(): Long = level.value
 }

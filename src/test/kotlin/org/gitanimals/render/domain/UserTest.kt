@@ -63,6 +63,18 @@ internal class UserTest : DescribeSpec({
             }
         }
     }
+
+    describe("giveNewPersona 메소드는") {
+        val user = User.newUser("new-user", mutableMapOf())
+        context("펫이 30마리가 넘을경우, visible false의 pet을 생성한다.") {
+            repeat(99) {
+                user.updateContribution(30 * (it + 1))
+                user.giveNewPersona()
+            }
+
+            user.personas.count { !it.visible } shouldBeEqual 70
+        }
+    }
 }) {
     private companion object {
         private const val ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
