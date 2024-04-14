@@ -87,9 +87,10 @@ class User(
     }
 
     private fun giveNewPersona() {
-        if (lastPersonaGivePoint >= FOR_NEW_PERSONA_COUNT) {
-            lastPersonaGivePoint %= FOR_NEW_PERSONA_COUNT.toInt()
+        if (lastPersonaGivePoint < FOR_NEW_PERSONA_COUNT) {
+            return
         }
+        lastPersonaGivePoint %= FOR_NEW_PERSONA_COUNT.toInt()
         if (personas.size >= MAX_PERSONA_COUNT) {
             return
         }
