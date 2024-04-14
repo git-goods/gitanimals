@@ -1,6 +1,6 @@
 package org.gitanimals.render.domain
 
-import org.springframework.dao.OptimisticLockingFailureException
+import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -21,17 +21,18 @@ class UserService(
         return getUserByName(username).createLineAnimation(personaId)
     }
 
-    @Retryable(retryFor = [OptimisticLockingFailureException::class], maxAttempts = 10)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
     fun increaseVisit(username: String) {
         getUserByName(username).increaseVisitCount()
     }
 
-    @Retryable(retryFor = [OptimisticLockingFailureException::class], maxAttempts = 10)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
     fun updateContributions(username: String, contribution: Int) {
-        getUserByName(username)
-            .updateContribution(contribution)
+        val user = getUserByName(username)
+        user.updateContribution(contribution)
+        user.giveNewPersona()
     }
 
     fun isContributionUpdatedBeforeOneHour(name: String): Boolean =
