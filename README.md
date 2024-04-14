@@ -3,7 +3,7 @@
 
 ##
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=126" width="2000" height="60"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=126" width="2000" height="100"/>
 </a>
 
 <div align = "center">  
