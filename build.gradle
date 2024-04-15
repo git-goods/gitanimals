@@ -5,6 +5,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.jpa' version "${jetbrainKotlinVersion}"
     id "org.springframework.boot" version "${springbootVersion}"
     id "io.spring.dependency-management" version "${springDependencyManagementVersion}"
+    id "io.sentry.jvm.gradle" version "${sentryVersion}"
 }
 
 group = "${group}"
@@ -23,6 +24,14 @@ test {
 
 application {
     mainClassName = 'org.gitanimals.render.Application'
+}
+
+sentry {
+    includeSourceContext = true
+
+    org = "devxb"
+    projectName = "gitanimals-render"
+    authToken = System.getProperty("SENTRY_AUTH_TOKEN")
 }
 
 apply from: "gradle/db.gradle"
