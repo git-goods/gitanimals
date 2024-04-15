@@ -34,7 +34,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
 
       - name: build server
-        run: ./gradlew build -x test
+        run: ./gradlew build -x test -DSENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: docker arm64 build set up - qemu
         uses: docker/setup-qemu-action@v2
