@@ -1,5 +1,6 @@
 package org.gitanimals.render.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import org.gitanimals.render.core.AggregateRoot
 import org.gitanimals.render.domain.value.Contribution
@@ -50,6 +51,7 @@ class User(
         personas.forEach { it.user = this }
     }
 
+    @JsonIgnore
     fun isContributionUpdatedBeforeOneHour(): Boolean {
         val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
         val currentYearContribution =

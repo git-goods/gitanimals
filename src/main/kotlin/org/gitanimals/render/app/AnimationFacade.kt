@@ -1,21 +1,18 @@
 package org.gitanimals.render.app
 
-import jakarta.annotation.PostConstruct
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.Visited
-import org.rooftop.netx.api.*
+import org.rooftop.netx.api.SagaManager
 import org.springframework.stereotype.Service
+import org.springframework.web.client.RestClientException
 
 @Service
 class AnimationFacade(
     private val userService: UserService,
     private val contributionApi: ContributionApi,
-    private val orchestratorFactory: OrchestratorFactory,
     private val sagaManager: SagaManager,
 ) {
-
-    private lateinit var registerNewUserOrchestrator: Orchestrator<String, User>
 
     fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
@@ -26,15 +23,14 @@ class AnimationFacade(
             }
 
             false -> {
-                registerNewUserOrchestrator.sagaSync(10000, username)
-
-                userService.getFarmAnimationByUsername(username)
+                val user = createNewUser(username)
+                userService.getFarmAnimationByUsername(user.name)
             }
         }
     }
 
     fun getLineAnimation(username: String, personaId: Long): String {
-        return when(userService.existsByName(username)) {
+        return when (userService.existsByName(username)) {
             true -> {
                 val svgAnimation = userService.getLineAnimationByUsername(username, personaId)
                 sagaManager.startSync(Visited(username))
@@ -42,45 +38,21 @@ class AnimationFacade(
             }
 
             false -> {
-                registerNewUserOrchestrator.sagaSync(10000, username)
-
-                userService.getLineAnimationByUsername(username ,personaId)
+                val user = createNewUser(username)
+                userService.getLineAnimationByUsername(user.name, personaId)
             }
         }
     }
 
-    @PostConstruct
-    fun registerNewUserOrchestrator() {
-        registerNewUserOrchestrator = orchestratorFactory.create<String>("register new user")
-            .startWithContext(
-                contextOrchestrate = { context, username ->
-                    context.set("username", username)
-                    contributionApi.getAllContributionYears(username)
-                }
-            )
-            .joinWithContext(
-                contextOrchestrate = object : ContextOrchestrate<List<Int>, Map<Int, Int>> {
-                    override fun orchestrate(context: Context, request: List<Int>): Map<Int, Int> {
-                        val username = context.decodeContext("username", String::class)
-                        return contributionApi.getContributionCount(username, request)
-                    }
-
-                    override fun reified(): TypeReference<List<Int>> {
-                        return object : TypeReference<List<Int>>() {}
-                    }
-                }
-            )
-            .commitWithContext(
-                contextOrchestrate = object : ContextOrchestrate<Map<Int, Int>, User> {
-                    override fun orchestrate(context: Context, request: Map<Int, Int>): User {
-                        val username = context.decodeContext("username", String::class)
-                        return userService.createNewUser(username, request)
-                    }
-
-                    override fun reified(): TypeReference<Map<Int, Int>> {
-                        return object : TypeReference<Map<Int, Int>>() {}
-                    }
-                }
-            )
+    fun createNewUser(username: String): User {
+        return runCatching {
+            val contributionYears = contributionApi.getAllContributionYears(username)
+            val contributionCountPerYear =
+                contributionApi.getContributionCount(username, contributionYears)
+            userService.createNewUser(username, contributionCountPerYear)
+        }.getOrElse {
+            require(it !is RestClientException) { "Cannot create new user from username \"$username\"" }
+            throw it
+        }
     }
 }
