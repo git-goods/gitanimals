@@ -19,7 +19,7 @@ class AnimationController(
         response: HttpServletResponse
     ): String {
         response.cacheControl(3600)
-        return animationFacade.getFarmAnimation(username)
+        return animationFacade.getFarmAnimation(deleteBrackets(username))
     }
 
     @GetMapping(value = ["/lines/{username}"], produces = ["image/svg+xml"])
@@ -29,7 +29,21 @@ class AnimationController(
         response: HttpServletResponse,
     ): String {
         response.cacheControl(3600)
-        return animationFacade.getLineAnimation(username, personaId)
+        return animationFacade.getLineAnimation(deleteBrackets(username), personaId)
+    }
+
+    private fun deleteBrackets(username: String): String {
+        val start = when (username[0]) {
+            '{' -> 1
+            else -> 0
+        }
+
+        val end = when (username.last()) {
+            '}' -> username.length - 1
+            else -> username.length
+        }
+
+        return username.substring(start, end)
     }
 
     fun HttpServletResponse.cacheControl(maxAgeSeconds: Int): HttpServletResponse {
