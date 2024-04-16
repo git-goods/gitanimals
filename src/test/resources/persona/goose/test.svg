@@ -1,81 +1,113 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
-  <style>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"> <style>
+  @keyframes rotate-top-1 {
+  0% {
+  transform: rotate(0deg);
+  }
+  33% {
+  transform: translate(1.3px, 0.3px) rotate(5deg);
+  }
+  66% {
+  transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+  transform: rotate(0deg);
+  }
+  }
 
+  #flamingo-top-1 {
+  animation-name:rotate-top-1;
+  animation-duration:2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  }
+</style>
+
+  <g id="flamingo-1" style="transform:translate(0%, 0%) scaleX(1);">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="level" transform="translate(-1, 1)">
+        <rect x="10" width="0.6" height="1.8" fill="black"/>
+        <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
+        <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
+        <rect x="11.2" y="0.600002" width="0.6" height="0.6" fill="black"/>
+        <rect x="12.4" y="0.600002" width="0.6" height="0.6" fill="black"/>
+        <g id="level0" transform="translate(14.0, -1)"><path d="M1 0.75H1.5V3H1V1.5H0.25V1.25H0.75V1H1V0.75Z" fill="black"/>
+        </g>
+      </g>
+      <g id="shadow" transform="translate(0, 26)">
+        <rect y="2" width="13" height="4" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1" y="1" width="11" height="1" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1" y="6" width="11" height="1" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="2" width="9" height="1" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="2" y="7" width="9" height="1" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+
+      <g id="flamingo-leg" transform="translate(6, 18)">
+        <rect width="2" height="1" transform="matrix(1 0 0 -1 0 12)" fill="#FC9866"/>
+        <rect width="1" height="12" transform="matrix(1 0 0 -1 0 12)" fill="#FC9866"/>
+        <rect x="1" y="3" width="1" height="1" fill="#FC9866"/>
+        <rect x="2" y="4" width="1" height="1" fill="#FC9866"/>
+        <rect x="3" y="5" width="1" height="1" fill="#FC9866"/>
+        <rect x="2" y="6" width="1" height="1" fill="#FC9866"/>
+        <rect x="1" y="6" width="1" height="1" fill="#FC9866"/>
+      </g>
+
+      <g id="flamingo-top-1">
+        <g id="flamingo-head" transform="translate(9, 5)">
+          <rect x="2" y="11" width="3" height="3" fill="#FF4375"/>
+          <rect x="2" y="8" width="2" height="3" fill="#FF4375"/>
+          <rect x="1" y="7" width="2" height="1" fill="#FF4375"/>
+          <rect y="5" width="2" height="2" fill="#FF4375"/>
+          <rect y="4" width="1" height="1" fill="#FF4375"/>
+          <rect y="3" width="2" height="1" fill="#FF4375"/>
+          <rect x="1" y="2" width="2" height="1" fill="#FF4375"/>
+          <rect x="2" width="4" height="3" fill="#FF4375"/>
+          <rect x="5" y="1" width="2" height="2" fill="#FFA713"/>
+          <rect x="6" y="1" width="1" height="3" fill="#FFA713"/>
+          <rect x="6" y="3" width="1" height="1" fill="black"/>
+          <rect x="3" y="1" width="1" height="1" fill="black"/>
+          <rect x="5" width="1" height="1" fill="black"/>
+          <rect x="2" y="7" width="1" height="2" fill="#FF4375"/>
+          <rect x="1" y="6" width="1" height="2" fill="#FF4375"/>
+          <rect y="3" width="1" height="3" fill="#FF4375"/>
+          <rect x="1" y="1" width="1" height="3" fill="#FF4375"/>
+          <rect x="3" y="10" width="1" height="2" fill="#FF4375"/>
+        </g>
+        <g id="flamingo-body" transform="translate(1, 13)">
+          <rect x="3" width="5" height="6" fill="#FF4375"/>
+          <rect x="1" y="2" width="9" height="2" fill="#FF4375"/>
+          <rect x="1" y="1" width="3" height="3" fill="#FF4375"/>
+          <rect x="3" y="4" width="8" height="2" fill="#FF4375"/>
+          <rect x="5" y="5" width="7" height="2" fill="#FF4375"/>
+          <rect x="6" y="6" width="4" height="2" fill="#FF82A3"/>
+          <rect y="1" width="1" height="1" fill="#DE3865"/>
+          <rect x="1" y="2" width="1" height="2" fill="#DE3865"/>
+          <rect x="2" y="4" width="1" height="1" fill="#DE3865"/>
+          <rect x="3" y="5" width="1" height="1" fill="#DE3865"/>
+          <rect x="4" y="6" width="2" height="1" fill="#DE3865"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 12 6)" fill="#DE3865"/>
+          <rect width="4" height="1" transform="matrix(-1 0 0 1 10 7)" fill="#DE3865"/>
+          <rect x="8" y="1" width="1" height="1" fill="#FF4375"/>
+          <rect x="4" y="5" width="5" height="1" fill="#FF82A3"/>
+          <rect x="5" y="4" width="3" height="1" fill="#FF82A3"/>
+        </g>
+      </g>
+    </svg>
+  </g>
+  <style>
+    #level {
+    filter: url(#level_shadow)
+    }
   </style>
 
-  <g id="fig-44" transform="translate(-100, -100)">
-
-    <g id="shadow" transform="translate(-2, 3)">
-      <rect width="22.4393" height="5.84859" transform="matrix(0.707107 0.707107 0.707107 -0.707107 2.75706 6.96593)" fill="#2B4447" fill-opacity="0.1"/>
-      <rect width="18.6994" height="1.94953" transform="matrix(0.707107 0.707107 0.707107 -0.707107 2.70079 9.66671)" fill="#2B4447" fill-opacity="0.1"/>
-      <rect width="18.6994" height="1.94953" transform="matrix(0.707107 0.707107 0.707107 -0.707107 8.286 4.15115)" fill="#2B4447" fill-opacity="0.1"/>
-      <rect width="14.9596" height="1.94953" transform="matrix(0.707107 0.707107 0.707107 -0.707107 2.64451 12.3675)" fill="#2B4447" fill-opacity="0.1"/>
-      <rect width="14.9596" height="1.94953" transform="matrix(0.707107 0.707107 0.707107 -0.707107 11.0579 4.09338)" fill="#2B4447" fill-opacity="0.1"/>
-    </g>
-
-    <g id="level" transform="translate(6, -3)">
-      <rect x="10" width="0.6" height="1.8" fill="black"/>
-      <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
-      <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
-      <rect x="11.2" y="0.600002" width="0.6" height="0.6" fill="black"/>
-      <rect x="12.4" y="0.600002" width="0.6" height="0.6" fill="black"/>
-      <g id="level0" transform="translate(14.0, -1)"><path d="M1 0.75H1.5V3H1V1.5H0.25V1.25H0.75V1H1V0.75Z" fill="black"/>
-      </g><g id="level1" transform="translate(16.0, -1)"><path d="M1 1.75H1.25V1H0.75V1.5H0.25V1H0.5V0.75H1.5V1H1.75V1.75H1.5V2H1.25V2.25H1V2.5H0.75V2.75H1.75V3H0.25V2.5H0.5V2.25H0.75V2H1V1.75Z" fill="black"/>
-    </g>
-    </g>
-
-    <g id="fig-44-body">
-      <rect x="6.50179" width="7.50178" height="3.00071" fill="#FBB3BE"/>
-      <rect x="6.50179" width="6.00143" height="3.00071" fill="#FBB3BE"/>
-      <rect x="5.00143" y="6.00143" width="10.5025" height="3.00071" fill="#FBB3BE"/>
-      <rect x="5.00143" y="4.50107" width="1.50036" height="4.50107" fill="#FBB3BE"/>
-      <rect x="3.50107" y="3.00071" width="13.5032" height="4.50107" fill="#FBB3BE"/>
-      <rect x="9.5025" y="9.00214" width="7.50178" height="4.50107" fill="#FBB3BE"/>
-      <rect x="5.00143" y="6.00143" width="13.5032" height="4.50107" fill="#FBB3BE"/>
-      <rect x="6.50179" y="7.50179" width="13.5032" height="4.50107" fill="#FBB3BE"/>
-      <rect x="8.00214" y="9.00214" width="13.5032" height="4.50107" fill="#FBB3BE"/>
-      <rect x="11.0029" y="13.5032" width="7.50178" height="4.50107" fill="#FBB3BE"/>
-      <rect x="11.0029" y="13.5032" width="7.50178" height="4.50107" fill="#FBB3BE"/>
-      <rect x="12.5032" y="15.0036" width="7.50178" height="4.50107" fill="#FBB3BE"/>
-      <rect x="9.5025" y="10.5025" width="13.5032" height="4.50107" fill="#FBB3BE"/>
-      <rect x="12.5032" y="18.0043" width="6.00143" height="1.50036" fill="#D897A1"/>
-      <rect x="11.0029" y="16.5039" width="1.50036" height="1.50036" fill="#D897A1"/>
-      <rect x="9.5025" y="15.0036" width="1.50036" height="1.50036" fill="#D897A1"/>
-      <rect x="8.00214" y="13.5032" width="1.50036" height="1.50036" fill="#D897A1"/>
-      <rect x="6.50179" y="12.0029" width="1.50036" height="1.50036" fill="#D897A1"/>
-      <rect x="5.00143" y="10.5025" width="1.50036" height="1.50036" fill="#D897A1"/>
-      <rect x="3.50107" y="6.00143" width="1.50036" height="4.50107" fill="#D897A1"/>
-      <rect x="0.500359" y="4.50107" width="3.00071" height="1.50036" fill="#FBB3BE"/>
-      <rect x="3.50107" y="3.00071" width="1.50036" height="3.00071" fill="#FBB3BE"/>
-      <rect x="0.500359" y="1.50036" width="3.00071" height="1.50036" fill="#FBB3BE"/>
-      <rect x="0.500359" y="3.00071" width="1.50036" height="1.50036" fill="#FBB3BE"/>
-      <rect x="5.00143" y="1.50036" width="10.5025" height="3.00071" fill="#FBB3BE"/>
-    </g>
-
-    <g id="fig-44-leg-out" transform="translate(5.1, 10)">
-      <g id="fig-44-leg">
-        <rect x="6.00286" y="5.00357" width="1.50036" height="6.00143" fill="#FBB3BE"/>
-        <rect x="4.5025" y="5.00357" width="1.50036" height="6.00143" fill="#D897A1"/>
-        <rect x="1.50179" y="0.502499" width="1.50036" height="7.50178" fill="#FBB3BE"/>
-        <rect x="0.0014267" y="0.502499" width="1.50036" height="7.50178" fill="#D897A1"/>
-      </g>
-    </g>
-
-    <g id="fig-44-head" transform="translate(2, -6.5)">
-      <rect x="1.36364" y="2.66666" width="12.2727" height="12" fill="#FBB3BE"/>
-      <rect x="2.72727" y="5.33333" width="12.2727" height="8" fill="#FBB3BE"/>
-      <rect y="1.33334" width="15" height="1.33333" fill="#FBB3BE"/>
-      <rect x="1.36364" width="2.72727" height="1.33333" fill="#FBB3BE"/>
-      <rect x="12.2727" width="1.36364" height="1.33333" fill="#FBB3BE"/>
-      <rect x="2.72727" y="14.6667" width="10.9091" height="1.33333" fill="#D897A1"/>
-      <rect width="1.36364" height="1.33333" transform="matrix(-1 0 0 1 2.72727 13.3333)" fill="#D897A1"/>
-      <rect x="5.45454" y="8" width="6.81818" height="4" fill="#FC899A"/>
-      <rect x="4.0909" y="9.33334" width="9.54545" height="1.33333" fill="#FC899A"/>
-      <rect x="10.9091" y="5.33333" width="1.36364" height="1.33333" fill="black"/>
-      <rect x="5.45454" y="5.33333" width="1.36364" height="1.33333" fill="black"/>
-      <rect x="9.54546" y="9.33333" width="1.36364" height="1.33333" fill="black"/>
-      <rect x="6.81818" y="9.33333" width="1.36364" height="1.33333" fill="black"/>
-    </g>
-
-  </g>
-</svg>
+  <defs>
+    <filter id="level_shadow" x="-200" y="-200" width="400" height="400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="0.5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_138_125"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_138_125" result="shape"/>
+    </filter>
+  </defs></svg>
