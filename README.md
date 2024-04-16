@@ -109,4 +109,6 @@ Total contribtuions 는 깃허브에 가입 후 모든 Contribtuions 수를 집�
 <div align="center">
 <p> 아이디어나 발견 한 버그가 있다면 제보 해주세요.
 <i>Contact : develxb@gmail.com</i></p>
+    
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
 </div>
