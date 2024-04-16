@@ -125,7 +125,7 @@ class User(
 
         val persona = personas.find { it.id!! >= personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
-        builder.append(persona.toSvg())
+        builder.append(persona.toSvgForce())
 
         return builder.closeSvg()
     }
