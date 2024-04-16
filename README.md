@@ -1,12 +1,11 @@
 <img src="./docs/logo.svg" width="30000"/>
 
 ##
-
+<div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=126" width="2000" height="100"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=125" width="300" height="150"/>
 </a>
 
-<div align = "center">  
 ⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
 <i><h4><a href="https://github.com/devxb/gitanimals/stargazers">Press star</a></h4></i>
 </div>
