@@ -914,6 +914,30 @@ enum class PersonaType(private val weight: Double) {
             StringBuilder().moveRandomly("slime", id, 15, "180s", 5)
                 .toString()
     },
+
+    FLAMINGO(0.05) {
+        override fun load(persona: Persona): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return flamingoSvg.replace("*{position}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1 * (persona.level.value.toString().length)).toString()
+                )
+        }
+
+        override fun act(id: Long): String {
+            val x = Random.nextInt(25, 75)
+            val y = Random.nextInt(0, 50)
+            val scale = when (Random.nextBoolean()) {
+                true -> 1
+                false -> -1
+            }
+            return "translate(${x}%, ${y}%) scaleX($scale)"
+        }
+    }
     ;
 
     init {
@@ -990,7 +1014,7 @@ enum class PersonaType(private val weight: Double) {
                         .append("-ms-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
                         .append("-o-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
                         .append("-moz-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("transform: translate(${{currentX - (personaWidth * nextScale)}}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
+                        .append("transform: translate(${{ currentX - (personaWidth * nextScale) }}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
                         .append("}")
                 }
                 this.append("${min(100.0, animationPercentage)}% {")
