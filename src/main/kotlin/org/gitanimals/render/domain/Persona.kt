@@ -35,6 +35,8 @@ class Persona(
     ) : this(type = type, level = Level(level), visible = visible)
 
 
+    fun toSvgForce(): String = type.load(this)
+
     fun toSvg(): String {
         if (!visible) {
             return ""
