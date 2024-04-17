@@ -157,9 +157,35 @@ class User(
     private fun StringBuilder.openFarm(): StringBuilder =
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
 
-    private fun StringBuilder.closeSvg(): String = this.blackBlurOnLevel()
+    private fun StringBuilder.closeSvg(): String = this
+        .blackBlureOnContributions()
+        .blackBlurOnLevel()
         .append("</svg>")
         .toString()
+
+    private fun StringBuilder.blackBlureOnContributions(): StringBuilder =
+        this.append(
+            """
+                <style>
+                    #contributions {
+                        filter: url(#contribution_blur)
+                    }
+                </style>
+                
+                <defs>
+                    <filter id="contribution_blur" x="-100" y="-100" width="200" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                        <feOffset/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feComposite in2="hardAlpha" operator="out"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_216_87060"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_216_87060" result="shape"/>
+                    </filter>
+            </defs>
+            """.trimIndent()
+        )
 
     private fun StringBuilder.blackBlurOnLevel(): StringBuilder =
         this.append(
