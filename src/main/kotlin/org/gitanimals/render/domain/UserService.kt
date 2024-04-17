@@ -17,8 +17,8 @@ class UserService(
         return getUserByName(username).createFarmAnimation()
     }
 
-    fun getLineAnimationByUsername(username: String, personaId: Long): String {
-        return getUserByName(username).createLineAnimation(personaId)
+    fun getLineAnimationByUsername(username: String, personaId: Long, mode: Mode): String {
+        return getUserByName(username).createLineAnimation(personaId, mode)
     }
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
