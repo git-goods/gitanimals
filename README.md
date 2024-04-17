@@ -39,28 +39,30 @@
 line mode는 자신이 갖고있는 펫중 하나를 지정해서, 지정한 width, height범위에서 움직이게 해요.   
 line mode를 사용할때, markdown 방식으로 이미지를 요청하면, width, height를 설정할 수 없어서 펫이 보이지 않을 수 있으니, HTMl방식을
 사용해주세요.   
-_pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요._   
-   
-변경 가능한 pet-id는 `https://render.gitanimals.org/users/{username}` 의 {username}을 자신의 깃허브 아이디로 변경 후 API를 요청하면 확인할 수 있어요.   
-API 응답의 `$.personas.[].id` 에 해당하는 값을 pet-id에 입력하면 돼요.
 
 > [!TIP]   
 > **Img의 width와 height를 조절해서 펫의 이동영역을 조절할 수 있어요.**   
 > width를 길게 height를 작게하면 (width = 1000, height = 60) 가로로 길게 움직이게 할 수 있어요.   
 > 반대로, width를 작게 height를 길게하면 (width = 60, height = 1000) 세로로 길게 움직이게 할 수 있어요.   
-> img의 height를 펫의 세로 길이보다 충분히 크게 적용해주세요. 그러지 않으면 펫이 숨어버려요.
+> 만약, 펫이 보이지 않는다면, img의 height를 펫의 세로 길이보다 충분히 크게 적용해주세요.
+   
 
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="60"/>
 </a>
    
-**html**
-
 ```html
 <a href="https://github.com/devxb/gitanimals">
   <img src="https://render.gitanimals.org/lines/{username}" width="1000" height="60"/>
 </a>
 ```   
+
+_pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요._   
+   
+변경 가능한 pet-id는 `https://render.gitanimals.org/users/{username}` 의 {username}을 자신의 깃허브 아이디로 변경 후 API를 요청하면 확인할 수 있어요.   
+API 응답의 `$.personas.[].id` 에 해당하는 값을 pet-id에 입력하면 돼요.
+
+lines모드에서는 펫 레벨 위에 총 contributions수를 보여줘요. 원하지 않을경우, 쿼리 파라미터로 `contribution-view=false`를 담아 요청하세요.    
 
 ### farm mode
 
