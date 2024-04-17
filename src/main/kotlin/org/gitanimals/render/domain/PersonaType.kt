@@ -7,7 +7,7 @@ import kotlin.random.Random
 
 enum class PersonaType(private val weight: Double) {
     GOOSE(1.0) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseSvg.replace("*{act}", act(persona.id))
@@ -30,7 +30,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_SUNGLASSES(0.05) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseSunglassesSvg.replace("*{act}", act(persona.id))
@@ -53,7 +53,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_KOTLIN(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseKotlinSvg.replace("*{act}", act(persona.id))
@@ -76,7 +76,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_JAVA(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseJavaSvg.replace("*{act}", act(persona.id))
@@ -99,7 +99,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_JS(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseJsSvg.replace("*{act}", act(persona.id))
@@ -122,7 +122,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_NODE(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseNodeSvg.replace("*{act}", act(persona.id))
@@ -145,7 +145,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_SWIFT(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseSwiftSvg.replace("*{act}", act(persona.id))
@@ -168,7 +168,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_LINUX(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseLinuxSvg.replace("*{act}", act(persona.id))
@@ -191,7 +191,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     GOOSE_SPRING(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val goose = gooseSpringSvg.replace("*{act}", act(persona.id))
@@ -214,7 +214,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK(0.9) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickSvg.replace("*{act}", act(persona.id))
@@ -237,7 +237,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_SUNGLASSES(0.4) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickSunglassesSvg.replace("*{act}", act(persona.id))
@@ -260,7 +260,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_KOTLIN(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickKotlinSvg.replace("*{act}", act(persona.id))
@@ -283,7 +283,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_JAVA(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickJavaSvg.replace("*{act}", act(persona.id))
@@ -306,7 +306,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_JS(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickJsSvg.replace("*{act}", act(persona.id))
@@ -329,7 +329,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_NODE(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickNodeSvg.replace("*{act}", act(persona.id))
@@ -352,7 +352,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_SWIFT(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickSwiftSvg.replace("*{act}", act(persona.id))
@@ -375,7 +375,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_LINUX(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickLinuxSvg.replace("*{act}", act(persona.id))
@@ -398,7 +398,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     LITTLE_CHICK_SPRING(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             val littleChick = littleChickSpringSvg.replace("*{act}", act(persona.id))
@@ -421,7 +421,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN(0.5) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinSvg.replace("*{act}", act(persona.id))
@@ -440,7 +440,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_SUNGLASSES(0.2) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinSunglassesSvg.replace("*{act}", act(persona.id))
@@ -459,7 +459,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_KOTLIN(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinKotlinSvg.replace("*{act}", act(persona.id))
@@ -478,7 +478,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_JAVA(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinJavaSvg.replace("*{act}", act(persona.id))
@@ -497,7 +497,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_JS(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinJsSvg.replace("*{act}", act(persona.id))
@@ -516,7 +516,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_NODE(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinNodeSvg.replace("*{act}", act(persona.id))
@@ -535,7 +535,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_SWIFT(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinSwiftSvg.replace("*{act}", act(persona.id))
@@ -554,7 +554,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_LINUX(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinLinuxSvg.replace("*{act}", act(persona.id))
@@ -573,7 +573,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PENGUIN_SPRING(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return penguinSpringSvg.replace("*{act}", act(persona.id))
@@ -592,7 +592,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG(0.2) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigSvg.replace("*{act}", act(persona.id))
@@ -610,7 +610,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_SUNGLASSES(0.08) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigSunglassesSvg.replace("*{act}", act(persona.id))
@@ -628,7 +628,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_KOTLIN(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigKotlinSvg.replace("*{act}", act(persona.id))
@@ -646,7 +646,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_JAVA(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigJavaSvg.replace("*{act}", act(persona.id))
@@ -664,7 +664,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_JS(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigJsSvg.replace("*{act}", act(persona.id))
@@ -682,7 +682,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_NODE(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigNodeSvg.replace("*{act}", act(persona.id))
@@ -700,7 +700,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_SWIFT(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigSwiftSvg.replace("*{act}", act(persona.id))
@@ -718,7 +718,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_LINUX(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigLinuxSvg.replace("*{act}", act(persona.id))
@@ -736,7 +736,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     PIG_SPRING(0.01) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return pigSpringSvg.replace("*{act}", act(persona.id))
@@ -754,7 +754,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED(0.1) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedSvg.replace("*{act}", act(persona.id))
@@ -772,7 +772,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED_KOTLIN(0.001) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedKotlinSvg.replace("*{act}", act(persona.id))
@@ -790,7 +790,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED_JAVA(0.001) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedJavaSvg.replace("*{act}", act(persona.id))
@@ -808,7 +808,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED_JS(0.001) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedJsSvg.replace("*{act}", act(persona.id))
@@ -826,7 +826,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED_NODE(0.001) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedNodeSvg.replace("*{act}", act(persona.id))
@@ -844,7 +844,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED_SWIFT(0.001) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedSwiftSvg.replace("*{act}", act(persona.id))
@@ -862,7 +862,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_RED_LINUX(0.001) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeRedLinuxSvg.replace("*{act}", act(persona.id))
@@ -880,7 +880,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_BLUE(0.1) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeBlueSvg.replace("*{act}", act(persona.id))
@@ -898,7 +898,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     SLIME_GREEN(0.1) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return slimeGreenSvg.replace("*{act}", act(persona.id))
@@ -916,7 +916,7 @@ enum class PersonaType(private val weight: Double) {
     },
 
     FLAMINGO(0.05) {
-        override fun load(persona: Persona): String {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
             return flamingoSvg.replace("*{position}", act(persona.id))
@@ -944,9 +944,31 @@ enum class PersonaType(private val weight: Double) {
         require(weight in 0.001..1.0) { "PersonaType's weight should be between 0.01 to 1.0" }
     }
 
-    abstract fun load(persona: Persona): String
+    fun load(user: User, persona: Persona, mode: Mode): String =
+        loadSvg(user, persona, mode)
+            .drawContribution(mode, user)
+
+    abstract fun loadSvg(user: User, persona: Persona, mode: Mode): String
 
     protected abstract fun act(id: Long): String
+
+    protected fun String.drawContribution(
+        mode: Mode,
+        user: User
+    ): String {
+        return if (mode == Mode.LINE) {
+            this.replace(
+                "*{contributionx}",
+                (12 + (-1 * (user.contributionCount().toString().length))).toString()
+            )
+                .replace(
+                    "*{contribution}",
+                    user.contributionCount().toSvg(0.0, 2.0)
+                ).replace("*{contribution-display}", "default")
+        } else {
+            this.replace("*{contribution-display}", "none")
+        }
+    }
 
     companion object {
 
@@ -1040,15 +1062,19 @@ enum class PersonaType(private val weight: Double) {
         }
 
         private fun Long.toSvg(levelStartX: Double, xIncrease: Double): String {
+            return this.toSvgWithY(-1.0, levelStartX, xIncrease)
+        }
+
+        private fun Long.toSvgWithY(startY: Double, startX: Double, xIncrease: Double): String {
             val level = this.toString()
-            var currentX = levelStartX
+            var currentX = startX
             val builder = StringBuilder()
             level.withIndex().forEach {
                 val index = it.index
                 val number = it.value.digitToInt()
                 val numberSvg = numberSvgs[number]
 
-                builder.append("<g id=\"level$index\" transform=\"translate($currentX, -1)\">")
+                builder.append("<g id=\"level$index\" transform=\"translate($currentX, $startY)\">")
                     .append(numberSvg)
                     .append("</g>")
 
