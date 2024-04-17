@@ -2,6 +2,7 @@ package org.gitanimals.render.controller
 
 import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.render.app.AnimationFacade
+import org.gitanimals.render.domain.Mode
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -26,10 +27,17 @@ class AnimationController(
     fun getLineSvgAnimation(
         @PathVariable("username") username: String,
         @RequestParam(name = "pet-id", defaultValue = "0") personaId: Long,
+        @RequestParam(name = "contribution-view", defaultValue = "true") contributionView: Boolean,
         response: HttpServletResponse,
     ): String {
         response.cacheControl(3600)
-        return animationFacade.getLineAnimation(deleteBrackets(username), personaId)
+
+        val mode = when (contributionView) {
+            true -> Mode.LINE
+            false -> Mode.LINE_NO_CONTRIBUTION
+        }
+
+        return animationFacade.getLineAnimation(deleteBrackets(username), personaId, mode)
     }
 
     private fun deleteBrackets(username: String): String {

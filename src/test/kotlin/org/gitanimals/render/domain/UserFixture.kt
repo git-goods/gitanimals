@@ -1,9 +1,10 @@
 package org.gitanimals.render.domain
 
 import org.gitanimals.render.domain.value.Contribution
+import kotlin.random.Random
 
 fun user(
-    id: Long = 0L,
+    id: Long = Random.nextLong(),
     name: String = "devxb",
     personas: MutableList<Persona> = mutableListOf(),
     contributions: MutableList<Contribution> = mutableListOf(),

@@ -120,12 +120,12 @@ class User(
         visit += 1
     }
 
-    fun createLineAnimation(personaId: Long): String {
+    fun createLineAnimation(personaId: Long, mode: Mode): String {
         val builder = StringBuilder().openLine()
 
         val persona = personas.find { it.id!! >= personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
-        builder.append(persona.toSvgForce())
+        builder.append(persona.toSvgForce(mode))
 
         return builder.closeSvg()
     }
@@ -139,12 +139,14 @@ class User(
             .append(field.fillBackground())
 
         personas.asSequence()
-            .forEach { builder.append(it.toSvg()) }
+            .forEach { builder.append(it.toSvg(Mode.FARM)) }
 
         return builder.append(field.loadComponent(name, contributions.totalCount()))
             .append(field.drawBorder())
             .closeSvg()
     }
+
+    fun contributionCount(): Long = contributions.totalCount()
 
     private fun List<Contribution>.totalCount(): Long {
         var totalCount = 0L

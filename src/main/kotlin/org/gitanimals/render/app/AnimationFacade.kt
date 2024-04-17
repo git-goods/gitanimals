@@ -1,5 +1,6 @@
 package org.gitanimals.render.app
 
+import org.gitanimals.render.domain.Mode
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.Visited
@@ -29,17 +30,17 @@ class AnimationFacade(
         }
     }
 
-    fun getLineAnimation(username: String, personaId: Long): String {
+    fun getLineAnimation(username: String, personaId: Long, mode: Mode): String {
         return when (userService.existsByName(username)) {
             true -> {
-                val svgAnimation = userService.getLineAnimationByUsername(username, personaId)
+                val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
                 sagaManager.startSync(Visited(username))
                 svgAnimation
             }
 
             false -> {
                 val user = createNewUser(username)
-                userService.getLineAnimationByUsername(user.name, personaId)
+                userService.getLineAnimationByUsername(user.name, personaId, mode)
             }
         }
     }
