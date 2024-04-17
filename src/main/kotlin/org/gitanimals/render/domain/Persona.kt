@@ -35,13 +35,13 @@ class Persona(
     ) : this(type = type, level = Level(level), visible = visible)
 
 
-    fun toSvgForce(): String = type.load(this)
+    fun toSvgForce(mode: Mode): String = type.load(user!!, this, mode)
 
-    fun toSvg(): String {
+    fun toSvg(mode: Mode): String {
         if (!visible) {
             return ""
         }
-        return type.load(this)
+        return type.load(user!!, this, mode)
     }
 
     fun level(): Long = level.value
