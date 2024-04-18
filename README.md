@@ -54,12 +54,12 @@ line mode를 사용할때, markdown 방식으로 이미지를 요청하면, widt
 
 
 <a href="https://github.com/devxb/gitanimals">
-    <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="60"/>
+    <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="120"/>
 </a>
 
 ```html
 <a href="https://github.com/devxb/gitanimals">
-  <img src="https://render.gitanimals.org/lines/{username}" width="1000" height="60"/>
+  <img src="https://render.gitanimals.org/lines/{username}" width="1000" height="120"/>
 </a>
 ```   
 
