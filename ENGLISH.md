@@ -52,12 +52,12 @@ When using line mode, if you request the image in markdown, you cannot set width
 > If the pet is not visible, please make the height of the img larger than the vertical length of the pet.
 
 <a href="https://github.com/devxb/gitanimals">
-    <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="60"/>
+    <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="120"/>
 </a>
 
 ```html
 <a href="https://github.com/devxb/gitanimals">
-  <img src="https://render.gitanimals.org/lines/{username}" width="1000" height="60"/>
+  <img src="https://render.gitanimals.org/lines/{username}" width="1000" height="120"/>
 </a>
 ```
 
