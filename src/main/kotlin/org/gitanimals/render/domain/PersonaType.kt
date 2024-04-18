@@ -937,11 +937,29 @@ enum class PersonaType(private val weight: Double) {
             }
             return "translate(${x}%, ${y}%) scaleX($scale)"
         }
-    }
+    },
+
+    TEN_MM(0.000) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return tenmmSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-2 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("tenmm", id, 15, "180s", 5)
+                .toString()
+    },
     ;
 
     init {
-        require(weight in 0.001..1.0) { "PersonaType's weight should be between 0.01 to 1.0" }
+        require(weight in 0.000..1.0) { "PersonaType's weight should be between 0.000 to 1.0" }
     }
 
     fun load(user: User, persona: Persona, mode: Mode): String =

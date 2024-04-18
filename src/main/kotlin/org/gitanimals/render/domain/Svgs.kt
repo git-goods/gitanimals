@@ -1,7 +1,6 @@
 package org.gitanimals.render.domain
 
 import org.springframework.core.io.ClassPathResource
-import org.springframework.util.ClassUtils
 import java.nio.charset.Charset
 
 val whiteFieldSvg: String = ClassPathResource("persona/field/white-field.svg")
@@ -146,6 +145,9 @@ val slimeGreenSvg: String = ClassPathResource("persona/animal/slime-green.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val flamingoSvg: String = ClassPathResource("persona/animal/flamingo.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val tenmmSvg: String = ClassPathResource("persona/animal/tenmm.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val largeTextSvgs = lazy {
