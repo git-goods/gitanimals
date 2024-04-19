@@ -1017,7 +1017,7 @@ enum class PersonaType(private val weight: Double) {
             duration: String,
             personaWidth: Long,
         ): StringBuilder {
-            var currentY = Random.nextInt(10, 90)
+            var currentY = Random.nextInt(30, 80)
             var currentX = Random.nextInt(10, 90)
             var currentAngle = (Random.nextDouble() * 10).toInt()
             var currentScale = Random.nextInt(0, 2) - 1
@@ -1037,7 +1037,7 @@ enum class PersonaType(private val weight: Double) {
                 val beforeAnimationPercentage = animationPercentage
                 animationPercentage += Random.nextInt(2, 6)
                 val nextY =
-                    Random.nextInt(max(10, min(79, currentY - speed)), min(80, currentY + speed))
+                    Random.nextInt(max(20, min(79, currentY - speed)), min(80, currentY + speed))
                 val nextX =
                     Random.nextInt(max(10, min(79, currentX - speed)), min(80, currentX + speed))
                 val nextAngle = (atan2(
