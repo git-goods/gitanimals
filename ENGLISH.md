@@ -1,5 +1,5 @@
 <div align="center">
-   <a href="/ENGLISH.md"> <b>Translate to english</b> </a>
+   <a href="/README.md"> <b>한국어로 번역하기고</b> </a>
 </div>
 <br>
 
@@ -12,19 +12,19 @@
     <img src="https://render.gitanimals.org/lines/devxb?pet-id=126" width="1000" height="120"/>
 </a>
 
-⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
+⭐️ Please press the star! It greatly helps development! ⭐️<br>
 <i><h4><a href="https://github.com/devxb/gitanimals/stargazers">Press star</a></h4></i>
 </div>
 
 <div align="center">
-<h3>깃허브 활동으로 펫을 키우세요!</h3> 
-<h4> 깃허브 활동으로 펫을 획득하고 성장시킬 수 있어요.
-<br> 커밋을 30번 하면 1개의 펫을 추가로 입양할 수 있어요.
-<br> 1개의 contribution은 랜덤한 펫의 level을 1 증가시켜요.
-<br> 키운 펫은 다른사람과 거래할 수 있어요.     
+<h3>Grow your pets through GitHub activities!</h3> 
+<h4> You can acquire and grow pets through GitHub activities.
+<br> When you commit 30 times, you can adopt an additional pet.
+<br> Each contribution increases a random pet's level by 1.
+<br> You can trade the pets with others.     
 <br>
 <br>
-40 종류가 넘는 펫을 뽑고 기르세요.
+Choose from over 40 different pets and raise them.
 </h4>
 <br>
 <a href="https://github.com/devxb/gitanimals">
@@ -32,26 +32,24 @@
 </a>
 </div>
 
-## 빠르게 사용하기
+## Getting Start
 
-아래의 링크를 깃허브 Readme 에 붙여넣기 하는것으로 쉽게 적용할 수 있어요.
+You can easily apply by copying the following link to your GitHub Readme.
 
 > [!IMPORTANT]   
-> {username} 은 자신의 깃허브 닉네임 (ex. devxb) 으로 변경해주세요.    
-> 이때, {username} 은 반드시 자신의 깃허브 이름이 들어가야 합니다.
+> Please replace {username} with your GitHub nickname (ex. devxb).    
+> {username} must be your GitHub username.
 
-### line mode
+### Line Mode
 
-line mode는 자신이 갖고있는 펫중 하나를 지정해서, 지정한 width, height범위에서 움직이게 해요.   
-line mode를 사용할때, markdown 방식으로 이미지를 요청하면, width, height를 설정할 수 없어서 펫이 보이지 않을 수 있으니, HTMl방식을
-사용해주세요.
+Line mode allows you to specify one of your pets to move within the specified width and height range.   
+When using line mode, if you request the image in markdown, you cannot set width and height, so please use HTML format instead.
 
 > [!TIP]   
-> **Img의 width와 height를 조절해서 펫의 이동영역을 조절할 수 있어요.**   
-> width를 길게 height를 작게하면 (width = 1000, height = 60) 가로로 길게 움직이게 할 수 있어요.   
-> 반대로, width를 작게 height를 길게하면 (width = 60, height = 1000) 세로로 길게 움직이게 할 수 있어요.   
-> 만약, 펫이 보이지 않는다면, img의 height를 펫의 세로 길이보다 충분히 크게 적용해주세요.
-
+> **Adjust the width and height of the Img to adjust the pet's movement area.**   
+> If you make the width long and the height short (width = 1000, height = 60), the pet will move horizontally for a long distance.   
+> Conversely, if you make the width short and the height long (width = 60, height = 1000), the pet will move vertically for a long distance.   
+> If the pet is not visible, please make the height of the img larger than the vertical length of the pet.
 
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="120"/>
@@ -61,25 +59,22 @@ line mode를 사용할때, markdown 방식으로 이미지를 요청하면, widt
 <a href="https://github.com/devxb/gitanimals">
   <img src="https://render.gitanimals.org/lines/{username}" width="1000" height="120"/>
 </a>
-```   
+```
 
-_pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요._
+If you don't enter any value for pet-id, the first pet will be responsed.
 
-변경 가능한 pet-id는 `https://render.gitanimals.org/users/{username}` 의 {username}을 자신의 깃허브 아이디로 변경 후 API를
-요청하면 확인할 수 있어요.   
-API 응답의 `$.personas.[].id` 에 해당하는 값을 pet-id에 입력하면 돼요.
+You can check the available pet-ids in https://render.gitanimals.org/users/{username} to your GitHub username and requesting the API.
+Enter the value corresponding to $.personas.[].id in the API response into pet-id.
 
-lines모드에서는 펫 레벨 위에 총 contributions수를 보여줘요. 원하지 않을경우, 쿼리 파라미터로 `contribution-view=false`를 담아 요청하세요.
+In line mode, the total number of contributions is displayed above the pet's level. If you don't want this, include contribution-view=false as a query parameter in your request.
 
-### farm mode
+### Farm Mode
 
-farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
+Farm mode shows all your animals and additional information.
 
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/farms/devxb" width="300"/>
 </a>
-
-**html**
 
 ```html
 <a href="https://github.com/devxb/gitanimals">
@@ -87,25 +82,25 @@ farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
 </a>
 ```
 
-## TIPS
+## Tips
 
-### 펫을 획득하는 방법
+### How to Acquire Pets
 
-펫은 다음 두가지 방법으로 획득할 수 있어요.
+Pets can be acquired in two ways:
 
-1. **커밋 30번하기**    
-   커밋이 30번 누적되면 새로운 펫이 등장해요. 이때, 모든 펫들은 등장하는 확률이 달라요.   
-   이때, 최대로 얻을 수 있는 펫은 30개 입니다. 30개가 넘는 펫은 인벤토리로 들어가며, 언제든지 보여지는 펫과 교체할 수 있어요. **_<- 개발중_**
-2. **펫 구매하기** **_<- 개발중_**   
-   다른 유저가 판매하는 펫을 커밋포인트로 구매할 수 있어요.    
-   커밋 1회당 일정량의 포인트가 지급됩니다. 혹은 자신의 펫을 판매해서 커밋포인트를 얻을수도 있어요.
+1. **Contributions 30 times**   
+    When you accumulate 30 commits, a new pet will appear. At this point, all pets have different probabilities of appearing.   
+    The maximum number of pets you can have is 30. If you have more than 30 pets, they will go into your inventory, and you can swap them with the pets displayed at any time. <- Under development   
+2. **Purchase Pets <- Under development**   
+You can buy pets sold by other users with commit points.   
+A certain amount of points will be given per commit. Alternatively, you can sell your own pets to earn commit points.   
 
-### Total contributions
+### Total Contributions
+Total contributions represent the sum of contributions accumulated after joining GitHub.   
+_New contributions may take up to 1 hour to be reflected._   
 
-Total contribtuions 는 깃허브에 가입 후 집계된 Contribtuions 의 총합 이에요.    
-_새로운 contribtuion은 반영은 최대 1시간이 소요될 수 있어요._
+### Available Pets
 
-### 등장 가능한 펫들
 
 | name                                                                   | ratio | Description                                                                                                                        |
 |------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -161,8 +156,6 @@ _새로운 contribtuion은 반영은 최대 1시간이 소요될 수 있어요.
 ##
 
 <div align="center">
-<p> 아이디어나 발견 한 버그가 있다면 제보 해주세요.
+<p> If you have any ideas or discover a bug, please report it.
 <i>Contact : develxb@gmail.com</i></p>
-
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
-</div>
