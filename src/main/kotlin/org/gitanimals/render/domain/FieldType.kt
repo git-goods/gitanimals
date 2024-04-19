@@ -4,7 +4,7 @@ enum class FieldType {
 
     WHITE_FIELD {
         override fun loadComponent(name: String, commit: Long): String {
-            return whiteFieldSvg.replace(NAME_FIX, name.uppercase().toSvg(0.0, 3.0))
+            return whiteFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
                 .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
         }
 
@@ -16,7 +16,7 @@ enum class FieldType {
     },
     SNOWY_FIELD {
         override fun loadComponent(name: String, commit: Long): String {
-            return snowyFieldSvg.replace(NAME_FIX, name.uppercase().toSvg(0.0, 3.0))
+            return snowyFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
                 .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
         }
 
