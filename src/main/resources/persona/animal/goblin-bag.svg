@@ -1,0 +1,153 @@
+<style>
+  *{act}
+
+  @keyframes goblin-*{id}-head-move {
+  0% {
+  transform: translate(0px, -6px);
+  }
+  50% {
+  transform: translate(0px, -5px);
+  }
+  100% {
+  transform: translate(0px, -6px);
+  }
+  }
+
+  @keyframes goblin-*{id}-leg-1-move {
+  0% {
+  transform: translate(1px, 5px);
+  }
+  50% {
+  transform: translate(1px, 4.5px);
+  }
+  100% {
+  transform: translate(1px, 5px);
+  }
+  }
+
+  @keyframes goblin-*{id}-leg-2-move {
+  0% {
+  transform: translate(4px, 4.5px);
+  }
+  50% {
+  transform: translate(4px, 5px);
+  }
+  100% {
+  transform: translate(4px, 4.5px);
+  }
+  }
+
+  #goblin-bag-*{id}-head {
+  animation-name:goblin-*{id}-head-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #goblin-bag-*{id}-leg-1 {
+  animation-name:goblin-*{id}-leg-1-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #goblin-bag-*{id}-leg-2 {
+  animation-name:goblin-*{id}-leg-2-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+</style>
+<g id="goblin-bag-*{id}" transform="translate(100, 100)">
+<g id="contributions" transform="translate(-20.5, -51)"
+  style="display:*{contribution-display};">
+  <path
+    d="M1 2.75H4V3.5H4.75V4.25H3.25V3.5H1.75V7.25H3.25V6.5H4.75V7.25H4V8H1V7.25H0.25V3.5H1V2.75ZM7 2.75H10V3.5H10.75V7.25H10V8H7V7.25H6.25V3.5H7V2.75ZM9.25 7.25V3.5H7.75V7.25H9.25ZM16 3.5H16.75V8H15.25V3.5H13.75V8H12.25V2.75H16V3.5ZM19 1.25H20.5V2.75H22.75V3.5H20.5V7.25H22.75V8H19.75V7.25H19V3.5H18.25V2.75H19V1.25ZM24.25 2.75H25.75V4.25H26.5V5H25.75V8H24.25V2.75ZM28.75 2.75V4.25H26.5V3.5H27.25V2.75H28.75ZM33.25 2H31.75V0.5H33.25V2ZM33.25 7.25H34.75V8H30.25V7.25H31.75V3.5H30.25V2.75H33.25V7.25ZM40 3.5H40.75V7.25H40V8H36.25V1.25H37.75V2.75H40V3.5ZM39.25 7.25V3.5H37.75V7.25H39.25ZM45.25 2.75H46.75V8H43V7.25H42.25V2.75H43.75V7.25H45.25V2.75ZM49 1.25H50.5V2.75H52.75V3.5H50.5V7.25H52.75V8H49.75V7.25H49V3.5H48.25V2.75H49V1.25ZM57.25 2H55.75V0.5H57.25V2ZM57.25 7.25H58.75V8H54.25V7.25H55.75V3.5H54.25V2.75H57.25V7.25ZM61 2.75H64V3.5H64.75V7.25H64V8H61V7.25H60.25V3.5H61V2.75ZM63.25 7.25V3.5H61.75V7.25H63.25ZM70 3.5H70.75V8H69.25V3.5H67.75V8H66.25V2.75H70V3.5ZM73 5H72.25V3.5H73V2.75H76.75V3.5H73.75V5H76V5.75H76.75V7.25H76V8H72.25V7.25H75.25V5.75H73V5Z"
+    fill="black"/>
+  <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
+    xmlns="http://www.w3.org/2000/svg">
+    <g id="contribution" transform="translate(*{contributionx}, 3.5)">
+      *{contribution}
+    </g>
+  </svg>
+</g>
+<svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+  <g id="level" transform="translate(*{levelx}, -10)">
+    <rect x="10" width="0.6" height="1.8" fill="black"/>
+    <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
+    <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
+    <rect x="11.2" y="0.600002" width="0.6" height="0.6" fill="black"/>
+    <rect x="12.4" y="0.600002" width="0.6" height="0.6" fill="black"/>
+    *{level}
+  </g>
+
+  <g id="shadow" transform="translate(0, 8)">
+    <rect y="0.5" width="7" height="1" fill="#2B4447" fill-opacity="0.1"/>
+    <rect x="0.53846" y="0.25" width="5.92308" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+    <rect x="0.53846" y="1.5" width="5.92308" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+    <rect x="1.07693" width="4.84615" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+    <rect x="1.07693" y="1.75" width="4.84615" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+  </g>
+
+  <g id="goblin-bag" transform="translate(-8, -2)">
+    <rect x="3" y="1" width="7" height="6" fill="#855319"/>
+    <rect x="7" y="8" width="1" height="1" fill="#855319"/>
+    <rect x="4" width="4" height="9" fill="#855319"/>
+    <rect x="2" y="1" width="2" height="8" fill="#855319"/>
+    <rect x="1" y="2" width="1" height="3" fill="#855319"/>
+    <rect y="3" width="7" height="3" fill="#855319"/>
+    <rect x="1" y="4" width="1" height="4" fill="#855319"/>
+    <rect x="2" y="8" width="1" height="1" fill="#855319"/>
+    <rect x="3" y="6" width="4" height="4" fill="#855319"/>
+    <rect x="2" y="8" width="1" height="1" fill="black" fill-opacity="0.2"/>
+    <rect x="3" y="9" width="4" height="1" fill="black" fill-opacity="0.2"/>
+    <rect x="7" y="8" width="1" height="1" fill="black" fill-opacity="0.2"/>
+    <rect y="5" width="1" height="1" fill="black" fill-opacity="0.2"/>
+    <rect x="1" y="6" width="1" height="2" fill="black" fill-opacity="0.2"/>
+  </g>
+
+  <g id="goblin-bag-*{id}-leg-1" transform="translate(1, 5)">
+    <rect width="2" height="4" fill="#6DB33F"/>
+  </g>
+
+  <g id="goblin-bag-*{id}-leg-2" transform="translate(4, 5)">
+    <rect width="2" height="4" fill="#6DB33F"/>
+  </g>
+
+  <g id="goblin-bag-body" transform="translate(0, -2)">
+    <rect x="4" y="1" width="1" height="1" fill="#6DB33F"/>
+    <rect x="2" y="8" width="4" height="1" fill="#6DB33F"/>
+    <rect x="1" y="2" width="5" height="3" fill="#6DB33F"/>
+    <rect x="2" width="3" height="5" fill="#6DB33F"/>
+    <rect y="3" width="7" height="4" fill="#6DB33F"/>
+    <rect x="1" y="4" width="6" height="4" fill="#6DB33F"/>
+    <rect x="1" y="6" width="1" height="2" fill="#5EA033"/>
+    <rect y="5" width="1" height="2" fill="#5EA033"/>
+    <rect x="2" y="8" width="1" height="1" fill="#5EA033"/>
+    <rect x="3" y="8" width="3" height="1" fill="#5EA033"/>
+    <rect width="1" height="1" transform="matrix(-1 0 0 1 6 6)" fill="black"
+      fill-opacity="0.1"/>
+  </g>
+
+  <g id="goblin-bag-*{id}-head" transform="translate(0, -6)">
+    <rect x="3" y="1" width="5" height="6" fill="#6DB33F"/>
+    <rect x="4" y="4" width="3" height="4" fill="#6DB33F"/>
+    <rect x="2" y="2" width="1" height="4" fill="#6DB33F"/>
+    <rect x="3" width="4" height="5" fill="#6DB33F"/>
+    <rect x="2" y="4" width="1" height="2" fill="black" fill-opacity="0.1"/>
+    <rect x="3" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+    <rect x="4" y="7" width="3" height="1" fill="black" fill-opacity="0.1"/>
+    <rect x="2" y="1" width="1" height="3" fill="#6DB33F"/>
+    <rect x="1" y="2" width="1" height="2" fill="#6DB33F"/>
+    <rect y="2" width="1" height="1" fill="#6DB33F"/>
+    <rect x="1" y="3" width="1" height="1" fill="black" fill-opacity="0.1"/>
+    <rect x="6" y="4" width="3" height="1" fill="#6DB33F"/>
+    <rect x="3" y="2" width="2" height="2" fill="white"/>
+    <rect x="4" y="3" width="1" height="1" fill="black"/>
+    <rect x="6" y="2" width="2" height="2" fill="white"/>
+    <rect x="7" y="3" width="1" height="1" fill="black"/>
+    <rect x="7" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+    <rect x="5" y="5" width="2" height="0.5" fill="black"/>
+  </g>
+</svg>
+</g>
