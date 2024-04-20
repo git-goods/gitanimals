@@ -3,37 +3,37 @@
 
   @keyframes bbibbi-*{id}-body-move {
   0% {
-  transform: translate(0px, 0px);
+  transform: translate(0px, -10px);
   }
   50% {
-  transform: translate(0.4px, 0px);
+  transform: translate(0.4px, -10px);
   }
   100% {
-  transform: translate(0px, 0px);
+  transform: translate(0px, -10px);
   }
   }
 
   @keyframes bbibbi-*{id}-leg-move-1 {
   0% {
-  transform: translate(5px, 15px);
+  transform: translate(5px, 5px);
   }
   50% {
-  transform: translate(5px, 14px) rotate(10deg);
+  transform: translate(5px, 4px) rotate(10deg);
   }
   100% {
-  transform: translate(5px, 15px);
+  transform: translate(5px, 5px);
   }
   }
 
   @keyframes bbibbi-*{id}-leg-move-2 {
   0% {
-  transform: translate(10px, 15px);
+  transform: translate(10px, 5px);
   }
   50% {
-  transform: translate(10px, 15px) rotate(-10deg);
+  transform: translate(10px, 5px) rotate(-10deg);
   }
   100% {
-  transform: translate(10px, 15px);
+  transform: translate(10px, 5px);
   }
   }
 
@@ -59,7 +59,7 @@
   }
 </style>
 <g id="bbibbi-*{id}" transform="translate(100, 100)">
-<g id="contributions" transform="translate(-7, -31)"
+<g id="contributions" transform="translate(-7, -61)"
   style="display:*{contribution-display};">
   <path
     d="M1 2.75H4V3.5H4.75V4.25H3.25V3.5H1.75V7.25H3.25V6.5H4.75V7.25H4V8H1V7.25H0.25V3.5H1V2.75ZM7 2.75H10V3.5H10.75V7.25H10V8H7V7.25H6.25V3.5H7V2.75ZM9.25 7.25V3.5H7.75V7.25H9.25ZM16 3.5H16.75V8H15.25V3.5H13.75V8H12.25V2.75H16V3.5ZM19 1.25H20.5V2.75H22.75V3.5H20.5V7.25H22.75V8H19.75V7.25H19V3.5H18.25V2.75H19V1.25ZM24.25 2.75H25.75V4.25H26.5V5H25.75V8H24.25V2.75ZM28.75 2.75V4.25H26.5V3.5H27.25V2.75H28.75ZM33.25 2H31.75V0.5H33.25V2ZM33.25 7.25H34.75V8H30.25V7.25H31.75V3.5H30.25V2.75H33.25V7.25ZM40 3.5H40.75V7.25H40V8H36.25V1.25H37.75V2.75H40V3.5ZM39.25 7.25V3.5H37.75V7.25H39.25ZM45.25 2.75H46.75V8H43V7.25H42.25V2.75H43.75V7.25H45.25V2.75ZM49 1.25H50.5V2.75H52.75V3.5H50.5V7.25H52.75V8H49.75V7.25H49V3.5H48.25V2.75H49V1.25ZM57.25 2H55.75V0.5H57.25V2ZM57.25 7.25H58.75V8H54.25V7.25H55.75V3.5H54.25V2.75H57.25V7.25ZM61 2.75H64V3.5H64.75V7.25H64V8H61V7.25H60.25V3.5H61V2.75ZM63.25 7.25V3.5H61.75V7.25H63.25ZM70 3.5H70.75V8H69.25V3.5H67.75V8H66.25V2.75H70V3.5ZM73 5H72.25V3.5H73V2.75H76.75V3.5H73.75V5H76V5.75H76.75V7.25H76V8H72.25V7.25H75.25V5.75H73V5Z"
@@ -72,7 +72,7 @@
   </svg>
 </g>
 <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
-  <g id="level" transform="translate(*{levelx}, -3)">
+  <g id="level" transform="translate(*{levelx}, -13)">
     <rect x="10" width="0.6" height="1.8" fill="black"/>
     <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
     <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
@@ -81,7 +81,7 @@
     *{level}
   </g>
 
-  <g id="bbibbi-*{id}-shadow" transform="translate(1, 19)">
+  <g id="bbibbi-*{id}-shadow" transform="translate(1, 9)">
     <rect y="0.5" width="18" height="1" fill="#2B4447" fill-opacity="0.1"/>
     <rect x="1.38461" y="0.25" width="15.2308" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
     <rect x="1.38461" y="1.5" width="15.2308" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
@@ -89,7 +89,7 @@
     <rect x="2.76923" y="1.75" width="12.4615" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
   </g>
 
-  <g id="bbibbi-*{id}-leg-1" transform="translate(5, 15)">
+  <g id="bbibbi-*{id}-leg-1" transform="translate(5, 5)">
     <rect x="3" width="1" height="3" fill="#242427"/>
     <rect width="1" height="4" fill="#242427"/>
     <rect width="2" height="3" transform="matrix(-1 0 0 1 3 1)" fill="#F5F378"/>
@@ -98,7 +98,7 @@
     <rect x="1" y="4" width="3" height="1" fill="#242427"/>
   </g>
 
-  <g id="bbibbi-*{id}-leg-2" transform="translate(10, 15)">
+  <g id="bbibbi-*{id}-leg-2" transform="translate(10, 5)">
     <rect x="3" width="1" height="3" fill="#242427"/>
     <rect width="1" height="4" fill="#242427"/>
     <rect width="2" height="3" transform="matrix(-1 0 0 1 3 1)" fill="#F5F378"/>
@@ -107,7 +107,7 @@
     <rect x="1" y="4" width="3" height="1" fill="#242427"/>
   </g>
 
-  <g id="bbibbi-*{id}-body">
+  <g id="bbibbi-*{id}-body" transform="translateY(-10)">
     <rect width="10" height="7" transform="matrix(-1 0 0 1 15 2)" fill="#242427"/>
     <rect width="12" height="12" transform="matrix(-1 0 0 1 16 1)" fill="#242427"/>
     <rect width="8" height="13" transform="matrix(-1 0 0 1 14 0)" fill="#242427"/>
@@ -251,7 +251,7 @@
     <rect width="0.857143" height="0.428571" transform="matrix(1 0 0 -1 12.7143 10.1429)" fill="#F5F378"/>
   </g>
 
-  <g id="notebook" transform="translate(12, 7)">
+  <g id="notebook" transform="translate(12, -3)">
     <rect width="7" height="5" transform="matrix(-1 0 0 1 10 0)" fill="#E4E4E4"/>
     <rect width="9" height="5" transform="matrix(-1 0 0 1 11 1)" fill="#E4E4E4"/>
     <rect width="9" height="2" transform="matrix(-1 0 0 1 10 4)" fill="#E4E4E4"/>
