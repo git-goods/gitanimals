@@ -156,7 +156,8 @@ _새로운 contribtuion은 반영은 최대 1시간이 소요될 수 있어요.
 | slime_green                                                            | 0.1   |                                                                                                                                    |
 | slime_blue                                                             | 0.1   |                                                                                                                                    |
 | flamingo <br> <img src="docs/flamingo.svg" width="50px" height="110"/> | 0.08  |                                                                                                                                    |
-| TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px">      | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a> |
+| TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px"/>     | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a> |
+| goblin <br> <img src="docs/goblin.svg" width="80px" height="80px"/>     | 0.06  |                                                                                                                                    |
 
 ##
 
