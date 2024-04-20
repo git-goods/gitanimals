@@ -992,6 +992,24 @@ enum class PersonaType(private val weight: Double) {
             StringBuilder().moveRandomly("goblin-bag", id, 15, "180s", 5)
                 .toString()
     },
+
+    BBIBBI(0.000) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            check(persona.id != null) { "Save persona first before call load()" }
+
+            return bbibbiSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1.5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("bbibbi", id, 15, "180s", 5)
+                .toString()
+    }
     ;
 
     init {

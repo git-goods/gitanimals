@@ -164,6 +164,7 @@ _New contributions may take up to 1 hour to be reflected._
 | TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px">            | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a> |
 | goblin <br> <img src="docs/goblin.svg" width="80px" height="80px"/>          | 0.06  |                                                                                                                                    |
 | goblin-bag <br> <img src="docs/goblin-bag.svg" width="100px" height="80px"/> | 0.03  |                                                                                                                                    |
+| bbibbi <br> <img src="docs/bbibbi.svg" width="80px" height="100px"/>         | 0.00  | Character created by `BBIBBI` donations <br> Only buy in shop <br> <a href="https://play.google.com/store/apps/details?id=com.no5ing.bbibbi&hl=es_PY&gl=US&pli=1"> BBIBBI </a> |
 
 ##
 
