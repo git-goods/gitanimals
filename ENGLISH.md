@@ -1,5 +1,5 @@
 <div align="center">
-   <a href="/README.md"> <b>한국어로 번역하기고</b> </a>
+   <a href="/README.md"> <b>한국어로 번역하기</b> </a>
 </div>
 <br>
 
@@ -9,7 +9,7 @@
 
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=126" width="1000" height="120"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=9" width="1000" height="120"/>
 </a>
 
 ⭐️ Please press the star! It greatly helps development! ⭐️<br>
@@ -152,6 +152,7 @@ _New contributions may take up to 1 hour to be reflected._
 | slime_blue                                                             | 0.1   |                                                                                                                                    |
 | flamingo <br> <img src="docs/flamingo.svg" width="50px" height="110"/> | 0.08  |                                                                                                                                    |
 | TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px">      | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a> |
+| goblin <br> <img src="docs/goblin.svg" width="80px" height="80px"/>     | 0.06  |                                                                                                                                    |
 
 ##
 
