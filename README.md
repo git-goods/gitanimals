@@ -103,7 +103,7 @@ farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
 ### Total contributions
 
 Total contribtuions 는 깃허브에 가입 후 집계된 Contribtuions 의 총합 이에요.    
-_새로운 contribtuion은 반영은 최대 1시간이 소요될 수 있어요._
+_새로운 contribution은 반영은 최대 1시간이 소요될 수 있어요._
 
 ### 등장 가능한 펫들
 
