@@ -62,6 +62,19 @@ class User(
         )
     }
 
+    fun changePersonaVisible(personaId: Long, visible: Boolean) {
+        val persona = personas.find { it.id == personaId }
+            ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
+
+        val visiblePersonas = personas.filter { it.visible }
+
+        require(visiblePersonas.size < MAX_PERSONA_COUNT) {
+            "Persona count must be under \"$MAX_PERSONA_COUNT\" but, current persona count is \"${visiblePersonas.size}\""
+        }
+
+        persona.visible = visible
+    }
+
     fun updateContribution(contribution: Int) {
         val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
         val currentYearContribution =
@@ -98,22 +111,37 @@ class User(
         }
         lastPersonaGivePoint %= FOR_NEW_PERSONA_COUNT.toInt()
 
-        val newPersona = when (personas.size >= MAX_PERSONA_COUNT) {
-            true -> Persona(
-                type = PersonaType.random(),
-                level = Level(0),
-                visible = false,
-                user = this
-            )
-
-            false -> Persona(
-                type = PersonaType.random(),
-                level = Level(0),
-                visible = true,
-                user = this
-            )
-        }
+        val newPersona = getRandomPersona()
         personas.add(newPersona)
+    }
+
+    fun giveBonusPersona(persona: String) {
+        val personaType = PersonaType.valueOf(persona.uppercase())
+
+        require(bonusPersonas.contains(personaType)) {
+            "Cannot select as a bonus persona."
+        }
+
+        val persona = getPersona(personaType)
+        personas.add(persona)
+    }
+
+    private fun getRandomPersona() = getPersona(PersonaType.random())
+
+    private fun getPersona(personaType: PersonaType) = when (personas.size >= MAX_PERSONA_COUNT) {
+        true -> Persona(
+            type = personaType,
+            level = Level(0),
+            visible = false,
+            user = this
+        )
+
+        false -> Persona(
+            type = personaType,
+            level = Level(0),
+            visible = true,
+            user = this
+        )
     }
 
     fun increaseVisitCount() {
@@ -158,58 +186,8 @@ class User(
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
 
     private fun StringBuilder.closeSvg(): String = this
-        .blackBlureOnContributions()
-        .blackBlurOnLevel()
         .append("</svg>")
         .toString()
-
-    private fun StringBuilder.blackBlureOnContributions(): StringBuilder =
-        this.append(
-            """
-                <style>
-                    #contributions {
-                        filter: url(#contribution_blur)
-                    }
-                </style>
-                
-                <defs>
-                    <filter id="contribution_blur" x="-100" y="-100" width="200" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                        <feOffset/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feComposite in2="hardAlpha" operator="out"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_216_87060"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_216_87060" result="shape"/>
-                    </filter>
-            </defs>
-            """.trimIndent()
-        )
-
-    private fun StringBuilder.blackBlurOnLevel(): StringBuilder =
-        this.append(
-            """
-                    <style>
-                        #level {
-                            filter: url(#level_shadow)
-                        }
-                    </style>
-                    
-                    <defs>
-                        <filter id="level_shadow" x="-200" y="-200" width="400" height="400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset/>
-                            <feGaussianBlur stdDeviation="0.5"/>
-                            <feComposite in2="hardAlpha" operator="out"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_138_125"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_138_125" result="shape"/>
-                        </filter>
-                    </defs>
-            """.trimIndent()
-        )
 
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
@@ -218,6 +196,11 @@ class User(
         private const val FOR_INIT_PERSONA_COUNT = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
+        private val bonusPersonas = listOf(
+            PersonaType.PENGUIN, PersonaType.GOOSE, PersonaType.LITTLE_CHICK,
+            PersonaType.SLIME_RED, PersonaType.SLIME_BLUE, PersonaType.SLIME_GREEN,
+            PersonaType.PIG,
+        )
 
         fun newUser(name: String, contributions: Map<Int, Int>): User {
             require(!nameConvention.containsMatchIn(name)) {
