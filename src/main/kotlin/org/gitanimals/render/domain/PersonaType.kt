@@ -1037,8 +1037,13 @@ enum class PersonaType(private val weight: Double) {
                     "*{contribution}",
                     user.contributionCount().toSvg(0.0, 2.0)
                 ).replace("*{contribution-display}", "default")
+                .replace("*{level-tag-display}", "default")
+        } else if (mode == Mode.LINE_NO_CONTRIBUTION) {
+            this.replace("*{contribution-display}", "none")
+                .replace("*{level-tag-display}", "default")
         } else {
             this.replace("*{contribution-display}", "none")
+                .replace("*{level-tag-display}", "none")
         }
     }
 
