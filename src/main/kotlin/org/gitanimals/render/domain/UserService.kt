@@ -1,5 +1,6 @@
 package org.gitanimals.render.domain
 
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional(readOnly = true)
 class UserService(
     private val userRepository: UserRepository,
+    private val idempotencyRepository: IdempotencyRepository,
 ) {
 
     fun existsByName(name: String): Boolean = userRepository.existsByName(name)
@@ -44,4 +46,19 @@ class UserService(
     @Transactional
     fun createNewUser(name: String, contributions: Map<Int, Int>): User =
         userRepository.save(User.newUser(name, contributions))
+
+    @Transactional
+    fun giveBonusPersona(id: Long, persona: String) {
+        val idempotencyId = "$id:bonus"
+        val idempotency = idempotencyRepository.findByIdOrNull(idempotencyId)
+
+        require(idempotency == null) { "Got bonus pet already." }
+
+        val user = userRepository.findByIdOrNull(id)
+            ?: throw IllegalArgumentException("Cannot find exists user by id \"$id\"")
+
+        user.giveBonusPersona(persona)
+
+        idempotencyRepository.save(Idempotency(idempotencyId))
+    }
 }

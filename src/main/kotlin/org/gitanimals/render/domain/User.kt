@@ -98,22 +98,37 @@ class User(
         }
         lastPersonaGivePoint %= FOR_NEW_PERSONA_COUNT.toInt()
 
-        val newPersona = when (personas.size >= MAX_PERSONA_COUNT) {
-            true -> Persona(
-                type = PersonaType.random(),
-                level = Level(0),
-                visible = false,
-                user = this
-            )
-
-            false -> Persona(
-                type = PersonaType.random(),
-                level = Level(0),
-                visible = true,
-                user = this
-            )
-        }
+        val newPersona = getRandomPersona()
         personas.add(newPersona)
+    }
+
+    fun giveBonusPersona(persona: String) {
+        val personaType = PersonaType.valueOf(persona.uppercase())
+
+        require(bonusPersonas.contains(personaType)) {
+            "Cannot select as a bonus persona."
+        }
+
+        val persona = getPersona(personaType)
+        personas.add(persona)
+    }
+
+    private fun getRandomPersona() = getPersona(PersonaType.random())
+
+    private fun getPersona(personaType: PersonaType) = when (personas.size >= MAX_PERSONA_COUNT) {
+        true -> Persona(
+            type = personaType,
+            level = Level(0),
+            visible = false,
+            user = this
+        )
+
+        false -> Persona(
+            type = personaType,
+            level = Level(0),
+            visible = true,
+            user = this
+        )
     }
 
     fun increaseVisitCount() {
@@ -218,6 +233,11 @@ class User(
         private const val FOR_INIT_PERSONA_COUNT = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
+        private val bonusPersonas = listOf(
+            PersonaType.PENGUIN, PersonaType.GOOSE, PersonaType.LITTLE_CHICK,
+            PersonaType.SLIME_RED, PersonaType.SLIME_BLUE, PersonaType.SLIME_GREEN,
+            PersonaType.PIG,
+        )
 
         fun newUser(name: String, contributions: Map<Int, Int>): User {
             require(!nameConvention.containsMatchIn(name)) {
