@@ -20,7 +20,7 @@ class Persona(
     val level: Level,
 
     @Column(name = "visible", nullable = false)
-    val visible: Boolean,
+    var visible: Boolean,
 
     @JsonIgnore
     @JoinColumn(name = "user_id")

@@ -1,5 +1,6 @@
 package org.gitanimals.render.domain
 
+import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
@@ -54,11 +55,23 @@ class UserService(
 
         require(idempotency == null) { "Got bonus pet already." }
 
-        val user = userRepository.findByIdOrNull(id)
-            ?: throw IllegalArgumentException("Cannot find exists user by id \"$id\"")
+        val user = getUserById(id)
 
         user.giveBonusPersona(persona)
 
         idempotencyRepository.save(Idempotency(idempotencyId))
     }
+
+    @Transactional
+    fun changePersona(id: Long, personChangeRequest: PersonaChangeRequest) {
+        val user = getUserById(id)
+
+        user.changePersonaVisible(
+            personChangeRequest.personaId.toLong(),
+            personChangeRequest.visible
+        )
+    }
+
+    private fun getUserById(id: Long) = (userRepository.findByIdOrNull(id)
+        ?: throw IllegalArgumentException("Cannot find exists user by id \"$id\""))
 }
