@@ -24,15 +24,6 @@
 
   <g id="flamingo-1" style="transform:translate(0%, 0%) scaleX(1);">
     <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
-      <g id="level" transform="translate(-1, 1)">
-        <rect x="10" width="0.6" height="1.8" fill="black"/>
-        <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
-        <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
-        <rect x="11.2" y="0.600002" width="0.6" height="0.6" fill="black"/>
-        <rect x="12.4" y="0.600002" width="0.6" height="0.6" fill="black"/>
-        <g id="level0" transform="translate(14.0, -1)"><path d="M1 0.75H1.5V3H1V1.5H0.25V1.25H0.75V1H1V0.75Z" fill="black"/>
-        </g>
-      </g>
       <g id="shadow" transform="translate(0, 26)">
         <rect y="2" width="13" height="4" fill="#2B4447" fill-opacity="0.1"/>
         <rect x="1" y="1" width="11" height="1" fill="#2B4447" fill-opacity="0.1"/>

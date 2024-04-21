@@ -1,5 +1,6 @@
-package org.gitanimals.render.app
+package org.gitanimals.render.saga
 
+import org.gitanimals.render.app.ContributionApi
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.*
@@ -8,7 +9,7 @@ import java.time.ZoneId
 import java.time.ZonedDateTime
 
 @SagaHandler
-class SagaHandlers(
+class VisitedSagaHandlers(
     private val userService: UserService,
     private val contributionApi: ContributionApi,
 ) {
