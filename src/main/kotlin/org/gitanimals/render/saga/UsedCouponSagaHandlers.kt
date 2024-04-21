@@ -14,6 +14,9 @@ class UsedCouponSagaHandlers(
     @SagaCommitListener(event = CouponUsed::class)
     fun handleCouponUsedCommitEvent(sagaCommitEvent: SagaCommitEvent) {
         val couponUsed = sagaCommitEvent.decodeEvent(CouponUsed::class)
+        if (couponUsed.code != "NEW_USER_BONUS_PET") {
+            return
+        }
         sagaCommitEvent.setNextEvent(couponUsed)
 
         userService.giveBonusPersona(couponUsed.userId, couponUsed.dynamic)
