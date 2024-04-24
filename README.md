@@ -9,7 +9,7 @@
 
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=5" width="1000" height="120"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=10" width="1000" height="120"/>
 </a>
 
 ⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
