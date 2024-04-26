@@ -9,7 +9,7 @@
 
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=10" width="1000" height="120"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=17" width="1000" height="150"/>
 </a>
 
 ⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
@@ -109,9 +109,17 @@ _새로운 contribution은 반영은 최대 1시간이 소요될 수 있어요._
 
 | name                                                                         | ratio | Description                                                                                                                                                                  |
 |------------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| flamingo <br> <img src="docs/flamingo.svg" width="50px" height="110"/>       | 0.08  |                                                                                                                                                                              |
+| TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px"/>           | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a>                                           |
+| goblin <br> <img src="docs/goblin.svg" width="80px" height="80px"/>          | 0.06  |                                                                                                                                                                              |
+| goblin-bag <br> <img src="docs/goblin-bag.svg" width="100px" height="80px"/> | 0.03  |                                                                                                                                                                              |
+| bibbi <br> <img src="docs/bbibbi.svg" width="80px" height="100px"/>          | 0.00  | Character created by `BIBBI` donations <br> Only buy in shop <br> <a href="https://play.google.com/store/apps/details?id=com.no5ing.bbibbi&hl=es_PY&gl=US&pli=1"> BIBBI </a> |
+| cat <br> <img src="docs/cat.svg" width="50px" height="70px"/>                | 0.1   |                                                                                                                                                                              |
+| cheese-cat <br> <img src="docs/cheese-cat.svg" width="50px" height="70px"/>  | 0.04  |                                                                                                                                                                              |
+| galchi-cat <br> <img src="docs/galchi-cat.svg" width="50px" height="70px"/>  | 0.06  |                                                                                                                                                                              |
+| white-cat <br> <img src="docs/white-cat.svg" width="50px" height="70px"/>    | 0.04  |                                                                                                                                                                              |
 | goose                                                                        | 1.0   |                                                                                                                                                                              |
 | goose_sunglasses                                                             | 0.05  |                                                                                                                                                                              |
-|                                                                              |       |                                                                                                                                                                              |
 | goose_kotlin                                                                 | 0.01  |                                                                                                                                                                              |
 | goose_java                                                                   | 0.01  |                                                                                                                                                                              |
 | goose_js                                                                     | 0.01  |                                                                                                                                                                              |
@@ -155,13 +163,6 @@ _새로운 contribution은 반영은 최대 1시간이 소요될 수 있어요._
 | slime_red_linux                                                              | 0.001 |                                                                                                                                                                              |
 | slime_green                                                                  | 0.1   |                                                                                                                                                                              |
 | slime_blue                                                                   | 0.1   |                                                                                                                                                                              |
-| flamingo <br> <img src="docs/flamingo.svg" width="50px" height="110"/>       | 0.08  |                                                                                                                                                                              |
-| TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px"/>           | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a>                                           |
-| goblin <br> <img src="docs/goblin.svg" width="80px" height="80px"/>          | 0.06  |                                                                                                                                                                              |
-| goblin-bag <br> <img src="docs/goblin-bag.svg" width="100px" height="80px"/> | 0.03  |                                                                                                                                                                              |
-| bibbi <br> <img src="docs/bbibbi.svg" width="80px" height="100px"/>          | 0.00  | Character created by `BIBBI` donations <br> Only buy in shop <br> <a href="https://play.google.com/store/apps/details?id=com.no5ing.bbibbi&hl=es_PY&gl=US&pli=1"> BIBBI </a> |
-| cat <br> <img src="docs/cat.svg" width="50px" height="70px"/>                | 0.1   |                                                                                                                                                                              |
-| cheese-cat <br> <img src="docs/cheese-cat.svg" width="50px" height="70px"/>  | 0.08  |                                                                                                                                                                              |
 
 ##
 
