@@ -1011,7 +1011,7 @@ enum class PersonaType(private val weight: Double) {
                 .toString()
     },
 
-    CAT(0.2) {
+    CAT(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             check(persona.id != null) { "Save persona first before call load()" }
 
