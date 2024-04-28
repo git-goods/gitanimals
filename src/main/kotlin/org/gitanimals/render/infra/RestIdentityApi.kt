@@ -15,8 +15,11 @@ class RestIdentityApi : IdentityApi {
             .uri("/users")
             .header(HttpHeaders.AUTHORIZATION, token)
             .exchange { _, response ->
-                response.bodyTo(IdentityApi.UserResponse::class.java)
-                    ?: throw IllegalArgumentException("Unauthorized user")
+                runCatching {
+                    response.bodyTo(IdentityApi.UserResponse::class.java)
+                }.getOrElse {
+                    throw IllegalArgumentException("Unauthorized user")
+                }
             }
     }
 }
