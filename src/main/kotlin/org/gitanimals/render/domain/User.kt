@@ -3,8 +3,9 @@ package org.gitanimals.render.domain
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import org.gitanimals.render.core.AggregateRoot
+import org.gitanimals.render.core.IdGenerator
+import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
-import org.gitanimals.render.domain.value.Level
 import org.hibernate.annotations.BatchSize
 import java.time.Instant
 import java.time.ZoneId
@@ -19,13 +20,17 @@ import kotlin.math.min
 class User(
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val id: Long,
 
     @Column(name = "name", unique = true, nullable = false)
     val name: String,
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @OneToMany(
+        mappedBy = "user",
+        fetch = FetchType.EAGER,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true
+    )
     val personas: MutableList<Persona> = mutableListOf(),
 
     @BatchSize(size = 20)
@@ -46,9 +51,25 @@ class User(
     @Column(name = "version", nullable = false)
     val version: Long,
 ) : AbstractTime() {
-
     init {
         personas.forEach { it.user = this }
+    }
+
+    fun addPersona(personaType: PersonaType): PersonaResponse {
+        val persona = Persona(personaType, 0L, personas.size < 30, this)
+
+        this.personas.add(persona)
+
+        return PersonaResponse.from(persona)
+    }
+
+    fun deletePersona(personaId: Long): PersonaResponse {
+        val persona = this.personas.find { it.id == personaId }
+            ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
+
+        this.personas.remove(persona)
+
+        return PersonaResponse.from(persona)
     }
 
     @JsonIgnore
@@ -122,25 +143,17 @@ class User(
             "Cannot select as a bonus persona."
         }
 
-        val persona = getPersona(personaType)
-        personas.add(persona)
+        personas.add(getPersona(personaType))
     }
 
     private fun getRandomPersona() = getPersona(PersonaType.random())
 
-    private fun getPersona(personaType: PersonaType) = when (personas.size >= MAX_PERSONA_COUNT) {
-        true -> Persona(
+    private fun getPersona(personaType: PersonaType): Persona {
+        return Persona(
             type = personaType,
-            level = Level(0),
-            visible = false,
-            user = this
-        )
-
-        false -> Persona(
-            type = personaType,
-            level = Level(0),
-            visible = true,
-            user = this
+            level = 0,
+            visible = personas.size < MAX_PERSONA_COUNT,
+            user = this,
         )
     }
 
@@ -208,6 +221,7 @@ class User(
             }
 
             return User(
+                id = IdGenerator.generate(),
                 name = name,
                 personas = createPersonas(contributions),
                 field = FieldType.WHITE_FIELD,
