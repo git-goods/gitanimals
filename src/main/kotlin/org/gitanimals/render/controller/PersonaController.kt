@@ -2,6 +2,7 @@ package org.gitanimals.render.controller
 
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddPersonaRequest
+import org.gitanimals.render.controller.response.ErrorResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
 import org.gitanimals.render.domain.UserService
@@ -48,4 +49,8 @@ class PersonaController(
 
         return PersonaResponse(persona.id, persona.type, persona.level)
     }
+
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
+        ErrorResponse.from(exception)
 }

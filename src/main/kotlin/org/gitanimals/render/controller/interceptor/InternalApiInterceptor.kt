@@ -13,8 +13,7 @@ class InternalApiInterceptor(
         response: HttpServletResponse,
         handler: Any,
     ): Boolean {
-        val ip = extractIp(request)
-        return whiteIps.contains(ip)
+        return whiteIps.contains(extractIp(request))
     }
 
     private fun extractIp(request: HttpServletRequest): String {
@@ -24,15 +23,15 @@ class InternalApiInterceptor(
             "X-Real-IP", "X-RealIP", "REMOTE_ADDR"
         )
 
-        var ip: String = request.getHeader("X-Forwarded-For")
+        var ip: String? = request.getHeader("X-Forwarded-For")
 
         for (header in headers) {
-            if (ip.isEmpty() || "unknown".equals(ip, ignoreCase = true)) {
+            if (ip.isNullOrEmpty() || "unknown".equals(ip, ignoreCase = true)) {
                 ip = request.getHeader(header)
             }
         }
 
-        if (ip.isEmpty() || "unknown".equals(ip, ignoreCase = true)) {
+        if (ip.isNullOrEmpty() || "unknown".equals(ip, ignoreCase = true)) {
             ip = request.remoteAddr
         }
 
@@ -40,6 +39,6 @@ class InternalApiInterceptor(
             ip = "127.0.0.1"
         }
 
-        return ip
+        return ip ?: throw IllegalStateException("Cannot extract ip")
     }
 }
