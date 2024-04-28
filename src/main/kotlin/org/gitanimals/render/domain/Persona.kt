@@ -2,6 +2,7 @@ package org.gitanimals.render.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
+import org.gitanimals.render.core.IdGenerator
 import org.gitanimals.render.domain.value.Level
 
 @Table(name = "persona")
@@ -9,8 +10,7 @@ import org.gitanimals.render.domain.value.Level
 class Persona(
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val id: Long,
 
     @Column(name = "type", nullable = false, columnDefinition = "TEXT")
     @Enumerated(EnumType.STRING)
@@ -32,7 +32,20 @@ class Persona(
         type: PersonaType,
         level: Long,
         visible: Boolean
-    ) : this(type = type, level = Level(level), visible = visible)
+    ) : this(id = IdGenerator.generate(), type = type, level = Level(level), visible = visible)
+
+    constructor(
+        type: PersonaType,
+        level: Long,
+        visible: Boolean,
+        user: User,
+    ) : this(
+        id = IdGenerator.generate(),
+        type = type,
+        level = Level(level),
+        visible = visible,
+        user = user
+    )
 
 
     fun toSvgForce(mode: Mode): String = type.load(user!!, this, mode)

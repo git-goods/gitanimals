@@ -1,6 +1,7 @@
 package org.gitanimals.render.domain
 
 import org.gitanimals.render.domain.request.PersonaChangeRequest
+import org.gitanimals.render.domain.response.PersonaResponse
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
@@ -50,16 +51,11 @@ class UserService(
 
     @Transactional
     fun giveBonusPersona(id: Long, persona: String) {
-        val idempotencyId = "$id:bonus"
-        val idempotency = idempotencyRepository.findByIdOrNull(idempotencyId)
-
-        require(idempotency == null) { "Got bonus pet already." }
+        requireIdempotency("$id:bonus")
 
         val user = getUserById(id)
 
         user.giveBonusPersona(persona)
-
-        idempotencyRepository.save(Idempotency(idempotencyId))
     }
 
     @Transactional
@@ -70,6 +66,32 @@ class UserService(
             personChangeRequest.personaId.toLong(),
             personChangeRequest.visible
         )
+    }
+
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Transactional
+    fun addPersona(id: Long, personaType: String, idempotencyKey: String): PersonaResponse {
+        requireIdempotency("addPersona:$idempotencyKey")
+
+        val user = getUserById(id)
+
+        return user.addPersona(PersonaType.valueOf(personaType.uppercase()))
+    }
+
+    private fun requireIdempotency(idempotencyKey: String) {
+        val idempotency = idempotencyRepository.findByIdOrNull(idempotencyKey)
+
+        require(idempotency == null) { "Duplicated request" }
+
+        idempotencyRepository.save(Idempotency(idempotencyKey))
+    }
+
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Transactional
+    fun deletePersona(id: Long, personaId: Long): PersonaResponse {
+        val user = getUserById(id)
+
+        return user.deletePersona(personaId)
     }
 
     private fun getUserById(id: Long) = (userRepository.findByIdOrNull(id)
