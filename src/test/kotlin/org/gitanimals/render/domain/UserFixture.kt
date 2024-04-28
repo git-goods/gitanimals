@@ -1,10 +1,10 @@
 package org.gitanimals.render.domain
 
+import org.gitanimals.render.core.IdGenerator
 import org.gitanimals.render.domain.value.Contribution
-import kotlin.random.Random
 
 fun user(
-    id: Long = Random.nextLong(),
+    id: Long = IdGenerator.generate(),
     name: String = "devxb",
     personas: MutableList<Persona> = mutableListOf(),
     contributions: MutableList<Contribution> = mutableListOf(),
