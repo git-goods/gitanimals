@@ -1,6 +1,8 @@
 package org.gitanimals.render.controller
 
 import org.gitanimals.render.app.UserFacade
+import org.gitanimals.render.controller.request.AddPersonaRequest
+import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.request.PersonaChangeRequest
@@ -25,4 +27,25 @@ class PersonaController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody personaChangeRequest: PersonaChangeRequest,
     ) = userFacade.changePersona(token, personaChangeRequest)
+
+    @PostMapping("/internals/personas")
+    fun addPersona(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @RequestParam("idempotency-key") idempotencyKey: String,
+        @RequestBody addPersonaRequest: AddPersonaRequest,
+    ): PersonaResponse {
+        val persona = userFacade.addPersona(token, idempotencyKey, addPersonaRequest.name)
+
+        return PersonaResponse(persona.id, persona.type, persona.level)
+    }
+
+    @DeleteMapping("/internals/personas")
+    fun deletePersona(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @RequestParam("persona-id") personaId: Long,
+    ): PersonaResponse {
+        val persona = userFacade.deletePersona(token, personaId)
+
+        return PersonaResponse(persona.id, persona.type, persona.level)
+    }
 }
