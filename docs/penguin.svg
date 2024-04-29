@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes penguin-14-move-body {
+  0% {
+  -webkit-transform:translate(0px, 0px);
+  -ms-transform:translate(0px, 0px);
+  -o-transform:translate(0px, 0px);
+  -moz-transform:translate(0px, 0px);
+  transform:translate(0px, 0px);
+  }
+  50% {
+  -webkit-transform:translate(0px, -0.5px);
+  -ms-transform:translate(0px, -0.5px);
+  -o-transform:translate(0px, -0.5px);
+  -moz-transform:translate(0px, -0.5px);
+  transform:translate(0px, -0.5px);
+  }
+  100% {
+  -webkit-transform:translate(0px, 0px);
+  -ms-transform:translate(0px, 0px);
+  -o-transform:translate(0px, 0px);
+  -moz-transform:translate(0px, 0px);
+  transform:translate(0px, 0px);
+  }
+  }
+
+  @keyframes penguin-14-move-leg {
+  0% {
+  -webkit-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  transform:rotate(0deg);
+  }
+  50% {
+  -webkit-transform:rotate(1deg);
+  -ms-transform:rotate(1deg);
+  -o-transform:rotate(1deg);
+  -moz-transform:rotate(1deg);
+  transform:rotate(1deg);
+  }
+  100% {
+  -webkit-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  transform:rotate(0deg);
+  }
+  }
+
+  #penguin-14-body {
+  animation-name:penguin-14-move-body;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #penguin-14-leg {
+  animation-name:penguin-14-move-leg;
+  animation-duration:0.5s;
+  animation-iteration-count:360;
+  animation-timing-function: ease-in;
+  }
+</style>
+
+  <g id="penguin-14" transform="translate(10, 20)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="shadow" transform="translate(0.5, 8.5)">
+        <rect width="13.3359" height="3.89813" transform="matrix(1 2.26611e-08 -2.79767e-08 -1 0 6.90123)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="11.1133" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.11133 8.20061)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="11.1133" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.14059 2.9689)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="8.89062" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.22266 9.5)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="8.89062" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.28119 1.6353)" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+
+      <g id="penguin-14-leg-out" transform="translate(2, 12)">
+        <g id="penguin-14-leg">
+          <rect x="0.667175" y="0.3367" width="2.66718" height="2.66719" fill="#FF6F0F"/>
+          <rect x="2.00076" y="1.67029" width="2.66718" height="1.33359" fill="#FF6F0F"/>
+          <rect x="6.00153" y="0.3367" width="2.66718" height="2.66719" fill="#FF6F0F"/>
+          <rect x="7.33511" y="1.67029" width="2.66718" height="1.33359" fill="#FF6F0F"/>
+        </g>
+      </g>
+
+      <g id="penguin-14-body">
+        <rect x="2.66718" width="9.33515" height="12.1514" fill="white"/>
+        <rect width="1.33359" height="7.59461" transform="matrix(-1 0 0 1 12.0023 1.51892)" fill="#2D2D2D"/>
+        <rect width="1.33359" height="9.11353" transform="matrix(-1 0 0 1 13.3359 3.03784)" fill="#2D2D2D"/>
+        <rect width="1.33359" height="7.59461" transform="matrix(-1 0 0 1 1.33359 3.03784)" fill="#2D2D2D"/>
+        <rect width="1.33359" height="10.6325" transform="matrix(-1 0 0 1 2.66718 1.51892)" fill="#2D2D2D"/>
+        <rect width="1" height="9" transform="matrix(-1 0 0 1 3.66666 0)" fill="#2D2D2D"/>
+        <rect width="9.33515" height="1.51892" transform="matrix(1 0 0 -1 2.66718 13.6703)" fill="#2D2D2D"/>
+      </g>
+
+      <g id="penguin-14-head" transform="translate(2, -6.5)">
+        <rect width="8.33333" height="2.66667" transform="matrix(-1 0 0 1 10 1.33333)" fill="#2D2D2D"/>
+        <rect width="9.29025" height="2" transform="matrix(-1 0 0 1 9.95692 3)" fill="#2D2D2D"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 1.66667 3)" fill="#2D2D2D"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 10 4)" fill="#2D2D2D"/>
+        <rect x="3" y="1.33333" width="5.66667" height="8" fill="white"/>
+        <rect x="1.66667" y="4.66667" width="7" height="4.66667" fill="white"/>
+        <rect x="8.66667" y="1.33333" width="5.66667" height="1.33333" transform="rotate(-180 8.66667 1.33333)" fill="#2D2D2D"/>
+        <rect x="4.66667" y="4" width="1.33333" height="2" fill="black"/>
+        <rect x="7" y="2.66667" width="1.33333" height="2" fill="black"/>
+        <rect width="1.66667" height="1.33333" transform="matrix(-1 0 0 1 6.66667 1.33333)" fill="#2D2D2D"/>
+        <rect x="7.33334" y="5.33437" width="2.88889" height="2.66719" fill="#FF6F0F"/>
+        <rect x="8.77778" y="6.66795" width="2.88889" height="1.33359" fill="#FF6F0F"/>
+      </g>
+    </svg>
+  </g>
+</svg>
