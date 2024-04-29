@@ -28,4 +28,10 @@ class UserFacade(
 
         return userService.deletePersona(user.id.toLong(), personaId)
     }
+
+    fun getPersona(token: String, personaId: Long): PersonaResponse {
+        val user = identityApi.getUserByToken(token)
+
+        return userService.getPersona(user.id.toLong(), personaId)
+    }
 }
