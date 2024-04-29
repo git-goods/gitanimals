@@ -22,6 +22,16 @@ class PersonaController(
         return UserResponse.from(userService.getUserByName(username))
     }
 
+    @GetMapping("/personas/{persona-id}")
+    fun getPersonaById(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @PathVariable("persona-id") personaId: Long,
+    ): PersonaResponse {
+        val persona = userFacade.getPersona(token, personaId)
+
+        return PersonaResponse(persona.id, persona.type, persona.level)
+    }
+
     @PatchMapping("/personas")
     @ResponseStatus(HttpStatus.OK)
     fun changePersona(
