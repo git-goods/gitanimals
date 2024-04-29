@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
+  <style>
+    @keyframes little-chick-move-head {
+    0% {
+    -webkit-transform:translate(6px, -2px) rotate(0deg);
+    -ms-transform:translate(6px, -2px) rotate(0deg);
+    -o-transform:translate(6px, -2px) rotate(0deg);
+    -moz-transform:translate(6px, -2px) rotate(0deg);
+    transform:translate(6px, -2px) rotate(0deg);
+    }
+    50% {
+    -webkit-transform:translate(8px, -2.2px) rotate(21deg);
+    -ms-transform:translate(8px, -2.2px) rotate(21deg);
+    -o-transform:translate(8px, -2.2px) rotate(21deg);
+    -moz-transform:translate(8px, -2.2px) rotate(21deg);
+    transform:translate(8px, -2.2px) rotate(21deg);
+    }
+    100% {
+    -webkit-transform:translate(6px, -2px) rotate(0deg);
+    -ms-transform:translate(6px, -2px) rotate(0deg);
+    -o-transform:translate(6px, -2px) rotate(0deg);
+    -moz-transform:translate(6px, -2px) rotate(0deg);
+    transform:translate(6px, -2px) rotate(0deg);
+    }
+    }
+
+    @keyframes little-chick-move-leg {
+    0% {
+    -webkit-transform:translate(2px, 6px) rotate(0deg);
+    -ms-transform:translate(2px, 6px) rotate(0deg);
+    -o-transform:translate(2px, 6px) rotate(0deg);
+    -moz-transform:translate(2px, 6px) rotate(0deg);
+    transform:translate(2px, 6px) rotate(0deg);
+    }
+    50% {
+    -webkit-transform:translate(2px, 6px) rotate(3deg);
+    -ms-transform:translate(2px, 6px) rotate(3deg);
+    -o-transform:translate(2px, 6px) rotate(3deg);
+    -moz-transform:translate(2px, 6px) rotate(3deg);
+    transform:translate(2px, 6px) rotate(3deg);
+    }
+    100% {
+    -webkit-transform:translate(2px, 6px) rotate(0deg);
+    -ms-transform:translate(2px, 6px) rotate(0deg);
+    -o-transform:translate(2px, 6px) rotate(0deg);
+    -moz-transform:translate(2px, 6px) rotate(0deg);
+    transform:translate(2px, 6px) rotate(0deg);
+    }
+    }
+
+    @keyframes move-14-logo {
+    0% {
+    -webkit-transform:translate(3px, 0px) rotate(0deg);
+    -ms-transform:translate(3px, 0px) rotate(0deg);
+    -o-transform:translate(3px, 0px) rotate(0deg);
+    -moz-transform:translate(3px, 0px) rotate(0deg);
+    transform:translate(3px, 0px) rotate(0deg);
+    }
+    50% {
+    -webkit-transform:translate(3px, -0.2px) rotate(14deg);
+    -ms-transform:translate(3px, -0.2px) rotate(14deg);
+    -o-transform:translate(3px, -0.2px) rotate(14deg);
+    -moz-transform:translate(3px, -0.2px) rotate(14deg);
+    transform:translate(3px, -0.2px) rotate(14deg);
+    }
+    100% {
+    -webkit-transform:translate(3px, 0px) rotate(0deg);
+    -ms-transform:translate(3px, 0px) rotate(0deg);
+    -o-transform:translate(3px, 0px) rotate(0deg);
+    -moz-transform:translate(3px, 0px) rotate(0deg);
+    transform:translate(3px, 0px) rotate(0deg);
+    }
+    }
+
+    #little-chick-head {
+    animation-name:little-chick-move-head;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    }
+
+    #little-chick-leg {
+    animation-name:little-chick-move-leg;
+    animation-duration:0.5s;
+    animation-iteration-count:360;
+    animation-timing-function: ease-in;
+    }
+
+    #node-14-logo {
+    animation-name: move-14-logo;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    }
+  </style>
+
+  <g id="little-chick-14" transform="translate(10, 10)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 300 150"
+      fill="none" overflow="visible">
+      <g id="little-chick-shadow" transform="translate(-2, 2)">
+        <rect width="12" height="3"
+          transform="matrix(0.707107 0.707107 0.707107 -0.707107 1.41422 2.12132)" fill="#6F6F6F"
+          fill-opacity="0.1"/>
+        <rect width="10" height="1"
+          transform="matrix(0.707107 0.707107 0.707107 -0.707107 1.41422 3.53553)" fill="#6F6F6F"
+          fill-opacity="0.1"/>
+        <rect width="8" height="1"
+          transform="matrix(0.707107 0.707107 0.707107 -0.707107 1.41422 4.94975)" fill="#6F6F6F"
+          fill-opacity="0.1"/>
+      </g>
+
+      <g id="little-chick-leg" transform="translate(2, 6)">
+        <rect width="2" height="2" fill="#FF6F0F"/>
+        <rect x="1" y="1" width="2" height="1" fill="#FF6F0F"/>
+      </g>
+
+      <g id="little-chick-body">
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 4)" fill="#FFD600"/>
+        <rect x="3" y="5" width="5" height="2" fill="white"/>
+        <rect x="3" y="5" width="5" height="2" fill="#FFD600"/>
+        <rect width="9" height="3" transform="matrix(-1 0 0 1 12 4)" fill="#FFD600"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 11 8)" fill="#FFD600"/>
+        <rect width="7" height="1" transform="matrix(-1 0 0 1 11 7)" fill="#FFD600"/>
+        <rect width="4" height="1" transform="matrix(-1 0 0 1 10 9)" fill="#FFD600"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#FFD600"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 3 5)" fill="#FFD600"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 5 0)" fill="#FFD600"/>
+        <rect width="7" height="2" transform="matrix(-1 0 0 1 7 2)" fill="#FFD600"/>
+        <rect x="1" y="2" width="5" height="2" fill="white"/>
+        <rect x="1" y="2" width="5" height="2" fill="#FFD600"/>
+        <rect x="2" y="1" width="3" height="2" fill="white"/>
+        <rect x="2" y="1" width="3" height="2" fill="#FFD600"/>
+        <rect x="2" y="3" width="5" height="2" fill="white"/>
+        <rect x="2" y="3" width="5" height="2" fill="#FFD600"/>
+        <rect x="4" y="2" width="7" height="5" fill="white"/>
+        <rect x="4" y="2" width="7" height="5" fill="#FFD600"/>
+        <rect x="5" y="7" width="5" height="1" fill="white"/>
+        <rect x="5" y="7" width="5" height="1" fill="#FFD600"/>
+        <rect x="6" y="8" width="4" height="1" fill="white"/>
+        <rect x="6" y="8" width="4" height="1" fill="#FFD600"/>
+      </g>
+
+      <g id="little-chick-head" transform="translate(6,-2)">
+        <rect x="1" y="1" width="4" height="6" fill="#FFD600"/>
+        <rect x="2" y="3" width="1" height="1" fill="black"/>
+        <rect x="4" y="2" width="1" height="1" fill="black"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 1 1)" fill="#FFD600"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 5 1)" fill="#FFD600"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 6 2)" fill="#FFD600"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 4 0)" fill="#FFD600"/>
+        <rect x="4" y="4" width="2" height="2" fill="#FF6F0F"/>
+        <rect x="5" y="5" width="2" height="1" fill="#FF6F0F"/>
+      </g>
+
+      <g id="node-14-logo" transform="translate(3, 3)">
+        <rect width="1.25" height="5"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 11.8882 1.35194)" fill="black"/>
+        <rect width="1.875" height="0.625"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 11.0857 2.92703)" fill="black"/>
+        <rect width="0.625" height="0.625"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 10.6694 5.69095)" fill="black"/>
+        <rect width="0.625" height="0.625"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 11.8582 5.30467)" fill="black"/>
+        <rect width="1.25" height="0.625"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 11.4569 6.09222)" fill="black"/>
+        <rect width="1.25" height="2.5"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 10.09 3.90771)" fill="black"/>
+        <rect width="1.25" height="3.125"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 14.0577 1.96135)" fill="black"/>
+        <rect x="17.5942" y="4.75528" width="3.125" height="0.625"
+          transform="rotate(162 17.5942 4.75528)" fill="black"/>
+        <rect width="0.625" height="0.625"
+          transform="matrix(0.951057 -0.309017 -0.309017 -0.951057 16.8066 4.354)" fill="black"/>
+        <rect width="0.625" height="0.625"
+          transform="matrix(0.951057 -0.309017 -0.309017 -0.951057 15.0234 4.93341)" fill="black"/>
+        <rect width="2.5" height="0.625"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 15.6478 0.787537)" fill="black"/>
+        <rect width="1.875" height="0.625"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 16.2272 2.57077)" fill="black"/>
+        <rect width="1.25" height="1.875"
+          transform="matrix(-0.951057 0.309017 0.309017 0.951057 16.4353 1.18881)" fill="black"/>
+        <rect x="0.386276" y="6.40347" width="1.25" height="3.75"
+          transform="rotate(-18 0.386276 6.40347)" fill="black"/>
+        <rect x="2.95706" y="6.22534" width="1.25" height="3.125"
+          transform="rotate(-18 2.95706 6.22534)" fill="black"/>
+        <rect x="2.16951" y="5.82407" width="1.25" height="1.25"
+          transform="rotate(-18 2.16951 5.82407)" fill="black"/>
+        <rect x="1.17381" y="6.80475" width="1.25" height="1.25"
+          transform="rotate(-18 1.17381 6.80475)" fill="black"/>
+        <rect x="5.33469" y="5.4528" width="2.5" height="2.5" transform="rotate(-18 5.33469 5.4528)"
+          fill="#70BB51"/>
+        <rect x="5.73596" y="4.66527" width="1.25" height="3.75"
+          transform="rotate(-18 5.73596 4.66527)" fill="#70BB51"/>
+        <rect x="4.93341" y="6.24036" width="3.75" height="1.25"
+          transform="rotate(-18 4.93341 6.24036)" fill="#70BB51"/>
+        <rect x="14.0577" y="1.96136" width="1.25" height="1.25"
+          transform="rotate(-18 14.0577 1.96136)" fill="#70BB51"/>
+      </g>
+    </svg>
+  </g>
+</svg>
