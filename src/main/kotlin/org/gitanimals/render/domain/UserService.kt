@@ -94,6 +94,13 @@ class UserService(
         return user.deletePersona(personaId)
     }
 
+    fun getPersona(id: Long, personaId: Long): PersonaResponse {
+        return getUserById(id).personas
+            .find { it.id == personaId }
+            ?.let { PersonaResponse.from(it) }
+            ?: throw IllegalArgumentException("Cannot find matched persona \"$personaId\" by user \"$id\"")
+    }
+
     private fun getUserById(id: Long) = (userRepository.findByIdOrNull(id)
         ?: throw IllegalArgumentException("Cannot find exists user by id \"$id\""))
 }
