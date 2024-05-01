@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes move-head {
+  0% {
+  -webkit-transform:translate(7px, 0px);
+  -ms-transform:translate(7px, 0px);
+  -o-transform:translate(7px, 0px);
+  -moz-transform:translate(7px, 0px);
+  transform:translate(7px, 0px);
+  }
+  50% {
+  -webkit-transform:translate(7px, -0.5px);
+  -ms-transform:translate(7px, -0.5px);
+  -o-transform:translate(7px, -0.5px);
+  -moz-transform:translate(7px, -0.5px);
+  transform:translate(7px, -0.5px);
+  }
+  100% {
+  -webkit-transform:translate(7px, 0px);
+  -ms-transform:translate(7px, 0px);
+  -o-transform:translate(7px, 0px);
+  -moz-transform:translate(7px, 0px);
+  transform:translate(7px, 0px);
+  }
+  }
+
+  @keyframes move-14-logo {
+  0% {
+  -webkit-transform:translate(2px, 2px);
+  -ms-transform:translate(2px, 2px);
+  -o-transform:translate(2px, 2px);
+  -moz-transform:translate(2px, 2px);
+  transform:translate(2px, 2px);
+  }
+  50% {
+  -webkit-transform:translate(2px, 1.5px);
+  -ms-transform:translate(2px, 1.5px);
+  -o-transform:translate(2px, 1.5px);
+  -moz-transform:translate(2px, 1.5px);
+  transform:translate(2px, 1.5px);
+  }
+  100% {
+  -webkit-transform:translate(2px, 2px);
+  -ms-transform:translate(2px, 2px);
+  -o-transform:translate(2px, 2px);
+  -moz-transform:translate(2px, 2px);
+  transform:translate(2px, 2px);
+  }
+  }
+
+  @keyframes move-leg {
+  0% {
+  -webkit-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  transform:rotate(0deg);
+  }
+  50% {
+  -webkit-transform:rotate(1deg);
+  -ms-transform:rotate(1deg);
+  -o-transform:rotate(1deg);
+  -moz-transform:rotate(1deg);
+  transform:rotate(1deg);
+  }
+  100% {
+  -webkit-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  transform:rotate(0deg);
+  }
+  }
+
+  #head {
+  animation-name:move-head;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #leg {
+  animation-name:move-leg;
+  animation-duration:0.5s;
+  animation-iteration-count:360;
+  animation-timing-function: ease-in;
+  }
+
+  #swift-14-logo {
+  animation-name:move-14-logo;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+</style>
+
+  <g id="goose-14" transform="translate(10, 10)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="shadow" transform="translate(-4, -1)">
+        <rect width="7.55862" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 3.95308 10.8252)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="7.55862" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 10.5548 4.70828)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="17.6368" height="4" transform="matrix(0.679659 0.733528 0.733528 -0.679659 2.72881 5.08992)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="15.1172" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 2.85149 6.69365)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="12.5977" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 2.97418 8.29739)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="15.1172" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 6.51913 3.29536)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="12.5977" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 8.10888 3.53978)" fill="#6F6F6F" fill-opacity="0.1"/>
+      </g>
+      <g id="head" transform="translate(7)">
+        <rect x="1" y="1" width="6" height="11" fill="white"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 8 4)" fill="#FFA713"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 9 5)" fill="#FFA713"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 9 7)" fill="#FFA713"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 7 3)" fill="#FFA713"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 10 6)" fill="#FFA713"/>
+        <rect x="3" y="3" width="1" height="1" fill="black"/>
+        <rect x="6" y="2" width="1" height="1" fill="black"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 2 1)" fill="#D9D9D9"/>
+        <rect width="1" height="10" transform="matrix(-1 0 0 1 1 2)" fill="#D9D9D9"/>
+        <rect width="1" height="3" transform="matrix(-1 0 0 1 8 8)" fill="#D9D9D9"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#D9D9D9"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 8 2)" fill="#D9D9D9"/>
+        <rect width="4" height="1" transform="matrix(-1 0 0 1 6 0)" fill="#D9D9D9"/>
+      </g>
+      <g id="leg">
+        <g id="leg-in" transform="translate(5,8)">
+          <rect width="2" height="4" transform="matrix(-1 0 0 1 2 0)" fill="#FFA713"/>
+        </g>
+      </g>
+      <g id="body">
+        <rect width="4" height="1" transform="matrix(-1 0 0 1 6 0)" fill="#D9D9D9"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 2)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 3)" fill="#D9D9D9"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 9 4)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 9 5)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 10 6)" fill="#D9D9D9"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 12 7)" fill="#D9D9D9"/>
+        <rect width="11" height="1" transform="matrix(-1 0 0 1 15 8)" fill="#D9D9D9"/>
+        <rect width="10" height="1" transform="matrix(-1 0 0 1 15 9)" fill="#D9D9D9"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 15 10)" fill="#D9D9D9"/>
+        <rect width="7" height="1" transform="matrix(-1 0 0 1 14 11)" fill="#D9D9D9"/>
+        <rect width="5" height="1" transform="matrix(-1 0 0 1 13 12)" fill="#D9D9D9"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 12 13)" fill="#D9D9D9"/>
+        <rect x="1" y="2" width="6" height="3" fill="white"/>
+        <rect x="1" y="2" width="6" height="3" fill="white"/>
+        <rect x="2" y="1" width="4" height="1" fill="white"/>
+        <rect x="2" y="1" width="4" height="1" fill="white"/>
+        <rect x="2" y="3" width="6" height="3" fill="white"/>
+        <rect x="2" y="3" width="6" height="3" fill="white"/>
+        <rect x="3" y="4" width="6" height="3" fill="white"/>
+        <rect x="3" y="4" width="6" height="3" fill="white"/>
+        <rect x="4" y="5" width="6" height="3" fill="white"/>
+        <rect x="4" y="5" width="6" height="3" fill="white"/>
+        <rect x="5" y="6" width="6" height="3" fill="white"/>
+        <rect x="5" y="6" width="6" height="3" fill="white"/>
+        <rect x="6" y="7" width="6" height="3" fill="white"/>
+        <rect x="6" y="7" width="6" height="3" fill="white"/>
+        <rect x="7" y="8" width="7" height="3" fill="white"/>
+        <rect x="7" y="8" width="7" height="3" fill="white"/>
+        <rect x="8" y="9" width="5" height="3" fill="white"/>
+        <rect x="8" y="9" width="5" height="3" fill="white"/>
+        <rect x="10" y="12" width="2" height="1" fill="white"/>
+        <rect x="10" y="12" width="2" height="1" fill="white"/>
+      </g>
+
+      <g id="swift-14-logo" transform="translate(3, 3)">
+        <rect y="7.72543" width="5" height="5" transform="rotate(-18 0 7.72543)" fill="#F15137"/>
+        <rect x="1.55843" y="10.724" width="3.33333" height="0.555556" transform="rotate(-18 1.55843 10.724)" fill="white"/>
+        <rect x="3.34186" y="7.22374" width="0.555556" height="3.33333" transform="rotate(-18 3.34186 7.22374)" fill="white"/>
+        <rect x="2.80017" y="9.15219" width="1.11111" height="1.11111" transform="rotate(-18 2.80017 9.15219)" fill="white"/>
+        <rect x="2.2718" y="9.32387" width="1.11111" height="0.555556" transform="rotate(-18 2.2718 9.32387)" fill="white"/>
+        <rect x="2.62849" y="8.62383" width="0.555556" height="1.11111" transform="rotate(-18 2.62849 8.62383)" fill="white"/>
+        <rect x="1.57176" y="8.96718" width="0.555556" height="0.555556" transform="rotate(-18 1.57176 8.96718)" fill="white"/>
+        <rect x="0.871719" y="8.61049" width="0.555556" height="0.555556" transform="rotate(-18 0.871719 8.61049)" fill="white"/>
+        <rect x="4.72861" y="9.69389" width="0.555556" height="0.555556" transform="rotate(-18 4.72861 9.69389)" fill="white"/>
+        <rect x="4.90028" y="10.2223" width="0.555556" height="0.555556" transform="rotate(-18 4.90028 10.2223)" fill="white"/>
+        <rect x="1.92845" y="8.26714" width="0.555556" height="0.555556" transform="rotate(-18 1.92845 8.26714)" fill="white"/>
+        <rect x="11.769" y="7.99046" width="1.66667" height="1.11111" transform="rotate(-18 11.769 7.99046)" fill="black"/>
+        <rect x="12.6541" y="7.11876" width="1.11111" height="1.11111" transform="rotate(-18 12.6541 7.11876)" fill="black"/>
+        <rect x="12.6674" y="5.36198" width="1.11111" height="2.22222" transform="rotate(-18 12.6674 5.36198)" fill="black"/>
+        <rect x="11.069" y="7.63377" width="1.11111" height="1.11111" transform="rotate(-18 11.069 7.63377)" fill="black"/>
+        <rect x="10.0256" y="6.22037" width="1.11111" height="2.22222" transform="rotate(-18 10.0256 6.22037)" fill="black"/>
+        <rect x="14.4108" y="7.1321" width="1.66667" height="1.11111" transform="rotate(-18 14.4108 7.1321)" fill="black"/>
+        <rect x="15.2959" y="6.26038" width="1.11111" height="1.11111" transform="rotate(-18 15.2959 6.26038)" fill="black"/>
+        <rect x="15.3092" y="4.5036" width="1.11111" height="2.22222" transform="rotate(-18 15.3092 4.5036)" fill="black"/>
+        <rect x="13.7108" y="6.77541" width="1.11111" height="1.11111" transform="rotate(-18 13.7108 6.77541)" fill="black"/>
+        <rect x="6.51205" y="6.19368" width="2.77778" height="1.11111" transform="rotate(-18 6.51205 6.19368)" fill="black"/>
+        <rect x="7.02708" y="7.77878" width="2.77778" height="1.11111" transform="rotate(-18 7.02708 7.77878)" fill="black"/>
+        <rect x="7.5421" y="9.36386" width="2.77778" height="1.11111" transform="rotate(-18 7.5421 9.36386)" fill="black"/>
+        <rect x="6.68373" y="6.72205" width="1.11111" height="1.66667" transform="rotate(-18 6.68373 6.72205)" fill="black"/>
+        <rect x="8.78384" y="7.79211" width="1.11111" height="1.66667" transform="rotate(-18 8.78384 7.79211)" fill="black"/>
+        <rect width="1.11111" height="3.88889" transform="matrix(-0.951057 0.309017 0.309017 0.951057 19.8929 2.43015)" fill="black"/>
+        <rect width="2.77778" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 21.2929 3.14352)" fill="black"/>
+        <rect width="1.11111" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 20.2495 1.7301)" fill="black"/>
+        <rect width="0.555556" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 20.9496 2.08679)" fill="black"/>
+        <rect x="17.066" y="4.51694" width="1.11111" height="2.77778" transform="rotate(-18 17.066 4.51694)" fill="black"/>
+        <rect x="16.551" y="2.93184" width="1.11111" height="1.11111" transform="rotate(-18 16.551 2.93184)" fill="black"/>
+        <rect width="1.66667" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 24.9781 3.69856)" fill="black"/>
+        <rect width="1.11111" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 24.6214 4.39861)" fill="black"/>
+        <rect width="2.77778" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 24.2914 1.5851)" fill="black"/>
+        <rect width="0.555556" height="0.555556" transform="matrix(-0.951057 0.309017 0.309017 0.951057 24.8065 3.1702)" fill="black"/>
+        <rect width="1.11111" height="3.33333" transform="matrix(-0.951057 0.309017 0.309017 0.951057 23.063 1.40009)" fill="black"/>
+      </g>
+    </svg>
+  </g>
+</svg>

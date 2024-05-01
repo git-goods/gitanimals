@@ -14,8 +14,8 @@ version = "${version}"
 repositories {
     mavenCentral()
     maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots"}
-    maven { url "https://s01.oss.sonatype.org/content/groups/staging/"}
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "https://s01.oss.sonatype.org/content/groups/staging/" }
 }
 
 test {
@@ -38,4 +38,5 @@ apply from: "gradle/db.gradle"
 apply from: "gradle/etc.gradle"
 apply from: "gradle/test.gradle"
 apply from: "gradle/spring.gradle"
+apply from: "gradle/monitor.gradle"
 apply from: "gradle/jetbrains.gradle"

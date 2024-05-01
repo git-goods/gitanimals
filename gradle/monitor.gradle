@@ -1,0 +1,3 @@
+dependencies {
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+}

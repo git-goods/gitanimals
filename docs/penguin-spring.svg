@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes penguin-14-move-body {
+  0% {
+  -webkit-transform:translate(0px, 0px);
+  -ms-transform:translate(0px, 0px);
+  -o-transform:translate(0px, 0px);
+  -moz-transform:translate(0px, 0px);
+  transform:translate(0px, 0px);
+  }
+  50% {
+  -webkit-transform:translate(0px, -0.5px);
+  -ms-transform:translate(0px, -0.5px);
+  -o-transform:translate(0px, -0.5px);
+  -moz-transform:translate(0px, -0.5px);
+  transform:translate(0px, -0.5px);
+  }
+  100% {
+  -webkit-transform:translate(0px, 0px);
+  -ms-transform:translate(0px, 0px);
+  -o-transform:translate(0px, 0px);
+  -moz-transform:translate(0px, 0px);
+  transform:translate(0px, 0px);
+  }
+  }
+
+  @keyframes move-14-logo {
+  0% {
+  -webkit-transform:translate(12px, 4px);
+  -ms-transform:translate(12px, 4px);
+  -o-transform:translate(12px, 4px);
+  -moz-transform:translate(12px, 4px);
+  transform:translate(11px, 0px);
+  }
+  50% {
+  -webkit-transform:translate(12px, 3.5px);
+  -ms-transform:translate(12px, 3.5px);
+  -o-transform:translate(12px, 3.5px);
+  -moz-transform:translate(12px, 3.5px);
+  transform:translate(11px, -0.5px);
+  }
+  100% {
+  -webkit-transform:translate(12px, 4px);
+  -ms-transform:translate(12px, 4px);
+  -o-transform:translate(12px, 4px);
+  -moz-transform:translate(12px, 4px);
+  transform:translate(11px, 0px);
+  }
+  }
+
+  @keyframes penguin-14-move-leg {
+  0% {
+  -webkit-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  transform:rotate(0deg);
+  }
+  50% {
+  -webkit-transform:rotate(1deg);
+  -ms-transform:rotate(1deg);
+  -o-transform:rotate(1deg);
+  -moz-transform:rotate(1deg);
+  transform:rotate(1deg);
+  }
+  100% {
+  -webkit-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  transform:rotate(0deg);
+  }
+  }
+
+  #penguin-14-body {
+  animation-name:penguin-14-move-body;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #penguin-14-leg {
+  animation-name:penguin-14-move-leg;
+  animation-duration:0.5s;
+  animation-iteration-count:360;
+  animation-timing-function: ease-in;
+  }
+
+  #spring-14-logo {
+  animation-name:move-14-logo;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+</style>
+
+  <g id="penguin-14" transform="translate(10, 20)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="shadow" transform="translate(0.5, 8.5)">
+        <rect width="13.3359" height="3.89813" transform="matrix(1 2.26611e-08 -2.79767e-08 -1 0 6.90123)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="11.1133" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.11133 8.20061)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="11.1133" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 1.14059 2.9689)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="8.89062" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.22266 9.5)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="8.89062" height="1.29938" transform="matrix(1 2.94396e-08 -2.1535e-08 -1 2.28119 1.6353)" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+
+      <g id="penguin-14-leg-out" transform="translate(2, 12)">
+        <g id="penguin-14-leg">
+          <rect x="0.667175" y="0.3367" width="2.66718" height="2.66719" fill="#FF6F0F"/>
+          <rect x="2.00076" y="1.67029" width="2.66718" height="1.33359" fill="#FF6F0F"/>
+          <rect x="6.00153" y="0.3367" width="2.66718" height="2.66719" fill="#FF6F0F"/>
+          <rect x="7.33511" y="1.67029" width="2.66718" height="1.33359" fill="#FF6F0F"/>
+        </g>
+      </g>
+
+      <g id="penguin-14-body">
+        <rect x="2.66718" width="9.33515" height="12.1514" fill="white"/>
+        <rect width="1.33359" height="7.59461" transform="matrix(-1 0 0 1 12.0023 1.51892)" fill="#2D2D2D"/>
+        <rect width="1.33359" height="9.11353" transform="matrix(-1 0 0 1 13.3359 3.03784)" fill="#2D2D2D"/>
+        <rect width="1.33359" height="7.59461" transform="matrix(-1 0 0 1 1.33359 3.03784)" fill="#2D2D2D"/>
+        <rect width="1.33359" height="10.6325" transform="matrix(-1 0 0 1 2.66718 1.51892)" fill="#2D2D2D"/>
+        <rect width="1" height="9" transform="matrix(-1 0 0 1 3.66666 0)" fill="#2D2D2D"/>
+        <rect width="9.33515" height="1.51892" transform="matrix(1 0 0 -1 2.66718 13.6703)" fill="#2D2D2D"/>
+      </g>
+
+      <g id="penguin-14-head" transform="translate(2, -6.5)">
+        <rect width="8.33333" height="2.66667" transform="matrix(-1 0 0 1 10 1.33333)" fill="#2D2D2D"/>
+        <rect width="9.29025" height="2" transform="matrix(-1 0 0 1 9.95692 3)" fill="#2D2D2D"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 1.66667 3)" fill="#2D2D2D"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 10 4)" fill="#2D2D2D"/>
+        <rect x="3" y="1.33333" width="5.66667" height="8" fill="white"/>
+        <rect x="1.66667" y="4.66667" width="7" height="4.66667" fill="white"/>
+        <rect x="8.66667" y="1.33333" width="5.66667" height="1.33333" transform="rotate(-180 8.66667 1.33333)" fill="#2D2D2D"/>
+        <rect x="4.66667" y="4" width="1.33333" height="2" fill="black"/>
+        <rect x="7" y="2.66667" width="1.33333" height="2" fill="black"/>
+        <rect width="1.66667" height="1.33333" transform="matrix(-1 0 0 1 6.66667 1.33333)" fill="#2D2D2D"/>
+        <rect x="7.33334" y="5.33437" width="2.88889" height="2.66719" fill="#FF6F0F"/>
+        <rect x="8.77778" y="6.66795" width="2.88889" height="1.33359" fill="#FF6F0F"/>
+      </g>
+
+      <g id="spring-14-logo" transform="translate(3, 3)">
+        <rect x="2.84032" y="7.15613" width="1.47368" height="2.21053" transform="rotate(-18 2.84032 7.15613)" fill="#6DB33F"/>
+        <rect x="2.25339" y="7.73425" width="0.736842" height="1.84211" transform="rotate(-18 2.25339 7.73425)" fill="#6DB33F"/>
+        <rect x="2.8226" y="9.48615" width="0.368421" height="0.368421" transform="rotate(-18 2.8226 9.48615)" fill="#6DB33F"/>
+        <rect x="1.903" y="7.84811" width="0.368421" height="2.57895" transform="rotate(-18 1.903 7.84811)" fill="#6DB33F"/>
+        <rect x="1.66643" y="8.31235" width="0.368421" height="2.57895" transform="rotate(-18 1.66643 8.31235)" fill="#6DB33F"/>
+        <rect x="2.91878" y="12.1666" width="0.368421" height="0.736842" transform="rotate(-18 2.91878 12.1666)" fill="#6DB33F"/>
+        <rect x="7.35115" y="11.5012" width="0.736842" height="0.368421" transform="rotate(-18 7.35115 11.5012)" fill="#6DB33F"/>
+        <rect x="7.93806" y="10.9231" width="0.368421" height="0.368421" transform="rotate(-18 7.93806 10.9231)" fill="#6DB33F"/>
+        <rect x="8.06075" y="10.1085" width="0.368421" height="0.736842" transform="rotate(-18 8.06075 10.1085)" fill="#6DB33F"/>
+        <rect x="8.06961" y="8.94348" width="0.368421" height="1.10526" transform="rotate(-18 8.06961 8.94348)" fill="#6DB33F"/>
+        <rect x="7.38652" y="6.84116" width="0.368421" height="1.10526" transform="rotate(-18 7.38652 6.84116)" fill="#6DB33F"/>
+        <rect x="6.69456" y="5.90384" width="0.368421" height="1.10526" transform="rotate(-18 6.69456 5.90384)" fill="#6DB33F"/>
+        <rect x="6.45804" y="6.36804" width="0.368421" height="0.368421" transform="rotate(-18 6.45804 6.36804)" fill="#6DB33F"/>
+        <rect x="8.07846" y="7.77847" width="0.368421" height="1.10526" transform="rotate(-18 8.07846 7.77847)" fill="#6DB33F"/>
+        <rect x="3.2603" y="13.2178" width="4.78947" height="0.368421" transform="rotate(-18 3.2603 13.2178)" fill="#6DB33F"/>
+        <rect x="3.383" y="12.4032" width="1.47368" height="0.736842" transform="rotate(-18 3.383 12.4032)" fill="#6DB33F"/>
+        <rect x="4.42535" y="13.2266" width="3.31579" height="0.368421" transform="rotate(-18 4.42535 13.2266)" fill="#6DB33F"/>
+        <rect x="5.23994" y="13.3493" width="1.84211" height="0.368421" transform="rotate(-18 5.23994 13.3493)" fill="#6DB33F"/>
+        <rect x="4.6707" y="11.5974" width="1.10526" height="0.736842" transform="rotate(-18 4.6707 11.5974)" fill="#6DB33F"/>
+        <rect x="5.60806" y="10.9054" width="0.736842" height="0.368421" transform="rotate(-18 5.60806 10.9054)" fill="#6DB33F"/>
+        <rect x="6.19496" y="10.3273" width="0.368421" height="0.368421" transform="rotate(-18 6.19496 10.3273)" fill="#6DB33F"/>
+        <rect x="6.4315" y="9.86313" width="0.368421" height="0.368421" transform="rotate(-18 6.4315 9.86313)" fill="#6DB33F"/>
+        <rect x="6.66806" y="9.39886" width="0.368421" height="0.368421" transform="rotate(-18 6.66806 9.39886)" fill="#6DB33F"/>
+        <rect x="6.79076" y="8.58423" width="0.368421" height="0.736842" transform="rotate(-18 6.79076 8.58423)" fill="#6DB33F"/>
+        <rect x="1.42992" y="8.77658" width="0.368421" height="4.78947" transform="rotate(-18 1.42992 8.77658)" fill="#6DB33F"/>
+        <rect x="1.19336" y="9.24081" width="0.368421" height="3.68421" transform="rotate(-18 1.19336 9.24081)" fill="#6DB33F"/>
+        <rect x="1.07066" y="10.0554" width="0.368421" height="2.21053" transform="rotate(-18 1.07066 10.0554)" fill="#6DB33F"/>
+        <rect x="2.48993" y="7.26999" width="0.368421" height="0.368421" transform="rotate(-18 2.48993 7.26999)" fill="#6DB33F"/>
+        <rect x="4.24188" y="6.70078" width="0.736842" height="1.84211" transform="rotate(-18 4.24188 6.70078)" fill="#6DB33F"/>
+        <rect x="5.05649" y="6.82346" width="0.736842" height="1.10526" transform="rotate(-18 5.05649 6.82346)" fill="#6DB33F"/>
+        <rect x="5.87114" y="6.94617" width="0.736842" height="0.368421" transform="rotate(-18 5.87114 6.94617)" fill="#6DB33F"/>
+        <path d="M9.55942 8.65925L9.20278 8.77513L8.97102 8.06184L9.32766 7.94596L9.21178 7.58931L10.995 7.00991L11.1109 7.36655L9.68431 7.83008L9.91607 8.54337L10.986 8.19573L11.1019 8.55237L11.4585 8.43649L11.6903 9.14978L11.3337 9.26567L11.4495 9.62231L9.6663 10.2017L9.55042 9.84507L10.977 9.38155L10.7452 8.66825L9.67531 9.0159L9.55942 8.65925ZM13.6074 6.55538L13.9641 6.4395L14.5435 8.22273L14.1868 8.33861L14.3027 8.69526L13.2328 9.0429L13.5804 10.1128L12.8671 10.3446L11.7083 6.77814L13.4915 6.19874L13.6074 6.55538ZM13.8302 8.4545L13.2508 6.67126L12.5375 6.90303L13.1169 8.68626L13.8302 8.4545ZM14.5615 5.85109L15.2748 5.61933L15.5065 6.33262L15.8632 6.21674L15.9791 6.57339L15.6224 6.68927L16.0859 8.11585L15.3726 8.34762L14.5615 5.85109ZM16.7014 5.1558L16.9331 5.8691L15.8632 6.21674L15.7473 5.86009L16.1039 5.74421L15.9881 5.38757L16.7014 5.1558ZM18.7253 4.10387L18.0121 4.33563L17.7803 3.62234L18.4936 3.39058L18.7253 4.10387ZM19.5365 6.60039L20.2498 6.36863L20.3657 6.72528L18.2258 7.42057L18.1099 7.06392L18.8232 6.83216L18.2438 5.04893L17.5305 5.28069L17.4146 4.92404L18.8412 4.46052L19.5365 6.60039ZM22.1669 3.77423L22.5236 3.65835L23.2189 5.79823L22.5056 6.02999L21.8103 3.89011L21.097 4.12187L21.7923 6.26175L21.079 6.49351L20.2678 3.99699L22.051 3.41758L22.1669 3.77423ZM24.1729 5.09394L23.8163 5.20982L23.2369 3.42659L23.5935 3.3107L23.4776 2.95406L25.2609 2.37465L26.3038 5.58447L25.9471 5.70035L26.063 6.05699L24.2798 6.6364L24.1639 6.27976L25.5905 5.81623L25.3587 5.10294L24.2888 5.45058L24.1729 5.09394ZM25.2429 4.74629L24.6634 2.96306L23.9502 3.19482L24.5296 4.97805L25.2429 4.74629Z" fill="#6DB33F"/>
+      </g>
+    </svg>
+  </g>
+</svg>
