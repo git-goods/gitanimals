@@ -86,12 +86,10 @@
   <rect y="1.20001" width="83" height="6.6" fill="white"/>
 </g>
 <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
-  <g id="level" transform="translate(*{levelx}, -3.5)">
-    <rect x="10" width="0.6" height="1.8" fill="black"/>
-    <rect x="10.6" y="1.2" width="0.6" height="0.6" fill="black"/>
-    <rect x="11.8" y="1.2" width="0.6" height="0.6" fill="black"/>
-    <rect x="11.2" y="0.600002" width="0.6" height="0.6" fill="black"/>
-    <rect x="12.4" y="0.600002" width="0.6" height="0.6" fill="black"/>
+  <g id="level" transform="translate(*{levelx}, -4)">
+    <g transform="translate(10, -0.05)">
+      <path d="M0.21875 0.03125H0.65625V1.78125H1.53125V2H0.21875V0.03125ZM2.1875 1.5625H1.96875V0.46875H2.40625V1.5625H2.84375V0.46875H3.28125V1.5625H3.0625V1.78125H2.84375V2H2.40625V1.78125H2.1875V1.5625Z" fill="black"/>
+    </g>
     *{level}
   </g>
 
