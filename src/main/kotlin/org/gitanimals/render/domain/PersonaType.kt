@@ -839,10 +839,7 @@ enum class PersonaType(private val weight: Double) {
         override fun act(id: Long): String {
             val x = Random.nextInt(25, 75)
             val y = Random.nextInt(0, 50)
-            val scale = when (Random.nextBoolean()) {
-                true -> 1
-                false -> -1
-            }
+            val scale = 1
             return "translate(${x}%, ${y}%) scaleX($scale)"
         }
     },
