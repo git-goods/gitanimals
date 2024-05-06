@@ -296,7 +296,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String = StringBuilder()
-            .moveRandomly("little-chick", id, 40, "180s", 2 ,16.0)
+            .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
             .toString()
     },
 
@@ -549,8 +549,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_SUNGLASSES(0.08) {
@@ -565,8 +566,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_KOTLIN(0.01) {
@@ -581,8 +583,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_JAVA(0.01) {
@@ -597,8 +600,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_JS(0.01) {
@@ -613,8 +617,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_NODE(0.01) {
@@ -629,8 +634,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_SWIFT(0.01) {
@@ -645,8 +651,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_LINUX(0.01) {
@@ -661,8 +668,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     PIG_SPRING(0.01) {
@@ -677,8 +685,9 @@ enum class PersonaType(private val weight: Double) {
                 )
         }
 
-        override fun act(id: Long): String = StringBuilder().moveRandomly("fig", id, 5, "180s", 10)
-            .toString()
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
     },
 
     SLIME_RED(0.1) {
