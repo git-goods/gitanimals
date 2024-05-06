@@ -872,7 +872,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("goblin", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("goblin", id, 15, "180s", 5, 14.5)
                 .toString()
     },
 
@@ -888,7 +888,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("goblin-bag", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("goblin-bag", id, 15, "180s", 5, 14.5)
                 .toString()
     },
 
