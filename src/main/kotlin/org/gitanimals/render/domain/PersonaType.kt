@@ -907,7 +907,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("bbibbi", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("bbibbi", id, 15, "180s", 5, 31.5)
                 .toString()
     },
 
@@ -923,7 +923,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("cat", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
                 .toString()
     },
 
@@ -939,7 +939,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("cat", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
                 .toString()
     },
 
@@ -955,7 +955,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("cat", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
                 .toString()
     },
 
@@ -971,7 +971,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("cat", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
                 .toString()
     },
     ;
@@ -992,22 +992,28 @@ enum class PersonaType(private val weight: Double) {
         mode: Mode,
         user: User
     ): String {
-        return if (mode == Mode.LINE) {
-            this.replace(
-                "*{contributionx}",
-                (12 + (-1 * (user.contributionCount().toString().length))).toString()
-            )
-                .replace(
-                    "*{contribution}",
-                    user.contributionCount().toSvg(0.0, 2.0)
-                ).replace("*{contribution-display}", "default")
-                .replace("*{level-tag-display}", "default")
-        } else if (mode == Mode.LINE_NO_CONTRIBUTION) {
-            this.replace("*{contribution-display}", "none")
-                .replace("*{level-tag-display}", "default")
-        } else {
-            this.replace("*{contribution-display}", "none")
-                .replace("*{level-tag-display}", "none")
+        return when (mode) {
+            Mode.LINE -> {
+                this.replace(
+                    "*{contributionx}",
+                    (12 + (-1 * (user.contributionCount().toString().length))).toString()
+                )
+                    .replace(
+                        "*{contribution}",
+                        user.contributionCount().toSvg(0.0, 2.0)
+                    ).replace("*{contribution-display}", "default")
+                    .replace("*{level-tag-display}", "default")
+            }
+
+            Mode.LINE_NO_CONTRIBUTION -> {
+                this.replace("*{contribution-display}", "none")
+                    .replace("*{level-tag-display}", "default")
+            }
+
+            else -> {
+                this.replace("*{contribution-display}", "none")
+                    .replace("*{level-tag-display}", "none")
+            }
         }
     }
 
@@ -1039,11 +1045,12 @@ enum class PersonaType(private val weight: Double) {
             speed: Int,
             duration: String,
             personaWidth: Long,
+            flippedWidth: Double = 17.5,
         ): StringBuilder {
             val movingPoints = getMovingPoints(speed)
 
             makeMove(movingPoints, personaWidth, id, type, duration)
-            reverseFlipped(movingPoints, duration)
+            reverseFlipped(movingPoints, flippedWidth, duration)
 
             return this
         }
@@ -1080,6 +1087,7 @@ enum class PersonaType(private val weight: Double) {
 
         private fun StringBuilder.reverseFlipped(
             movingPoints: List<MovingPoint>,
+            flippedWith: Double,
             duration: String
         ) {
             this.append("@keyframes reverse-flip {")
@@ -1087,12 +1095,12 @@ enum class PersonaType(private val weight: Double) {
             movingPoints.forEach { movingPoint ->
                 if (beforeMovingPoint.scale != movingPoint.scale) {
                     this.append("${min(100.0, beforeMovingPoint.percentage + 0.01)}% {")
-                        .append("transform-origin: 17.75px 0px;")
+                        .append("transform-origin: ${flippedWith}px 0px;")
                         .append("transform: scaleX(${movingPoint.scale});")
                         .append("}")
                 }
                 this.append("${movingPoint.percentage}% {")
-                    .append("transform-origin: 17.75px 0px;")
+                    .append("transform-origin: ${flippedWith}px 0px;")
                     .append("transform: scaleX(${movingPoint.scale});")
                     .append("}")
                 beforeMovingPoint = movingPoint
