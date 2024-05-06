@@ -856,7 +856,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("tenmm", id, 15, "180s", 5)
+            StringBuilder().moveRandomly("tenmm", id, 15, "180s", 5, 28.5)
                 .toString()
     },
 
