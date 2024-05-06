@@ -1051,7 +1051,7 @@ enum class PersonaType(private val weight: Double) {
             speed: Int,
             duration: String,
             personaWidth: Long,
-            flippedWidth: Double = 17.5,
+            flippedWidth: Double,
         ): StringBuilder {
             val movingPoints = getMovingPoints(speed)
 
