@@ -64,7 +64,7 @@
 </style>
 
 <g id="goose-*{id}" transform="translate(-100, -100)">
-<g id="contributions-wrap">
+<g id="contributions-wrap-*{id}">
   <g id="contributions" transform="translate(0, -35)" style="display:*{contribution-display};">
     <g id="contribution-tag" transform="translate(-3, -1)">
       <rect x="3" width="77" height="19" fill="white"/>
@@ -83,14 +83,14 @@
   </g>
 </g>
 
-<g id="level-tag-wrap">
+<g id="level-tag-wrap-*{id}">
   <g id="level-tag" transform="translate(-3, -12)" style="display:*{level-tag-display};">
     <rect x="3" width="77" height="9" fill="white"/>
     <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
     <rect y="1.20001" width="83" height="6.6" fill="white"/>
   </g>
 </g>
-<g id="level-wrap">
+<g id="level-wrap-*{id}">
   <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
     <g id="level" transform="translate(*{levelx}, -4)">
       <g transform="translate(10, -0.05)">
