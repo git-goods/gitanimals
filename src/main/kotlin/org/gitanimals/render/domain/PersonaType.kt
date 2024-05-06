@@ -397,7 +397,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 6)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 6, 22.5)
                 .toString()
     },
 
@@ -414,7 +414,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 6)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 6, 22.5)
                 .toString()
     },
 
@@ -431,7 +431,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
@@ -448,7 +448,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
@@ -465,7 +465,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
@@ -482,7 +482,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
@@ -499,7 +499,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
@@ -516,7 +516,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
@@ -533,7 +533,7 @@ enum class PersonaType(private val weight: Double) {
         }
 
         override fun act(id: Long): String =
-            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10)
+            StringBuilder().moveRandomly("penguin", id, 10, "180s", 10, 22.5)
                 .toString()
     },
 
