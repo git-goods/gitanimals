@@ -1056,7 +1056,7 @@ enum class PersonaType(private val weight: Double) {
             val movingPoints = getMovingPoints(speed)
 
             makeMove(movingPoints, personaWidth, id, type, duration)
-            reverseFlipped(movingPoints, flippedWidth, duration)
+            reverseFlipped(id, movingPoints, flippedWidth, duration)
 
             return this
         }
@@ -1092,11 +1092,12 @@ enum class PersonaType(private val weight: Double) {
         }
 
         private fun StringBuilder.reverseFlipped(
+            id: Long,
             movingPoints: List<MovingPoint>,
             flippedWith: Double,
             duration: String
         ) {
-            this.append("@keyframes reverse-flip {")
+            this.append("@keyframes reverse-flip-$id {")
             var beforeMovingPoint = movingPoints.first()
             movingPoints.forEach { movingPoint ->
                 if (beforeMovingPoint.scale != movingPoint.scale) {
@@ -1112,8 +1113,8 @@ enum class PersonaType(private val weight: Double) {
                 beforeMovingPoint = movingPoint
             }
             this.append("}")
-                .append("#contributions-wrap, #level-tag-wrap, #level-wrap {")
-                .append("animation-name: reverse-flip;")
+                .append("#contributions-wrap-$id, #level-tag-wrap-$id, #level-wrap-$id {")
+                .append("animation-name: reverse-flip-$id;")
                 .append("animation-duration: $duration;")
                 .append("animation-iteration-count: 1;")
                 .append("animation-fill-mode: forwards;")
