@@ -8,8 +8,6 @@ import kotlin.random.Random
 enum class PersonaType(private val weight: Double) {
     GOOSE(1.0) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -31,8 +29,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_SUNGLASSES(0.05) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseSunglassesSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -54,8 +50,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_KOTLIN(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseKotlinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -77,8 +71,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_JAVA(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseJavaSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -100,8 +92,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_JS(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseJsSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -123,8 +113,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_NODE(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseNodeSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -146,8 +134,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_SWIFT(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseSwiftSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -169,8 +155,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_LINUX(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseLinuxSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -192,8 +176,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOOSE_SPRING(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val goose = gooseSpringSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -215,8 +197,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK(0.9) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -238,8 +218,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_SUNGLASSES(0.4) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickSunglassesSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -261,8 +239,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_KOTLIN(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickKotlinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -284,8 +260,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_JAVA(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickJavaSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -307,8 +281,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_JS(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickJsSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -330,8 +302,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_NODE(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickNodeSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -353,8 +323,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_SWIFT(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickSwiftSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -376,8 +344,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_LINUX(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickLinuxSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -399,8 +365,6 @@ enum class PersonaType(private val weight: Double) {
 
     LITTLE_CHICK_SPRING(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             val littleChick = littleChickSpringSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -422,8 +386,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN(0.5) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -441,8 +403,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_SUNGLASSES(0.2) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinSunglassesSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -460,8 +420,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_KOTLIN(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinKotlinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -479,8 +437,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_JAVA(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinJavaSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -498,8 +454,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_JS(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinJsSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -517,8 +471,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_NODE(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinNodeSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -536,8 +488,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_SWIFT(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinSwiftSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -555,8 +505,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_LINUX(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinLinuxSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -574,8 +522,6 @@ enum class PersonaType(private val weight: Double) {
 
     PENGUIN_SPRING(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return penguinSpringSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -593,8 +539,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG(0.2) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -611,8 +555,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_SUNGLASSES(0.08) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigSunglassesSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -629,8 +571,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_KOTLIN(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigKotlinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -647,8 +587,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_JAVA(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigJavaSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -665,8 +603,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_JS(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigJsSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -683,8 +619,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_NODE(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigNodeSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -701,8 +635,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_SWIFT(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigSwiftSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -719,8 +651,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_LINUX(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigLinuxSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -737,8 +667,6 @@ enum class PersonaType(private val weight: Double) {
 
     PIG_SPRING(0.01) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return pigSpringSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{leg-iteration-count}", "360")
@@ -755,8 +683,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -773,8 +699,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED_KOTLIN(0.001) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedKotlinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -791,8 +715,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED_JAVA(0.001) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedJavaSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -809,8 +731,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED_JS(0.001) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedJsSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -827,8 +747,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED_NODE(0.001) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedNodeSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -845,8 +763,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED_SWIFT(0.001) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedSwiftSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -863,8 +779,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_RED_LINUX(0.001) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeRedLinuxSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -881,8 +795,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_BLUE(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeBlueSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -899,8 +811,6 @@ enum class PersonaType(private val weight: Double) {
 
     SLIME_GREEN(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return slimeGreenSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -917,8 +827,6 @@ enum class PersonaType(private val weight: Double) {
 
     FLAMINGO(0.05) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return flamingoSvg.replace("*{position}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -941,8 +849,6 @@ enum class PersonaType(private val weight: Double) {
 
     TEN_MM(0.000) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return tenmmSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -959,8 +865,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOBLIN(0.06) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return goblinSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -977,8 +881,6 @@ enum class PersonaType(private val weight: Double) {
 
     GOBLIN_BAG(0.03) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return goblinBagSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -995,8 +897,6 @@ enum class PersonaType(private val weight: Double) {
 
     BBIBBI(0.000) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return bbibbiSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -1013,8 +913,6 @@ enum class PersonaType(private val weight: Double) {
 
     CAT(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return catSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -1031,8 +929,6 @@ enum class PersonaType(private val weight: Double) {
 
     CHEESE_CAT(0.04) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return cheeseCatSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -1049,8 +945,6 @@ enum class PersonaType(private val weight: Double) {
 
     GALCHI_CAT(0.06) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return galchiCatSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -1067,8 +961,6 @@ enum class PersonaType(private val weight: Double) {
 
     WHITE_CAT(0.04) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            check(persona.id != null) { "Save persona first before call load()" }
-
             return whiteCatSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
@@ -1148,25 +1040,96 @@ enum class PersonaType(private val weight: Double) {
             duration: String,
             personaWidth: Long,
         ): StringBuilder {
+            val movingPoints = getMovingPoints(speed)
+
+            makeMove(movingPoints, personaWidth, id, type, duration)
+            reverseFlipped(movingPoints, duration)
+
+            return this
+        }
+
+        private fun StringBuilder.makeMove(
+            movingPoints: List<MovingPoint>,
+            personaWidth: Long,
+            id: Long,
+            type: String,
+            duration: String
+        ) {
+            this.append("@keyframes move-$id {")
+
+            var beforeMovingPoint = movingPoints.first()
+            movingPoints.forEach { movingPoint ->
+                if (beforeMovingPoint.scale != movingPoint.scale) {
+                    this.append("${min(100.0, beforeMovingPoint.percentage + 0.01)}% {")
+                        .append("transform:translate(${beforeMovingPoint.x - (personaWidth * movingPoint.scale)}%, ${beforeMovingPoint.y}%) rotate(${beforeMovingPoint.angle}deg) scaleX(${movingPoint.scale});")
+                        .append("}")
+                }
+                this.append("${movingPoint.percentage}% {")
+                    .append("transform:translate(${movingPoint.x}%, ${movingPoint.y}%) rotate(${movingPoint.angle}deg) scaleX(${movingPoint.scale});")
+                    .append("}")
+                beforeMovingPoint = movingPoint
+            }
+            this.append("}")
+                .append("#$type-$id {")
+                .append("animation-name: move-$id;")
+                .append("animation-duration: $duration;")
+                .append("animation-iteration-count: 1;")
+                .append("animation-fill-mode: forwards;")
+                .append("}")
+        }
+
+        private fun StringBuilder.reverseFlipped(
+            movingPoints: List<MovingPoint>,
+            duration: String
+        ) {
+            this.append("@keyframes reverse-flip {")
+            var beforeMovingPoint = movingPoints.first()
+            movingPoints.forEach { movingPoint ->
+                if (beforeMovingPoint.scale != movingPoint.scale) {
+                    this.append("${min(100.0, beforeMovingPoint.percentage + 0.01)}% {")
+                        .append("transform-origin: 17.75px 0px;")
+                        .append("transform: scaleX(${movingPoint.scale});")
+                        .append("}")
+                }
+                this.append("${movingPoint.percentage}% {")
+                    .append("transform-origin: 17.75px 0px;")
+                    .append("transform: scaleX(${movingPoint.scale});")
+                    .append("}")
+                beforeMovingPoint = movingPoint
+            }
+            this.append("}")
+                .append("#contributions-wrap, #level-tag-wrap, #level-wrap {")
+                .append("animation-name: reverse-flip;")
+                .append("animation-duration: $duration;")
+                .append("animation-iteration-count: 1;")
+                .append("animation-fill-mode: forwards;")
+                .append("}")
+        }
+
+        private fun getMovingPoints(speed: Int): List<MovingPoint> {
+            val movingPoints = mutableListOf<MovingPoint>()
             var currentY = Random.nextInt(30, 80)
             var currentX = Random.nextInt(10, 90)
-            var currentAngle = (Random.nextDouble() * 10).toInt()
-            var currentScale = Random.nextInt(0, 2) - 1
-            if (currentScale == 0) {
-                currentScale++
+            val startAngle = (Random.nextDouble() * 10).toInt()
+            val startScale = when (Random.nextInt(0, 2) - 1) {
+                0 -> 1
+                else -> -1
             }
-            this.append("@keyframes move-$id {")
-                .append("0% {")
-                .append("-webkit-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
-                .append("-ms-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
-                .append("-o-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
-                .append("-moz-transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
-                .append("transform:translate($currentY%, $currentX%) rotate(${currentAngle}deg) scaleX($currentScale);")
-                .append("}")
             var animationPercentage = 0.0
-            while (animationPercentage < 100) {
-                val beforeAnimationPercentage = animationPercentage
+
+            movingPoints.add(
+                MovingPoint(
+                    animationPercentage,
+                    currentY,
+                    currentX,
+                    startAngle,
+                    startScale
+                )
+            )
+
+            while (animationPercentage < 100.0) {
                 animationPercentage += Random.nextInt(2, 6)
+                animationPercentage = min(100.0, animationPercentage)
                 val nextY =
                     Random.nextInt(max(20, min(79, currentY - speed)), min(80, currentY + speed))
                 val nextX =
@@ -1179,35 +1142,21 @@ enum class PersonaType(private val weight: Double) {
                     true -> 1
                     false -> -1
                 }
-                if (nextScale != currentScale) {
-                    this.append("${min(100.0, beforeAnimationPercentage + 0.01)}% {")
-                        .append("-webkit-transform: translate(${currentX - (personaWidth * nextScale)}%, ${currentY}%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("-ms-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("-o-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("-moz-transform: translate(${currentX - (personaWidth * nextScale)}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("transform: translate(${{ currentX - (personaWidth * nextScale) }}%, $currentY%) rotate(${currentAngle}deg) scaleX($nextScale);")
-                        .append("}")
-                }
-                this.append("${min(100.0, animationPercentage)}% {")
-                    .append("-webkit-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
-                    .append("-ms-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
-                    .append("-o-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
-                    .append("-moz-transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
-                    .append("transform:translate($nextX%, $nextY%) rotate(${nextAngle}deg) scaleX($nextScale);")
-                    .append("}")
+
+                movingPoints.add(
+                    MovingPoint(
+                        animationPercentage,
+                        nextY,
+                        nextX,
+                        nextAngle,
+                        nextScale
+                    )
+                )
+
                 currentY = nextY
                 currentX = nextX
-                currentAngle = nextAngle
-                currentScale = nextScale
             }
-            this.append("}")
-                .append("#$type-$id {")
-                .append("animation-name: move-$id;")
-                .append("animation-duration: $duration;")
-                .append("animation-iteration-count: 1;")
-                .append("animation-fill-mode: forwards;")
-                .append("}")
-            return this
+            return movingPoints
         }
 
         private fun Long.toSvg(levelStartX: Double, xIncrease: Double): String {
@@ -1232,4 +1181,12 @@ enum class PersonaType(private val weight: Double) {
             return builder.toString()
         }
     }
+
+    private data class MovingPoint(
+        val percentage: Double,
+        val y: Int,
+        val x: Int,
+        val angle: Int,
+        val scale: Int,
+    )
 }
