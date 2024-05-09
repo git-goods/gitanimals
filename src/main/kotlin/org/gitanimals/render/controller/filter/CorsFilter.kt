@@ -4,7 +4,6 @@ import jakarta.servlet.Filter
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletRequest
 import jakarta.servlet.ServletResponse
-import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
@@ -17,10 +16,7 @@ class CorsFilter : Filter {
         response: ServletResponse,
         chain: FilterChain
     ) {
-        (request as HttpServletRequest)
-        if (regexMatcher.matches(request.requestURI)) {
-            (response as HttpServletResponse).allowCors()
-        }
+        (response as HttpServletResponse).allowCors()
         chain.doFilter(request, response)
     }
 
@@ -33,9 +29,5 @@ class CorsFilter : Filter {
             "Origin, X-Requested-With, Content-Type, Accept, Authorization"
         )
         return this
-    }
-
-    private companion object {
-        private val regexMatcher = Regex("/users/.*")
     }
 }
