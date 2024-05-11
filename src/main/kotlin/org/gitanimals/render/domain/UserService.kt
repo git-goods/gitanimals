@@ -49,6 +49,7 @@ class UserService(
     fun createNewUser(name: String, contributions: Map<Int, Int>): User =
         userRepository.save(User.newUser(name, contributions))
 
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
     fun giveBonusPersona(id: Long, persona: String) {
         requireIdempotency("$id:bonus")
@@ -58,6 +59,7 @@ class UserService(
         user.giveBonusPersona(persona)
     }
 
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
     fun changePersona(id: Long, personChangeRequest: PersonaChangeRequest) {
         val user = getUserById(id)
