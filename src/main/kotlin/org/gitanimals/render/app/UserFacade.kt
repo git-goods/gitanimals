@@ -14,24 +14,24 @@ class UserFacade(
     fun changePersona(token: String, personChangeRequest: PersonaChangeRequest) {
         val user = identityApi.getUserByToken(token)
 
-        userService.changePersona(user.id.toLong(), personChangeRequest)
+        userService.changePersona(user.username, personChangeRequest)
     }
 
     fun addPersona(token: String, idempotencyKey: String, personaType: String): PersonaResponse {
         val user = identityApi.getUserByToken(token)
 
-        return userService.addPersona(user.id.toLong(), personaType, idempotencyKey)
+        return userService.addPersona(user.username, personaType, idempotencyKey)
     }
 
     fun deletePersona(token: String, personaId: Long): PersonaResponse {
         val user = identityApi.getUserByToken(token)
 
-        return userService.deletePersona(user.id.toLong(), personaId)
+        return userService.deletePersona(user.username, personaId)
     }
 
     fun getPersona(token: String, personaId: Long): PersonaResponse {
         val user = identityApi.getUserByToken(token)
 
-        return userService.getPersona(user.id.toLong(), personaId)
+        return userService.getPersona(user.username, personaId)
     }
 }

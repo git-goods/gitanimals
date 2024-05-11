@@ -61,8 +61,8 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
-    fun changePersona(id: Long, personChangeRequest: PersonaChangeRequest) {
-        val user = getUserById(id)
+    fun changePersona(name: String, personChangeRequest: PersonaChangeRequest) {
+        val user = getUserByName(name)
 
         user.changePersonaVisible(
             personChangeRequest.personaId.toLong(),
@@ -72,10 +72,10 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
-    fun addPersona(id: Long, personaType: String, idempotencyKey: String): PersonaResponse {
+    fun addPersona(name: String, personaType: String, idempotencyKey: String): PersonaResponse {
         requireIdempotency("addPersona:$idempotencyKey")
 
-        val user = getUserById(id)
+        val user = getUserByName(name)
 
         return user.addPersona(PersonaType.valueOf(personaType.uppercase()))
     }
@@ -90,19 +90,16 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
-    fun deletePersona(id: Long, personaId: Long): PersonaResponse {
-        val user = getUserById(id)
+    fun deletePersona(name: String, personaId: Long): PersonaResponse {
+        val user = getUserByName(name)
 
         return user.deletePersona(personaId)
     }
 
-    fun getPersona(id: Long, personaId: Long): PersonaResponse {
-        return getUserById(id).personas
+    fun getPersona(name: String, personaId: Long): PersonaResponse {
+        return getUserByName(name).personas
             .find { it.id == personaId }
             ?.let { PersonaResponse.from(it) }
-            ?: throw IllegalArgumentException("Cannot find matched persona \"$personaId\" by user \"$id\"")
+            ?: throw IllegalArgumentException("Cannot find matched persona \"$personaId\" by user name \"$name\"")
     }
-
-    private fun getUserById(id: Long) = (userRepository.findByIdOrNull(id)
-        ?: throw IllegalArgumentException("Cannot find exists user by id \"$id\""))
 }
