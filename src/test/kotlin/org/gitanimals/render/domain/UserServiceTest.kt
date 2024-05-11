@@ -33,10 +33,9 @@ internal class UserServiceTest(
     describe("deletePersona 메소드는") {
         context("userId와 personaId를 받으면,") {
             val personaId = user.personas[0].id
-            val userId = user.id
 
             it("persona를 삭제한다.") {
-                val response = userService.deletePersona(userId, personaId)
+                val response = userService.deletePersona(user.name, personaId)
                 val user = userService.getUserByName(user.name)
 
                 user.personas
