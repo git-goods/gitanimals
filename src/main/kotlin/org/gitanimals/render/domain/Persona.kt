@@ -26,6 +26,10 @@ class Persona(
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     var user: User? = null,
+
+    @Version
+    @Column(name = "version", nullable = false)
+    var version: Long? = null,
 ) : AbstractTime() {
 
     constructor(
