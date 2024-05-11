@@ -38,6 +38,7 @@ internal class UsedCouponSagaHandlerTest(
 
             val couponUsed = CouponUsed(
                 userId = user.id,
+                username = user.name,
                 code = "NEW_USER_BONUS_PET",
                 dynamic = "GOOSE",
             )

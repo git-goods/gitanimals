@@ -19,6 +19,6 @@ class UsedCouponSagaHandlers(
         }
         sagaCommitEvent.setNextEvent(couponUsed)
 
-        userService.giveBonusPersona(couponUsed.userId, couponUsed.dynamic)
+        userService.giveBonusPersona(couponUsed.username, couponUsed.dynamic)
     }
 }
