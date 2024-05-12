@@ -85,7 +85,7 @@ class UserService(
 
         val user = getUserByName(name)
 
-        return user.addPersona(PersonaType.valueOf(personaType.uppercase()))
+        return user.addPersona(id, PersonaType.valueOf(personaType.uppercase()), level)
     }
 
     private fun requireIdempotency(idempotencyKey: String) {
