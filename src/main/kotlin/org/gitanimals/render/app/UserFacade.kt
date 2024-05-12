@@ -17,10 +17,16 @@ class UserFacade(
         return userService.changePersona(user.username, personChangeRequest)
     }
 
-    fun addPersona(token: String, idempotencyKey: String, personaType: String): PersonaResponse {
+    fun addPersona(
+        token: String,
+        idempotencyKey: String,
+        id: Long,
+        personaType: String,
+        level: Int,
+    ): PersonaResponse {
         val user = identityApi.getUserByToken(token)
 
-        return userService.addPersona(user.username, personaType, idempotencyKey)
+        return userService.addPersona(user.username, id, personaType, level, idempotencyKey)
     }
 
     fun deletePersona(token: String, personaId: Long): PersonaResponse {
