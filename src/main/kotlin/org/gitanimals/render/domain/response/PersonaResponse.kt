@@ -11,7 +11,12 @@ data class PersonaResponse(
 ) {
     companion object {
         fun from(persona: Persona): PersonaResponse {
-            return PersonaResponse(persona.id.toString(), persona.type, persona.level.toString(), persona.visible)
+            return PersonaResponse(
+                persona.id.toString(),
+                persona.type,
+                persona.level.value.toString(),
+                persona.visible
+            )
         }
     }
 }

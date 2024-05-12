@@ -1,0 +1,377 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
+  <style>
+    @keyframes fishman-14-hand-move {
+    0% {
+    transform: translate(2px, 3px) rotate(-10deg);
+    }
+    50% {
+    transform: translate(2px, 3px) rotate(10deg);
+    }
+    100% {
+    transform: translate(2px, 3px) rotate(-10deg);
+    }
+    }
+
+    @keyframes fishman-14-leg-left-move {
+    0% {
+    transform: translate(3px, 13px);
+    }
+    50% {
+    transform: translate(3px, 13px) rotate(10deg);
+    }
+    100% {
+    transform: translate(3px, 13px);
+    }
+    }
+
+    @keyframes fishman-14-leg-right-move {
+    0% {
+    transform: translate(6px, 13px);
+    }
+    50% {
+    transform: translate(6px, 13px) rotate(-10deg);
+    }
+    100% {
+    transform: translate(6px, 13px);
+    }
+    }
+
+    @keyframes fishman-14-eyelid-left-move {
+    0% {
+    transform: translate(0.2px, 3px) scaleY(0);
+    }
+    50% {
+    transform: translate(0.2px, 3.7px) scaleY(-1.17);
+    }
+    100% {
+    transform: translate(0.2px, 3px) scaleY(0);
+    }
+    }
+
+    @keyframes fishman-14-eyelid-right-move {
+    0% {
+    transform: translate(2.2px, 3px) scaleY(0);
+    }
+    50% {
+    transform: translate(2.2px, 3.7px) scaleY(-1.17);
+    }
+    100% {
+    transform: translate(2.2px, 3px) scaleY(0);
+    }
+    }
+
+    #fishman-14-leg-left {
+    animation-name:fishman-14-leg-left-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #fishman-14-leg-right {
+    animation-name:fishman-14-leg-right-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #fishman-14-hand {
+    animation-name:fishman-14-hand-move;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #fishman-14-eyelid-left {
+    animation-name:fishman-14-eyelid-left-move;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #fishman-14-eyelid-right {
+    animation-name:fishman-14-eyelid-right-move;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+  </style>
+
+  <g id="fishman-14" transform="translate(0, 15)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="fishman-14-shadow" transform="translate(0, 16.5)">
+        <rect y="0.75" width="11" height="1.5" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.846146" y="0.375" width="9.30769" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.846146" y="2.25" width="9.30769" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.69228" width="7.61539" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.69228" y="2.625" width="7.61539" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+
+      <g id="fishman-14-leg-left" transform="translate(2, 13)">
+        <rect width="1" height="5" transform="matrix(-1 0 0 1 1 0)" fill="#E5FD83"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 3 4)" fill="#E5FD83"/>
+        <rect width="2" height="2" transform="matrix(-1 0 0 1 2 0)" fill="#6BB3B9"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 1)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 1 2)" fill="black" fill-opacity="0.1"/>
+      </g>
+
+      <g id="fishman-14-leg-right" transform="translate(6, 13)">
+        <rect width="1" height="5" transform="matrix(-1 0 0 1 1 0)" fill="#E5FD83"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 3 4)" fill="#E5FD83"/>
+        <rect width="2" height="2" transform="matrix(-1 0 0 1 2 0)" fill="#6BB3B9"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 1)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 1 2)" fill="black" fill-opacity="0.1"/>
+      </g>
+
+      <g id="fishman-14-body" transform="translate(0, -5)">
+        <rect width="6" height="12" transform="matrix(-1 0 0 1 9 2)" fill="#DDCB3B"/>
+        <rect width="7" height="14" transform="matrix(-1 0 0 1 9 1)" fill="#DDCB3B"/>
+        <rect width="7" height="2" transform="matrix(-1 0 0 1 9 5)" fill="#DDCB3B"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 6 0)" fill="#504889"/>
+        <rect width="4" height="2" transform="matrix(-1 0 0 1 7 0)" fill="#504889"/>
+        <rect width="2" height="2" transform="matrix(-1 0 0 1 4 1)" fill="#504889"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 3 3)" fill="#504889"/>
+        <rect width="2" height="3" transform="matrix(-1 0 0 1 2 5)" fill="#504889"/>
+        <rect width="2" height="7" transform="matrix(-1 0 0 1 3 7)" fill="#504889"/>
+        <rect width="1" height="4" transform="matrix(-1 0 0 1 2 2)" fill="#504889"/>
+        <rect width="2" height="3" transform="matrix(-1 0 0 1 3 2)" fill="#504889"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 9 2)" fill="#DDCB3B"/>
+        <rect width="5" height="11" transform="matrix(-1 0 0 1 9 1)" fill="#DDCB3B"/>
+        <rect width="3" height="7" transform="matrix(-1 0 0 1 6 2)" fill="#DDCB3B"/>
+        <rect width="4" height="4" transform="matrix(-1 0 0 1 6 3)" fill="#DDCB3B"/>
+        <rect width="5" height="2" transform="matrix(-1 0 0 1 6 5)" fill="#DDCB3B"/>
+        <rect width="1" height="7" transform="matrix(-1 0 0 1 3 7)" fill="#DDCB3B"/>
+        <rect width="7" height="12" transform="matrix(-1 0 0 1 10 2)" fill="#DDCB3B"/>
+        <rect width="3" height="6" transform="matrix(-1 0 0 1 10 8)" fill="#7E7B1C"/>
+        <rect width="3" height="6" transform="matrix(-1 0 0 1 9 9)" fill="#7E7B1C"/>
+        <rect width="1.75" height="0.75" transform="matrix(-1 0 0 1 10.25 5.25)" fill="#938FB7"/>
+        <rect x="7" y="5.5" width="2.25" height="0.75" fill="#938FB7"/>
+        <rect x="6.25" y="5.5" width="1.5" height="0.5" fill="#938FB7"/>
+        <rect x="5.25" y="5.5" width="1.75" height="0.25" fill="#938FB7"/>
+        <rect x="4.5" y="5.25" width="1" height="0.25" fill="#938FB7"/>
+        <rect x="5.25" y="5.25" width="0.25" height="0.5" fill="#938FB7"/>
+        <rect width="0.75" height="0.75" transform="matrix(-1 0 0 1 10.75 5)" fill="#938FB7"/>
+        <rect width="0.5" height="0.5" transform="matrix(-1 0 0 1 11 5.25)" fill="#938FB7"/>
+        <rect width="1" height="0.25" transform="matrix(-1 0 0 1 6.25 6)" fill="#938FB7"/>
+        <rect width="1" height="0.75" transform="matrix(-1 0 0 1 10.75 6)" fill="#938FB7"/>
+        <rect width="3" height="0.75" transform="matrix(-1 0 0 1 10 6.25)" fill="#938FB7"/>
+        <rect width="1" height="0.75" transform="matrix(-1 0 0 1 7.25 6)" fill="#938FB7"/>
+        <rect width="1" height="0.5" transform="matrix(-1 0 0 1 6.75 6)" fill="#938FB7"/>
+        <rect width="1" height="0.25" transform="matrix(-1 0 0 1 5.75 5.75)" fill="#938FB7"/>
+        <rect width="0.25" height="0.5" transform="matrix(-1 0 0 1 5 5.5)" fill="#938FB7"/>
+        <rect width="0.5" height="0.5" transform="matrix(-1 0 0 1 5.75 5.75)" fill="#938FB7"/>
+        <rect width="0.75" height="0.5" transform="matrix(-1 0 0 1 11 6)" fill="#938FB7"/>
+        <rect width="0.75" height="0.25" transform="matrix(-1 0 0 1 11 5.75)" fill="#8481A5"/>
+        <rect width="1" height="0.25" transform="matrix(-1 0 0 1 10.25 6)" fill="#8481A5"/>
+        <rect width="2.25" height="0.25" transform="matrix(-1 0 0 1 9.25 6.25)" fill="#8481A5"/>
+        <rect width="0.75" height="0.25" transform="matrix(-1 0 0 1 7 6)" fill="#8481A5"/>
+        <rect width="1" height="0.25" transform="matrix(-1 0 0 1 6.25 5.75)" fill="#8481A5"/>
+        <rect width="1" height="0.25" transform="matrix(-1 0 0 1 5.25 5.5)" fill="#8481A5"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 3 7)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 2 6)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 5 5)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 5 7)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 4 8)" fill="black" fill-opacity="0.1"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 11 14)" fill="#69B1B8"/>
+        <rect width="8" height="3" transform="matrix(-1 0 0 1 10 14)" fill="#69B1B8"/>
+        <rect width="6" height="2" transform="matrix(-1 0 0 1 9 16)" fill="#69B1B8"/>
+        <rect width="1" height="3" transform="matrix(-1 0 0 1 3 14)" fill="#69B1B8"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 11 14)" fill="black" fill-opacity="0.1"/>
+        <rect width="5" height="2" transform="matrix(-1 0 0 1 8 17)" fill="#69B1B8"/>
+      </g>
+      <g id="fishman-14-hand" transform="translate(2, 3)">
+        <rect width="1" height="8" transform="matrix(-1 0 0 1 2 0)" fill="#EBF4A1"/>
+        <rect width="1" height="3" transform="matrix(-1 0 0 1 1 6)" fill="#EBF4A1"/>
+        <rect width="2" height="6" transform="matrix(-1 0 0 1 2 2)" fill="#EBF4A1"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 2 2)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 1 4)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 2 6)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 1 8)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 2 0)" fill="black" fill-opacity="0.1"/>
+      </g>
+      <g id="fishman-14-eyes" transform="translate(6, -3)">
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 4.35718 0.428589)" fill="white"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 3.92847 0.428589)" fill="white"/>
+        <rect width="1.5" height="1.71429" transform="matrix(-1 0 0 1 3.71436 0.642883)" fill="white"/>
+        <rect width="1.5" height="1.71429" transform="matrix(-1 0 0 1 5 0.642883)" fill="white"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 4.35718 0.857117)" fill="white"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 4.78564 0.428589)" fill="white"/>
+        <rect width="1.92857" height="2.57143" transform="matrix(-1 0 0 1 4.57153 0.214294)" fill="white"/>
+        <rect width="1.71429" height="2.35714" transform="matrix(-1 0 0 1 4.35718 0.214294)" fill="white"/>
+        <rect width="1.07142" height="0.857143" transform="matrix(-1 0 0 1 4.35718 1.07141)" fill="black"/>
+        <rect width="0.642852" height="0.428571" transform="matrix(-1 0 0 1 4.14282 1.71429)" fill="black"/>
+        <g id="fishman-14-eyelid-right">
+          <rect y="1.14282" width="2.79" height="0.85717" fill="#DDCB3B"/>
+          <rect x="0.2146" y="0.928467" width="2.36077" height="0.85717" fill="#DDCB3B"/>
+          <rect x="0.429199" y="0.714233" width="1.93154" height="0.85717" fill="#DDCB3B"/>
+          <rect x="0.643799" y="0.5" width="1.50231" height="0.85717" fill="#DDCB3B"/>
+        </g>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 4.78564 0.428589)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 4.57153 0.214294)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 4.35718 0)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 3.07153 0)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 2.85718 0.214294)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 2.64282 0.428589)" fill="#DDCB3B"/>
+        <rect width="2.35714" height="1.07143" transform="matrix(-1 0 0 1 4.78564 0.428589)" fill="#DDCB3B"/>
+        <rect width="2.78571" height="0.857143" transform="matrix(-1 0 0 1 5 0.642883)" fill="#DDCB3B"/>
+        <rect width="1.92857" height="1.07143" transform="matrix(-1 0 0 1 4.57153 0.214294)" fill="#DDCB3B"/>
+        <rect width="1.5" height="1.07143" transform="matrix(-1 0 0 1 4.35718 0)" fill="#DDCB3B"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 2.64282 0.428589)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 2.85718 0.214294)" fill="black" fill-opacity="0.1"/>
+        <rect width="1.5" height="0.214286" transform="matrix(-1 0 0 1 4.35718 0)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 4.57153 0.214294)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 4.78564 0.428589)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 5 0.642883)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 2.42847 0.642883)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.642857" height="0.214286" transform="matrix(-1 0 0 1 5 1.07141)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.642857" height="0.214286" transform="matrix(-1 0 0 1 2.85718 1.07141)" fill="black" fill-opacity="0.1"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 2.35718 0.428589)" fill="white"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 1.92847 0.428589)" fill="white"/>
+        <rect width="1.5" height="1.71429" transform="matrix(-1 0 0 1 1.71436 0.642883)" fill="white"/>
+        <rect width="1.5" height="1.71429" transform="matrix(-1 0 0 1 3 0.642883)" fill="white"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 2.35718 0.857117)" fill="white"/>
+        <rect width="1.5" height="2.14286" transform="matrix(-1 0 0 1 2.78564 0.428589)" fill="white"/>
+        <rect width="1.92857" height="2.57143" transform="matrix(-1 0 0 1 2.57153 0.214294)" fill="white"/>
+        <rect width="1.71429" height="2.35714" transform="matrix(-1 0 0 1 2.35718 0.214294)" fill="white"/>
+        <rect width="1.07142" height="0.857143" transform="matrix(-1 0 0 1 2.35718 1.07141)" fill="black"/>
+        <rect width="0.642852" height="0.428571" transform="matrix(-1 0 0 1 2.14282 1.71429)" fill="black"/>
+        <g id="fishman-14-eyelid-left">
+          <rect y="1.14282" width="2.79" height="0.85717" fill="#DDCB3B"/>
+          <rect x="0.2146" y="0.928467" width="2.36077" height="0.85717" fill="#DDCB3B"/>
+          <rect x="0.429199" y="0.714233" width="1.93154" height="0.85717" fill="#DDCB3B"/>
+          <rect x="0.643799" y="0.5" width="1.50231" height="0.85717" fill="#DDCB3B"/>
+        </g>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 2.78564 0.428589)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 2.57153 0.214294)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 2.35718 0)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 1.07153 0)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 0.857178 0.214294)" fill="#DDCB3B"/>
+        <rect width="0.214284" height="0.214286" transform="matrix(-1 0 0 1 0.642822 0.428589)" fill="#DDCB3B"/>
+        <rect width="2.35714" height="1.07143" transform="matrix(-1 0 0 1 2.78564 0.428589)" fill="#DDCB3B"/>
+        <rect width="2.78571" height="0.857143" transform="matrix(-1 0 0 1 3 0.642883)" fill="#DDCB3B"/>
+        <rect width="1.92857" height="1.07143" transform="matrix(-1 0 0 1 2.57153 0.214294)" fill="#DDCB3B"/>
+        <rect width="1.5" height="1.07143" transform="matrix(-1 0 0 1 2.35718 0)" fill="#DDCB3B"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 0.642822 0.428589)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 0.857178 0.214294)" fill="black" fill-opacity="0.1"/>
+        <rect width="1.5" height="0.214286" transform="matrix(-1 0 0 1 2.35718 0)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 2.57153 0.214294)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 2.78564 0.428589)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 3 0.642883)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.214286" height="0.214286" transform="matrix(-1 0 0 1 0.428467 0.642883)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.642857" height="0.214286" transform="matrix(-1 0 0 1 3 1.07141)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.642857" height="0.214286" transform="matrix(-1 0 0 1 0.857178 1.07141)" fill="black" fill-opacity="0.1"/>
+      </g>
+      <g id="fishman-14-glasses" transform="translate(3, -2)">
+        <rect width="0.454545" height="0.681818" transform="matrix(-1 0 0 1 3.63623 0.909058)" fill="#2D2D2D"/>
+        <rect width="2.72727" height="0.454545" transform="matrix(-1 0 0 1 3.63623 0.909058)" fill="#2D2D2D"/>
+        <rect width="0.227273" height="0.227273" transform="matrix(-1 0 0 1 0.45459 1.13635)" fill="#2D2D2D"/>
+        <rect width="0.227273" height="0.227273" transform="matrix(-1 0 0 1 0.227295 1.36365)" fill="#2D2D2D"/>
+        <rect width="0.909091" height="0.227273" transform="matrix(-1 0 0 1 1.36377 0.909058)" fill="#2D2D2D"/>
+        <rect x="6.13623" width="1.36364" height="0.227273" fill="#2D2D2D"/>
+        <rect x="6.13623" y="2.27271" width="1.36364" height="0.227273" fill="#2D2D2D"/>
+        <rect x="7.72729" y="0.454529" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="7.5" y="0.227295" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="7.5" y="2.04547" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="7.72729" y="1.81818" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="7.95459" y="0.681824" width="0.227273" height="1.13636" fill="#2D2D2D"/>
+        <g filter="url(#filter0_b_698_7337)">
+          <rect x="6.13623" y="0.227295" width="1.36364" height="2.04545" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter1_b_698_7337)">
+          <rect x="7.5" y="0.454529" width="0.227273" height="1.59091" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter2_b_698_7337)">
+          <rect x="7.72729" y="0.681824" width="0.227273" height="1.13636" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter3_b_698_7337)">
+          <rect x="5.90918" y="0.454529" width="0.227273" height="1.59091" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <rect x="4.09082" width="1.36364" height="0.227273" fill="#2D2D2D"/>
+        <rect x="4.09082" y="2.27271" width="1.36364" height="0.227273" fill="#2D2D2D"/>
+        <rect x="3.86377" y="0.227295" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="5.45459" y="0.227295" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="5.68188" y="0.454529" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="5.90918" y="0.227295" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="5.90918" y="2.04547" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="3.86377" y="2.04547" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="5.45459" y="2.04547" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="5.68188" y="1.81818" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="3.63623" y="0.454529" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="3.63623" y="1.81818" width="0.227273" height="0.227273" fill="#2D2D2D"/>
+        <rect x="3.40918" y="0.681824" width="0.227273" height="1.13636" fill="#2D2D2D"/>
+        <rect x="5.90918" y="0.681824" width="0.227273" height="1.13636" fill="#2D2D2D"/>
+        <g filter="url(#filter4_b_698_7337)">
+          <rect x="4.09082" y="0.227295" width="1.36364" height="2.04545" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter5_b_698_7337)">
+          <rect x="5.45459" y="0.454529" width="0.227273" height="1.59091" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter6_b_698_7337)">
+          <rect x="3.86377" y="0.454529" width="0.227273" height="1.59091" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter7_b_698_7337)">
+          <rect x="5.68188" y="0.681824" width="0.227273" height="1.13636" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <g filter="url(#filter8_b_698_7337)">
+          <rect x="3.63623" y="0.681824" width="0.227273" height="1.13636" fill="#3791FF" fill-opacity="0.1"/>
+        </g>
+        <defs>
+          <filter id="filter0_b_698_7337" x="6.03623" y="0.127295" width="1.56353" height="2.24547" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter1_b_698_7337" x="7.4" y="0.354529" width="0.427295" height="1.79088" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter2_b_698_7337" x="7.62729" y="0.581824" width="0.427295" height="1.33635" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter3_b_698_7337" x="5.80918" y="0.354529" width="0.427295" height="1.79088" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter4_b_698_7337" x="3.99082" y="0.127295" width="1.56353" height="2.24547" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter5_b_698_7337" x="5.35459" y="0.354529" width="0.427295" height="1.79088" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter6_b_698_7337" x="3.76377" y="0.354529" width="0.427295" height="1.79088" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter7_b_698_7337" x="5.58188" y="0.581824" width="0.427295" height="1.33635" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+          <filter id="filter8_b_698_7337" x="3.53623" y="0.581824" width="0.427295" height="1.33635" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feGaussianBlur in="BackgroundImageFix" stdDeviation="0.05"/>
+            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_698_7337"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_698_7337" result="shape"/>
+          </filter>
+        </defs>
+      </g>
+    </svg>
+  </g>
+</svg>
+</svg>
