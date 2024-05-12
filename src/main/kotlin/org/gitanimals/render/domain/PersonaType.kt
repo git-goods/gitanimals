@@ -980,6 +980,22 @@ enum class PersonaType(private val weight: Double) {
             StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
                 .toString()
     },
+
+    FISH_MAN(0.001) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return fishManSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fishman", id, 15, "180s", 5, 16.5)
+                .toString()
+    }
     ;
 
     init {
