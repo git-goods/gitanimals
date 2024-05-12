@@ -83,7 +83,7 @@ class User(
         )
     }
 
-    fun changePersonaVisible(personaId: Long, visible: Boolean) {
+    fun changePersonaVisible(personaId: Long, visible: Boolean): Persona {
         val persona = personas.find { it.id == personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
 
@@ -94,6 +94,7 @@ class User(
         }
 
         persona.visible = visible
+        return persona
     }
 
     fun updateContribution(contribution: Int) {
