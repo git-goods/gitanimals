@@ -54,7 +54,13 @@ class PersonaController(
         @RequestParam("idempotency-key") idempotencyKey: String,
         @RequestBody addPersonaRequest: AddPersonaRequest,
     ): PersonaResponse {
-        val persona = userFacade.addPersona(token, idempotencyKey, addPersonaRequest.name)
+        val persona = userFacade.addPersona(
+            token,
+            idempotencyKey,
+            addPersonaRequest.id,
+            addPersonaRequest.name,
+            addPersonaRequest.level,
+        )
 
         return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
     }
