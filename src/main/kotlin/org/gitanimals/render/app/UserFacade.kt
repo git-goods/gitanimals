@@ -11,10 +11,10 @@ class UserFacade(
     private val identityApi: IdentityApi,
 ) {
 
-    fun changePersona(token: String, personChangeRequest: PersonaChangeRequest) {
+    fun changePersona(token: String, personChangeRequest: PersonaChangeRequest): PersonaResponse {
         val user = identityApi.getUserByToken(token)
 
-        userService.changePersona(user.username, personChangeRequest)
+        return userService.changePersona(user.username, personChangeRequest)
     }
 
     fun addPersona(token: String, idempotencyKey: String, personaType: String): PersonaResponse {

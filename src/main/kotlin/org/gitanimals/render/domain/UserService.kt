@@ -61,13 +61,15 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
-    fun changePersona(name: String, personChangeRequest: PersonaChangeRequest) {
+    fun changePersona(name: String, personChangeRequest: PersonaChangeRequest): PersonaResponse {
         val user = getUserByName(name)
 
-        user.changePersonaVisible(
+        val changedPersona = user.changePersonaVisible(
             personChangeRequest.personaId.toLong(),
             personChangeRequest.visible
         )
+
+        return PersonaResponse.from(changedPersona)
     }
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
