@@ -7,10 +7,11 @@ data class PersonaResponse(
     val id: String,
     val type: PersonaType,
     val level: String,
+    val visible: Boolean,
 ) {
     companion object {
         fun from(persona: Persona): PersonaResponse {
-            return PersonaResponse(persona.id.toString(), persona.type, persona.level.toString())
+            return PersonaResponse(persona.id.toString(), persona.type, persona.level.toString(), persona.visible)
         }
     }
 }
