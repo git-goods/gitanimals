@@ -14,7 +14,7 @@ data class UserResponse(
                 user.id.toString(),
                 user.name,
                 user.personas.map {
-                    PersonaResponse(it.id.toString(), it.type, it.level().toString())
+                    PersonaResponse(it.id.toString(), it.type, it.level().toString(), it.visible)
                 }.toList()
             )
         }

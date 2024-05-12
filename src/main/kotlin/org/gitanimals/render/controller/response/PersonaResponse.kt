@@ -6,4 +6,5 @@ data class PersonaResponse(
     val id: String,
     val type: PersonaType,
     val level: String,
+    val visible: Boolean,
 )
