@@ -74,7 +74,13 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
-    fun addPersona(name: String, personaType: String, idempotencyKey: String): PersonaResponse {
+    fun addPersona(
+        name: String,
+        id: Long,
+        personaType: String,
+        level: Int,
+        idempotencyKey: String
+    ): PersonaResponse {
         requireIdempotency("addPersona:$idempotencyKey")
 
         val user = getUserByName(name)
