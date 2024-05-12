@@ -68,6 +68,7 @@ jobs:
             "GITHUB_TOKEN=${{ secrets.GH_TOKEN }}"
             "REDIS_HOST=${{ secrets.REDIS_HOST }}"
             "REDIS_PORT=${{ secrets.REDIS_PORT }}"
+            "INTERNAL_SECRET=${{ secrets.INTERNAL_SECRET }}"
 
   deploy:
     needs: build
