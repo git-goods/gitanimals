@@ -29,7 +29,7 @@ class PersonaController(
     ): PersonaResponse {
         val persona = userFacade.getPersona(token, personaId)
 
-        return PersonaResponse(persona.id, persona.type, persona.level)
+        return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
     }
 
     @PatchMapping("/personas")
@@ -47,7 +47,7 @@ class PersonaController(
     ): PersonaResponse {
         val persona = userFacade.addPersona(token, idempotencyKey, addPersonaRequest.name)
 
-        return PersonaResponse(persona.id, persona.type, persona.level)
+        return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
     }
 
     @DeleteMapping("/internals/personas")
@@ -57,7 +57,7 @@ class PersonaController(
     ): PersonaResponse {
         val persona = userFacade.deletePersona(token, personaId)
 
-        return PersonaResponse(persona.id, persona.type, persona.level)
+        return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
     }
 
     @ExceptionHandler(IllegalArgumentException::class)
