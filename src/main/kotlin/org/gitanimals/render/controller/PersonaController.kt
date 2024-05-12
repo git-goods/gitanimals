@@ -37,7 +37,16 @@ class PersonaController(
     fun changePersona(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody personaChangeRequest: PersonaChangeRequest,
-    ) = userFacade.changePersona(token, personaChangeRequest)
+    ): PersonaResponse {
+        val changedPersona = userFacade.changePersona(token, personaChangeRequest)
+
+        return PersonaResponse(
+            changedPersona.id,
+            changedPersona.type,
+            changedPersona.level,
+            changedPersona.visible,
+        )
+    }
 
     @PostMapping("/internals/personas")
     fun addPersona(
