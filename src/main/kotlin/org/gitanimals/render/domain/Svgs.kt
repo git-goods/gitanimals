@@ -39,8 +39,9 @@ val gooseSpringSvg: String = ClassPathResource("persona/animal/goose-spring.svg"
 val littleChickSvg: String = ClassPathResource("persona/animal/little-chick.svg")
     .getContentAsString(Charset.defaultCharset())
 
-val littleChickSunglassesSvg: String = ClassPathResource("persona/animal/little-chick-sunglasses.svg")
-    .getContentAsString(Charset.defaultCharset())
+val littleChickSunglassesSvg: String =
+    ClassPathResource("persona/animal/little-chick-sunglasses.svg")
+        .getContentAsString(Charset.defaultCharset())
 
 val littleChickKotlinSvg: String = ClassPathResource("persona/animal/little-chick-kotlin.svg")
     .getContentAsString(Charset.defaultCharset())
@@ -169,6 +170,9 @@ val galchiCatSvg: String = ClassPathResource("persona/animal/galchi-cat.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val whiteCatSvg: String = ClassPathResource("persona/animal/white-cat.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val fishManSvg: String = ClassPathResource("persona/animal/fishman.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val largeTextSvgs = lazy {
