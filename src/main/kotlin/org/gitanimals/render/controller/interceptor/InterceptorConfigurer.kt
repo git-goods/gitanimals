@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
 class InterceptorConfigurer(
-    @Value("\${white.ip}") private val whiteIps: List<String>
+    @Value("\${internal.secret}") private val internalSecret: String,
 ) : WebMvcConfigurer {
 
     override fun addInterceptors(registry: InterceptorRegistry) {
@@ -18,5 +18,5 @@ class InterceptorConfigurer(
     }
 
     @Bean
-    fun internalApiInterceptor(): InternalApiInterceptor = InternalApiInterceptor(whiteIps)
+    fun internalApiInterceptor(): InternalApiInterceptor = InternalApiInterceptor(internalSecret)
 }
