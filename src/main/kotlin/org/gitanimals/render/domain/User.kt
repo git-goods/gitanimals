@@ -6,6 +6,7 @@ import org.gitanimals.render.core.AggregateRoot
 import org.gitanimals.render.core.IdGenerator
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
+import org.gitanimals.render.domain.value.Level
 import org.hibernate.annotations.BatchSize
 import java.time.Instant
 import java.time.ZoneId
@@ -55,8 +56,8 @@ class User(
         personas.forEach { it.user = this }
     }
 
-    fun addPersona(personaType: PersonaType): PersonaResponse {
-        val persona = Persona(personaType, 0L, personas.size < 30, this)
+    fun addPersona(id: Long, personaType: PersonaType, level: Int): PersonaResponse {
+        val persona = Persona(id, personaType, Level(level.toLong()), personas.size < 30, this)
 
         this.personas.add(persona)
 
