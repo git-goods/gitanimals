@@ -1,5 +1,6 @@
 package org.gitanimals.render.infra
 
+import org.gitanimals.render.app.AUTHORIZATION_EXCEPTION
 import org.gitanimals.render.app.IdentityApi
 import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
@@ -18,7 +19,7 @@ class RestIdentityApi : IdentityApi {
                 runCatching {
                     response.bodyTo(IdentityApi.UserResponse::class.java)
                 }.getOrElse {
-                    throw IllegalArgumentException("Unauthorized user")
+                    throw AUTHORIZATION_EXCEPTION
                 }
             }
     }
