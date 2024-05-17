@@ -88,13 +88,14 @@ class User(
         val persona = personas.find { it.id == personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
 
+        persona.visible = visible
+
         val visiblePersonas = personas.filter { it.visible }
 
         require(visiblePersonas.size < MAX_PERSONA_COUNT) {
             "Persona count must be under \"$MAX_PERSONA_COUNT\" but, current persona count is \"${visiblePersonas.size}\""
         }
 
-        persona.visible = visible
         return persona
     }
 
