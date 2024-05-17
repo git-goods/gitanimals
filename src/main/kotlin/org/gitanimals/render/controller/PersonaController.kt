@@ -76,6 +76,7 @@ class PersonaController(
     }
 
     @ExceptionHandler(IllegalArgumentException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
         ErrorResponse.from(exception)
 }
