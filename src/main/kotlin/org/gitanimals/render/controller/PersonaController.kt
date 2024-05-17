@@ -1,5 +1,6 @@
 package org.gitanimals.render.controller
 
+import org.gitanimals.render.app.AuthorizationException
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddPersonaRequest
 import org.gitanimals.render.controller.response.ErrorResponse
@@ -78,5 +79,10 @@ class PersonaController(
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
+        ErrorResponse.from(exception)
+
+    @ExceptionHandler(AuthorizationException::class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    fun handleAuthorizationException(exception: AuthorizationException): ErrorResponse =
         ErrorResponse.from(exception)
 }
