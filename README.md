@@ -9,7 +9,7 @@
 
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=23" width="1000" height="100"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=23" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=22" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=1" width="25%" height="100"/>
 </a>
 
 ⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
@@ -109,6 +109,9 @@ _새로운 contribution은 반영은 최대 1시간이 소요될 수 있어요._
 
 | name                                                                                                 | ratio | Description                                                                                                                                                                  |
 |------------------------------------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| QUOKKA <br> <img src = "docs/quokka.svg" width="23px" height="42px" />                               | 0.3   |                                                                                                                                                                              |
+| QUOKKA_LEAF <br> <img src = "docs/quokka-leaf.svg" width="23px" height="42px" />                     | 0.1   |                                                                                                                                                                              |
+| QUOKKA_SUNGLASSES <br> <img src = "docs/quokka-sunglasses.svg" width="23px" height="42px" />         | 0.05  |                                                                                                                                                                              |
 | FISH_MAN <br> <img src="docs/fishman.svg" width="35px" height="75px"/>                               | 0.001 |                                                                                                                                                                              |
 | FISH_MAN_GLASSES <br> <img src="docs/fishman-glasses.svg" width="35px" height="75px" />              | 0.001 |                                                                                                                                                                              |
 | flamingo <br> <img src="docs/flamingo.svg" width="50px" height="110"/>                               | 0.08  |                                                                                                                                                                              |
