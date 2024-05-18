@@ -1025,7 +1025,22 @@ enum class PersonaType(private val weight: Double) {
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("quokka", id, 40, "180s", 5, 10.0)
                 .toString()
-    }
+    },
+    QUOKKA_LEAF(0.1) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return quokkaLeafSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("quokka", id, 40, "180s", 5, 10.0)
+                .toString()
+    },
     ;
 
     init {
