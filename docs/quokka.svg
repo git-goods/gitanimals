@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
+  <style>
+    @keyframes quokka-14-head-move {
+    0% {
+    transform: translate(-0.5px, -6px);
+    }
+    50% {
+    transform: translate(0px, -6px);
+    }
+    100% {
+    transform: translate(-0.5px, -6px);
+    }
+    }
+
+    @keyframes quokka-14-leg-left-move {
+    0% {
+    transform: translate(0.5px, 3px);
+    }
+    50% {
+    transform: translate(0.5px, 4px);
+    }
+    100% {
+    transform: translate(0.5px, 3px);
+    }
+    }
+
+    @keyframes quokka-14-leg-right-move {
+    0% {
+    transform: translate(3.5px, 3px);
+    }
+    50% {
+    transform: translate(3.5px, 4px);
+    }
+    100% {
+    transform: translate(3.5px, 3px);
+    }
+    }
+
+    #quokka-14-head {
+    animation-name: quokka-14-head-move;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #quokka-14-leg-left {
+    animation-name:quokka-14-leg-left-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #quokka-14-leg-right {
+    animation-name:quokka-14-leg-right-move;
+    animation-duration:1s;
+    animation-delay: 0.5s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+  </style>
+
+
+  <g id="quokka-14" transform="translate(1.5, 18)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="quokka-14-shadow" transform="translate(-0.5, 6)">
+        <rect y="0.5" width="7" height="1" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.538574" y="0.25" width="5.92308" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.538574" y="1.5" width="5.92308" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.0769" width="4.84615" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.0769" y="1.75" width="4.84615" height="0.25" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+      <g id="quokka-14-leg-left" transform="translate(0.5, 3)">
+        <rect width="2" height="4" fill="#C7A684"/>
+      </g>
+      <g id="quokka-14-leg-right" transform="translate(3.5, 3)">
+        <rect width="2" height="4" fill="#C7A684"/>
+      </g>
+      <g id="quokka-14-body" transform="translate(-0.5, 0)">
+        <rect x="1" width="5" height="6" fill="#C7A684"/>
+        <rect x="1" y="1" width="5" height="5" fill="#C7A684"/>
+        <rect x="1" y="1" width="6" height="4" fill="#C7A684"/>
+        <rect y="1" width="6" height="4" fill="#C7A684"/>
+        <rect x="3" y="2" width="3" height="2" fill="#EBC49C"/>
+        <rect x="4" y="3" width="2" height="2" fill="#EBC49C"/>
+        <rect x="2" y="3" width="4" height="3" fill="#EBC49C"/>
+        <rect y="3" width="1" height="2" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(1 0 0 -1 1 6)" fill="black" fill-opacity="0.1"/>
+      </g>
+      <g id="quokka-14-head" transform="translate(-0.5, -6)">
+        <rect y="3" width="7" height="3.5" fill="#C7A684"/>
+        <rect x="1" y="3" width="5" height="4" fill="#C7A684"/>
+        <rect x="1" y="1" width="5" height="3" fill="#C7A684"/>
+        <rect width="2" height="2" fill="#C7A684"/>
+        <rect x="5" width="2" height="2" fill="#C7A684"/>
+        <rect x="5" y="3" width="1" height="1" fill="black"/>
+        <rect x="2" y="3" width="1" height="1" fill="black"/>
+        <rect width="1" height="0.5" transform="matrix(1 0 0 -1 1 5)" fill="#FBB3BE"/>
+        <rect width="1" height="0.5" transform="matrix(1 0 0 -1 6 5)" fill="#FBB3BE"/>
+        <rect x="3" y="6" width="2" height="0.5" fill="black"/>
+        <rect width="0.5" height="0.5" transform="matrix(1 0 0 -1 5 6)" fill="black"/>
+        <rect x="3" y="6" width="0.5" height="0.5" transform="rotate(-180 3 6)" fill="black"/>
+        <rect x="4" y="4" width="1" height="1" fill="black" fill-opacity="0.3"/>
+        <rect x="1" y="1" width="1" height="1" fill="#EBC49C"/>
+        <rect x="5" y="1" width="1" height="1" fill="#EBC49C"/>
+      </g>
+    </svg>
+  </g>
+</svg>
+</svg>

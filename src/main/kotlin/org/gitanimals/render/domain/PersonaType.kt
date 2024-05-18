@@ -1010,6 +1010,21 @@ enum class PersonaType(private val weight: Double) {
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("fishman", id, 15, "180s", 5, 16.5)
                 .toString()
+    },
+    QUOKKA(0.3) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return quokkaSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("quokka", id, 40, "180s", 5, 10.0)
+                .toString()
     }
     ;
 
@@ -1082,7 +1097,7 @@ enum class PersonaType(private val weight: Double) {
             speed: Int,
             duration: String,
             personaWidth: Long,
-            flippedWidth: Double,
+            flippedWidth: Double, // flippedWidth = persona width * 3 / 2
         ): StringBuilder {
             val movingPoints = getMovingPoints(speed)
 
