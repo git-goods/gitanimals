@@ -184,6 +184,10 @@ val quokkaSvg: String = ClassPathResource("persona/animal/quokka.svg")
 val quokkaLeafSvg: String = ClassPathResource("persona/animal/quokka-leaf.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val quokkaSunglassesSvg: String = ClassPathResource("persona/animal/quokka-sunglasses.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+
 val largeTextSvgs = lazy {
     val map = mutableMapOf<String, String>()
     for (i in 'A'..'Z') {
