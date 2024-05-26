@@ -1,13 +1,13 @@
+<img src="./docs/logo.svg" width="30000"/>
+
+##
 <div align="center">
    <a href="/ENGLISH.md"> <b>Translate to english</b> </a>
 </div>
 <br>
 
-<img src="./docs/logo.svg" width="30000"/>
-
-##
-
 <div align = "center">  
+
 <a href="https://github.com/devxb/gitanimals">
     <img src="https://render.gitanimals.org/lines/devxb?pet-id=23" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=22" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=1" width="25%" height="100"/>
 </a>

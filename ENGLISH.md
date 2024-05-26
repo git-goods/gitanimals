@@ -1,11 +1,10 @@
+<img src="./docs/logo.svg" width="30000"/>
+
+##
 <div align="center">
    <a href="/README.md"> <b>한국어로 번역하기</b> </a>
 </div>
 <br>
-
-<img src="./docs/logo.svg" width="30000"/>
-
-##
 
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
