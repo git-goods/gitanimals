@@ -1063,7 +1063,7 @@ enum class PersonaType(private val weight: Double) {
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-7 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
         }
 
