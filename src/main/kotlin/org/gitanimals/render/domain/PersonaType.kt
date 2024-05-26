@@ -1070,7 +1070,22 @@ enum class PersonaType(private val weight: Double) {
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
-    }
+    },
+    MOLE_GRASS(0.1){
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return moleGrassSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
+                .toString()
+    },
     ;
 
     init {
