@@ -6,10 +6,9 @@
 </div>
 <br>
 
-<div align = "center">  
-
+<div align = "center">
 <a href="https://github.com/devxb/gitanimals">
-    <img src="https://render.gitanimals.org/lines/devxb?pet-id=23" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=22" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=1" width="25%" height="100"/>
+    <img src="https://render.gitanimals.org/lines/devxb?pet-id=579310270365167586" width="100%" height="120"/>
 </a>
 
 ⭐스타를 눌러주세요 개발에 큰 도움이 됩니다!⭐️<br>
