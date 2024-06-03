@@ -23,7 +23,11 @@
 <br> You can trade the pets with others.     
 <br>
 <br>
-Choose from over 40 different pets and raise them.
+Choose from over 50 different pets and raise them.
+<br>
+   
+You can buy and manage pet in [hompage](https://gitanimals.org)
+   
 </h4>
 <br>
 <a href="https://github.com/devxb/gitanimals">
@@ -98,8 +102,8 @@ Pets can be acquired in two ways:
    When you accumulate 30 commits, a new pet will appear. At this point, all pets have different
    probabilities of appearing.   
    The maximum number of pets you can have is 30. If you have more than 30 pets, they will go into
-   your inventory, and you can swap them with the pets displayed at any time. <- Under development
-2. **Purchase Pets <- Under development**   
+   your inventory, and you can swap them with the pets displayed at any time.    
+2. **Purchase Pets**   
    You can buy pets sold by other users with commit points.   
    A certain amount of points will be given per commit. Alternatively, you can sell your own pets to
    earn commit points.
