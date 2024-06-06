@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
+  <style>
+    @keyframes rabbit-head-14-move {
+    0% {
+    transform: translate(0, -10px);
+    }
+    50% {
+    transform: translate(0, -11px);
+    }
+    100% {
+    transform: translate(0, -10px);
+    }
+    }
+
+    @keyframes rabbit-obj-14-move {
+    0% {
+    transform: translate(0, 0px);
+    }
+    15% {
+    transform: translate(0, -5px);
+    }
+    30% {
+    transform: translate(0, 0px);
+    }
+    100% {
+    transform: translate(0, 0px);
+    }
+    }
+
+    @keyframes rabbit-14-shadow-move {
+    0% {
+    transform: translate(-2px, 0px) scaleX(1);
+    }
+    15% {
+    transform: translate(-2px, 0px) scaleX(1.1);
+    }
+    30% {
+    transform: translate(-2px, 0px) scaleX(1);
+    }
+    100% {
+    transform: translate(-2px, 0px) scaleX(1);
+    }
+    }
+
+    #rabbit-head-14 {
+    animation-name: rabbit-head-14-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #rabbit-shadow-14 {
+    animation-name: rabbit-14-shadow-move;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #rabbit-obj-14 {
+    animation-name: rabbit-obj-14-move;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+  </style>
+
+  <g id="rabbit-14" transform="translate(10, 44)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="rabbit-shadow-14" transform="translate(-2, 0)">
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+      <g id="rabbit-obj-14">
+        <g id="rabbit-body-14" transform="translate(-4, -4)">
+          <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+          <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+          <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+          <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+          <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        </g>
+        <g id="rabbit-head-14" transform="translate(0, -10)">
+          <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+          <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+          <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+          <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+          <rect width="2" height="3" fill="#FFF2F4"/>
+          <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="2" y="4" width="1" height="1" fill="black"/>
+          <rect x="5" y="4" width="1" height="1" fill="black"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+          <rect x="3" y="6" width="2" height="1" fill="black"/>
+          <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        </g>
+      </g>
+    </svg>
+  </g>
+</svg>
+</svg>

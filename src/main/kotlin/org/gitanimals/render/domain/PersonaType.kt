@@ -1086,6 +1086,21 @@ enum class PersonaType(private val weight: Double) {
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
     },
+    RABBIT(0.9){
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return rabbitSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
+                .toString()
+    },
     ;
 
     init {

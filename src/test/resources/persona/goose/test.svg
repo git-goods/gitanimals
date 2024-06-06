@@ -1,106 +1,115 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
   <style>
-    @keyframes mole-*{id}-hand-1-move {
-    0% {
-    transform: translate(-0.5px, -1.5px);
-    }
-    50% {
-    transform: translate(-1px, -1.5px);
-    }
-    100% {
-    transform: translate(-0.5px, -1.5px);
-    }
+
+    @keyframes rabbit-head-*{id}-move {
+      0% {
+        transform: translate(0, -10px);
+      }
+      50% {
+        transform: translate(0, -11px);
+      }
+      100% {
+        transform: translate(0, -10px);
+      }
     }
 
-    @keyframes mole-*{id}-hand-2-move {
-    0% {
-    transform: translate(6.5px, -1.5px);
-    }
-    50% {
-    transform: translate(7px, -1.5px);
-    }
-    100% {
-    transform: translate(6.5px, -1.5px);
-    }
-    }
-
-    @keyframes mole-*{id}-body-move {
-    0% {
-    transform: translate(0px, -10px)
-    }
-    50% {
-    transform: translate(0px, -8.5px)
-    }
-    0% {
-    transform: translate(0px, -10px)
-    }
+    @keyframes rabbit-obj-*{id}-move {
+      0% {
+        transform: translate(0, 0px);
+      }
+      10% {
+        transform: translate(0, -5px);
+      }
+      20% {
+        transform: translate(0, 0px);
+      }
+      100% {
+        transform: translate(0, 0px);
+      }
     }
 
-    #mole-*{id}-hand-1 {
-    animation-name:mole-*{id}-hand-1-move;
-    animation-duration:0.5s;
-    animation-iteration-count:infinite;
-    animation-timing-function: ease-in-out;
+    @keyframes rabbit-*{id}-shadow-move {
+      0% {
+        transform: translate(-2px, 0px) scaleX(1);
+      }
+      10% {
+        transform: translate(-2px, 0px) scaleX(1.1);
+      }
+      20% {
+        transform: translate(-2px, 0px) scaleX(1);
+      }
+      100% {
+        transform: translate(-2px, 0px) scaleX(1);
+      }
     }
 
-    #mole-*{id}-hand-2 {
-    animation-name:mole-*{id}-hand-2-move;
-    animation-duration:0.5s;
-    animation-iteration-count:infinite;
-    animation-timing-function: ease-in-out;
+    #rabbit-head-*{id} {
+      animation-name: rabbit-head-*{id}-move;
+      animation-duration:1s;
+      animation-iteration-count:infinite;
+      animation-timing-function: ease-in-out;
     }
 
-    #mole-*{id}-body {
-    animation-name:mole-*{id}-body-move;
-    animation-duration:1s;
-    animation-iteration-count:infinite;
-    animation-timing-function: ease-in-out;
+    #rabbit-shadow-*{id} {
+      animation-name: rabbit-*{id}-shadow-move;
+      animation-duration:2s;
+      animation-iteration-count:infinite;
+      animation-timing-function: ease-in-out;
     }
 
+    #rabbit-obj-*{id} {
+      animation-name: rabbit-obj-*{id}-move;
+      animation-duration:2s;
+      animation-iteration-count:infinite;
+      animation-timing-function: ease-in-out;
+    }
   </style>
 
 
-  <g id="mole-*{id}" transform="translate(100, 100)">
+  <g id="rabbit-*{id}" transform="translate(100, 100)">
     <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
-      <g id="mole-*{id}-ground" transform="translate(-1.5, -2)">
-        <rect y="1" width="12" height="2" fill="#C8AB83"/>
-        <rect x="0.923096" y="0.5" width="10.1538" height="0.5" fill="#C8AB83"/>
-        <rect x="0.923096" y="3" width="10.1538" height="0.5" fill="#C8AB83"/>
-        <rect x="1.84619" width="8.30769" height="0.5" fill="#C8AB83"/>
-        <rect x="1.84619" y="3.5" width="8.30769" height="0.5" fill="#C8AB83"/>
+      <g id="rabbit-shadow-*{id}" transform="translate(-2, 0)">
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447"
+          fill-opacity="0.1"/>
       </g>
-      <g id="mole-*{id}-body" transform="translate(0, -10)">
-        <rect x="0.5" y="2.5" width="8" height="8" fill="#B99272"/>
-        <rect x="1" y="1.5" width="7" height="9" fill="#B99272"/>
-        <rect x="1.5" y="0.5" width="6" height="9" fill="#B99272"/>
-        <rect x="1.5" y="0.5" width="0.5" height="2" fill="#CAA17F"/>
-        <rect x="1" y="1.5" width="1" height="1" fill="#CAA17F"/>
-        <rect x="2" width="5" height="8" fill="#B99272"/>
-        <rect x="2" y="0.5" width="1" height="2" fill="#CAA17F"/>
-        <rect x="2" width="4" height="1.5" fill="#CAA17F"/>
-        <rect x="1" y="6.5" width="1" height="4" fill="black" fill-opacity="0.1"/>
-        <rect x="0.5" y="6.5" width="0.5" height="2" fill="black" fill-opacity="0.1"/>
-        <rect x="2" y="7.5" width="1" height="3" fill="black" fill-opacity="0.1"/>
-        <rect x="3" y="8.5" width="1" height="2" fill="black" fill-opacity="0.1"/>
-        <rect x="4" y="9.5" width="4" height="1" fill="black" fill-opacity="0.1"/>
-        <rect x="6" y="8.5" width="2" height="1" fill="black" fill-opacity="0.1"/>
-        <rect x="4" y="3" width="0.75" height="1.8" fill="black"/>
-        <rect x="6" y="2.5" width="0.75" height="1.8" fill="black"/>
-        <rect x="5" y="4.5" width="2" height="1" fill="#D9BCA3"/>
-      </g>
-      <g id="mole-*{id}-ground-cover" transform="translate(-1.5, 0)">
-        <rect x="0.923096" y="0.5" width="10.1538" height="1" fill="#C8AB83"/>
-        <rect x="1.84619" y="1" width="8.30769" height="1" fill="#C8AB83"/>
-      </g>
-      <g id="mole-*{id}-hand-1" transform="translate(0, -10)">
-        <rect y="0.5" width="3" height="2" fill="#765D49"/>
-        <rect x="2" y="1.5" width="1" height="1" fill="#242427"/>
-        <rect y="1.5" width="1" height="1" fill="#242427"/>
-      </g>
-      <g id="mole-*{id}-hand-2" transform="translate(0, -10)">
-        <rect y="0.5" width="3" height="2" fill="#765D49"/>
-        <rect x="2" y="1.5" width="1" height="1" fill="#242427"/>
-        <rect y="1.5" width="1" height="1" fill="#242427"/>
+      <g id="rabbit-obj-*{id}">
+        <g id="rabbit-body-*{id}" transform="translate(-4, -4)">
+          <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+          <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+          <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+          <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+          <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        </g>
+        <g id="rabbit-head-*{id}" transform="translate(0, -10)">
+          <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+          <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+          <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+          <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+          <rect width="2" height="3" fill="#FFF2F4"/>
+          <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="2" y="4" width="1" height="1" fill="black"/>
+          <rect x="5" y="4" width="1" height="1" fill="black"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+          <rect x="3" y="6" width="2" height="1" fill="black"/>
+          <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        </g>
       </g>
     </svg>
   </g>
