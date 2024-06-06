@@ -33,7 +33,7 @@
     50% {
     transform: translate(0px, -8.5px);
     }
-    0% {
+    100% {
     transform: translate(0px, -10px);
     }
     }

@@ -26,13 +26,13 @@
 
     @keyframes mole-14-body-move {
     0% {
-    transform: translate(0px, -10px)
+    transform: translate(0px, -10px);
     }
     50% {
-    transform: translate(0px, -8.5px)
+    transform: translate(0px, -8.5px);
     }
-    0% {
-    transform: translate(0px, -10px)
+    100% {
+    transform: translate(0px, -10px);
     }
     }
 
