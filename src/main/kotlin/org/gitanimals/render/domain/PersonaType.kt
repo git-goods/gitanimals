@@ -6,7 +6,7 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-enum class PersonaType(val weight: Double) {
+enum class PersonaType(val weight: Double, private var dropRate: String? = null) {
     GOOSE(1.0) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             val goose = gooseSvg.replace("*{act}", act(persona.id))
@@ -1109,16 +1109,20 @@ enum class PersonaType(val weight: Double) {
     }
 
     fun getDropRate(): String {
+        return this.dropRate ?: loadDropRate()
+    }
+
+    private fun loadDropRate(): String {
         val allPersonaCount = personas.size
         val personaCount = (weight * 1000).toInt()
 
-        val dropRate = (personaCount.toDouble() / allPersonaCount.toDouble()) * 100.0
-
-        if (dropRate < 1.0) {
-            return "${dropRateFormat.format(dropRate)}%"
+        val dropRateTemp = (personaCount.toDouble() / allPersonaCount.toDouble()) * 100.0
+        this.dropRate = if (dropRateTemp < 1.0) {
+            "${dropRateFormat.format(dropRateTemp)}%"
+        } else {
+            "${dropRateTemp.toInt()}%"
         }
-
-        return "${dropRate.toInt()}%"
+        return dropRate!!
     }
 
     fun load(user: User, persona: Persona, mode: Mode): String =
