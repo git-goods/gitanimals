@@ -8,6 +8,7 @@ data class PersonaResponse(
     val type: PersonaType,
     val level: String,
     val visible: Boolean,
+    val dropRate: String,
 ) {
     companion object {
         fun from(persona: Persona): PersonaResponse {
@@ -15,7 +16,8 @@ data class PersonaResponse(
                 persona.id.toString(),
                 persona.type,
                 persona.level.value.toString(),
-                persona.visible
+                persona.visible,
+                persona.type.getDropRate()
             )
         }
     }
