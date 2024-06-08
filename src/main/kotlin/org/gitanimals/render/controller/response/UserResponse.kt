@@ -14,7 +14,13 @@ data class UserResponse(
                 user.id.toString(),
                 user.name,
                 user.personas.map {
-                    PersonaResponse(it.id.toString(), it.type, it.level().toString(), it.visible)
+                    PersonaResponse(
+                        it.id.toString(),
+                        it.type,
+                        it.level().toString(),
+                        it.visible,
+                        it.type.getDropRate()
+                    )
                 }.toList()
             )
         }

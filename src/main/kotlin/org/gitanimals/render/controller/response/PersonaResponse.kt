@@ -7,4 +7,5 @@ data class PersonaResponse(
     val type: PersonaType,
     val level: String,
     val visible: Boolean,
+    val dropRate: String,
 )
