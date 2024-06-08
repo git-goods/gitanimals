@@ -1,11 +1,12 @@
 package org.gitanimals.render.domain
 
+import java.text.DecimalFormat
 import kotlin.math.atan2
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-enum class PersonaType(private val weight: Double) {
+enum class PersonaType(val weight: Double) {
     GOOSE(1.0) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             val goose = gooseSvg.replace("*{act}", act(persona.id))
@@ -1071,7 +1072,7 @@ enum class PersonaType(private val weight: Double) {
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
     },
-    MOLE_GRASS(0.1){
+    MOLE_GRASS(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return moleGrassSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
@@ -1086,7 +1087,7 @@ enum class PersonaType(private val weight: Double) {
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
     },
-    RABBIT(0.9){
+    RABBIT(0.9) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return rabbitSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
@@ -1105,6 +1106,19 @@ enum class PersonaType(private val weight: Double) {
 
     init {
         require(weight in 0.000..1.0) { "PersonaType's weight should be between 0.000 to 1.0" }
+    }
+
+    fun getDropRate(): String {
+        val allPersonaCount = personas.size
+        val personaCount = (weight * 1000).toInt()
+
+        val dropRate = (personaCount.toDouble() / allPersonaCount.toDouble()) * 100.0
+
+        if (dropRate < 1.0) {
+            return "${dropRateFormat.format(dropRate)}%"
+        }
+
+        return "${dropRate.toInt()}%"
     }
 
     fun load(user: User, persona: Persona, mode: Mode): String =
@@ -1145,6 +1159,7 @@ enum class PersonaType(private val weight: Double) {
     }
 
     companion object {
+        private val dropRateFormat = DecimalFormat("#.#")
 
         private val maxWeight = lazy {
             var maxWeight = 0
