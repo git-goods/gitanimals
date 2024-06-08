@@ -4,8 +4,10 @@ import org.gitanimals.render.app.AuthorizationException
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddPersonaRequest
 import org.gitanimals.render.controller.response.ErrorResponse
+import org.gitanimals.render.controller.response.PersonaEnumResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
+import org.gitanimals.render.domain.PersonaType
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.springframework.http.HttpHeaders
@@ -30,7 +32,13 @@ class PersonaController(
     ): PersonaResponse {
         val persona = userFacade.getPersona(token, personaId)
 
-        return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
+        return PersonaResponse(
+            persona.id,
+            persona.type,
+            persona.level,
+            persona.visible,
+            persona.dropRate
+        )
     }
 
     @PatchMapping("/personas")
@@ -46,8 +54,26 @@ class PersonaController(
             changedPersona.type,
             changedPersona.level,
             changedPersona.visible,
+            changedPersona.dropRate,
         )
     }
+
+    @GetMapping("/personas/infos")
+    @ResponseStatus(HttpStatus.OK)
+    fun getAllPersonaInfo(): Map<String, List<PersonaEnumResponse>> {
+        return mapOf(
+            "personas" to PersonaType.entries
+                .sortedByDescending { it.weight }
+                .asSequence()
+                .map { PersonaEnumResponse.from(it) }
+                .toList()
+        )
+    }
+
+    @ExceptionHandler(IllegalArgumentException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
+        ErrorResponse.from(exception)
 
     @PostMapping("/internals/personas")
     fun addPersona(
@@ -63,7 +89,13 @@ class PersonaController(
             addPersonaRequest.level,
         )
 
-        return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
+        return PersonaResponse(
+            persona.id,
+            persona.type,
+            persona.level,
+            persona.visible,
+            persona.dropRate,
+        )
     }
 
     @DeleteMapping("/internals/personas")
@@ -73,13 +105,14 @@ class PersonaController(
     ): PersonaResponse {
         val persona = userFacade.deletePersona(token, personaId)
 
-        return PersonaResponse(persona.id, persona.type, persona.level, persona.visible)
+        return PersonaResponse(
+            persona.id,
+            persona.type,
+            persona.level,
+            persona.visible,
+            persona.dropRate,
+        )
     }
-
-    @ExceptionHandler(IllegalArgumentException::class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
-        ErrorResponse.from(exception)
 
     @ExceptionHandler(AuthorizationException::class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
