@@ -71,12 +71,12 @@ please use HTML format instead.
 
 If you don't enter any value for pet-id, the first pet will be responsed.
 
-You can check the available pet-ids in https://render.gitanimals.org/users/{username} to your GitHub
+You can check the available pet-ids in `https://render.gitanimals.org/users/{username}` to your GitHub
 username and requesting the API.
-Enter the value corresponding to $.personas.[].id in the API response into pet-id.
+Enter the value corresponding to `$.personas.[].id` in the API response into pet-id.
 
 In line mode, the total number of contributions is displayed above the pet's level. If you don't
-want this, include contribution-view=false as a query parameter in your request.
+want this, include `contribution-view=false` as a query parameter in your request.
 
 ### Farm Mode
 
