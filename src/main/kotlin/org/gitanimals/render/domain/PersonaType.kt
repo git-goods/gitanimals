@@ -691,6 +691,23 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
+    PIG_COLLABORATOR(0.0) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return pigCollaboratorSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
+                .toString()
+    },
+
     SLIME_RED(0.1) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return slimeRedSvg.replace("*{act}", act(persona.id))
