@@ -2,37 +2,37 @@
   <style>
     @keyframes dessert-fox-14-leg-left-move {
     0% {
-    transform: translate(5px, 5px);
+    transform: translate(5px, 7.5px);
     }
     50% {
-    transform: translate(5px, 5px) rotate(10deg);
+    transform: translate(5px, 7.5px) rotate(10deg);
     }
     100% {
-    transform: translate(5px, 5px);
+    transform: translate(5px, 7.5px);
     }
     }
 
     @keyframes dessert-fox-14-leg-right-move {
     0% {
-    transform: translate(8px, 5px);
+    transform: translate(8px, 7.5px);
     }
     50% {
-    transform: translate(8px, 5px) rotate(-10deg);
+    transform: translate(8px, 7.5px) rotate(-10deg);
     }
     100% {
-    transform: translate(8px, 5px);
+    transform: translate(8px, 7.5px);
     }
     }
 
     @keyframes dessert-fox-14-head-move {
     0% {
-    transform: translate(0px, -5px) rotate(0deg);
+    transform: translate(0px, -2.5px) rotate(0deg);
     }
     50% {
-    transform: translate(2px, -6px) rotate(10deg);
+    transform: translate(2px, -3.5px) rotate(10deg);
     }
     100% {
-    transform: translate(0px, -5px) rotate(0deg);
+    transform: translate(0px, -2.5px) rotate(0deg);
     }
     }
 
@@ -53,16 +53,16 @@
 
     @keyframes dessert-fox-14-shadow-move {
     0% {
-    transform: translate(3px, 7px) scaleX(1);
+    transform: translate(3px, 9.5px) scaleX(1);
     }
     15% {
-    transform: translate(3px, 7px) scaleX(1.2);
+    transform: translate(3px, 9.5px) scaleX(1.2);
     }
     30% {
-    transform: translate(3px, 7px) scaleX(1);
+    transform: translate(3px, 9.5px) scaleX(1);
     }
     100% {
-    transform: translate(3px, 7px) scaleX(1);
+    transform: translate(3px, 9.5px) scaleX(1);
     }
     }
 
@@ -118,7 +118,7 @@
         <g id="dessert-fox-14-leg-right" transform="translate(8, 10)">
           <rect width="2" height="3" fill="#DDD7B5"/>
         </g>
-        <g id="dessert-fox-14-body" transform="translate(-2, 2)">
+        <g id="dessert-fox-14-body" transform="translate(-2, 4.5)">
           <rect x="2" y="2" width="3" height="1" fill="#F5F5F7"/>
           <rect x="3" y="3" width="3" height="1" fill="#F5F5F7"/>
           <rect y="3" width="2" height="1" fill="#F5F5F7"/>
@@ -172,6 +172,19 @@
           <rect x="7" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
           <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
         </g>
+      </g>
+      <g id="dessert-fox-14-notebook" transform="translate(8, 4.5)">
+        <rect width="4.66667" height="3.33333" transform="matrix(-1 0 0 1 6.6665 0)" fill="#E4E4E4"/>
+        <rect width="6" height="3.33333" transform="matrix(-1 0 0 1 7.33325 0.666687)" fill="#E4E4E4"/>
+        <rect width="6" height="1.33333" transform="matrix(-1 0 0 1 6.6665 2.66669)" fill="#E4E4E4"/>
+        <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 6 3.33331)" fill="#E4E4E4"/>
+        <rect width="0.666667" height="1.33333" transform="matrix(-1 0 0 1 1.33325 2.66669)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.666667" height="0.666667" transform="matrix(-1 0 0 1 0.666504 3.33331)" fill="black" fill-opacity="0.1"/>
+        <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 7.33325 3.33331)" fill="black" fill-opacity="0.1"/>
+        <rect x="5.33325" y="2.33331" width="0.666667" height="0.333333" transform="rotate(180 5.33325 2.33331)" fill="#242427"/>
+        <rect width="0.666667" height="0.333333" transform="matrix(-1 0 0 1 5 1.66669)" fill="#242427"/>
+        <rect width="0.333333" height="1.33333" transform="matrix(-1 0 0 1 5.33325 1.33331)" fill="#242427"/>
+        <rect width="1" height="0.333333" transform="matrix(-1 0 0 1 5.33325 2.33331)" fill="#242427"/>
       </g>
     </svg>
   </g>

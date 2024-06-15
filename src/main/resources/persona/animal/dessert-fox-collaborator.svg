@@ -218,5 +218,23 @@
       <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
     </g>
   </g>
+  <g id="dessert-fox-*{id}-notebook" transform="translate(8, 4.5)">
+    <rect width="4.66667" height="3.33333" transform="matrix(-1 0 0 1 6.6665 0)" fill="#E4E4E4"/>
+    <rect width="6" height="3.33333" transform="matrix(-1 0 0 1 7.33325 0.666687)" fill="#E4E4E4"/>
+    <rect width="6" height="1.33333" transform="matrix(-1 0 0 1 6.6665 2.66669)" fill="#E4E4E4"/>
+    <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 6 3.33331)" fill="#E4E4E4"/>
+    <rect width="0.666667" height="1.33333" transform="matrix(-1 0 0 1 1.33325 2.66669)"
+      fill="black" fill-opacity="0.1"/>
+    <rect width="0.666667" height="0.666667" transform="matrix(-1 0 0 1 0.666504 3.33331)"
+      fill="black" fill-opacity="0.1"/>
+    <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 7.33325 3.33331)" fill="black"
+      fill-opacity="0.1"/>
+    <rect x="5.33325" y="2.33331" width="0.666667" height="0.333333"
+      transform="rotate(180 5.33325 2.33331)" fill="#242427"/>
+    <rect width="0.666667" height="0.333333" transform="matrix(-1 0 0 1 5 1.66669)" fill="#242427"/>
+    <rect width="0.333333" height="1.33333" transform="matrix(-1 0 0 1 5.33325 1.33331)"
+      fill="#242427"/>
+    <rect width="1" height="0.333333" transform="matrix(-1 0 0 1 5.33325 2.33331)" fill="#242427"/>
+  </g>
 </svg>
 </g>
