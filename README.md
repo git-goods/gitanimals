@@ -177,6 +177,7 @@ _새로운 contribution은 반영은 최대 1시간이 소요될 수 있어요._
 | slime_green <br> <img src="docs/slime-green.svg" width="50px" height="40px"/>                            | 0.1   |                                                                                                                                                                              |
 | slime_blue <br> <img src="docs/slime-blue.svg" width="50px" height="40px"/>                              | 0.1   |                                                                                                                                                                              |
 | cheese_cat_collaborator <br> <img src="docs/cheese-cat-collaborator.svg" width="100px" height="70px"/>   | 0.0   | Pet made for collaborator [devxb](https://github.com/devxb)                                                                                                                  |
+| white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>     | 0.0   | Pet made for collaborator [Ha youna](https://www.behance.net/hyn991022a6be)                                                                                                  |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                 | 0.0   | Pet made for collaborator [hyesungoh](https://github.com/hyesungoh)                                                                                                          |
 
 ##
