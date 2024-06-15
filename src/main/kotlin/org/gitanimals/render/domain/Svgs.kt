@@ -199,6 +199,9 @@ val rabbitSvg: String = ClassPathResource("persona/animal/rabbit.svg")
 val pigCollaboratorSvg: String = ClassPathResource("persona/animal/pig-collaborator.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val cheeseCatCollaboratorSvg: String = ClassPathResource("persona/animal/cheese-cat-collaborator.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val largeTextSvgs = lazy {
     val map = mutableMapOf<String, String>()
     for (i in 'A'..'Z') {
