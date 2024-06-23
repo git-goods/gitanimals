@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes sloth-14-head-move {
+  0% {
+  transform: translate(0px, 0px);
+  }
+  50% {
+  transform: translate(-0.5px, 0px);
+  }
+  100% {
+  transform: translate(0px, 0px);
+  }
+  }
+
+  @keyframes sloth-14-leg-left-move {
+  0% {
+  transform: translate(3px, 11px);
+  }
+  50% {
+  transform: translate(3px, 12px);
+  }
+  100% {
+  transform: translate(3px, 11px);
+  }
+  }
+
+  @keyframes sloth-14-leg-right-move {
+  0% {
+  transform: translate(7px, 11px);
+  }
+  50% {
+  transform: translate(7px, 12px);
+  }
+  100% {
+  transform: translate(7px, 11px);
+  }
+  }
+
+  #sloth-14-head {
+  animation-name: sloth-14-head-move;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #sloth-14-leg-left {
+  animation-name: sloth-14-leg-left-move;
+  animation-duration: 3s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #sloth-14-leg-right {
+  animation-name: sloth-14-leg-right-move;
+  animation-duration: 3s;
+  animation-delay: 0.5s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+</style>
+  <g id="sloth-14" transform="translate(0, 14)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="sloth-14-shadow" transform="translate(0, 14.5)">
+        <rect y="0.75" width="11" height="1.5" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.846191" y="0.375" width="9.30769" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.846191" y="2.25" width="9.30769" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.69238" width="7.61539" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.69238" y="2.625" width="7.61539" height="0.375" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+      <g id="sloth-14-leg-left" transform="translate(3, 11)">
+        <rect width="2" height="5" transform="matrix(-1 0 0 1 2 0)" fill="#765D49"/>
+        <rect width="1" height="5" transform="matrix(-1 0 0 1 1 0)" fill="black" fill-opacity="0.1"/>
+        <rect y="4" width="2" height="1" fill="#FFE3C6"/>
+      </g>
+      <g id="sloth-14-leg-right" transform="translate(7, 11)">
+        <rect width="2" height="5" transform="matrix(-1 0 0 1 2 0)" fill="#765D49"/>
+        <rect width="1" height="5" transform="matrix(-1 0 0 1 1 0)" fill="black" fill-opacity="0.1"/>
+        <rect y="4" width="2" height="1" fill="#FFE3C6"/>
+      </g>
+      <g id="sloth-14-body" transform="translate(0, 5)">
+        <rect width="7" height="9" transform="matrix(-1 0 0 1 9 0)" fill="#765D49"/>
+        <rect width="9" height="6" transform="matrix(-1 0 0 1 10 2)" fill="#765D49"/>
+        <rect width="10" height="3" transform="matrix(-1 0 0 1 10 5)" fill="#765D49"/>
+        <rect width="8" height="5" transform="matrix(-1 0 0 1 9 4)" fill="#765D49"/>
+        <rect width="11" height="3" transform="matrix(-1 0 0 1 11 4)" fill="#765D49"/>
+        <rect width="6" height="9" transform="matrix(-1 0 0 1 8 1)" fill="#765D49"/>
+        <rect width="5" height="5" transform="matrix(-1 0 0 1 8 3)" fill="#FFE3C6"/>
+        <rect width="3" height="5" transform="matrix(-1 0 0 1 7 2)" fill="#FFE3C6"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 4 9)" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="8" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="4" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="10" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 3 0)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 2 2)" fill="black" fill-opacity="0.1"/>
+        <rect y="7" width="1" height="1" fill="#FFE3C6"/>
+        <rect x="10" y="6" width="1" height="1" fill="#FFE3C6"/>
+      </g>
+      <g id="sloth-14-head">
+        <rect x="3" width="5" height="7" fill="#765D49"/>
+        <rect x="2" width="7" height="7" fill="#765D49"/>
+        <rect x="1" y="1" width="9" height="6" fill="#765D49"/>
+        <rect x="1" y="1" width="9" height="5" fill="#765D49"/>
+        <rect y="2" width="11" height="4" fill="#765D49"/>
+        <rect x="1" y="2" width="9" height="4" fill="#FFE3C6"/>
+        <rect x="1" y="5" width="9" height="1" fill="#FFE3C6"/>
+        <rect x="2" y="1" width="7" height="5" fill="#FFE3C6"/>
+        <rect x="3" y="1" width="5" height="5" fill="#D9D9D9"/>
+        <rect x="3" width="5" height="6" fill="#FFE3C6"/>
+        <rect x="4" y="2" width="1" height="1" fill="black"/>
+        <rect x="8" y="2" width="1" height="1" fill="black"/>
+        <rect x="5" y="4" width="3" height="1" fill="black"/>
+        <rect x="3" width="5" height="1" fill="#765D49"/>
+        <rect x="1" y="1" width="2" height="1" fill="#765D49"/>
+        <rect x="2" width="1" height="2" fill="#765D49"/>
+        <rect y="5" width="3" height="1" fill="#765D49"/>
+        <rect x="9" y="5" width="1" height="1" fill="#765D49"/>
+        <rect y="3" width="2" height="3" fill="#765D49"/>
+        <rect x="1" y="2" width="1" height="1" fill="#765D49"/>
+        <rect x="5" width="3" height="2" fill="#765D49"/>
+        <rect x="1" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="4" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="3" y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="9" y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="5" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="4" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="4" y="1" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="3" y="1" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="3" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="2" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="2" y="3" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="3" y="3" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="4" y="3" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="7" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="8" y="1" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 9 3)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 10 2)" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 10 3)" fill="black" fill-opacity="0.1"/>
+        <rect x="2.85718" y="1.85712" width="3.85714" height="0.428571" fill="black"/>
+        <rect x="2.42871" y="1.42859" width="0.428571" height="0.428571" fill="black"/>
+        <rect x="2" y="1" width="0.428571" height="0.428571" fill="black"/>
+        <rect x="3.28589" y="2.28571" width="3" height="0.428571" fill="black"/>
+        <rect x="3.71436" y="2.71429" width="2.14286" height="0.428571" fill="black"/>
+        <rect x="6.71436" y="1.85712" width="3.85714" height="0.428571" fill="black"/>
+        <rect x="7.14282" y="2.28571" width="3" height="0.428571" fill="black"/>
+        <rect x="7.57153" y="2.71429" width="2.14286" height="0.428571" fill="black"/>
+        <rect x="3.71436" y="2.28571" width="0.428571" height="0.428571" fill="white"/>
+        <rect x="4.14282" y="2.71429" width="0.428571" height="0.428571" fill="white"/>
+        <rect x="7.57153" y="2.28571" width="0.428571" height="0.428571" fill="white"/>
+        <rect x="8" y="2.71429" width="0.428571" height="0.428571" fill="white"/>
+      </g>
+    </svg>
+  </g>
+</svg>
