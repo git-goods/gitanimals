@@ -1196,6 +1196,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("sloth", id, 5, "180s", 5, 16.5)
                 .toString()
     },
+    SLOTH_KING(0.05) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return slothKingSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("sloth", id, 5, "180s", 5, 16.5)
+                .toString()
+    },
     ;
 
     init {
