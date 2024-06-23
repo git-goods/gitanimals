@@ -1,5 +1,6 @@
 package org.gitanimals.render.domain
 
+import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.atan2
 import kotlin.math.max
@@ -1237,7 +1238,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     }
 
     private fun loadDropRate(): String {
-        val allPersonaCount = personas.size
+        val allPersonaCount = personas.filter { it.weight > 0.0 }.size
         val personaCount = (weight * 1000).toInt()
 
         val dropRateTemp = (personaCount.toDouble() / allPersonaCount.toDouble()) * 100.0
@@ -1287,7 +1288,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     }
 
     companion object {
-        private val dropRateFormat = DecimalFormat("#.#")
+        private val dropRateFormat = DecimalFormat("#.##")
 
         private val maxWeight = lazy {
             var maxWeight = 0
