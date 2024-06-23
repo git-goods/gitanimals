@@ -1016,7 +1016,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
-    WHITE_CAT_COLLABORATOR(0.04) {
+    WHITE_CAT_COLLABORATOR(0.00) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return whiteCatCollaboratorSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
