@@ -3,6 +3,7 @@ package org.gitanimals.render.app
 import org.gitanimals.render.domain.Mode
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
+import org.gitanimals.render.domain.event.NewUserCreated
 import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.SagaManager
 import org.springframework.stereotype.Service
@@ -25,6 +26,7 @@ class AnimationFacade(
 
             false -> {
                 val user = createNewUser(username)
+                sagaManager.startSync(NewUserCreated(user.id, user.name))
                 userService.getFarmAnimationByUsername(user.name)
             }
         }
@@ -40,6 +42,7 @@ class AnimationFacade(
 
             false -> {
                 val user = createNewUser(username)
+                sagaManager.startSync(NewUserCreated(user.id, user.name))
                 userService.getLineAnimationByUsername(user.name, personaId, mode)
             }
         }
