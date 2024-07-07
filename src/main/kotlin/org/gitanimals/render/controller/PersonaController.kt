@@ -2,11 +2,13 @@ package org.gitanimals.render.controller
 
 import org.gitanimals.render.app.AuthorizationException
 import org.gitanimals.render.app.UserFacade
+import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest
 import org.gitanimals.render.controller.response.ErrorResponse
 import org.gitanimals.render.controller.response.PersonaEnumResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
+import org.gitanimals.render.core.IdGenerator
 import org.gitanimals.render.domain.PersonaType
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.request.PersonaChangeRequest
@@ -96,6 +98,30 @@ class PersonaController(
             persona.visible,
             persona.dropRate,
         )
+    }
+
+    @PostMapping("/internals/personas/multiply")
+    fun addPersonaMultiple(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @RequestBody addPersonaRequests: List<AddMultiplyPersonaRequest>,
+    ): List<PersonaResponse> {
+        return addPersonaRequests.map {
+            val persona = userFacade.addPersona(
+                token,
+                it.idempotencyKey,
+                IdGenerator.generate(),
+                it.personaName,
+                0,
+            )
+
+            PersonaResponse(
+                persona.id,
+                persona.type,
+                persona.level,
+                persona.visible,
+                persona.dropRate,
+            )
+        }
     }
 
     @DeleteMapping("/internals/personas")
