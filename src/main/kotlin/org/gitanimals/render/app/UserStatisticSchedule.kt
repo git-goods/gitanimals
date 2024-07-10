@@ -14,7 +14,7 @@ class UserStatisticSchedule(
     private val userStatisticService: UserStatisticService,
 ) {
 
-    @Scheduled(cron = EVERY_9AM)
+    @Scheduled(cron = EVERY_9AM, zone = "Asia/Seoul")
     fun sendYesterdayNewUserReport() {
         val yesterday = instant().toKr().minusDays(1)
         val yesterdayUserCount = userStatisticService.getYesterdayUserCount()
