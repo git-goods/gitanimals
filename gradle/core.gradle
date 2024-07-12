@@ -1,0 +1,4 @@
+dependencies {
+    implementation "org.rooftopmsa:netx:${netxVersion}"
+    implementation "com.github.ben-manes.caffeine:caffeine:${caffeineCacheVersion}"
+}

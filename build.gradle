@@ -35,7 +35,7 @@ sentry {
 }
 
 apply from: "gradle/db.gradle"
-apply from: "gradle/etc.gradle"
+apply from: "gradle/core.gradle"
 apply from: "gradle/test.gradle"
 apply from: "gradle/spring.gradle"
 apply from: "gradle/monitor.gradle"
