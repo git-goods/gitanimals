@@ -2,7 +2,7 @@ package org.gitanimals.render.app
 
 import io.kotest.assertions.nondeterministic.eventually
 import io.kotest.core.spec.style.DescribeSpec
-import org.gitanimals.render.TestRoot
+import org.gitanimals.render.Application
 import org.gitanimals.render.supports.RedisContainer
 import org.gitanimals.render.supports.SagaCapture
 import org.springframework.boot.test.context.SpringBootTest
@@ -11,7 +11,7 @@ import kotlin.time.Duration.Companion.seconds
 
 @SpringBootTest(
     classes = [
-        TestRoot::class,
+        Application::class,
         RedisContainer::class,
         SagaCapture::class,
     ]
