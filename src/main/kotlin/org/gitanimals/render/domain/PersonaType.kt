@@ -1152,6 +1152,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
+    RABBIT_COLLABORATOR(0.0) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return rabbitCollaboratorSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
+                .toString()
+    },
     DESSERT_FOX(0.05) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return dessertFoxSvg.replace("*{act}", act(persona.id))
