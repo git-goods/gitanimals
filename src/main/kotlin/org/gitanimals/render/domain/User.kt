@@ -205,6 +205,15 @@ class User(
         .append("</svg>")
         .toString()
 
+    fun mergePersona(increasePersonaId: Long, deletePersonaId: Long) {
+        val increasePersona = personas.first { it.id == increasePersonaId }
+        val deletePersona = personas.first { it.id == deletePersonaId }
+
+        increasePersona.level.value += deletePersona.level.value
+
+        personas.remove(deletePersona)
+    }
+
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
         private const val MAX_INIT_PERSONA_COUNT = 10L

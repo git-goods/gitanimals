@@ -1,5 +1,6 @@
 package org.gitanimals.render.app
 
+import org.gitanimals.render.app.request.MergePersonaRequest
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.gitanimals.render.domain.response.PersonaResponse
@@ -39,5 +40,15 @@ class UserFacade(
         val user = identityApi.getUserByToken(token)
 
         return userService.getPersona(user.username, personaId)
+    }
+
+    fun mergePersona(token: String, request: MergePersonaRequest) {
+        val user = identityApi.getUserByToken(token)
+
+        return userService.mergePersona(
+            user.id.toLong(),
+            request.increasePersonaId,
+            request.deletePersonaId,
+        )
     }
 }
