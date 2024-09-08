@@ -189,6 +189,7 @@ _New contributions may take up to 1 hour to be reflected._
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | Pet made for collaborator [sumi-001](https://github.com/sumi-0011)                                                                                                           |
 | white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>    | 0.0   | Pet made for collaborator [Ha youna](https://www.behance.net/hyn991022a6be)                                                                                                  |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | Pet made for collaborator [hyesungoh](https://github.com/hyesungoh)                                                                                                          |
+| rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>             | 0.0   | Pet made for collaborator [Choi jiwoo](https://www.behance.net/sopungcjw42af)                                                                                                                                     |
 
 ##
 
