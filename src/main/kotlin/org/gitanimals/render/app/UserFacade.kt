@@ -47,8 +47,8 @@ class UserFacade(
 
         return userService.mergePersona(
             user.id.toLong(),
-            request.increasePersonaId,
-            request.deletePersonaId,
+            request.increasePersonaId.toLong(),
+            request.deletePersonaId.toLong(),
         )
     }
 }
