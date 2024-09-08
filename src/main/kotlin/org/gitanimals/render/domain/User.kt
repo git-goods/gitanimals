@@ -206,6 +206,10 @@ class User(
         .toString()
 
     fun mergePersona(increasePersonaId: Long, deletePersonaId: Long) {
+        require(increasePersonaId != deletePersonaId) {
+            "increasePersonaId \"$increasePersonaId\", deletePersonaId \"$deletePersonaId\" must be different"
+        }
+
         val increasePersona = personas.first { it.id == increasePersonaId }
         val deletePersona = personas.first { it.id == deletePersonaId }
 
