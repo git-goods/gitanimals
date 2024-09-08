@@ -103,6 +103,22 @@ internal class UserTest : DescribeSpec({
             }
         }
     }
+
+    describe("mergePersona 메소드는") {
+        context("increasePersonaId와 deletePersonaId를 받아서,") {
+            val user = User.newUser("devxb", mapOf())
+            user.updateContribution(30)
+            user.giveNewPersona()
+
+            val increasePersonaId = user.personas.minByOrNull { it.level.value }!!.id
+            val deletePersonaId = user.personas.maxByOrNull { it.level.value }!!.id
+            it("increasePersonaId에 deletePersonasId의 level을 추가하고, deletePersona를 삭제한다") {
+                user.mergePersona(increasePersonaId, deletePersonaId)
+
+                user.personas.size shouldBeEqual 1
+            }
+        }
+    }
 }) {
     private companion object {
         private const val ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

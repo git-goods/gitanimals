@@ -2,6 +2,7 @@ package org.gitanimals.render.controller
 
 import org.gitanimals.render.app.AuthorizationException
 import org.gitanimals.render.app.UserFacade
+import org.gitanimals.render.app.request.MergePersonaRequest
 import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest
 import org.gitanimals.render.controller.response.ErrorResponse
@@ -71,6 +72,13 @@ class PersonaController(
                 .toList()
         )
     }
+
+    @PutMapping("/personas/merges")
+    @ResponseStatus(HttpStatus.OK)
+    fun mergePersona(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @RequestBody meregPersonaRequest: MergePersonaRequest,
+    ) = userFacade.mergePersona(token, meregPersonaRequest)
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
