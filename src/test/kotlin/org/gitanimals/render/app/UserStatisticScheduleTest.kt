@@ -2,7 +2,7 @@ package org.gitanimals.render.app
 
 import io.kotest.assertions.nondeterministic.eventually
 import io.kotest.core.spec.style.DescribeSpec
-import org.gitanimals.render.Application
+import org.gitanimals.Application
 import org.gitanimals.render.supports.RedisContainer
 import org.gitanimals.render.supports.SagaCapture
 import org.springframework.boot.test.context.SpringBootTest

@@ -1,4 +1,4 @@
-package org.gitanimals.render
+package org.gitanimals
 
 import org.rooftop.netx.meta.EnableSaga
 import org.springframework.boot.SpringApplication
