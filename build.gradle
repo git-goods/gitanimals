@@ -23,7 +23,7 @@ test {
 }
 
 application {
-    mainClassName = 'org.gitanimals.render.Application'
+    mainClassName = 'org.gitanimals.Application'
 }
 
 sentry {

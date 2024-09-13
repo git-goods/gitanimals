@@ -1,0 +1,18 @@
+query {
+    repository(owner: "git-goods", name: "gitanimals") {
+        stargazers(first: 100, after: "*{endCursor}") {
+            edges {
+                starredAt
+                node {
+                    login
+                    name
+                    url
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}
