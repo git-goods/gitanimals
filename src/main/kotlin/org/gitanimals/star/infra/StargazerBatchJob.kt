@@ -2,11 +2,13 @@ package org.gitanimals.star.infra
 
 import org.gitanimals.star.domain.StargazerService
 import org.springframework.boot.context.event.ApplicationStartedEvent
+import org.springframework.context.annotation.Profile
 import org.springframework.context.event.EventListener
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 
 @Service
+@Profile("!test")
 class StargazerBatchJob(
     private val githubStargazerApi: GithubStargazerApi,
     private val stargazerService: StargazerService,

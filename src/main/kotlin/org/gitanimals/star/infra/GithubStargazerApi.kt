@@ -1,6 +1,7 @@
 package org.gitanimals.star.infra
 
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Profile
 import org.springframework.core.io.ClassPathResource
 import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
@@ -8,6 +9,7 @@ import org.springframework.web.client.RestClient
 import java.nio.charset.Charset
 
 @Component
+@Profile("!test")
 class GithubStargazerApi(
     @Value("\${github.token}") private val token: String,
 ) {
@@ -34,7 +36,7 @@ class GithubStargazerApi(
                 )
             ).exchange { _, response ->
                 assertIsSuccess(response)
-                
+
                 response.bodyTo(GithubStargazerGraphqlResponse::class.java)!!
                     .data
                     .repository

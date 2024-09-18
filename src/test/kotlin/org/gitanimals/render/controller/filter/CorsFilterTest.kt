@@ -46,7 +46,7 @@ internal class CorsFilterTest(
                         {
                             it == Header(
                                 "Access-Control-Allow-Headers",
-                                "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+                                "Origin, X-Requested-With, Content-Type, Accept, Authorization, Api-Version"
                             )
                         }
                     )

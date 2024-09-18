@@ -6,6 +6,7 @@ import org.gitanimals.Application
 import org.gitanimals.render.supports.RedisContainer
 import org.gitanimals.render.supports.SagaCapture
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestPropertySource
 import kotlin.time.Duration.Companion.seconds
 
