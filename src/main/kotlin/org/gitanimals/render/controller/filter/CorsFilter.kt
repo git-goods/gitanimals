@@ -26,7 +26,7 @@ class CorsFilter : Filter {
         this.addHeader(HttpHeaders.ACCESS_CONTROL_MAX_AGE, "3600")
         this.addHeader(
             HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS,
-            "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+            "Origin, X-Requested-With, Content-Type, Accept, Authorization, Api-Version"
         )
         return this
     }
