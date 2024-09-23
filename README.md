@@ -3,7 +3,9 @@
 ##
 
 <div align="center">
-   <a href="/ENGLISH.md"> <b>Translate to english</b> </a>
+
+[English](README-en.md) | **한국어** | [简体中文](READNE-zhcn.md)
+
 </div>
 <br>
 
