@@ -47,9 +47,9 @@
 
 ### line mode
 
-line mode는 자신이 갖고있는 펫중 하나를 지정해서, 지정한 width, height범위에서 움직이게 해요.   
-line mode를 사용할때, markdown 방식으로 이미지를 요청하면, width, height를 설정할 수 없어서 펫이 보이지 않을 수 있으니, HTMl방식을
-사용해주세요.
+line mode는 자신이 가지고 있는 펫중 하나를 지정해서, 지정한 width, height범위에서 움직이게 해요.   
+line mode를 사용할때, markdown 방식으로 이미지를 요청하면, width, height를 설정할 수 없어서 펫이 보이지 않을 수 있으니, HTML방식을
+사용해 주세요.
 
 > [!TIP]   
 > **Img의 width와 height를 조절해서 펫의 이동영역을 조절할 수 있어요.**   
@@ -74,11 +74,11 @@ _pet-id에 아무값도 입력하지 않으면, 첫번째 펫이 가져와져요
 요청하면 확인할 수 있어요.   
 API 응답의 `$.personas.[].id` 에 해당하는 값을 pet-id에 입력하면 돼요.
 
-lines모드에서는 펫 레벨 위에 총 contributions수를 보여줘요. 원하지 않을경우, 쿼리 파라미터로 `contribution-view=false`를 담아 요청하세요.
+lines모드에서는 펫 레벨 위에 총 contributions수를 보여줘요. 원하지 않을 경우, 쿼리 파라미터로 `contribution-view=false`를 담아 요청하세요.
 
 ### farm mode
 
-farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
+farm mode는 가지고 있는 모든 동물과 추가적인 정보를 보여줘요.
 
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/farms/devxb" width="300"/>
@@ -107,8 +107,8 @@ farm mode는 갖고있는 모든 동물과 추가적인 정보를 보여줘요.
 
 ### Total contributions
 
-Total contribtuions 는 깃허브에 가입 후 집계된 Contribtuions 의 총합 이에요.    
-_새로운 contribution은 반영은 최대 1시간이 소요될 수 있어요._
+Total contribtuions는 깃허브에 가입 후 집계된 Contribtuions의 총합이에요.    
+_새로운 contribution 반영은 최대 1시간이 소요될 수 있어요._
 
 ### 등장 가능한 펫들
 
