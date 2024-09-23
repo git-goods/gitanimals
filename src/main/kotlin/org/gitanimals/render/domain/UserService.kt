@@ -33,10 +33,12 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
-    fun updateContributions(username: String, contribution: Int) {
+    fun updateContributions(username: String, contribution: Int): Int {
         val user = getUserByName(username)
-        user.updateContribution(contribution)
+        val increasedContributionCount = user.updateContribution(contribution)
         user.giveNewPersona()
+
+        return increasedContributionCount
     }
 
     fun isContributionUpdatedBeforeOneHour(name: String): Boolean =

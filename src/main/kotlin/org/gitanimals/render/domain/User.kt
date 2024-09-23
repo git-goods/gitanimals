@@ -99,7 +99,7 @@ class User(
         return persona
     }
 
-    fun updateContribution(contribution: Int) {
+    fun updateContribution(contribution: Int): Int {
         val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
         val currentYearContribution =
             contributions.firstOrNull { it.year == currentYear }
@@ -115,6 +115,8 @@ class User(
         lastPersonaGivePoint += newContribution
         currentYearContribution.lastUpdatedContribution = Instant.now()
         levelUpPersonas(newContribution)
+
+        return newContribution
     }
 
     private fun levelUpPersonas(newContribution: Int) {
