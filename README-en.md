@@ -4,7 +4,7 @@
 
 <div align="center">
 
-**English** | [한국어](README.md) | [简体中文](READNE-zhcn.md)
+**English** | [한국어](README.md) | [简体中文](README-zhcn.md)
 
 </div>
 <br>
