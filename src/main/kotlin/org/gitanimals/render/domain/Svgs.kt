@@ -9,6 +9,9 @@ val whiteFieldSvg: String = ClassPathResource("persona/field/white-field.svg")
 val snowyFieldSvg: String = ClassPathResource("persona/field/snowy-field.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val carrotAndCoinSvg: String = ClassPathResource("persona/field/carrot-and-coin.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 
