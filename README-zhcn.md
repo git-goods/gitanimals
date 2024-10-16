@@ -3,7 +3,9 @@
 ##
 
 <div align="center">
-   <a href="/README.md"> <b>한국어로 번역하기</b> </a>
+
+[English](README-en.md) | [한국어](README.md) | **简体中文**
+
 </div>
 <br>
 
@@ -12,22 +14,22 @@
     <img src="https://render.gitanimals.org/lines/devxb?pet-id=23" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=22" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=1" width="25%" height="100"/>
 </a>
 
-⭐️ Please press the star! It greatly helps development! ⭐️<br>
-<i><h4><a href="https://github.com/devxb/gitanimals/stargazers">Press star</a></h4></i>
+⭐️ 请点一下Star，这对我很重要！⭐️<br>
+<i><h4><a href="https://github.com/devxb/gitanimals/stargazers">Star</a></h4></i>
 </div>
 
 <div align="center">
-<h3>Grow your pets through GitHub activities!</h3> 
-<h4> You can acquire and grow pets through GitHub activities.
-<br> When you commit 30 times, you can adopt an additional pet.
-<br> Each contribution increases a random pet's level by 1.
-<br> You can trade the pets with others.     
+<h3>通过 GitHub 活动培养你的宠物！</h3> 
+<h4> 您可以通过 GitHub 活动获取和饲养宠物。
+<br> 当你提交30次 commits 时，你可以收养一只额外的宠物。
+<br> 每次贡献都会使随机宠物的等级增加1。
+<br> 你可以和其他人交换宠物。   
 <br>
 <br>
-Choose from over 50 different pets and raise them.
+选择50多种不同的宠物并饲养它们！
 <br>
 
-You can buy and manage pet in [hompage](https://gitanimals.org)
+你可以在[主页](https://gitanimals.org)购买并管理宠物。
 
 </h4>
 <br>
@@ -36,29 +38,29 @@ You can buy and manage pet in [hompage](https://gitanimals.org)
 </a>
 </div>
 
-## Getting Start
+## 开始
 
-You can easily apply by copying the following link to your GitHub Readme.
+您可以将以下链接复制到自己的README。
 
 > [!IMPORTANT]   
-> Please replace {username} with your GitHub nickname (ex. devxb).    
-> {username} must be your GitHub username.
+> 请将 {username} 替换为您的用户名（如devxb）。
+> 
+> {username} 必须是您的用户名。
 
-### Line Mode
+### 行模式
 
-Line mode allows you to specify one of your pets to move within the specified width and height
-range.   
-When using line mode, if you request the image in markdown, you cannot set width and height, so
-please use HTML format instead.
+行模式允许您指定一只宠物在设置好的宽度和高度内移动。
+
+使用行模式时，请改用HTML，因为markdown无法设置宽度和高度。
 
 > [!TIP]   
-> **Adjust the width and height of the Img to adjust the pet's movement area.**   
-> If you make the width long and the height short (width = 1000, height = 60), the pet will move
-> horizontally for a long distance.   
-> Conversely, if you make the width short and the height long (width = 60, height = 1000), the pet
-> will move vertically for a long distance.   
-> If the pet is not visible, please make the height of the img larger than the vertical length of
-> the pet.
+> **调整img的宽度和高度，以调整宠物的移动区域。**
+> 
+> 如果将宽度设置长于高度（如宽度=1000，高度=60），宠物将在水平方向上移动非常长的距离。
+> 
+> 相反地，如果你让宽度变短，高度变长（宽度=60，高度=1000），宠物将垂直移动很长一段距离。
+> 
+> 如果宠物不可见，请增大img的高度。
 
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/lines/devxb?pet-id=1" width="300" height="120"/>
@@ -70,19 +72,15 @@ please use HTML format instead.
 </a>
 ```
 
-If you don't enter any value for pet-id, the first pet will be responsed.
+如果您没有为宠物id输入任何值，则将自动设置为第一只宠物。
 
-You can check the available pet-ids in `https://render.gitanimals.org/users/{username}` to your
-GitHub
-username and requesting the API.
-Enter the value corresponding to `$.personas.[].id` in the API response into pet-id.
+您可以在 `https://render.gitanimals.org/users/｛username}` 中查看可用的宠物ID，将其添加到您的GitHub用户名并请求API。输入与 `$.epersonas.[].id` 对应的值。
 
-In line mode, the total number of contributions is displayed above the pet's level. If you don't
-want this, include `contribution-view=false` as a query parameter in your request.
+在行模式下，贡献总数显示在宠物等级上。如果您不希望这样，请在API中加上`contribution-view=false`。
 
-### Farm Mode
+### 农场模式
 
-Farm mode shows all your animals and additional information.
+农场模式显示您的所有宠物和信息。
 
 <a href="https://github.com/devxb/gitanimals">
     <img src = "https://render.gitanimals.org/farms/devxb" width="300"/>
@@ -94,32 +92,35 @@ Farm mode shows all your animals and additional information.
 </a>
 ```
 
-## Tips
+## 提示
 
-### How to Acquire Pets
+### 如何获取宠物
 
-Pets can be acquired in two ways:
+宠物可通过以下两种方式获取：
 
-1. **Contributions 30 times**   
-   When you accumulate 30 commits, a new pet will appear. At this point, all pets have different
-   probabilities of appearing.   
-   The maximum number of pets you can have is 30. If you have more than 30 pets, they will go into
-   your inventory, and you can swap them with the pets displayed at any time.
-2. **Purchase Pets**   
-   You can buy pets sold by other users with commit points.   
-   A certain amount of points will be given per commit. Alternatively, you can sell your own pets to
-   earn commit points.
+1. **commits 30次**
 
-### Total Contributions
+当你累积30次 commits 时，一个新的宠物将会出现。不过，所有宠物出现的概率都不同。
 
-Total contributions represent the sum of contributions accumulated after joining GitHub.   
-_New contributions may take up to 1 hour to be reflected._
+最多可以养30只宠物。如果你有更多宠物，超过30只的部分会进入你的库存，你可以随时将它们设置为展示状态。
 
-### Available Pets
+2. **购买**
 
-| name                                                                                                    | ratio | Description                                                                                                                                                                  |
+你可以用 credits 购买其他用户出售的宠物。
+
+每次 commits 都会得到一定的分数。或者，您可以将自己的宠物出售获得credits。
+
+### 总贡献
+
+贡献总数代表加入 GitHub 后累积的贡献总和。
+
+_新的贡献可能需要1个小时才能显示_
+
+### 可用宠物
+
+| 名字                                                                                                    | 概率 | 描述                                                                                                                                                                  |
 |---------------------------------------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| TURTLE <br> <img src = "docs/turtle.svg" width="100px" height="80px"/>                                  | 0.03  | Designed by [@JIWOO CHOI](https://www.behance.net/sopungcjw42af)                                                                                                             |
+| TURTLE <br> <img src = "docs/turtle.svg" width="100px" height="80px"/>                                  | 0.03  | 由 [@JIWOO CHOI](https://www.behance.net/sopungcjw42af) 设计                                                                                                             |
 | SLOTH_SUNGLASSES <br> <img src = "docs/sloth-sunglasses.svg" width="40px" height="80px"/>                | 0.06  |                                                                                                                                                                              |
 | SLOTH_KING <br> <img src = "docs/sloth-king.svg" width="40px" height="80px"/>                            | 0.05  |                                                                                                                                                                              | 
 | SLOTH <br> <img src = "docs/sloth.svg" width="40px" height="80px"/>                                      | 0.7   |                                                                                                                                                                              |
@@ -133,10 +134,10 @@ _New contributions may take up to 1 hour to be reflected._
 | FISH_MAN <br> <img src="docs/fishman.svg" width="35px" height="75px"/>                                  | 0.001 |                                                                                                                                                                              |
 | FISH_MAN_GLASSES <br> <img src="docs/fishman-glasses.svg" width="35px" height="75px" />                 | 0.001 |                                                                                                                                                                              |
 | flamingo <br> <img src="docs/flamingo.svg" width="50px" height="110"/>                                  | 0.08  |                                                                                                                                                                              |
-| TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px"/>                                      | 0.00  | Character created by `10MM` donations <br> Only buy in shop <br> <a href="https://github.com/depromeet/10mm-client-web"> 10MM </a>                                           |
+| TEN_MM <br> <img src="docs/tenmm.svg" width="80px" height="90px"/>                                      | 0.00  | [10MM](https://github.com/depromeet/10mm-client-web) 捐款创建的角色 <br> 只能从商店购买                                                                                         |
 | goblin <br> <img src="docs/goblin.svg" width="80px" height="80px"/>                                     | 0.06  |                                                                                                                                                                              |
 | goblin-bag <br> <img src="docs/goblin-bag.svg" width="100px" height="80px"/>                            | 0.03  |                                                                                                                                                                              |
-| bibbi <br> <img src="docs/bbibbi.svg" width="80px" height="100px"/>                                     | 0.00  | Character created by `BIBBI` donations <br> Only buy in shop <br> <a href="https://play.google.com/store/apps/details?id=com.no5ing.bbibbi&hl=es_PY&gl=US&pli=1"> BIBBI </a> |
+| bibbi <br> <img src="docs/bbibbi.svg" width="80px" height="100px"/>                                     | 0.00  | [BIBBI](https://play.google.com/store/apps/details?id=com.no5ing.bbibbi&hl=es_PY&gl=US&pli=1) 捐款创建的角色 <br> 只能从商店购买                                                 |
 | cat <br> <img src="docs/cat.svg" width="50px" height="70px"/>                                           | 0.1   |                                                                                                                                                                              |
 | cheese-cat <br> <img src="docs/cheese-cat.svg" width="50px" height="70px"/>                             | 0.04  |                                                                                                                                                                              |
 | galchi-cat <br> <img src="docs/galchi-cat.svg" width="50px" height="70px"/>                             | 0.06  |                                                                                                                                                                              |
@@ -186,15 +187,15 @@ _New contributions may take up to 1 hour to be reflected._
 | slime_red_linux <br> <img src="docs/slime-red-linux.svg" width="50px" height="40px"/>                   | 0.001 |                                                                                                                                                                              |
 | slime_green <br> <img src="docs/slime-green.svg" width="50px" height="40px"/>                           | 0.1   |                                                                                                                                                                              |
 | slime_blue <br> <img src="docs/slime-blue.svg" width="50px" height="40px"/>                             | 0.1   |                                                                                                                                                                              |
-| cheese_cat_collaborator <br> <img src="docs/cheese-cat-collaborator.svg" width="100px" height="70px"/>  | 0.0   | Pet made for collaborator [devxb](https://github.com/devxb)                                                                                                                  |
-| dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | Pet made for collaborator [sumi-001](https://github.com/sumi-0011)                                                                                                           |
-| white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>    | 0.0   | Pet made for collaborator [Ha youna](https://www.behance.net/hyn991022a6be)                                                                                                  |
-| pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | Pet made for collaborator [hyesungoh](https://github.com/hyesungoh)                                                                                                          |
-| rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>             | 0.0   | Pet made for collaborator [Choi jiwoo](https://www.behance.net/sopungcjw42af)                                                                                                                                     |
+| cheese_cat_collaborator <br> <img src="docs/cheese-cat-collaborator.svg" width="100px" height="70px"/>  | 0.0   | 协作者 [devxb](https://github.com/devxb) 制作                                                                                                                 |
+| dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | 协作者 [sumi-001](https://github.com/sumi-0011) 制作                                                                                                          |
+| white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>    | 0.0   | 协作者 [Ha youna](https://www.behance.net/hyn991022a6be) 制作                                                                                                 |
+| pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | 协作者 [hyesungoh](https://github.com/hyesungoh) 制作                                                                                                         |
+| rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>             | 0.0   | 协作者 [Choi jiwoo](https://www.behance.net/sopungcjw42af) 制作                                                                                                                                    |
 
 ##
 
 <div align="center">
-<p> If you have any ideas or discover a bug, please report it.
-<i>Contact : develxb@gmail.com</i></p>
+<p> 如果你发现了bug，或者有任何想法，欢迎联系我们！<br/>
+<i>联系方式： develxb@gmail.com</i></p>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
