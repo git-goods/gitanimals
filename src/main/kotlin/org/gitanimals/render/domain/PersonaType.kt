@@ -1270,7 +1270,22 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         override fun act(id: Long): String = StringBuilder()
             .moveRandomly("ghost", id, 20, "180s", 7, 26.0)
             .toString()
-    }
+    },
+    GHOST_KING(0.01) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return ghostKingSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1.8 * (persona.level.value.toString().length)).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("ghost", id, 20, "180s", 7, 26.0)
+            .toString()
+    },
     ;
 
     init {
