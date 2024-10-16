@@ -1,6 +1,5 @@
 package org.gitanimals.render.domain
 
-import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.atan2
 import kotlin.math.max
@@ -1257,6 +1256,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("turtle", id, 5, "180s", 5, 33.5)
                 .toString()
     },
+    GHOST(0.05) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return ghostSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1.8 * (persona.level.value.toString().length)).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("ghost", id, 20, "180s", 7, 26.0)
+            .toString()
+    }
     ;
 
     init {
