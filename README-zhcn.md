@@ -121,6 +121,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| SCREAM <br> <img src = "docs/scream.svg" width="100px" height="80px"/>                                  | 0.005 | 🎃2024 Halloween pet🎃                                                                                             |
 | GHOST_KING <br> <img src = "docs/ghost-king.svg" width="100px" height="70px"/>                          | 0.01  | 🎃2024 Halloween pet🎃                                                                                             |
 | GHOST <br> <img src = "docs/ghost.svg" width="100px" height="70px"/>                                    | 0.05  | 🎃2024 Halloween pet🎃                                                                                             |
 | TURTLE <br> <img src = "docs/turtle.svg" width="100px" height="80px"/>                                  | 0.03  | 由 [@JIWOO CHOI](https://www.behance.net/sopungcjw42af) 设计                                                          |
