@@ -1300,7 +1300,22 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("scream", id, 10, "180s", 5, 17.5)
                 .toString()
-    }
+    },
+    SCREAM_GHOST(0.001) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return screamGhostSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("scream", id, 10, "180s", 5, 17.5)
+                .toString()
+    },
     ;
 
     init {
