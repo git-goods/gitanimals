@@ -1316,6 +1316,36 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("scream", id, 10, "180s", 5, 17.5)
                 .toString()
     },
+    SLIME_PUMPKIN_1(0.08) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return slimePumpkin1Svg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
+                .toString()
+    },
+    SLIME_PUMPKIN_2(0.08) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return slimePumpkin2Svg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
+                .toString()
+    },
     ;
 
     init {
