@@ -14,11 +14,15 @@ class UsedCouponSagaHandlers(
     @SagaCommitListener(event = CouponUsed::class)
     fun handleCouponUsedCommitEvent(sagaCommitEvent: SagaCommitEvent) {
         val couponUsed = sagaCommitEvent.decodeEvent(CouponUsed::class)
-        if (couponUsed.code != "NEW_USER_BONUS_PET") {
+        if ((couponUsed.code in acceptableCouponCodes).not()) {
             return
         }
         sagaCommitEvent.setNextEvent(couponUsed)
 
-        userService.giveBonusPersona(couponUsed.username, couponUsed.dynamic)
+        userService.givePersonaByCoupon(couponUsed.username, couponUsed.dynamic)
+    }
+
+    private companion object {
+        private val acceptableCouponCodes = listOf("NEW_USER_BONUS_PET", "HALLOWEEN_2024", "HALLOWEEN_2024_STAR_BONUS")
     }
 }
