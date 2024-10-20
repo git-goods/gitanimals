@@ -83,10 +83,10 @@ internal class UserTest : DescribeSpec({
     describe("giveBonusPersona 메소드는") {
         context("Bonus pet 목록에 등록된 pet의 이름이 주어질 경우,") {
             val user = User.newUser("new-user", mutableMapOf())
-            val persona = "PENGUIN"
+            val persona = PersonaType.PENGUIN
 
             it("새로운 펫을 지급한다.") {
-                user.giveBonusPersona(persona)
+                user.giveNewPersonaByType(persona)
 
                 user.personas.find { it.type == PersonaType.PENGUIN }.shouldNotBeNull()
             }
@@ -94,11 +94,11 @@ internal class UserTest : DescribeSpec({
 
         context("Bonus pet 목록에 등록되지 않은 pet의 이름이 주어질 경우,") {
             val user = User.newUser("new-user", mutableMapOf())
-            val persona = "GOBLIN_BAG"
+            val persona = PersonaType.GOBLIN_BAG
 
             it("예외를 던진다.") {
                 shouldThrowWithMessage<IllegalArgumentException>("Cannot select as a bonus persona.") {
-                    user.giveBonusPersona(persona)
+                    user.giveNewPersonaByType(persona)
                 }
             }
         }

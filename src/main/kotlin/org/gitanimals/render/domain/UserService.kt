@@ -58,7 +58,7 @@ class UserService(
 
         val user = getUserByName(name)
 
-        user.giveBonusPersona(persona)
+        user.giveNewPersonaByType(PersonaType.valueOf(persona.uppercase()))
     }
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)

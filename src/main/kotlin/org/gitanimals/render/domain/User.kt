@@ -141,13 +141,7 @@ class User(
         personas.add(newPersona)
     }
 
-    fun giveBonusPersona(persona: String) {
-        val personaType = PersonaType.valueOf(persona.uppercase())
-
-        require(bonusPersonas.contains(personaType)) {
-            "Cannot select as a bonus persona."
-        }
-
+    fun giveNewPersonaByType(personaType: PersonaType) {
         personas.add(getPersona(personaType))
     }
 
