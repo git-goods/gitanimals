@@ -1,6 +1,5 @@
 package org.gitanimals.render.domain
 
-import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.atan2
 import kotlin.math.max
@@ -1234,7 +1233,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
                 )
         }
 
@@ -1255,6 +1254,96 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
 
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("turtle", id, 5, "180s", 5, 33.5)
+                .toString()
+    },
+    GHOST(0.05) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return ghostSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1.8 * (persona.level.value.toString().length)).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("ghost", id, 20, "180s", 7, 26.0)
+            .toString()
+    },
+    GHOST_KING(0.01) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return ghostKingSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1.8 * (persona.level.value.toString().length)).toString()
+                )
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("ghost", id, 20, "180s", 7, 26.0)
+            .toString()
+    },
+    SCREAM(0.005) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return screamSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("scream", id, 10, "180s", 5, 17.5)
+                .toString()
+    },
+    SCREAM_GHOST(0.001) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return screamGhostSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("scream", id, 10, "180s", 5, 17.5)
+                .toString()
+    },
+    SLIME_PUMPKIN_1(0.08) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return slimePumpkin1Svg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
+                .toString()
+    },
+    SLIME_PUMPKIN_2(0.08) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return slimePumpkin2Svg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
                 .toString()
     },
     ;

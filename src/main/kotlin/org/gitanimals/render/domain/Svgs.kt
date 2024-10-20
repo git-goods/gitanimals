@@ -9,6 +9,9 @@ val whiteFieldSvg: String = ClassPathResource("persona/field/white-field.svg")
 val snowyFieldSvg: String = ClassPathResource("persona/field/snowy-field.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val carrotAndCoinSvg: String = ClassPathResource("persona/field/carrot-and-coin.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -224,6 +227,24 @@ val rabbitCollaboratorSvg: String = ClassPathResource("persona/animal/rabbit-col
     .getContentAsString(Charset.defaultCharset())
 
 val turtleSvg: String = ClassPathResource("persona/animal/turtle.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val ghostSvg: String = ClassPathResource("persona/animal/ghost.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val ghostKingSvg: String = ClassPathResource("persona/animal/ghost-king.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val screamSvg: String = ClassPathResource("persona/animal/scream.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val screamGhostSvg: String = ClassPathResource("persona/animal/scream-ghost.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val slimePumpkin1Svg: String = ClassPathResource("persona/animal/slime-pumpkin-1.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val slimePumpkin2Svg: String = ClassPathResource("persona/animal/slime-pumpkin-2.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val largeTextSvgs = lazy {

@@ -3,7 +3,9 @@
 ##
 
 <div align="center">
-   <a href="/README.md"> <b>한국어로 번역하기</b> </a>
+
+**English** | [한국어](README.md) | [简体中文](README-zhcn.md)
+
 </div>
 <br>
 
@@ -119,11 +121,17 @@ _New contributions may take up to 1 hour to be reflected._
 
 | name                                                                                                    | ratio | Description                                                                                                                                                                  |
 |---------------------------------------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SCREAM_GHOST <br> <img src = "docs/scream-ghost.svg" width="100px" height="80px"/>                      | 0.001 | 😱2024 Halloween pet😱                                                                                                                                                       |
+| SCREAM <br> <img src = "docs/scream.svg" width="100px" height="80px"/>                                  | 0.005 | 😱2024 Halloween pet😱                                                                                                                                                       |
+| GHOST_KING <br> <img src = "docs/ghost-king.svg" width="100px" height="70px"/>                          | 0.01  | 👻2024 Halloween pet👻                                                                                                                                                       |
+| GHOST <br> <img src = "docs/ghost.svg" width="100px" height="70px"/>                                    | 0.05  | 👻2024 Halloween pet👻                                                                                                                                                       |
+| SLIME_PUMPKIN_1 <br> <img src="docs/slime-pumpkin-1.svg" width="50px" height="50px"/>                   | 0.08  | 🎃2024 Halloween pet🎃                                                                                                                                                       |
+| SLIME_PUMPKIN_2 <br> <img src="docs/slime-pumpkin-2.svg" width="50px" height="50px"/>                   | 0.08  | 🎃2024 Halloween pet🎃                                                                                                                                                       |
 | TURTLE <br> <img src = "docs/turtle.svg" width="100px" height="80px"/>                                  | 0.03  | Designed by [@JIWOO CHOI](https://www.behance.net/sopungcjw42af)                                                                                                             |
-| SLOTH_SUNGLASSES <br> <img src = "docs/sloth-sunglasses.svg" width="40px" height="80px"/>                | 0.06  |                                                                                                                                                                              |
-| SLOTH_KING <br> <img src = "docs/sloth-king.svg" width="40px" height="80px"/>                            | 0.05  |                                                                                                                                                                              | 
-| SLOTH <br> <img src = "docs/sloth.svg" width="40px" height="80px"/>                                      | 0.7   |                                                                                                                                                                              |
-| DESSERT_FOX <br> <img src = "docs/dessert-fox.svg" width="80px" height="65px"/>                          | 0.05  |                                                                                                                                                                              |
+| SLOTH_SUNGLASSES <br> <img src = "docs/sloth-sunglasses.svg" width="40px" height="80px"/>               | 0.06  |                                                                                                                                                                              |
+| SLOTH_KING <br> <img src = "docs/sloth-king.svg" width="40px" height="80px"/>                           | 0.05  |                                                                                                                                                                              | 
+| SLOTH <br> <img src = "docs/sloth.svg" width="40px" height="80px"/>                                     | 0.7   |                                                                                                                                                                              |
+| DESSERT_FOX <br> <img src = "docs/dessert-fox.svg" width="80px" height="65px"/>                         | 0.05  |                                                                                                                                                                              |
 | RABBIT <br> <img src = "docs/rabbit.svg" width="40px" height="55px"/>                                   | 0.9   |                                                                                                                                                                              |
 | MOLE <br> <img src = "docs/mole.svg" width="40px" height="45px" />                                      | 0.3   |                                                                                                                                                                              |
 | MOLE_GRASS <br> <img src = "docs/mole-grass.svg" width="45px" height="45px" />                          | 0.1   |                                                                                                                                                                              |
@@ -190,7 +198,7 @@ _New contributions may take up to 1 hour to be reflected._
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | Pet made for collaborator [sumi-001](https://github.com/sumi-0011)                                                                                                           |
 | white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>    | 0.0   | Pet made for collaborator [Ha youna](https://www.behance.net/hyn991022a6be)                                                                                                  |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | Pet made for collaborator [hyesungoh](https://github.com/hyesungoh)                                                                                                          |
-| rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>             | 0.0   | Pet made for collaborator [Choi jiwoo](https://www.behance.net/sopungcjw42af)                                                                                                                                     |
+| rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>           | 0.0   | Pet made for collaborator [Choi jiwoo](https://www.behance.net/sopungcjw42af)                                                                                                |
 
 ##
 
