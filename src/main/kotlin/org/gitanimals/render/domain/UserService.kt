@@ -53,8 +53,8 @@ class UserService(
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
     @Transactional
-    fun givePersonaByCoupon(name: String, persona: String) {
-        requireIdempotency("$name:bonus")
+    fun givePersonaByCoupon(name: String, persona: String, code: String) {
+        requireIdempotency("$name:$code")
 
         val user = getUserByName(name)
 

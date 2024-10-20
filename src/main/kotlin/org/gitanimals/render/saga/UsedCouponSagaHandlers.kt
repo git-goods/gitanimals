@@ -19,7 +19,7 @@ class UsedCouponSagaHandlers(
         }
         sagaCommitEvent.setNextEvent(couponUsed)
 
-        userService.givePersonaByCoupon(couponUsed.username, couponUsed.dynamic)
+        userService.givePersonaByCoupon(couponUsed.username, couponUsed.dynamic, couponUsed.code)
     }
 
     private companion object {
