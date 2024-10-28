@@ -41,9 +41,13 @@ class User(
     @Column(name = "visit", nullable = false)
     private var visit: Long,
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "field_type", nullable = false)
-    val field: FieldType,
+    @OneToMany(
+        mappedBy = "user",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true
+    )
+    val fields: MutableSet<Field> = mutableSetOf(),
 
     @Column(name = "last_persona_give_point", nullable = false)
     private var lastPersonaGivePoint: Int,
@@ -163,7 +167,7 @@ class User(
     fun createLineAnimation(personaId: Long, mode: Mode): String {
         val builder = StringBuilder().openLine()
 
-        val persona = personas.find { it.id!! >= personaId }
+        val persona = personas.find { it.id >= personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
         builder.append(persona.toSvgForce(mode))
 
@@ -175,6 +179,8 @@ class User(
     }
 
     fun createFarmAnimation(): String {
+        val field = getOrCreateDefaultFieldIfAbsent()
+
         val builder = StringBuilder().openFarm()
             .append(field.fillBackground())
 
@@ -186,7 +192,43 @@ class User(
             .closeSvg()
     }
 
+
     fun contributionCount(): Long = contributions.totalCount()
+
+    fun changeField(fieldType: FieldType) {
+        getOrCreateDefaultFieldIfAbsent()
+
+        unChooseField()
+        chooseField(fieldType)
+    }
+
+    private fun unChooseField() {
+        getOrCreateDefaultFieldIfAbsent()
+
+        fields.first { it.isChoose() }.unChoose()
+    }
+
+    fun addField(fieldType: FieldType) {
+        getOrCreateDefaultFieldIfAbsent()
+
+        this.fields.add(Field.from(this, fieldType))
+    }
+
+    private fun getOrCreateDefaultFieldIfAbsent() = fields.firstOrNull { it.isChoose() } ?: run {
+        this.addField(FieldType.WHITE_FIELD)
+        this.chooseField(FieldType.WHITE_FIELD)
+
+        fields.first { it.fieldType == FieldType.WHITE_FIELD }
+    }
+
+    private fun chooseField(fieldType: FieldType) {
+        this.fields.first { it.fieldType == fieldType }.choose()
+    }
+
+    fun deleteField(fieldType: FieldType) {
+        fields.firstOrNull { it.fieldType == fieldType }
+            ?.let { fields.remove(it) }
+    }
 
     private fun List<Contribution>.totalCount(): Long {
         var totalCount = 0L
@@ -232,11 +274,10 @@ class User(
                 throw IllegalArgumentException("Not supported word contained in \"${name}\"")
             }
 
-            return User(
+            val user = User(
                 id = IdGenerator.generate(),
                 name = name,
                 personas = createPersonas(contributions),
-                field = FieldType.WHITE_FIELD,
                 contributions = contributions.map {
                     val year = it.key
                     val contribution = it.value
@@ -244,8 +285,12 @@ class User(
                 }.toMutableList(),
                 visit = 1,
                 version = 0,
-                lastPersonaGivePoint = (totalContributionCount(contributions) % FOR_NEW_PERSONA_COUNT).toInt()
+                lastPersonaGivePoint = (totalContributionCount(contributions) % FOR_NEW_PERSONA_COUNT).toInt(),
             )
+
+            user.addField(FieldType.WHITE_FIELD)
+
+            return user
         }
 
         private fun createPersonas(contributions: Map<Int, Int>): MutableList<Persona> {

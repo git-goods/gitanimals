@@ -2,6 +2,7 @@ package org.gitanimals.render.domain
 
 import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.gitanimals.render.domain.response.PersonaResponse
+import org.hibernate.Hibernate
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
@@ -51,7 +52,7 @@ class UserService(
     fun createNewUser(name: String, contributions: Map<Int, Int>): User =
         userRepository.save(User.newUser(name, contributions))
 
-    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
     fun givePersonaByCoupon(name: String, persona: String, code: String) {
         requireIdempotency("$name:$code")
@@ -61,7 +62,7 @@ class UserService(
         user.giveNewPersonaByType(PersonaType.valueOf(persona.uppercase()))
     }
 
-    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
     fun changePersona(name: String, personChangeRequest: PersonaChangeRequest): PersonaResponse {
         val user = getUserByName(name)
@@ -74,7 +75,7 @@ class UserService(
         return PersonaResponse.from(changedPersona)
     }
 
-    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
     fun addPersona(
         name: String,
@@ -98,7 +99,7 @@ class UserService(
         idempotencyRepository.save(Idempotency(idempotencyKey))
     }
 
-    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional
     fun deletePersona(name: String, personaId: Long): PersonaResponse {
         val user = getUserByName(name)
@@ -107,7 +108,7 @@ class UserService(
     }
 
     @Transactional
-    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 100)
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     fun mergePersona(id: Long, increasePersonaId: Long, deletePersonaId: Long) {
         val user = userRepository.findByIdOrNull(id)
             ?: throw IllegalArgumentException("Cannot find user by id \"$id\"")
@@ -115,10 +116,40 @@ class UserService(
         user.mergePersona(increasePersonaId, deletePersonaId)
     }
 
+    @Transactional
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
+    fun addField(name: String, fieldType: FieldType) {
+        getUserByName(name).addField(fieldType)
+    }
+
+    @Transactional
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
+    fun deleteField(name: String, fieldType: FieldType) {
+        getUserByName(name).deleteField(fieldType)
+    }
+
+    @Transactional
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
+    fun changeField(name: String, fieldType: FieldType) {
+        getUserByName(name).changeField(fieldType)
+    }
+
+    fun getByNameWithLazyLoading(name: String, vararg lazyLoading: (User) -> Unit): User {
+        val user = getUserByName(name)
+
+        lazyLoading.forEach { it(user) }
+
+        return user
+    }
+
     fun getPersona(name: String, personaId: Long): PersonaResponse {
         return getUserByName(name).personas
             .find { it.id == personaId }
             ?.let { PersonaResponse.from(it) }
             ?: throw IllegalArgumentException("Cannot find matched persona \"$personaId\" by user name \"$name\"")
+    }
+
+    companion object {
+        val loadField: (User) -> Unit = { Hibernate.initialize(it.fields) }
     }
 }
