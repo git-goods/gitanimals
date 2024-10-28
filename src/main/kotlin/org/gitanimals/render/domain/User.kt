@@ -215,7 +215,7 @@ class User(
     }
 
     private fun getOrCreateDefaultFieldIfAbsent() = fields.firstOrNull { it.isChoose() } ?: run {
-        this.addField(FieldType.WHITE_FIELD)
+        this.fields.add(Field.from(this, FieldType.WHITE_FIELD))
         this.chooseField(FieldType.WHITE_FIELD)
 
         fields.first { it.fieldType == FieldType.WHITE_FIELD }
