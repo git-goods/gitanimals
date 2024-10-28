@@ -209,6 +209,10 @@ class User(
     }
 
     fun addField(fieldType: FieldType) {
+        require(fields.any { it.fieldType == fieldType }.not()) {
+            "Duplicated add field request."
+        }
+
         getOrCreateDefaultFieldIfAbsent()
 
         this.fields.add(Field.from(this, fieldType))
