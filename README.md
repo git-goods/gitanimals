@@ -6,6 +6,8 @@
 
 [English](README-en.md) | **한국어** | [简体中文](README-zhcn.md)
 
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
+
 </div>
 <br>
 
@@ -200,8 +202,5 @@ _새로운 contribution 반영은 최대 1시간이 소요될 수 있어요._
 <div align="center">
 <p> 아이디어나 발견 한 버그가 있다면 제보 해주세요.
 <i>Contact : develxb@gmail.com</i></p>
-
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
 </div>
-
 
