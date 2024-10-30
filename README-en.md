@@ -6,9 +6,8 @@
 
 **English** | [한국어](README.md) | [简体中文](README-zhcn.md)
 
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
 </div>
-<br>
-
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
     <img src="https://render.gitanimals.org/lines/devxb?pet-id=23" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=22" width="25%" height="100"/><img src="https://render.gitanimals.org/lines/devxb?pet-id=1" width="25%" height="100"/>
@@ -205,4 +204,4 @@ _New contributions may take up to 1 hour to be reflected._
 <div align="center">
 <p> If you have any ideas or discover a bug, please report it.
 <i>Contact : develxb@gmail.com</i></p>
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
+</div>
