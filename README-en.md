@@ -23,12 +23,13 @@
 <br> When you commit 30 times, you can adopt an additional pet.
 <br> Each contribution increases a random pet's level by 1.
 <br> You can trade the pets with others.     
+<br> and buy background and decorate your farm
 <br>
 <br>
 Choose from over 50 different pets and raise them.
 <br>
 
-You can buy and manage pet in [hompage](https://gitanimals.org)
+You can buy and manage pet or backgrounds in [hompage](https://gitanimals.org)
 
 </h4>
 <br>
