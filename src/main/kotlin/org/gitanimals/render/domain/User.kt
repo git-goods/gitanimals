@@ -247,7 +247,7 @@ class User(
         .append("</svg>")
         .toString()
 
-    fun mergePersona(increasePersonaId: Long, deletePersonaId: Long) {
+    fun mergePersona(increasePersonaId: Long, deletePersonaId: Long): Persona {
         require(increasePersonaId != deletePersonaId) {
             "increasePersonaId \"$increasePersonaId\", deletePersonaId \"$deletePersonaId\" must be different"
         }
@@ -258,6 +258,8 @@ class User(
         increasePersona.level.value += deletePersona.level.value
 
         personas.remove(deletePersona)
+
+        return increasePersona
     }
 
     companion object {
