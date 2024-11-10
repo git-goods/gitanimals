@@ -43,11 +43,11 @@ class UserFacade(
         return userService.getPersona(user.username, personaId)
     }
 
-    fun mergePersona(token: String, request: MergePersonaRequest) {
+    fun mergePersona(token: String, request: MergePersonaRequest): PersonaResponse {
         val user = identityApi.getUserByToken(token)
 
         return userService.mergePersona(
-            user.id.toLong(),
+            user.username,
             request.increasePersonaId.toLong(),
             request.deletePersonaId.toLong(),
         )
