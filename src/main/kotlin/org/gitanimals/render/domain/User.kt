@@ -255,7 +255,7 @@ class User(
         val increasePersona = personas.first { it.id == increasePersonaId }
         val deletePersona = personas.first { it.id == deletePersonaId }
 
-        increasePersona.level.value += deletePersona.level.value
+        increasePersona.level.value += max(deletePersona.level.value / 2, 1)
 
         personas.remove(deletePersona)
 
