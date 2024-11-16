@@ -1360,7 +1360,22 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
                 .toString()
-    }
+    },
+    HAMSTER_SPRING(0.01) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return hamsterSpringSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
+                .toString()
+    },
     ;
 
     init {
