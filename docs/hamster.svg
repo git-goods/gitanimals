@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes hamster-14-hand-left-move {
+  0% {
+  transform: translate(9px, 2px);
+  }
+  50% {
+  transform: translate(9px, 2.5px);
+  }
+  100% {
+  transform: translate(9px, 2px);
+  }
+  }
+
+  @keyframes hamster-14-hand-right-move {
+  0% {
+  transform: translate(11px, 2px);
+  }
+  50% {
+  transform: translate(11px, 1.5px);
+  }
+  100% {
+  transform: translate(11px, 2px);
+  }
+  }
+
+  #hamster-14-hand-left {
+  animation-name:hamster-14-hand-left-move;
+  animation-duration:0.3s;
+  animation-iteration-count: infinite;
+  }
+
+  #hamster-14-hand-right {
+  animation-name:hamster-14-hand-right-move;
+  animation-duration:0.3s;
+  animation-iteration-count: infinite;
+  }
+
+</style>
+  <g id="hamster-14" transform="translate(5, 15)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="hamster-14-shadow" transform="translate(0, 6.5)">
+        <rect y="1.54541" width="14" height="1.90909" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.07693" y="1.06818" width="11.8462" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.07693" y="3.45453" width="11.8462" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="2.15378" y="0.590881" width="9.69231" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="2.15378" y="3.93182" width="9.69231" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+      <g id="hamster-14-body" transform="translate(0, 0)">
+        <rect x="7" y="8" width="3" height="1" fill="#FBB3BE"/>
+        <rect x="11" y="7" width="3" height="1" fill="#FBB3BE"/>
+        <rect x="1" y="3" width="2" height="4" fill="#FFE1BF"/>
+        <rect x="2" y="3" width="10" height="5" fill="#FFE1BF"/>
+        <rect x="4" width="4" height="9" fill="#FFE1BF"/>
+        <rect x="8" width="4" height="8" fill="#FFE1BF"/>
+        <rect x="4" y="8" width="4" height="1" fill="#F8D196"/>
+        <rect x="2" y="7" width="4" height="1" fill="#F8D196"/>
+        <rect x="1" y="3" width="1" height="3" fill="#F8D196"/>
+        <rect x="2" y="2" width="1" height="3" fill="#F8D196"/>
+        <rect x="1" y="3" width="3" height="2" fill="#F8D196"/>
+        <rect x="2" y="3" width="1" height="3" fill="#F8D196"/>
+        <rect x="4" y="1" width="1" height="3" fill="#F8D196"/>
+        <rect y="6" width="2" height="1" fill="#F8D196"/>
+        <rect y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="2" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="4" y="8" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="9" y="7" width="3" height="1" fill="#FFE9D0"/>
+        <rect x="10" y="6" width="2" height="1" fill="#FFE9D0"/>
+        <rect x="11" y="5" width="1" height="1" fill="#FFE9D0"/>
+      </g>
+      <g id="hamster-14-head" transform="translate(2, -5)">
+        <rect x="2" width="2" height="1" fill="#F8D196"/>
+        <rect x="2" width="2" height="4" fill="#F8D196"/>
+        <rect x="6" y="1" width="3" height="3" fill="#F8D196"/>
+        <rect x="6" width="2" height="3" fill="#F8D196"/>
+        <rect x="2" y="1" width="7" height="5" fill="#F8D196"/>
+        <rect x="4" y="2" width="7" height="5" fill="#F8D196"/>
+        <rect x="5" y="3" width="7" height="4" fill="#F8D196"/>
+        <rect x="1" y="3" width="7" height="4" fill="#F8D196"/>
+        <rect x="1" y="4" width="5" height="4" fill="#F8D196"/>
+        <rect y="4" width="6" height="3" fill="#F8D196"/>
+        <rect x="6" y="3" width="1" height="1" fill="black"/>
+        <rect x="9" y="3" width="1" height="1" fill="black"/>
+        <rect x="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(1 0 0 -1 0 7)" fill="black" fill-opacity="0.1"/>
+        <rect x="5" y="6" width="6" height="2" fill="#FED9AF"/>
+        <rect x="4" y="7" width="6" height="1" fill="#FED9AF"/>
+        <rect x="10" y="5" width="2" height="2" fill="#FED9AF"/>
+        <rect x="3" width="1" height="1" fill="#FBB3BE"/>
+        <rect x="7" width="1" height="1" fill="#FBB3BE"/>
+        <rect x="8" y="5" width="1" height="1" fill="#765D49"/>
+      </g>
+      <g id="hamster-14-hand-right" transform="translate(11, 2)">
+        <rect y="0.333313" width="2" height="1.33333" fill="#FBB3BE"/>
+        <rect x="0.333344" width="1.33333" height="2" fill="#FBB3BE"/>
+      </g>
+
+      <g id="hamster-14-amond" transform="translate(10, 1)">
+        <rect x="0.75" width="0.5" height="3.75" fill="#846560"/>
+        <rect x="0.499969" y="0.25" width="1" height="3.25" fill="#846560"/>
+        <rect width="1.5" height="0.25" transform="matrix(1 0 0 -1 0.250031 3.5)" fill="#846560"/>
+        <rect width="1" height="0.25" transform="matrix(1 0 0 -1 0.499969 3.75)" fill="#846560"/>
+        <rect x="0.250031" y="0.75" width="1.5" height="2.5" fill="#846560"/>
+        <rect y="2.75" width="2" height="0.5" fill="#846560"/>
+        <rect y="1.5" width="2" height="1.5" fill="#846560"/>
+        <rect x="0.499969" y="0.75" width="0.25" height="0.75" fill="#C09890"/>
+        <rect x="0.999939" y="0.75" width="0.25" height="0.75" fill="#C09890"/>
+        <rect x="1.50003" y="0.75" width="0.25" height="0.75" fill="#C09890"/>
+        <rect width="0.25" height="0.25" transform="matrix(1 0 0 -1 0.499969 3.5)" fill="#C09890"/>
+        <rect width="0.25" height="0.25" transform="matrix(1 0 0 -1 0.999939 3.5)" fill="#C09890"/>
+        <rect width="0.25" height="0.25" transform="matrix(1 0 0 -1 1.50003 3.5)" fill="#C09890"/>
+        <rect x="0.250031" y="1.5" width="0.25" height="1.75" fill="#C09890"/>
+        <rect x="0.75" y="1.5" width="0.25" height="1.75" fill="#C09890"/>
+        <rect x="1.25" y="1.5" width="0.25" height="1.75" fill="#C09890"/>
+        <rect x="1.74997" y="1.5" width="0.25" height="1.75" fill="#C09890"/>
+        <rect x="1.25" y="1.5" width="0.25" height="1.75" fill="#FFF9F0"/>
+        <rect x="0.999939" y="0.75" width="0.25" height="0.75" fill="#FFF9F0"/>
+        <rect x="0.999939" y="0.25" width="0.25" height="0.5" fill="#FFF9F0"/>
+        <rect x="0.75" width="0.25" height="0.25" fill="#FFF9F0"/>
+        <rect x="0.499969" y="0.25" width="0.25" height="1.25" fill="#FFF9F0"/>
+        <rect x="0.75" y="1.5" width="0.25" height="1.75" fill="#FFF9F0"/>
+        <rect x="0.250031" y="1.5" width="0.25" height="1.75" fill="#FFF9F0"/>
+        <rect x="1.74997" y="1.5" width="0.25" height="1.75" fill="#FFF9F0"/>
+        <rect x="1.50003" y="0.75" width="0.25" height="0.75" fill="#FFF9F0"/>
+        <rect x="1.50003" y="3.25" width="0.25" height="0.25" fill="#FFF9F0"/>
+        <rect x="0.999939" y="3.25" width="0.25" height="0.25" fill="#FFF9F0"/>
+        <rect x="0.499969" y="3.25" width="0.25" height="0.25" fill="#FFF9F0"/>
+      </g>
+
+      <g id="hamster-14-hand-left" transform="translate(9, 2.5)">
+        <rect y="0.833313" width="2" height="1.33333" fill="#FBB3BE"/>
+        <rect x="0.333344" y="0.5" width="1.33333" height="2" fill="#FBB3BE"/>
+      </g>
+    </svg>
+  </g>
+</svg>

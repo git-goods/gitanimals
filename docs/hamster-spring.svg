@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes hamster-14-hand-left-move {
+  0% {
+  transform: translate(9px, 2px);
+  }
+  50% {
+  transform: translate(9px, 2.5px);
+  }
+  100% {
+  transform: translate(9px, 2px);
+  }
+  }
+
+  @keyframes hamster-14-hand-right-move {
+  0% {
+  transform: translate(11px, 2px);
+  }
+  50% {
+  transform: translate(11px, 1.5px);
+  }
+  100% {
+  transform: translate(11px, 2px);
+  }
+  }
+
+  #hamster-14-hand-left {
+  animation-name:hamster-14-hand-left-move;
+  animation-duration:0.3s;
+  animation-iteration-count: infinite;
+  }
+
+  #hamster-14-hand-right {
+  animation-name:hamster-14-hand-right-move;
+  animation-duration:0.3s;
+  animation-iteration-count: infinite;
+  }
+
+</style>
+  <g id="hamster-14" transform="translate(5, 15)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="hamster-14-shadow" transform="translate(0, 6.5)">
+        <rect y="1.54541" width="14" height="1.90909" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.07693" y="1.06818" width="11.8462" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.07693" y="3.45453" width="11.8462" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="2.15378" y="0.590881" width="9.69231" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="2.15378" y="3.93182" width="9.69231" height="0.477273" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+      <g id="hamster-14-body" transform="translate(0, 0)">
+        <rect x="7" y="8" width="3" height="1" fill="#FBB3BE"/>
+        <rect x="11" y="7" width="3" height="1" fill="#FBB3BE"/>
+        <rect x="1" y="3" width="2" height="4" fill="#FFE1BF"/>
+        <rect x="2" y="3" width="10" height="5" fill="#FFE1BF"/>
+        <rect x="4" width="4" height="9" fill="#FFE1BF"/>
+        <rect x="8" width="4" height="8" fill="#FFE1BF"/>
+        <rect x="4" y="8" width="4" height="1" fill="#F8D196"/>
+        <rect x="2" y="7" width="4" height="1" fill="#F8D196"/>
+        <rect x="1" y="3" width="1" height="3" fill="#F8D196"/>
+        <rect x="2" y="2" width="1" height="3" fill="#F8D196"/>
+        <rect x="1" y="3" width="3" height="2" fill="#F8D196"/>
+        <rect x="2" y="3" width="1" height="3" fill="#F8D196"/>
+        <rect x="4" y="1" width="1" height="3" fill="#F8D196"/>
+        <rect y="6" width="2" height="1" fill="#F8D196"/>
+        <rect y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="2" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="4" y="8" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="9" y="7" width="3" height="1" fill="#FFE9D0"/>
+        <rect x="10" y="6" width="2" height="1" fill="#FFE9D0"/>
+        <rect x="11" y="5" width="1" height="1" fill="#FFE9D0"/>
+      </g>
+      <g id="hamster-14-head" transform="translate(2, -5)">
+        <rect x="2" width="2" height="1" fill="#F8D196"/>
+        <rect x="2" width="2" height="4" fill="#F8D196"/>
+        <rect x="6" y="1" width="3" height="3" fill="#F8D196"/>
+        <rect x="6" width="2" height="3" fill="#F8D196"/>
+        <rect x="2" y="1" width="7" height="5" fill="#F8D196"/>
+        <rect x="4" y="2" width="7" height="5" fill="#F8D196"/>
+        <rect x="5" y="3" width="7" height="4" fill="#F8D196"/>
+        <rect x="1" y="3" width="7" height="4" fill="#F8D196"/>
+        <rect x="1" y="4" width="5" height="4" fill="#F8D196"/>
+        <rect y="4" width="6" height="3" fill="#F8D196"/>
+        <rect x="6" y="3" width="1" height="1" fill="black"/>
+        <rect x="9" y="3" width="1" height="1" fill="black"/>
+        <rect x="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(1 0 0 -1 0 7)" fill="black" fill-opacity="0.1"/>
+        <rect x="5" y="6" width="6" height="2" fill="#FED9AF"/>
+        <rect x="4" y="7" width="6" height="1" fill="#FED9AF"/>
+        <rect x="10" y="5" width="2" height="2" fill="#FED9AF"/>
+        <rect x="3" width="1" height="1" fill="#FBB3BE"/>
+        <rect x="7" width="1" height="1" fill="#FBB3BE"/>
+        <rect x="8" y="5" width="1" height="1" fill="#765D49"/>
+      </g>
+      <g id="hamster-14-hand-right" transform="translate(11, 2)">
+        <rect y="0.333313" width="2" height="1.33333" fill="#FBB3BE"/>
+        <rect x="0.333344" width="1.33333" height="2" fill="#FBB3BE"/>
+      </g>
+
+      <g id="hamster-14-amond" transform="translate(10, 0)">
+        <rect x="0.00978088" y="3.26776" width="0.933659" height="1.40049" transform="rotate(-89.6574 0.00978088 3.26776)" fill="#6DB33F"/>
+        <rect x="0.240417" y="3.73602" width="0.46683" height="1.16707" transform="rotate(-89.6574 0.240417 3.73602)" fill="#6DB33F"/>
+        <rect x="1.40744" y="3.74292" width="0.233415" height="0.233415" transform="rotate(-89.6574 1.40744 3.74292)" fill="#6DB33F"/>
+        <rect x="0.238983" y="3.9693" width="0.233415" height="1.6339" transform="rotate(-89.6574 0.238983 3.9693)" fill="#6DB33F"/>
+        <rect x="0.471008" y="4.20416" width="0.233415" height="1.6339" transform="rotate(-89.6574 0.471008 4.20416)" fill="#6DB33F"/>
+        <rect x="3.03853" y="4.2196" width="0.233415" height="0.46683" transform="rotate(-89.6574 3.03853 4.2196)" fill="#6DB33F"/>
+        <rect x="3.52211" y="1.42145" width="0.46683" height="0.233415" transform="rotate(-89.6574 3.52211 1.42145)" fill="#6DB33F"/>
+        <rect x="3.29149" y="0.953308" width="0.233415" height="0.233415" transform="rotate(-89.6574 3.29149 0.953308)" fill="#6DB33F"/>
+        <rect x="2.82605" y="0.71698" width="0.233415" height="0.46683" transform="rotate(-89.6574 2.82605 0.71698)" fill="#6DB33F"/>
+        <rect x="2.12721" y="0.479431" width="0.233415" height="0.700244" transform="rotate(-89.6574 2.12721 0.479431)" fill="#6DB33F"/>
+        <rect x="0.726776" y="0.471069" width="0.233415" height="0.700244" transform="rotate(-89.6574 0.726776 0.471069)" fill="#6DB33F"/>
+        <rect x="0.0251465" y="0.700256" width="0.233415" height="0.700244" transform="rotate(-89.6574 0.0251465 0.700256)" fill="#6DB33F"/>
+        <rect x="0.257141" y="0.93512" width="0.233415" height="0.233415" transform="rotate(-89.6574 0.257141 0.93512)" fill="#6DB33F"/>
+        <rect x="1.42838" y="0.24176" width="0.233415" height="0.700244" transform="rotate(-89.6574 1.42838 0.24176)" fill="#6DB33F"/>
+        <rect x="3.73877" y="4.22369" width="3.03439" height="0.233415" transform="rotate(-89.6574 3.73877 4.22369)" fill="#6DB33F"/>
+        <rect x="3.27333" y="3.98749" width="0.933659" height="0.46683" transform="rotate(-89.6574 3.27333 3.98749)" fill="#6DB33F"/>
+        <rect x="3.97635" y="3.5249" width="2.10073" height="0.233415" transform="rotate(-89.6574 3.97635 3.5249)" fill="#6DB33F"/>
+        <rect x="4.21255" y="3.05957" width="1.16707" height="0.233415" transform="rotate(-89.6574 4.21255 3.05957)" fill="#6DB33F"/>
+        <rect x="3.0455" y="3.05255" width="0.700244" height="0.46683" transform="rotate(-89.6574 3.0455 3.05255)" fill="#6DB33F"/>
+        <rect x="2.81627" y="2.35083" width="0.46683" height="0.233415" transform="rotate(-89.6574 2.81627 2.35083)" fill="#6DB33F"/>
+        <rect x="2.58568" y="1.88269" width="0.233415" height="0.233415" transform="rotate(-89.6574 2.58568 1.88269)" fill="#6DB33F"/>
+        <rect x="2.35365" y="1.64783" width="0.233415" height="0.233415" transform="rotate(-89.6574 2.35365 1.64783)" fill="#6DB33F"/>
+        <rect x="2.12164" y="1.41296" width="0.233415" height="0.233415" transform="rotate(-89.6574 2.12164 1.41296)" fill="#6DB33F"/>
+        <rect x="1.6562" y="1.17688" width="0.233415" height="0.46683" transform="rotate(-89.6574 1.6562 1.17688)" fill="#6DB33F"/>
+        <rect x="0.703018" y="4.43909" width="0.233415" height="3.03439" transform="rotate(-89.6574 0.703018 4.43909)" fill="#6DB33F"/>
+        <rect x="0.935043" y="4.67383" width="0.233415" height="2.33415" transform="rotate(-89.6574 0.935043 4.67383)" fill="#6DB33F"/>
+        <rect x="1.40047" y="4.90997" width="0.233415" height="1.40049" transform="rotate(-89.6574 1.40047 4.90997)" fill="#6DB33F"/>
+        <rect x="0.00836182" y="3.50116" width="0.233415" height="0.233415" transform="rotate(-89.6574 0.00836182 3.50116)" fill="#6DB33F"/>
+        <rect x="0.0153656" y="2.33411" width="0.46683" height="1.16707" transform="rotate(-89.6574 0.0153656 2.33411)" fill="#6DB33F"/>
+        <rect x="0.251556" y="1.86877" width="0.46683" height="0.700244" transform="rotate(-89.6574 0.251556 1.86877)" fill="#6DB33F"/>
+        <rect x="0.487793" y="1.40326" width="0.46683" height="0.233415" transform="rotate(-89.6574 0.487793 1.40326)" fill="#6DB33F"/>
+      </g>
+
+      <g id="hamster-14-hand-left" transform="translate(9, 2.5)">
+        <rect y="0.833313" width="2" height="1.33333" fill="#FBB3BE"/>
+        <rect x="0.333344" y="0.5" width="1.33333" height="2" fill="#FBB3BE"/>
+      </g>
+    </svg>
+  </g>
+</svg>
