@@ -120,6 +120,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| HAMSTER_KOTLIN <br> <img src = "docs/hamster-kotlin.svg" width="100px" height="50px"/>                  | 0.01  |                                                                                                                    |
 | HAMSTER_JAVA <br> <img src = "docs/hamster-java.svg" width="100px" height="50px"/>                      | 0.01  |                                                                                                                    |
 | HAMSTER_SPRING <br> <img src = "docs/hamster-spring.svg" width="100px" height="50px"/>                  | 0.01  |                                                                                                                    |
 | HAMSTER <br> <img src = "docs/hamster.svg" width="100px" height="50px"/>                                | 0.8   |                                                                                                                    |
