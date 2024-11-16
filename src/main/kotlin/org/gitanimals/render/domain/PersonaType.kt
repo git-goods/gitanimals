@@ -1346,6 +1346,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
                 .toString()
     },
+    HAMSTER(0.8) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return hamsterSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
+                .toString()
+    }
     ;
 
     init {
@@ -1385,7 +1400,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             Mode.LINE -> {
                 this.replace(
                     "*{contributionx}",
-                    (12 + (-1 * (user.contributionCount().toString().length))).toString()
+                    (12.8 + (-1 * (user.contributionCount().toString().length))).toString()
                 )
                     .replace(
                         "*{contribution}",

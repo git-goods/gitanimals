@@ -120,6 +120,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| HAMSTER <br> <img src = "docs/hamster.svg" width="100px" height="50px"/>                                | 0.8   |                                                                                                                    |
 | SCREAM_GHOST <br> <img src = "docs/scream-ghost.svg" width="100px" height="80px"/>                      | 0.001 | 😱2024 Halloween pet😱                                                                                             |
 | SCREAM <br> <img src = "docs/scream.svg" width="100px" height="80px"/>                                  | 0.005 | 😱2024 Halloween pet😱                                                                                             |
 | GHOST_KING <br> <img src = "docs/ghost-king.svg" width="100px" height="70px"/>                          | 0.01  | 👻2024 Halloween pet👻                                                                                             |
