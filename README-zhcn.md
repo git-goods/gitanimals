@@ -200,7 +200,6 @@ _新的贡献可能需要1个小时才能显示_
 | slime_blue <br> <img src="docs/slime-blue.svg" width="50px" height="40px"/>                             | 0.1   |                                                                                                                    |
 | cheese_cat_collaborator <br> <img src="docs/cheese-cat-collaborator.svg" width="100px" height="70px"/>  | 0.0   | 协作者 [devxb](https://github.com/devxb) 制作                                                                           |
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | 协作者 [sumi-001](https://github.com/sumi-0011) 制作                                                                    |
-| white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>    | 0.0   | 协作者 [Ha youna](https://www.behance.net/hyn991022a6be) 制作                                                           |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | 协作者 [hyesungoh](https://github.com/hyesungoh) 制作                                                                   |
 | rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>           | 0.0   | 协作者 [Choi jiwoo](https://www.behance.net/sopungcjw42af) 制作                                                         |
 
