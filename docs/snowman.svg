@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes snowman-14-hand-left-move {
+  0% {
+  transform: translate(1px, 9px) rotate(0deg);
+  }
+  50% {
+  transform: translate(1px, 9px) rotate(15deg);
+  }
+  100% {
+  transform: translate(1px, 9px) rotate(0deg);
+  }
+  }
+
+  @keyframes snowman-14-hand-right-move {
+  0% {
+  transform: translate(9px, 8px) rotate(0deg);
+  }
+  50% {
+  transform: translate(9px, 8px) rotate(-15deg);
+  }
+  100% {
+  transform: translate(9px, 8px) rotate(0deg);
+  }
+  }
+
+  @keyframes snowman-14-leg-left-move {
+  0% {
+  transform: translate(2px, 14.5px);
+  }
+  50% {
+  transform: translate(2px, 15px);
+  }
+  100% {
+  transform: translate(2px, 14.5px);
+  }
+  }
+
+  @keyframes snowman-14-leg-right-move {
+  0% {
+  transform: translate(6px, 15px);
+  }
+  50% {
+  transform: translate(6px, 14.5px);
+  }
+  100% {
+  transform: translate(6px, 15px);
+  }
+  }
+
+  @keyframes snowman-14-noise-move {
+  0% {
+  transform: translate(6.7px, 5.9px);
+  }
+  15% {
+  transform: translate(6.7px, 5.9px) rotate(5deg);
+  }
+  20% {
+  transform: translate(6.7px, 5.9px) rotate(0deg);
+  }
+  100% {
+  transform: translate(6.7px, 5.9px) rotate(0deg);
+  }
+  }
+
+  #snowman-14-hand-right {
+  animation-name:snowman-14-hand-right-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #snowman-14-hand-left {
+  animation-name:snowman-14-hand-left-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #snowman-14-leg-left {
+  animation-name:snowman-14-leg-left-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #snowman-14-leg-right {
+  animation-name:snowman-14-leg-right-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #snowman-14-noise {
+  animation-name:snowman-14-noise-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+</style>
+  <g id="snowman-14" transform="translate(10, 10)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="snomwan-14-shadow" transform="translate(0, 15)">
+        <rect y="1.22728" width="10" height="1.36364" fill="#00E4FF" fill-opacity="0.2"/>
+        <rect x="0.769165" y="0.886353" width="8.46154" height="0.340909" fill="#00E4FF" fill-opacity="0.2"/>
+        <rect x="0.769165" y="2.59091" width="8.46154" height="0.340909" fill="#00E4FF" fill-opacity="0.2"/>
+        <rect x="1.53845" y="0.545456" width="6.92308" height="0.340909" fill="#00E4FF" fill-opacity="0.2"/>
+        <rect x="1.53845" y="2.93183" width="6.92308" height="0.340909" fill="#00E4FF" fill-opacity="0.2"/>
+      </g>
+      <g id="snowman-14-leg-left" transform="translate(2, 14)">
+        <rect width="1.94869" height="1.94869" fill="#363636"/>
+        <rect x="0.974304" y="0.974342" width="1.94869" height="0.974344" fill="#363636"/>
+      </g>
+      <g id="snowman-14-leg-right" transform="translate(6, 14)">
+        <rect width="1.94869" height="1.94869" fill="#363636"/>
+        <rect x="0.974304" y="0.974342" width="1.94869" height="0.974344" fill="#363636"/>
+      </g>
+      <g id="snowman-14-hand-right" transform="translate(9, 8)">
+        <rect x="1.60419" y="0.74556" width="0.552189" height="1.65657" transform="rotate(75.5521 1.60419 0.74556)" fill="#765D49"/>
+        <rect x="2.28455" width="0.552189" height="1.47572" transform="rotate(47.5215 2.28455 0)" fill="#765D49"/>
+        <rect x="2.27795" y="1.62132" width="0.552189" height="1.47572" transform="rotate(128.781 2.27795 1.62132)" fill="#765D49"/>
+      </g>
+      <g id="snowman-14-body" transform="translate(0, 0)">
+        <rect x="2.98529" y="3.19156" width="0.422853" height="1.26856" transform="rotate(-73.3185 2.98529 3.19156)" fill="#765D49"/>
+        <rect x="2.24414" y="3.4109" width="0.422853" height="1.13007" transform="rotate(-101.349 2.24414 3.4109)" fill="#765D49"/>
+        <rect x="2.89032" y="2.35072" width="0.422853" height="1.13007" transform="rotate(-20.0899 2.89032 2.35072)" fill="#765D49"/>
+        <rect x="3.97601" y="1.89996" width="0.422853" height="1.26856" transform="rotate(-8.69551 3.97601 1.89996)" fill="#765D49"/>
+        <rect x="3.46021" y="1.32432" width="0.422853" height="1.13007" transform="rotate(-36.7261 3.46021 1.32432)" fill="#765D49"/>
+        <rect x="4.69501" y="1.45378" width="0.422853" height="1.13007" transform="rotate(44.533 4.69501 1.45378)" fill="#765D49"/>
+        <rect x="4" y="4" width="4" height="6" fill="#F7F7F7"/>
+        <rect width="2" height="4" transform="matrix(-1 0 0 1 5 4)" fill="#F7F7F7"/>
+        <rect width="2" height="4" transform="matrix(-1 0 0 1 4 5)" fill="#F7F7F7"/>
+        <rect width="2" height="4" transform="matrix(-1 0 0 1 3 8)" fill="#F7F7F7"/>
+        <rect width="2" height="4" transform="matrix(-1 0 0 1 4 8)" fill="#F7F7F7"/>
+        <rect width="2" height="4" transform="matrix(-1 0 0 1 5 9)" fill="#F7F7F7"/>
+        <rect width="2" height="4" transform="matrix(-1 0 0 1 6 9)" fill="#F7F7F7"/>
+        <rect width="5" height="4" transform="matrix(-1 0 0 1 10 9)" fill="#F7F7F7"/>
+        <rect width="5" height="4" transform="matrix(-1 0 0 1 5 10)" fill="#F7F7F7"/>
+        <rect width="5" height="4" transform="matrix(-1 0 0 1 6 11)" fill="#F7F7F7"/>
+        <rect width="5" height="4" transform="matrix(-1 0 0 1 9 11)" fill="#F7F7F7"/>
+        <rect width="5" height="4" transform="matrix(-1 0 0 1 10 10)" fill="#F7F7F7"/>
+        <rect width="6" height="4" transform="matrix(-1 0 0 1 8 12)" fill="#F7F7F7"/>
+        <rect width="3" height="1" transform="matrix(-1 0 0 1 8 4)" fill="#F7F7F7"/>
+        <rect width="2" height="5" transform="matrix(-1 0 0 1 9 5)" fill="#F7F7F7"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 7 3)" fill="#F7F7F7"/>
+        <rect x="4.94867" y="5.92303" width="0.974344" height="0.974344" fill="black"/>
+        <rect x="6.8974" y="4.94868" width="0.974344" height="0.974344" fill="black"/>
+        <rect y="13" width="2" height="1" fill="black" fill-opacity="0.05"/>
+        <rect y="12" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="1" y="8" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="2" y="7" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="2" y="6" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="3" y="14" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="4" y="14" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="2" y="13" width="1" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="1" y="14" width="2" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="2" y="15" width="2" height="1" fill="black" fill-opacity="0.05"/>
+        <rect x="4" y="15" width="2" height="1" fill="black" fill-opacity="0.05"/>
+      </g>
+      <g id="snowman-14-hand-left" transform="translate(1, 9)">
+        <rect x="0.934509" y="1.39565" width="0.552189" height="1.65657" transform="rotate(-124.624 0.934509 1.39565)" fill="#765D49"/>
+        <rect x="0.55304" y="2.33012" width="0.552189" height="1.47572" transform="rotate(-152.655 0.55304 2.33012)" fill="#765D49"/>
+        <rect y="0.806023" width="0.552189" height="1.47572" transform="rotate(-71.3958 0 0.806023)" fill="#765D49"/>
+      </g>
+      <g id="snowman-14-noise" transform="translate(6.7, 5.9)">
+        <rect width="1.17048" height="1.75572" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 2.16486 2.69027)" fill="#FF6F0F"/>
+        <rect width="1.4631" height="2.34096" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 0.998169 2.99659)" fill="#FF6F0F"/>
+        <rect width="1.4631" height="1.75572" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 0.701843 2.7073)" fill="#FF6F0F"/>
+        <rect width="1.17048" height="1.17048" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 2.74652 2.39094)" fill="#FF6F0F"/>
+        <rect width="0.585241" height="0.585241" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 3.62103 2.08802)" fill="#FF6F0F"/>
+        <rect width="0.292621" height="0.585241" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 1.58057 2.69706)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.292621" height="0.877862" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 2.15881 2.10501)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.292621" height="0.585241" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 3.03949 2.38754)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.292621" height="0.585241" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 3.61841 1.79548)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.292621" height="0.877862" transform="matrix(0.999932 -0.0116293 -0.0116293 -0.999932 1.27747 1.82271)" fill="black" fill-opacity="0.1"/>
+      </g>
+    </svg>
+  </g>
+</svg>

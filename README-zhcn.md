@@ -120,6 +120,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| SNOWMAN <br> <img src = "docs/snowman.svg" width="100px" height="70px"/>                                | 0.005 | 🎄2024 Christmas pet🎄                                                                                             |
 | HAMSTER_JS <br> <img src = "docs/hamster-js.svg" width="100px" height="50px"/>                          | 0.01  |                                                                                                                    |
 | HAMSTER_KOTLIN <br> <img src = "docs/hamster-kotlin.svg" width="100px" height="50px"/>                  | 0.01  |                                                                                                                    |
 | HAMSTER_JAVA <br> <img src = "docs/hamster-java.svg" width="100px" height="50px"/>                      | 0.01  |                                                                                                                    |
