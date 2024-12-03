@@ -384,6 +384,26 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
             .toString()
     },
+    LITTLE_CHICK_SANTA(0.01) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            val littleChick = littleChickSantaSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+
+            return StringBuilder()
+                .append(littleChick)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
+            .toString()
+    },
 
     PENGUIN(0.5) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
@@ -1450,7 +1470,8 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("snowman", id, 5, "1000s", 5, 21.0)
                 .toString()
-    }
+    },
+
     ;
 
     init {
