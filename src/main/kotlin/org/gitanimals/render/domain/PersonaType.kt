@@ -1216,6 +1216,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("dessert-fox", id, 40, "180s", 5, 26.0)
                 .toString()
     },
+    DESSERT_FOX_RUDOLPH(0.005) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return dessertFoxRudolphSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-3 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("dessert-fox", id, 40, "180s", 5, 28.0)
+                .toString()
+    },
     SLOTH(0.7) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return slothSvg.replace("*{act}", act(persona.id))
