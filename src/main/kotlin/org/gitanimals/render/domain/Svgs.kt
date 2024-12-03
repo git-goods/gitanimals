@@ -21,6 +21,9 @@ val grassFieldSvg: String = ClassPathResource("persona/field/grass-field.svg")
 val snowHouseFieldSvg: String = ClassPathResource("persona/field/snow-house-field.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val snowGrassFieldSvg: String = ClassPathResource("persona/field/snow-grass-field.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 
