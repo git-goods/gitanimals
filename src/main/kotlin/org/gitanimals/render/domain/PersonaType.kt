@@ -384,6 +384,26 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
             .toString()
     },
+    LITTLE_CHICK_SANTA(0.01) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            val littleChick = littleChickSantaSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+
+            return StringBuilder()
+                .append(littleChick)
+                .toString()
+        }
+
+        override fun act(id: Long): String = StringBuilder()
+            .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
+            .toString()
+    },
 
     PENGUIN(0.5) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
@@ -1151,6 +1171,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
+    RABBIT_BROWN_RUDOLPH(0.007) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return rabbitBrownRudolphSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
+                .toString()
+    },
     RABBIT_COLLABORATOR(0.0) {
         override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
             return rabbitCollaboratorSvg.replace("*{act}", act(persona.id))
@@ -1194,6 +1229,21 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
 
         override fun act(id: Long): String =
             StringBuilder().moveRandomly("dessert-fox", id, 40, "180s", 5, 26.0)
+                .toString()
+    },
+    DESSERT_FOX_RUDOLPH(0.005) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return dessertFoxRudolphSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-3 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("dessert-fox", id, 40, "180s", 5, 28.0)
                 .toString()
     },
     SLOTH(0.7) {
@@ -1421,6 +1471,52 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
                 .toString()
     },
+    HAMSTER_SANTA(0.01) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return hamsterSantaSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
+                .toString()
+    },
+    SNOWMAN(0.005) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return snowmanSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("snowman", id, 5, "1000s", 5, 17.0)
+                .toString()
+    },
+    SNOWMAN_MELT(0.001) {
+        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
+            return snowmanMeltSvg.replace("*{act}", act(persona.id))
+                .replace("*{id}", persona.id.toString())
+                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+        }
+
+        override fun act(id: Long): String =
+            StringBuilder().moveRandomly("snowman", id, 5, "1000s", 5, 21.0)
+                .toString()
+    },
+
     ;
 
     init {

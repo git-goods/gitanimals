@@ -120,6 +120,12 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| SNOWMAN_MELT <br> <img src = "docs/snowman-melt.svg" width="100px" height="40px"/>                      | 0.001 | 🎄2024 Christmas pet🎄                                                                                             |
+| SNOWMAN <br> <img src = "docs/snowman.svg" width="100px" height="70px"/>                                | 0.005 | 🎄2024 Christmas pet🎄                                                                                             |
+| DESSERT_FOX_RUDOLPH <br> <img src="docs/dessert-fox-rudolph.svg" width="80px" height="70px"/>           | 0.005 | 🎄2024 Christmas pet🎄                                                                                             |
+| RABBIT_BROWN_RUDOLPH <br> <img src="docs/rabbit-brown-rudolph.svg" width="80px" height="60px"/>         | 0.007 | 🎄2024 Christmas pet🎄                                                                                             |
+| LITTLE_CHICK_SANTA <br> <img src="docs/little-chick-santa.svg" width="45px" height="30px"/>             | 0.01  | 🎄2024 Christmas pet🎄                                                                                             |
+| HAMSTER_SANTA <br> <img src = "docs/hamster-santa.svg" width="100px" height="60px"/>                    | 0.01  | 🎄2024 Christmas pet🎄                                                                                             |
 | HAMSTER_JS <br> <img src = "docs/hamster-js.svg" width="100px" height="50px"/>                          | 0.01  |                                                                                                                    |
 | HAMSTER_KOTLIN <br> <img src = "docs/hamster-kotlin.svg" width="100px" height="50px"/>                  | 0.01  |                                                                                                                    |
 | HAMSTER_JAVA <br> <img src = "docs/hamster-java.svg" width="100px" height="50px"/>                      | 0.01  |                                                                                                                    |
@@ -200,7 +206,6 @@ _新的贡献可能需要1个小时才能显示_
 | slime_blue <br> <img src="docs/slime-blue.svg" width="50px" height="40px"/>                             | 0.1   |                                                                                                                    |
 | cheese_cat_collaborator <br> <img src="docs/cheese-cat-collaborator.svg" width="100px" height="70px"/>  | 0.0   | 协作者 [devxb](https://github.com/devxb) 制作                                                                           |
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | 协作者 [sumi-001](https://github.com/sumi-0011) 制作                                                                    |
-| white_cat_collaborator <br> <img src="docs/white-cat-collaborator.svg" width="100px" height="70px"/>    | 0.0   | 协作者 [Ha youna](https://www.behance.net/hyn991022a6be) 制作                                                           |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | 协作者 [hyesungoh](https://github.com/hyesungoh) 制作                                                                   |
 | rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>           | 0.0   | 协作者 [Choi jiwoo](https://www.behance.net/sopungcjw42af) 制作                                                         |
 
