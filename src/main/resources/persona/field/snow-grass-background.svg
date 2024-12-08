@@ -59,7 +59,7 @@
   <rect x="495.299" y="111.1" width="14.0539" height="0.3625" fill="#2B4447" fill-opacity="0.1"/>
   <rect x="495.299" y="113.637" width="14.0539" height="0.3625" fill="#2B4447" fill-opacity="0.1"/>
   <rect x="92.7559" y="117.825" width="65.3605" height="20.593" fill="#FEFEFE"/>
-  <rect x="116.93" y="192.14" width="12.5349" height="26.8605" fill="#7F4D2A"/>
+  <rect x="117" y="192" width="14" height="27" fill="#7F4D2A"/>
   <rect x="129.465" y="192.14" width="8.05814" height="26.8605" fill="#743E1C"/>
   <rect x="124.988" y="65" width="4.47674" height="5.37209" fill="#F9F9F9"/>
   <rect x="121.217" y="68.7754" width="4.10148" height="4.10148" fill="#F4FDFF"/>
@@ -874,7 +874,7 @@
   <rect x="452.059" y="267.419" width="8.05814" height="4.47674" fill="#FEFFFD"/>
   <rect x="418.93" y="271" width="17.0116" height="8.95349" fill="#FEFFFD"/>
   <rect x="479.152" y="43.0176" width="44.564" height="14.0407" fill="#FEFEFE"/>
-  <rect x="495.635" y="93.6865" width="8.54651" height="18.314" fill="#7F4D2A"/>
+  <rect x="496" y="94" width="10" height="18" fill="#7F4D2A"/>
   <rect x="504.18" y="93.6865" width="5.49419" height="18.314" fill="#743E1C"/>
   <rect x="501.129" y="7" width="3.05233" height="3.66279" fill="#F9F9F9"/>
   <rect x="498.557" y="9.57422" width="2.79646" height="2.79646" fill="#F4FDFF"/>
