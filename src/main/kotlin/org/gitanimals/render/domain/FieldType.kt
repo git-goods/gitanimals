@@ -329,6 +329,18 @@ enum class FieldType {
             return "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#D9D9D9\"/>"
         }
     },
+    GRASS_CHRISTMAS_TREE_FIELD {
+        override fun loadComponent(name: String, commit: Long): String {
+            return grassChristmasTreeFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
+        }
+
+        override fun fillBackground(): String = grassChristmasTreeBackgroundSvg
+
+        override fun drawBorder(): String {
+            return "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#00894D\"/>"
+        }
+    },
     ;
 
     abstract fun loadComponent(name: String, commit: Long): String

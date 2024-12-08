@@ -30,6 +30,14 @@ val snowGrassFieldSvg: String = ClassPathResource("persona/field/snow-grass-fiel
 val snowGrassBackgroundSvg: String = ClassPathResource("persona/field/snow-grass-background.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val grassChristmasTreeFieldSvg: String =
+    ClassPathResource("persona/field/grass-christmastree-field.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val grassChristmasTreeBackgroundSvg: String =
+    ClassPathResource("persona/field/grass-christmastree-background.svg")
+        .getContentAsString(Charset.defaultCharset())
+
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -220,8 +228,9 @@ val rabbitSvg: String = ClassPathResource("persona/animal/rabbit.svg")
 val pigCollaboratorSvg: String = ClassPathResource("persona/animal/pig-collaborator.svg")
     .getContentAsString(Charset.defaultCharset())
 
-val cheeseCatCollaboratorSvg: String = ClassPathResource("persona/animal/cheese-cat-collaborator.svg")
-    .getContentAsString(Charset.defaultCharset())
+val cheeseCatCollaboratorSvg: String =
+    ClassPathResource("persona/animal/cheese-cat-collaborator.svg")
+        .getContentAsString(Charset.defaultCharset())
 
 val whiteCatCollaboratorSvg: String = ClassPathResource("persona/animal/white-cat-collaborator.svg")
     .getContentAsString(Charset.defaultCharset())
@@ -229,8 +238,9 @@ val whiteCatCollaboratorSvg: String = ClassPathResource("persona/animal/white-ca
 val dessertFoxSvg: String = ClassPathResource("persona/animal/dessert-fox.svg")
     .getContentAsString(Charset.defaultCharset())
 
-val dessertFoxCollaboratorSvg: String = ClassPathResource("persona/animal/dessert-fox-collaborator.svg")
-    .getContentAsString(Charset.defaultCharset())
+val dessertFoxCollaboratorSvg: String =
+    ClassPathResource("persona/animal/dessert-fox-collaborator.svg")
+        .getContentAsString(Charset.defaultCharset())
 
 val slothSvg: String = ClassPathResource("persona/animal/sloth.svg")
     .getContentAsString(Charset.defaultCharset())
