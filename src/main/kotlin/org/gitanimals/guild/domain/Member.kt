@@ -13,13 +13,16 @@ class Member(
     @Column(name = "user_id", nullable = false)
     val userId: Long,
 
+    @Column(name = "user_name", nullable = false)
+    val name: String,
+
     @Column(name = "persona_id", nullable = false)
     val personaId: Long,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guild_id")
     val guild: Guild,
-): AbstractTime() {
+) : AbstractTime() {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -34,10 +37,11 @@ class Member(
 
     companion object {
 
-        fun create(guild: Guild, userId: Long, personaId: Long): Member {
+        fun create(guild: Guild, userId: Long, name: String, personaId: Long): Member {
             return Member(
                 id = IdGenerator.generate(),
                 userId = userId,
+                name = name,
                 personaId = personaId,
                 guild = guild,
             )
