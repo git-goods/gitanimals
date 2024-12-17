@@ -21,8 +21,8 @@ class Guild(
     @Column(name = "body", columnDefinition = "TEXT", length = 500)
     val body: String,
 
-    @Column(name = "leader_id", nullable = false)
-    val leaderId: Long,
+    @Embedded
+    val leader: Leader,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "farm_type", nullable = false, columnDefinition = "TEXT")
@@ -43,7 +43,7 @@ class Guild(
             guildIcon: String,
             title: String,
             body: String,
-            leaderId: Long,
+            leader: Leader,
             members: MutableSet<Member> = mutableSetOf(),
             farmType: GuildFarmType,
         ): Guild {
@@ -53,7 +53,7 @@ class Guild(
                 guildIcon = guildIcon,
                 title = title,
                 body = body,
-                leaderId = leaderId,
+                leader = leader,
                 members = members,
                 farmType = farmType,
             )
