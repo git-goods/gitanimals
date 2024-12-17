@@ -19,6 +19,9 @@ class Member(
     @Column(name = "persona_id", nullable = false)
     val personaId: Long,
 
+    @Column(name = "contributions", nullable = false)
+    private var contributions: Long,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guild_id")
     val guild: Guild,
@@ -37,13 +40,14 @@ class Member(
 
     companion object {
 
-        fun create(guild: Guild, userId: Long, name: String, personaId: Long): Member {
+        fun create(guild: Guild, userId: Long, name: String, personaId: Long, contributions: Long): Member {
             return Member(
                 id = IdGenerator.generate(),
                 userId = userId,
                 name = name,
                 personaId = personaId,
                 guild = guild,
+                contributions = contributions,
             )
         }
     }

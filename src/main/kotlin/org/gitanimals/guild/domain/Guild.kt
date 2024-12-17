@@ -18,11 +18,15 @@ class Guild(
     @Column(name = "title", columnDefinition = "TEXT", nullable = false)
     val title: String,
 
-    @Column(name = "body", columnDefinition = "TEXT")
+    @Column(name = "body", columnDefinition = "TEXT", length = 500)
     val body: String,
 
     @Column(name = "leader_id", nullable = false)
     val leaderId: Long,
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "farm_type", nullable = false, columnDefinition = "TEXT")
+    val farmType: GuildFarmType,
 
     @OneToMany(
         mappedBy = "guild",
@@ -41,6 +45,7 @@ class Guild(
             body: String,
             leaderId: Long,
             members: MutableSet<Member> = mutableSetOf(),
+            farmType: GuildFarmType,
         ): Guild {
 
             return Guild(
@@ -50,6 +55,7 @@ class Guild(
                 body = body,
                 leaderId = leaderId,
                 members = members,
+                farmType = farmType,
             )
         }
     }
