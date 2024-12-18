@@ -4,6 +4,9 @@ import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.shouldBe
+import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
+import org.gitanimals.guild.domain.GuildService.Companion.loadWaitMembers
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
@@ -20,7 +23,7 @@ internal class GuildServiceTest(
     private val guildRepository: GuildRepository,
 ) : DescribeSpec({
 
-    beforeEach {
+    afterEach {
         guildRepository.deleteAll()
     }
 
@@ -69,6 +72,71 @@ internal class GuildServiceTest(
                         farmType = farmType,
                         createLeaderRequest = leaderRequest,
                         autoJoin = true,
+                    )
+                }
+            }
+        }
+    }
+
+    describe("joinGuild 메소드는") {
+        context("guild가 autoJoin true라면,") {
+            val guild = guildRepository.save(guild())
+            val memberUserId = 2L
+            val memberName = "devxb"
+            val memberPersonaId = 2L
+            val memberContributions = 3L
+
+
+            it("유저를 바로 길드에 가입시킨다.") {
+                guildService.joinGuild(
+                    guildId = guild.id,
+                    memberUserId = memberUserId,
+                    memberName = memberName,
+                    memberPersonaId = memberPersonaId,
+                    memberContributions = memberContributions,
+                )
+
+                guildService.getGuildById(guild.id, loadMembers).getMembers().size shouldBe 1
+            }
+        }
+
+        context("guild가 autoJoin false라면,") {
+            val guild = guildRepository.save(guild(autoJoin = false))
+            val memberUserId = 2L
+            val memberName = "devxb"
+            val memberPersonaId = 2L
+            val memberContributions = 3L
+
+
+            it("유저를 wait 대기열에 포함시킨다.") {
+                guildService.joinGuild(
+                    guildId = guild.id,
+                    memberUserId = memberUserId,
+                    memberName = memberName,
+                    memberPersonaId = memberPersonaId,
+                    memberContributions = memberContributions,
+                )
+
+                guildService.getGuildById(guild.id, loadWaitMembers)
+                    .getWaitMembers().size shouldBe 1
+            }
+        }
+
+        context("가입을 요청한 유저와 리더의 아이디가 같다면,") {
+            val memberUserId = 1L
+            val guild = guildRepository.save(guild(leader = leader(userId = memberUserId)))
+            val memberName = "devxb"
+            val memberPersonaId = 2L
+            val memberContributions = 3L
+
+            it("IllegalArgumentException을 던진다.") {
+                shouldThrowExactly<IllegalArgumentException> {
+                    guildService.joinGuild(
+                        guildId = guild.id,
+                        memberUserId = memberUserId,
+                        memberName = memberName,
+                        memberPersonaId = memberPersonaId,
+                        memberContributions = memberContributions,
                     )
                 }
             }

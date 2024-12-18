@@ -1,6 +1,7 @@
 package org.gitanimals.guild.domain
 
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
+import org.hibernate.Hibernate
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -10,9 +11,6 @@ import org.springframework.transaction.annotation.Transactional
 class GuildService(
     private val guildRepository: GuildRepository,
 ) {
-
-    fun getGuildById(id: Long): Guild = guildRepository.findByIdOrNull(id)
-        ?: throw IllegalArgumentException("Cannot fint guild by id \"$id\"")
 
     @Transactional
     fun createGuild(
@@ -39,5 +37,41 @@ class GuildService(
         )
 
         guildRepository.save(newGuild)
+    }
+
+    @Transactional
+    fun joinGuild(
+        guildId: Long,
+        memberUserId: Long,
+        memberName: String,
+        memberPersonaId: Long,
+        memberContributions: Long,
+    ) {
+        val guild = getGuildById(guildId)
+
+        guild.join(
+            memberUserId = memberUserId,
+            memberName = memberName,
+            memberPersonaId = memberPersonaId,
+            memberContributions = memberContributions,
+        )
+    }
+
+    fun getGuildById(id: Long, vararg lazyLoading: (Guild) -> Unit): Guild {
+        val guild = guildRepository.findByIdOrNull(id)
+            ?: throw IllegalArgumentException("Cannot fint guild by id \"$id\"")
+
+        lazyLoading.forEach { it.invoke(guild) }
+        return guild
+    }
+
+    companion object {
+        val loadMembers: (Guild) -> Unit = {
+            Hibernate.initialize(it.getMembers())
+        }
+
+        val loadWaitMembers: (Guild) -> Unit = {
+            Hibernate.initialize(it.getWaitMembers())
+        }
     }
 }

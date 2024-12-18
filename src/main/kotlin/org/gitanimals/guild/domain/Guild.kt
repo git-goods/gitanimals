@@ -33,19 +33,68 @@ class Guild(
     @Column(name = "farm_type", nullable = false, columnDefinition = "TEXT")
     val farmType: GuildFarmType,
 
+    @Column(name = "auto_join", nullable = false)
+    private var autoJoin: Boolean,
+
     @OneToMany(
         mappedBy = "guild",
         orphanRemoval = true,
         fetch = FetchType.LAZY,
         cascade = [CascadeType.ALL],
     )
-    private val members: MutableSet<Member>,
+    private val members: MutableSet<Member> = mutableSetOf(),
 
-    private var autoJoin: Boolean,
+    @OneToMany(
+        mappedBy = "guild",
+        orphanRemoval = true,
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.ALL],
+    )
+    private val waitMembers: MutableSet<WaitMember> = mutableSetOf(),
 
     @Version
     private var version: Long? = null,
 ) : AbstractTime() {
+
+    fun getMembers(): Set<Member> = members.toSet()
+
+    fun getWaitMembers(): Set<WaitMember> = waitMembers.toSet()
+
+    fun isAutoJoin(): Boolean = autoJoin
+
+    fun join(
+        memberUserId: Long,
+        memberName: String,
+        memberPersonaId: Long,
+        memberContributions: Long,
+    ) {
+        require(leader.userId != memberUserId) {
+            "Leader cannot join their own guild leaderId: \"${leader.userId}\", memberUserId: \"$memberUserId\""
+        }
+
+        if (autoJoin) {
+            val member = Member.create(
+                guild = this,
+                userId = memberUserId,
+                name = memberName,
+                personaId = memberPersonaId,
+                contributions = memberContributions,
+            )
+            members.add(member)
+            return
+        }
+
+        val waitMember = WaitMember.create(
+            guild = this,
+            userId = memberUserId,
+            name = memberName,
+            personaId = memberPersonaId,
+            contributions = memberContributions,
+        )
+        waitMembers.add(waitMember)
+    }
+
+    fun getLeaderId(): Long = leader.userId
 
     companion object {
 

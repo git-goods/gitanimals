@@ -4,10 +4,18 @@ import jakarta.persistence.*
 import org.gitanimals.guild.core.IdGenerator
 
 @Entity
-@Table(name = "member")
-class Member(
+@Table(
+    name = "wait_member",
+    indexes = [
+        Index(
+            name = "wait_member_idx_id_user_id",
+            columnList = "id, user_id",
+            unique = true,
+        )
+    ]
+)
+class WaitMember(
     @Id
-    @Column(name = "id")
     val id: Long,
 
     @Column(name = "user_id", nullable = false)
@@ -25,11 +33,11 @@ class Member(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guild_id")
     val guild: Guild,
-) : AbstractTime() {
+) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is Member) return false
+        if (other !is WaitMember) return false
 
         return userId == other.userId
     }
@@ -39,15 +47,14 @@ class Member(
     }
 
     companion object {
-
         fun create(
             guild: Guild,
             userId: Long,
             name: String,
             personaId: Long,
             contributions: Long,
-        ): Member {
-            return Member(
+        ): WaitMember {
+            return WaitMember(
                 id = IdGenerator.generate(),
                 userId = userId,
                 name = name,
