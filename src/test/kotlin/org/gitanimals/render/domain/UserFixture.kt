@@ -9,7 +9,6 @@ fun user(
     personas: MutableList<Persona> = mutableListOf(),
     contributions: MutableList<Contribution> = mutableListOf(),
     visit: Long = 0L,
-    field: FieldType = FieldType.WHITE_FIELD,
 ): User {
     return User(
         id = id,
@@ -17,7 +16,6 @@ fun user(
         personas = personas,
         contributions = contributions,
         visit = visit,
-        field = field,
         version = 0L,
         lastPersonaGivePoint = 0,
     )

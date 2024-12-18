@@ -6,7 +6,12 @@ import org.gitanimals.guild.core.IdGenerator
 
 @Entity
 @AggregateRoot
-@Table(name = "guild")
+@Table(
+    name = "guild",
+    indexes = [
+        Index(name = "guild_idx_title", unique = true, columnList = "title")
+    ]
+)
 class Guild(
     @Id
     @Column(name = "id")
@@ -15,7 +20,7 @@ class Guild(
     @Column(name = "guild_icon", nullable = false)
     val guildIcon: String,
 
-    @Column(name = "title", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "title", unique = true, nullable = false, length = 50)
     val title: String,
 
     @Column(name = "body", columnDefinition = "TEXT", length = 500)
@@ -35,6 +40,11 @@ class Guild(
         cascade = [CascadeType.ALL],
     )
     private val members: MutableSet<Member>,
+
+    private var autoJoin: Boolean,
+
+    @Version
+    private var version: Long? = null,
 ) : AbstractTime() {
 
     companion object {
@@ -46,6 +56,7 @@ class Guild(
             leader: Leader,
             members: MutableSet<Member> = mutableSetOf(),
             farmType: GuildFarmType,
+            autoJoin: Boolean,
         ): Guild {
 
             return Guild(
@@ -56,6 +67,7 @@ class Guild(
                 leader = leader,
                 members = members,
                 farmType = farmType,
+                autoJoin = autoJoin,
             )
         }
     }
