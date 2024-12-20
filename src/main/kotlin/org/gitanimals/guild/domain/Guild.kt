@@ -96,6 +96,13 @@ class Guild(
 
     fun getLeaderId(): Long = leader.userId
 
+    fun accept(acceptUserId: Long) {
+        val acceptUser = waitMembers.firstOrNull { it.userId == acceptUserId } ?: return
+        waitMembers.remove(acceptUser)
+
+        members.add(acceptUser.toMember())
+    }
+
     companion object {
 
         fun create(

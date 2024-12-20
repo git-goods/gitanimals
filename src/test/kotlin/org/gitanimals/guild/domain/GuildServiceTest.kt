@@ -142,4 +142,31 @@ internal class GuildServiceTest(
             }
         }
     }
+
+    describe("acceptJoinGuild 메소드는") {
+        context("가입을 수락한 사람이 길드 리더라면,") {
+            val guild = guildRepository.save(guild(autoJoin = false))
+            val memberUserId = 2L
+            val memberName = "devxb"
+            val memberPersonaId = 2L
+            val memberContributions = 3L
+
+            guildService.joinGuild(
+                guildId = guild.id,
+                memberUserId = memberUserId,
+                memberName = memberName,
+                memberPersonaId = memberPersonaId,
+                memberContributions = memberContributions,
+            )
+
+            it("멤버를 가입시킨다.") {
+                guildService.acceptJoin(acceptorId = 1L, guildId = guild.id, acceptUserId = memberUserId)
+
+                val result = guildService.getGuildById(guild.id, loadWaitMembers, loadMembers)
+
+                result.getWaitMembers().size shouldBe 0
+                result.getMembers().size shouldBe 1
+            }
+        }
+    }
 })

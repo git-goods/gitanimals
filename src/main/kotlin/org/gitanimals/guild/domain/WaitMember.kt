@@ -35,6 +35,14 @@ class WaitMember(
     val guild: Guild,
 ) {
 
+    fun toMember(): Member = Member.create(
+        userId = userId,
+        name = name,
+        personaId = personaId,
+        guild = guild,
+        contributions = contributions,
+    )
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WaitMember) return false

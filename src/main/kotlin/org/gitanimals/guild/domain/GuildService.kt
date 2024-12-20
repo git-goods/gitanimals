@@ -57,6 +57,14 @@ class GuildService(
         )
     }
 
+    @Transactional
+    fun acceptJoin(acceptorId: Long, guildId: Long, acceptUserId: Long) {
+        val guild = guildRepository.findGuildByIdAndUserId(guildId, acceptorId)
+            ?: throw IllegalArgumentException("Cannot accept join cause your not leader.")
+
+        guild.accept(acceptUserId)
+    }
+
     fun getGuildById(id: Long, vararg lazyLoading: (Guild) -> Unit): Guild {
         val guild = guildRepository.findByIdOrNull(id)
             ?: throw IllegalArgumentException("Cannot fint guild by id \"$id\"")
