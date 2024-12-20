@@ -89,6 +89,12 @@ class GuildService(
         return guild
     }
 
+    fun findAllGuildByUserId(userId: String): List<Guild> {
+        return guildRepository.findAllGuildByUserIdWithMembers(userId).apply {
+            this.forEach { loadWaitMembers.invoke(it) }
+        }
+    }
+
 
     companion object {
         val loadMembers: (Guild) -> Unit = {

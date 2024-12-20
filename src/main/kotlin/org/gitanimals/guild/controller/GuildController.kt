@@ -4,6 +4,7 @@ import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.controller.request.JoinGuildRequest
 import org.gitanimals.guild.controller.response.GuildResponse
+import org.gitanimals.guild.controller.response.GuildsResponse
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.springframework.http.HttpHeaders
@@ -18,6 +19,7 @@ class GuildController(
     private val acceptJoinGuildFacade: AcceptJoinGuildFacade,
     private val kickGuildFacade: KickGuildFacade,
     private val changeGuildFacade: ChangeGuildFacade,
+    private val joinedGuildFacade: GetJoinedGuildFacade,
 ) {
 
     @ResponseStatus(HttpStatus.OK)
@@ -72,5 +74,15 @@ class GuildController(
         )
 
         return GuildResponse.from(guild)
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/guilds")
+    fun getAllJoinedGuild(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+    ): GuildsResponse {
+        val guilds = joinedGuildFacade.getJoinedGuilds(token)
+
+        return GuildsResponse.from(guilds)
     }
 }
