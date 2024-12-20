@@ -27,6 +27,8 @@ class Member(
     val guild: Guild,
 ) : AbstractTime() {
 
+    fun getContributions() = contributions
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Member) return false

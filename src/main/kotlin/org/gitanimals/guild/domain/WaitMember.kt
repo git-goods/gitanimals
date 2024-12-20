@@ -35,6 +35,8 @@ class WaitMember(
     val guild: Guild,
 ) {
 
+    fun getContributions(): Long = contributions
+
     fun toMember(): Member = Member.create(
         userId = userId,
         name = name,

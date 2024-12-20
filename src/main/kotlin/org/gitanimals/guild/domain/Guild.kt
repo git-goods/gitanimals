@@ -4,6 +4,7 @@ import jakarta.persistence.*
 import org.gitanimals.guild.core.AggregateRoot
 import org.gitanimals.guild.core.IdGenerator
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
+import org.hibernate.annotations.BatchSize
 
 @Entity
 @AggregateRoot
@@ -43,6 +44,7 @@ class Guild(
         fetch = FetchType.LAZY,
         cascade = [CascadeType.ALL],
     )
+    @BatchSize(size = 10)
     private val members: MutableSet<Member> = mutableSetOf(),
 
     @OneToMany(
@@ -51,6 +53,7 @@ class Guild(
         fetch = FetchType.LAZY,
         cascade = [CascadeType.ALL],
     )
+    @BatchSize(size = 10)
     private val waitMembers: MutableSet<WaitMember> = mutableSetOf(),
 
     @Version
@@ -114,6 +117,22 @@ class Guild(
         this.farmType = request.farmType
         this.guildIcon = request.guildIcon
         this.autoJoin = request.autoJoin
+    }
+
+    fun getTitle(): String = title
+
+    fun getBody(): String = body
+
+    fun getGuildIcon(): String = guildIcon
+
+    fun getLeaderName(): String = leader.name
+
+    fun getContributions(): Long = leader.contributions
+
+    fun getGuildFarmType(): GuildFarmType = farmType
+
+    fun getTotalContributions(): Long {
+        return leader.contributions + members.sumOf { it.getContributions() }
     }
 
     companion object {

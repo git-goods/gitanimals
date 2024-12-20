@@ -15,5 +15,5 @@ data class Leader(
     val personaId: Long,
 
     @Column(name = "contributions", nullable = false)
-    private var contributions: Long,
+    var contributions: Long,
 )
