@@ -103,6 +103,10 @@ class Guild(
         members.add(acceptUser.toMember())
     }
 
+    fun kickMember(kickUserId: Long) {
+        members.removeIf { it.userId == kickUserId }
+    }
+
     companion object {
 
         fun create(

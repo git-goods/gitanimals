@@ -37,3 +37,19 @@ fun leader(
         contributions = contributions
     )
 }
+
+fun member(
+    guild: Guild,
+    userId: Long = 2L,
+    name: String = "DefaultName",
+    personaId: Long = 200L,
+    contributions: Long = 500L
+): Member {
+    return Member.create(
+        guild = guild,
+        userId = userId,
+        name = name,
+        personaId = personaId,
+        contributions = contributions
+    )
+}

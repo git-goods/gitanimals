@@ -160,12 +160,39 @@ internal class GuildServiceTest(
             )
 
             it("멤버를 가입시킨다.") {
-                guildService.acceptJoin(acceptorId = 1L, guildId = guild.id, acceptUserId = memberUserId)
+                guildService.acceptJoin(
+                    acceptorId = 1L,
+                    guildId = guild.id,
+                    acceptUserId = memberUserId
+                )
 
                 val result = guildService.getGuildById(guild.id, loadWaitMembers, loadMembers)
 
                 result.getWaitMembers().size shouldBe 0
                 result.getMembers().size shouldBe 1
+            }
+        }
+    }
+
+    describe("kickMember 메소드는") {
+        context("추방을 요청한 사람이 길드 리더라면,") {
+            val memberId = 2L
+            val guild = guildRepository.save(
+                guild(autoJoin = false).apply {
+                    member(guild = this, userId = memberId)
+                }
+            )
+
+            it("멤버를 추방시킨다.") {
+                guildService.kickMember(
+                    kickerId = guild.getLeaderId(),
+                    guildId = guild.id,
+                    kickUserId = memberId
+                )
+
+                val result = guildService.getGuildById(guild.id, loadWaitMembers, loadMembers)
+
+                result.getMembers().size shouldBe 0
             }
         }
     }

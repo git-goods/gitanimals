@@ -15,5 +15,5 @@ interface GuildRepository : JpaRepository<Guild, Long> {
             and g.leader.userId = :leaderId
         """
     )
-    fun findGuildByIdAndUserId(@Param("id") id: Long, @Param("leaderId") leaderId: Long): Guild?
+    fun findGuildByIdAndLeaderId(@Param("id") id: Long, @Param("leaderId") leaderId: Long): Guild?
 }
