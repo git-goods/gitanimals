@@ -3,6 +3,7 @@ package org.gitanimals.guild.domain
 import jakarta.persistence.*
 import org.gitanimals.guild.core.AggregateRoot
 import org.gitanimals.guild.core.IdGenerator
+import org.gitanimals.guild.domain.request.ChangeGuildRequest
 
 @Entity
 @AggregateRoot
@@ -18,20 +19,20 @@ class Guild(
     val id: Long,
 
     @Column(name = "guild_icon", nullable = false)
-    val guildIcon: String,
+    private var guildIcon: String,
 
     @Column(name = "title", unique = true, nullable = false, length = 50)
-    val title: String,
+    private var title: String,
 
     @Column(name = "body", columnDefinition = "TEXT", length = 500)
-    val body: String,
+    private var body: String,
 
     @Embedded
-    val leader: Leader,
+    private val leader: Leader,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "farm_type", nullable = false, columnDefinition = "TEXT")
-    val farmType: GuildFarmType,
+    private var farmType: GuildFarmType,
 
     @Column(name = "auto_join", nullable = false)
     private var autoJoin: Boolean,
@@ -105,6 +106,14 @@ class Guild(
 
     fun kickMember(kickUserId: Long) {
         members.removeIf { it.userId == kickUserId }
+    }
+
+    fun change(request: ChangeGuildRequest) {
+        this.title = request.title
+        this.body = request.body
+        this.farmType = request.farmType
+        this.guildIcon = request.guildIcon
+        this.autoJoin = request.autoJoin
     }
 
     companion object {

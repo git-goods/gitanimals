@@ -1,11 +1,9 @@
 package org.gitanimals.guild.controller
 
-import org.gitanimals.guild.app.AcceptJoinGuildFacade
-import org.gitanimals.guild.app.CreateGuildFacade
-import org.gitanimals.guild.app.JoinGuildFacade
-import org.gitanimals.guild.app.KickGuildFacade
+import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.controller.request.JoinGuildRequest
+import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.*
 
@@ -15,6 +13,7 @@ class GuildController(
     private val joinGuildFacade: JoinGuildFacade,
     private val acceptJoinGuildFacade: AcceptJoinGuildFacade,
     private val kickGuildFacade: KickGuildFacade,
+    private val changeGuildFacade: ChangeGuildFacade,
 ) {
 
     @PostMapping("/guilds")
@@ -44,4 +43,11 @@ class GuildController(
         @PathVariable("guildId") guildId: Long,
         @RequestParam("user-id") kickUserId: Long,
     ) = kickGuildFacade.kickMember(token, guildId, kickUserId)
+
+    @PatchMapping("/guilds/{guildId}")
+    fun changeGuild(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @PathVariable("guildId") guildId: Long,
+        @RequestBody changeGuildRequest: ChangeGuildRequest,
+    ) = changeGuildFacade.changeGuild(token, guildId, changeGuildRequest)
 }

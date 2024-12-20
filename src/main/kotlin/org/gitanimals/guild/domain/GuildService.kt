@@ -1,5 +1,6 @@
 package org.gitanimals.guild.domain
 
+import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.hibernate.Hibernate
 import org.springframework.data.repository.findByIdOrNull
@@ -73,6 +74,13 @@ class GuildService(
         guild.kickMember(kickUserId)
     }
 
+    fun changeGuild(changeRequesterId: Long, guildId: Long, request: ChangeGuildRequest) {
+        val guild = guildRepository.findGuildByIdAndLeaderId(guildId, changeRequesterId)
+            ?: throw IllegalArgumentException("Cannot kick member cause your not a leader.")
+
+        guild.change(request)
+    }
+
     fun getGuildById(id: Long, vararg lazyLoading: (Guild) -> Unit): Guild {
         val guild = guildRepository.findByIdOrNull(id)
             ?: throw IllegalArgumentException("Cannot fint guild by id \"$id\"")
@@ -80,6 +88,7 @@ class GuildService(
         lazyLoading.forEach { it.invoke(guild) }
         return guild
     }
+
 
     companion object {
         val loadMembers: (Guild) -> Unit = {
