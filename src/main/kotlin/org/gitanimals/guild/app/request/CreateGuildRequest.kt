@@ -8,4 +8,5 @@ data class CreateGuildRequest(
     val guildIcon: String,
     val autoJoin: Boolean,
     val farmType: GuildFarmType,
+    val personaId: String,
 )
