@@ -3,6 +3,8 @@ package org.gitanimals.guild.domain
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.hibernate.Hibernate
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -74,6 +76,7 @@ class GuildService(
         guild.kickMember(kickUserId)
     }
 
+    @Transactional
     fun changeGuild(changeRequesterId: Long, guildId: Long, request: ChangeGuildRequest) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, changeRequesterId)
             ?: throw IllegalArgumentException("Cannot kick member cause your not a leader.")
@@ -95,8 +98,27 @@ class GuildService(
         }
     }
 
+    fun search(text: String, pageNumber: Int, filter: SearchFilter): Page<Guild> {
+        return guildRepository.search(text, Pageable.ofSize(PAGE_SIZE).withPage(pageNumber)).apply {
+            this.forEach {
+                loadMembers.invoke(it)
+                loadWaitMembers.invoke(it)
+            }
+        }
+    }
+
+    fun findAllWithLimit(limit: Int): List<Guild> {
+        return guildRepository.findAllWithLimit(Pageable.ofSize(limit)).apply {
+            this.forEach {
+                loadMembers.invoke(it)
+                loadWaitMembers.invoke(it)
+            }
+        }
+    }
 
     companion object {
+        const val PAGE_SIZE = 9
+
         val loadMembers: (Guild) -> Unit = {
             Hibernate.initialize(it.getMembers())
         }

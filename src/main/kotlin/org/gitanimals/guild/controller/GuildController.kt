@@ -3,9 +3,11 @@ package org.gitanimals.guild.controller
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.controller.request.JoinGuildRequest
+import org.gitanimals.guild.controller.response.GuildPagingResponse
 import org.gitanimals.guild.controller.response.GuildResponse
 import org.gitanimals.guild.controller.response.GuildsResponse
 import org.gitanimals.guild.domain.GuildService
+import org.gitanimals.guild.domain.SearchFilter
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -20,6 +22,7 @@ class GuildController(
     private val kickGuildFacade: KickGuildFacade,
     private val changeGuildFacade: ChangeGuildFacade,
     private val joinedGuildFacade: GetJoinedGuildFacade,
+    private val searchGuildFacade: SearchGuildFacade,
 ) {
 
     @ResponseStatus(HttpStatus.OK)
@@ -84,5 +87,23 @@ class GuildController(
         val guilds = joinedGuildFacade.getJoinedGuilds(token)
 
         return GuildsResponse.from(guilds)
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/guilds/search")
+    fun searchGuilds(
+        @RequestParam(name = "text", defaultValue = "") text: String,
+        @RequestParam(name = "page-number", defaultValue = "0") pageNumber: Int,
+        @RequestParam(name = "filter", defaultValue = "RANDOM") filter: SearchFilter,
+        @RequestParam(name = "key", defaultValue = "0") key: Int,
+    ): GuildPagingResponse {
+        val guilds = searchGuildFacade.search(
+            key = key,
+            text = text,
+            pageNumber = pageNumber,
+            filter = filter,
+        )
+
+        return GuildPagingResponse.from(guilds)
     }
 }
