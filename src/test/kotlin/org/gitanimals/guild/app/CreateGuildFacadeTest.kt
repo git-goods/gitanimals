@@ -12,7 +12,7 @@ import org.gitanimals.guild.domain.GuildFarmType
 import org.gitanimals.guild.domain.GuildRepository
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.supports.RedisContainer
-import org.gitanimals.guild.supports.SagaCapture
+import org.gitanimals.guild.supports.GuildSagaCapture
 import org.rooftop.netx.meta.EnableSaga
 import org.springframework.boot.actuate.autoconfigure.wavefront.WavefrontProperties.Application
 import org.springframework.boot.autoconfigure.domain.EntityScan
@@ -28,7 +28,7 @@ import kotlin.time.Duration.Companion.seconds
     classes = [
         Application::class,
         RedisContainer::class,
-        SagaCapture::class,
+        GuildSagaCapture::class,
         CreateGuildFacade::class,
         MockApiConfiguration::class,
         GuildService::class,
@@ -40,13 +40,13 @@ import kotlin.time.Duration.Companion.seconds
 @EnableJpaRepositories(basePackages = ["org.gitanimals.guild"])
 internal class CreateGuildFacadeTest(
     private val createGuildFacade: CreateGuildFacade,
-    private val sagaCapture: SagaCapture,
+    private val guildSagaCapture: GuildSagaCapture,
     private val identityApi: IdentityApi,
     private val guildRepository: GuildRepository,
 ) : DescribeSpec({
 
     beforeEach {
-        sagaCapture.clear()
+        guildSagaCapture.clear()
         guildRepository.deleteAll()
     }
 
@@ -57,7 +57,7 @@ internal class CreateGuildFacadeTest(
                     createGuildFacade.createGuild(TOKEN, createGuildRequest)
                 }
 
-                sagaCapture.countShouldBe(
+                guildSagaCapture.countShouldBe(
                     start = 1,
                     commit = 1,
                 )
@@ -75,7 +75,7 @@ internal class CreateGuildFacadeTest(
                 }
 
                 eventually(5.seconds) {
-                    sagaCapture.countShouldBe(start = 1, rollback = 1)
+                    guildSagaCapture.countShouldBe(start = 1, rollback = 1)
                 }
             }
         }
@@ -84,14 +84,14 @@ internal class CreateGuildFacadeTest(
             it("유저에게 돈을 돌려준다.") {
                 // Create Duplicate data set for throw error
                 createGuildFacade.createGuild(TOKEN, createGuildRequest)
-                sagaCapture.clear()
+                guildSagaCapture.clear()
 
                 shouldThrowAny {
                     createGuildFacade.createGuild(TOKEN, createGuildRequest)
                 }
 
                 eventually(5.seconds) {
-                    sagaCapture.countShouldBe(
+                    guildSagaCapture.countShouldBe(
                         start = 1,
                         commit = 1,
                         rollback = 1,
