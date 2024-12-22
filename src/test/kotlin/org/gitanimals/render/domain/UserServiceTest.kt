@@ -3,20 +3,16 @@ package org.gitanimals.render.domain
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.nulls.shouldBeNull
-import org.springframework.boot.autoconfigure.domain.EntityScan
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories
-import org.springframework.test.context.ContextConfiguration
+import org.gitanimals.render.domain.listeners.DomainEventPublisher
+import org.gitanimals.render.supports.IntegrationTest
 
-@DataJpaTest
-@DisplayName("UserService 클래스의")
-@ContextConfiguration(
+@IntegrationTest(
     classes = [
         UserService::class,
+        DomainEventPublisher.EventPublisherInjector::class,
     ]
 )
-@EntityScan(basePackages = ["org.gitanimals.render.domain"])
-@EnableJpaRepositories(basePackages = ["org.gitanimals.render.domain"])
+@DisplayName("UserService 클래스의")
 internal class UserServiceTest(
     private val userService: UserService,
     private val userRepository: UserRepository,

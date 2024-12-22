@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import org.gitanimals.render.core.AggregateRoot
 import org.gitanimals.render.core.IdGenerator
+import org.gitanimals.render.domain.event.PersonaDeleted
+import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.domain.value.Level
@@ -68,11 +70,33 @@ class User(
         return PersonaResponse.from(persona)
     }
 
+    fun mergePersona(increasePersonaId: Long, deletePersonaId: Long): Persona {
+        require(increasePersonaId != deletePersonaId) {
+            "increasePersonaId \"$increasePersonaId\", deletePersonaId \"$deletePersonaId\" must be different"
+        }
+
+        val increasePersona = personas.first { it.id == increasePersonaId }
+        val deletePersona = personas.first { it.id == deletePersonaId }
+
+        increasePersona.level.value += max(deletePersona.level.value / 2, 1)
+
+        deletePersona(deletePersona.id)
+
+        return increasePersona
+    }
+
     fun deletePersona(personaId: Long): PersonaResponse {
         val persona = this.personas.find { it.id == personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
 
         this.personas.remove(persona)
+        DomainEventPublisher.publish(
+            PersonaDeleted(
+                userId = id,
+                username = name,
+                personaId = personaId,
+            )
+        )
 
         return PersonaResponse.from(persona)
     }
@@ -178,6 +202,7 @@ class User(
         return this.append("<svg fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
     }
 
+
     fun createFarmAnimation(): String {
         val field = getOrCreateDefaultFieldIfAbsent()
 
@@ -191,7 +216,6 @@ class User(
             .append(field.drawBorder())
             .closeSvg()
     }
-
 
     fun contributionCount(): Long = contributions.totalCount()
 
@@ -246,21 +270,6 @@ class User(
     private fun StringBuilder.closeSvg(): String = this
         .append("</svg>")
         .toString()
-
-    fun mergePersona(increasePersonaId: Long, deletePersonaId: Long): Persona {
-        require(increasePersonaId != deletePersonaId) {
-            "increasePersonaId \"$increasePersonaId\", deletePersonaId \"$deletePersonaId\" must be different"
-        }
-
-        val increasePersona = personas.first { it.id == increasePersonaId }
-        val deletePersona = personas.first { it.id == deletePersonaId }
-
-        increasePersona.level.value += max(deletePersona.level.value / 2, 1)
-
-        personas.remove(deletePersona)
-
-        return increasePersona
-    }
 
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
