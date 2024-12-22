@@ -99,27 +99,32 @@ class GuildService(
         guilds.forEach { it.updateContributions(username, contributions) }
     }
 
-    fun findAllGuildByUserId(userId: String): List<Guild> {
-        return guildRepository.findAllGuildByUserIdWithMembers(userId).apply {
-            this.forEach { loadWaitMembers.invoke(it) }
+    fun findAllGuildByUserId(userId: Long): List<Guild> {
+        return guildRepository.findAllGuildByUserIdWithMembers(userId).onEach {
+            loadWaitMembers.invoke(it)
         }
     }
 
     fun search(text: String, pageNumber: Int, filter: SearchFilter): Page<Guild> {
-        return guildRepository.search(text, Pageable.ofSize(PAGE_SIZE).withPage(pageNumber)).apply {
-            this.forEach {
-                loadMembers.invoke(it)
-                loadWaitMembers.invoke(it)
-            }
+        return guildRepository.search(text, Pageable.ofSize(PAGE_SIZE).withPage(pageNumber)).onEach {
+            loadMembers.invoke(it)
+            loadWaitMembers.invoke(it)
         }
     }
 
     fun findAllWithLimit(limit: Int): List<Guild> {
-        return guildRepository.findAllWithLimit(Pageable.ofSize(limit)).apply {
-            this.forEach {
-                loadMembers.invoke(it)
-                loadWaitMembers.invoke(it)
-            }
+        return guildRepository.findAllWithLimit(Pageable.ofSize(limit)).onEach {
+            loadMembers.invoke(it)
+            loadWaitMembers.invoke(it)
+        }
+    }
+
+    @Transactional
+    fun deletePersonaSync(userId: Long, deletedPersonaId: Long, personaId: Long) {
+        val guilds = guildRepository.findAllGuildByUserIdWithMembers(userId)
+
+        guilds.forEach {
+            it.changePersonaIfDeleted(userId, deletedPersonaId, personaId)
         }
     }
 

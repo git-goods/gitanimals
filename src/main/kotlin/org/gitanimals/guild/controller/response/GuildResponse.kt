@@ -25,6 +25,7 @@ data class GuildResponse(
         val userId: String,
         val name: String,
         val contributions: String,
+        val personaId: String,
     )
 
     data class Member(
@@ -55,6 +56,7 @@ data class GuildResponse(
                     userId = guild.getLeaderId().toString(),
                     name = guild.getLeaderName(),
                     contributions = guild.getContributions().toString(),
+                    personaId = guild.getLeaderPersonaId().toString(),
                 ),
                 farmType = guild.getGuildFarmType().toString(),
                 totalContributions = guild.getTotalContributions().toString(),

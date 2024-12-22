@@ -13,6 +13,7 @@ import org.gitanimals.guild.domain.GuildRepository
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.supports.RedisContainer
 import org.gitanimals.guild.supports.GuildSagaCapture
+import org.gitanimals.guild.supports.MockApiConfiguration
 import org.rooftop.netx.meta.EnableSaga
 import org.springframework.boot.actuate.autoconfigure.wavefront.WavefrontProperties.Application
 import org.springframework.boot.autoconfigure.domain.EntityScan

@@ -1,9 +1,11 @@
-package org.gitanimals.guild.app
+package org.gitanimals.guild.supports
 
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
+import org.gitanimals.guild.app.IdentityApi
+import org.gitanimals.guild.app.RenderApi
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 

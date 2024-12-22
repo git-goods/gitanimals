@@ -17,7 +17,7 @@ class Member(
     val name: String,
 
     @Column(name = "persona_id", nullable = false)
-    val personaId: Long,
+    var personaId: Long,
 
     @Column(name = "contributions", nullable = false)
     private var contributions: Long,

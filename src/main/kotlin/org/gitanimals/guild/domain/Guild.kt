@@ -143,6 +143,25 @@ class Guild(
         members.firstOrNull { it.name == username }?.setContributions(contributions)
     }
 
+    fun changePersonaIfDeleted(userId: Long, deletedPersonaId: Long, personaId: Long) {
+        if (leader.userId == userId) {
+            if (leader.personaId == deletedPersonaId) {
+                leader.personaId = personaId
+            }
+            return
+        }
+
+        members.firstOrNull {
+            it.userId == userId && it.personaId == deletedPersonaId
+        }?.let {
+            it.personaId = personaId
+        }
+    }
+
+    fun getLeaderPersonaId(): Long {
+        return leader.personaId
+    }
+
     companion object {
 
         fun create(

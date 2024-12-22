@@ -13,6 +13,6 @@ class GetJoinedGuildFacade(
     fun getJoinedGuilds(token: String): List<Guild> {
         val user = identityApi.getUserByToken(token)
 
-        return guildService.findAllGuildByUserId(user.id)
+        return guildService.findAllGuildByUserId(user.id.toLong())
     }
 }
