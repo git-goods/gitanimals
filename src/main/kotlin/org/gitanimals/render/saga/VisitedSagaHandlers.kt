@@ -43,7 +43,7 @@ class VisitedSagaHandlers(
         val increaseContributionCount = userService.updateContributions(username, contribution)
 
         sagaJoinEvent.setNextEvent(
-            GavePoint(username = username, point = (increaseContributionCount * 100).toLong())
+            GavePoint(username = username, point = (increaseContributionCount * 100).toLong(), contribution)
         )
     }
 }

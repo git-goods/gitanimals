@@ -135,6 +135,14 @@ class Guild(
         return leader.contributions + members.sumOf { it.getContributions() }
     }
 
+    fun updateContributions(username: String, contributions: Long) {
+        if (leader.name == username) {
+            leader.contributions = contributions
+            return
+        }
+        members.firstOrNull { it.name == username }?.setContributions(contributions)
+    }
+
     companion object {
 
         fun create(

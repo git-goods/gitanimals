@@ -92,6 +92,13 @@ class GuildService(
         return guild
     }
 
+    @Transactional
+    fun updateContribution(username: String, contributions: Long) {
+        val guilds = guildRepository.findAllGuildByUsernameWithMembers(username)
+
+        guilds.forEach { it.updateContributions(username, contributions) }
+    }
+
     fun findAllGuildByUserId(userId: String): List<Guild> {
         return guildRepository.findAllGuildByUserIdWithMembers(userId).apply {
             this.forEach { loadWaitMembers.invoke(it) }

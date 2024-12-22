@@ -28,6 +28,15 @@ interface GuildRepository : JpaRepository<Guild, Long> {
     )
     fun findAllGuildByUserIdWithMembers(@Param("userId") userId: String): List<Guild>
 
+    @Query(
+        """
+            select g from Guild as g
+            join fetch g.members as m
+            where g.leader.name = :username or m.name = :username
+        """
+    )
+    fun findAllGuildByUsernameWithMembers(@Param("username") username: String): List<Guild>
+
     @Query("select g from Guild as g")
     fun findAllWithLimit(pageable: Pageable): List<Guild>
 

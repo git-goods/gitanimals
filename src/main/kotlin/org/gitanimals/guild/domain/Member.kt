@@ -29,6 +29,10 @@ class Member(
 
     fun getContributions() = contributions
 
+    fun setContributions(contributions: Long) {
+        this.contributions = contributions
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Member) return false
