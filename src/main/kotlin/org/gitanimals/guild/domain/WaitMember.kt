@@ -25,7 +25,7 @@ class WaitMember(
     val name: String,
 
     @Column(name = "persona_id", nullable = false)
-    val personaId: Long,
+    var personaId: Long,
 
     @Column(name = "persona_type", nullable = false)
     var personaType: String,

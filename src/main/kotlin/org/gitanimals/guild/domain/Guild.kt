@@ -166,10 +166,21 @@ class Guild(
             it.personaId = changePersonaId
             it.personaType = changePersonaType
         }
+
+        waitMembers.firstOrNull {
+            it.userId == userId && it.personaId == deletedPersonaId
+        }?.let {
+            it.personaId = changePersonaId
+            it.personaType = changePersonaType
+        }
     }
 
     fun getLeaderPersonaId(): Long {
         return leader.personaId
+    }
+
+    fun getLeaderPersonaType(): String {
+        return leader.personaType
     }
 
     companion object {

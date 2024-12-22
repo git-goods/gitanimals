@@ -26,6 +26,7 @@ data class GuildResponse(
         val name: String,
         val contributions: String,
         val personaId: String,
+        val personaType: String,
     )
 
     data class Member(
@@ -34,6 +35,7 @@ data class GuildResponse(
         val name: String,
         val contributions: String,
         val personaId: String,
+        val personaType: String,
     )
 
     data class WaitMember(
@@ -42,6 +44,7 @@ data class GuildResponse(
         val name: String,
         val contributions: String,
         val personaId: String,
+        val personaType: String,
     )
 
     companion object {
@@ -57,6 +60,7 @@ data class GuildResponse(
                     name = guild.getLeaderName(),
                     contributions = guild.getContributions().toString(),
                     personaId = guild.getLeaderPersonaId().toString(),
+                    personaType = guild.getLeaderPersonaType(),
                 ),
                 farmType = guild.getGuildFarmType().toString(),
                 totalContributions = guild.getTotalContributions().toString(),
@@ -67,6 +71,7 @@ data class GuildResponse(
                         name = it.name,
                         contributions = it.getContributions().toString(),
                         personaId = it.personaId.toString(),
+                        personaType = it.personaType,
                     )
                 },
                 waitMembers = guild.getWaitMembers().map {
@@ -76,6 +81,7 @@ data class GuildResponse(
                         name = it.name,
                         contributions = it.getContributions().toString(),
                         personaId = it.personaId.toString(),
+                        personaType = it.personaType,
                     )
                 },
                 createdAt = guild.createdAt,
