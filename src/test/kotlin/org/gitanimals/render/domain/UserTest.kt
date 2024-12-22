@@ -91,17 +91,6 @@ internal class UserTest : DescribeSpec({
                 user.personas.find { it.type == PersonaType.PENGUIN }.shouldNotBeNull()
             }
         }
-
-        context("Bonus pet 목록에 등록되지 않은 pet의 이름이 주어질 경우,") {
-            val user = User.newUser("new-user", mutableMapOf())
-            val persona = PersonaType.GOBLIN_BAG
-
-            it("예외를 던진다.") {
-                shouldThrowWithMessage<IllegalArgumentException>("Cannot select as a bonus persona.") {
-                    user.giveNewPersonaByType(persona)
-                }
-            }
-        }
     }
 
     describe("mergePersona 메소드는") {

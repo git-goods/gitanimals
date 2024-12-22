@@ -5,7 +5,7 @@ import org.rooftop.netx.api.*
 import org.rooftop.netx.meta.SagaHandler
 
 @SagaHandler
-class SagaCapture {
+class GuildSagaCapture {
 
     val storage = mutableMapOf<String, Int>()
 

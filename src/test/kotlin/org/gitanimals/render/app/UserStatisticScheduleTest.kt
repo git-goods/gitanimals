@@ -1,23 +1,33 @@
 package org.gitanimals.render.app
 
 import io.kotest.assertions.nondeterministic.eventually
+import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
-import org.gitanimals.Application
+import org.gitanimals.render.domain.UserStatisticService
 import org.gitanimals.render.supports.RedisContainer
 import org.gitanimals.render.supports.SagaCapture
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.ActiveProfiles
+import org.rooftop.netx.meta.EnableSaga
+import org.springframework.boot.autoconfigure.domain.EntityScan
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.TestPropertySource
 import kotlin.time.Duration.Companion.seconds
 
-@SpringBootTest(
+@EnableSaga
+@DataJpaTest
+@ContextConfiguration(
     classes = [
-        Application::class,
         RedisContainer::class,
         SagaCapture::class,
+        UserStatisticSchedule::class,
+        UserStatisticService::class,
     ]
 )
 @TestPropertySource("classpath:application.properties")
+@DisplayName("UserStatisticSchedule 클래스의")
+@EntityScan(basePackages = ["org.gitanimals.render.domain"])
+@EnableJpaRepositories(basePackages = ["org.gitanimals.render.domain"])
 internal class UserStatisticScheduleTest(
     private val userStatisticSchedule: UserStatisticSchedule,
     private val sagaCapture: SagaCapture,

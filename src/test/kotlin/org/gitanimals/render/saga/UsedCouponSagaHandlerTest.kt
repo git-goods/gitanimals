@@ -8,20 +8,35 @@ import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.should
 import org.gitanimals.render.domain.PersonaType
 import org.gitanimals.render.domain.UserRepository
+import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.user
 import org.gitanimals.render.saga.event.CouponUsed
 import org.gitanimals.render.supports.RedisContainer
+import org.gitanimals.render.supports.SagaCapture
 import org.rooftop.netx.api.SagaManager
-import org.springframework.boot.test.context.SpringBootTest
+import org.rooftop.netx.meta.EnableSaga
+import org.springframework.boot.autoconfigure.domain.EntityScan
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.TestPropertySource
 import kotlin.time.Duration.Companion.seconds
 
-@SpringBootTest(
+@EnableSaga
+@DataJpaTest
+@ContextConfiguration(
     classes = [
         RedisContainer::class,
+        SagaCapture::class,
+        UserService::class,
+        UsedCouponSagaHandlers::class,
     ]
 )
 @DisplayName("UsedCouponSagaHandler 클래스의")
+@TestPropertySource("classpath:application.properties")
+@EntityScan(basePackages = ["org.gitanimals.render.domain"])
+@EnableJpaRepositories(basePackages = ["org.gitanimals.render.domain"])
 internal class UsedCouponSagaHandlerTest(
     private val sagaManager: SagaManager,
     private val userRepository: UserRepository,
