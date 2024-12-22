@@ -78,6 +78,7 @@ class CreateGuildFacade(
                             personaId = renderUser.personas.firstOrNull { it.id == createGuildRequest.personaId }?.id?.toLong()
                                 ?: throw IllegalArgumentException("Cannot find persona by id \"${createGuildRequest.personaId}\""),
                             contributions = renderUser.totalContributions.toLong(),
+                            personaType = renderUser.personas.find { it.id == createGuildRequest.personaId }!!.type,
                         )
 
                         guildService.createGuild(

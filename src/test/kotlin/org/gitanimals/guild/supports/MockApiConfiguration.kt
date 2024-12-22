@@ -41,11 +41,13 @@ class MockApiConfiguration {
             personas = listOf(
                 RenderApi.UserResponse.PersonaResponse(
                     id = "3",
-                    level = "99"
+                    level = "99",
+                    type = "GOOSE",
                 ),
                 RenderApi.UserResponse.PersonaResponse(
                     id = "4",
-                    level = "98"
+                    level = "98",
+                    type = "GOOSE",
                 ),
             )
         )

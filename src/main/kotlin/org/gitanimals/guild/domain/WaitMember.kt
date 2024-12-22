@@ -27,6 +27,9 @@ class WaitMember(
     @Column(name = "persona_id", nullable = false)
     val personaId: Long,
 
+    @Column(name = "persona_type", nullable = false)
+    var personaType: String,
+
     @Column(name = "contributions", nullable = false)
     private var contributions: Long,
 
@@ -43,6 +46,7 @@ class WaitMember(
         personaId = personaId,
         guild = guild,
         contributions = contributions,
+        personaType = personaType,
     )
 
     override fun equals(other: Any?): Boolean {
@@ -62,6 +66,7 @@ class WaitMember(
             userId: Long,
             name: String,
             personaId: Long,
+            personaType: String,
             contributions: Long,
         ): WaitMember {
             return WaitMember(
@@ -69,6 +74,7 @@ class WaitMember(
                 userId = userId,
                 name = name,
                 personaId = personaId,
+                personaType = personaType,
                 guild = guild,
                 contributions = contributions,
             )

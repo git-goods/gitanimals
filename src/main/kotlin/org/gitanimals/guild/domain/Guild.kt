@@ -71,6 +71,7 @@ class Guild(
         memberName: String,
         memberPersonaId: Long,
         memberContributions: Long,
+        memberPersonaType: String,
     ) {
         require(leader.userId != memberUserId) {
             "Leader cannot join their own guild leaderId: \"${leader.userId}\", memberUserId: \"$memberUserId\""
@@ -83,6 +84,7 @@ class Guild(
                 name = memberName,
                 personaId = memberPersonaId,
                 contributions = memberContributions,
+                personaType = memberPersonaType,
             )
             members.add(member)
             return
@@ -94,6 +96,7 @@ class Guild(
             name = memberName,
             personaId = memberPersonaId,
             contributions = memberContributions,
+            personaType = memberPersonaType,
         )
         waitMembers.add(waitMember)
     }
@@ -143,10 +146,16 @@ class Guild(
         members.firstOrNull { it.name == username }?.setContributions(contributions)
     }
 
-    fun changePersonaIfDeleted(userId: Long, deletedPersonaId: Long, personaId: Long) {
+    fun changePersonaIfDeleted(
+        userId: Long,
+        deletedPersonaId: Long,
+        changePersonaId: Long,
+        changePersonaType: String,
+    ) {
         if (leader.userId == userId) {
             if (leader.personaId == deletedPersonaId) {
-                leader.personaId = personaId
+                leader.personaId = changePersonaId
+                leader.personaType = changePersonaType
             }
             return
         }
@@ -154,7 +163,8 @@ class Guild(
         members.firstOrNull {
             it.userId == userId && it.personaId == deletedPersonaId
         }?.let {
-            it.personaId = personaId
+            it.personaId = changePersonaId
+            it.personaType = changePersonaType
         }
     }
 

@@ -18,6 +18,7 @@ fun interface RenderApi {
         data class PersonaResponse(
             val id: String,
             val level: String,
+            val type: String,
         )
     }
 }

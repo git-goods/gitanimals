@@ -22,14 +22,15 @@ class PersonaDeletedSagaHandler(
     fun handlePersonaDeletedEvent(sagaStartEvent: SagaStartEvent) {
         val personaDeleted = sagaStartEvent.decodeEvent(PersonaDeleted::class)
 
-        val personaId =
-            renderApi.getUserByName(personaDeleted.username).personas.maxByOrNull { it.level }?.id
+        val changePersona =
+            renderApi.getUserByName(personaDeleted.username).personas.maxByOrNull { it.level }
                 ?: throw IllegalStateException("Cannot find any persona by username \"${personaDeleted.username}\"")
 
         guildService.deletePersonaSync(
             userId = personaDeleted.userId,
             deletedPersonaId = personaDeleted.personaId,
-            personaId = personaId.toLong(),
+            changePersonaId = changePersona.id.toLong(),
+            changePersonaType = changePersona.type,
         )
     }
 }

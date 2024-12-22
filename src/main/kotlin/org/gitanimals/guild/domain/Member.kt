@@ -19,6 +19,9 @@ class Member(
     @Column(name = "persona_id", nullable = false)
     var personaId: Long,
 
+    @Column(name = "persona_type", nullable = false)
+    var personaType: String,
+
     @Column(name = "contributions", nullable = false)
     private var contributions: Long,
 
@@ -51,6 +54,7 @@ class Member(
             userId: Long,
             name: String,
             personaId: Long,
+            personaType: String,
             contributions: Long,
         ): Member {
             return Member(
@@ -58,6 +62,7 @@ class Member(
                 userId = userId,
                 name = name,
                 personaId = personaId,
+                personaType = personaType,
                 guild = guild,
                 contributions = contributions,
             )

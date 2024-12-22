@@ -14,6 +14,9 @@ data class Leader(
     @Column(name = "persona_id", nullable = false)
     var personaId: Long,
 
+    @Column(name = "persona_type", nullable = false)
+    var personaType: String,
+
     @Column(name = "contributions", nullable = false)
     var contributions: Long,
 )

@@ -7,6 +7,7 @@ data class CreateLeaderRequest(
     val name: String,
     val personaId: Long,
     val contributions: Long,
+    val personaType: String,
 ) {
 
     fun toDomain(): Leader {
@@ -15,6 +16,7 @@ data class CreateLeaderRequest(
             name = name,
             personaId = personaId,
             contributions = contributions,
+            personaType = personaType,
         )
     }
 }

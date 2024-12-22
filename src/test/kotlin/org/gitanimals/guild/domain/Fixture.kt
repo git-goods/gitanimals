@@ -29,12 +29,14 @@ fun leader(
     name: String = "Default Leader",
     personaId: Long = 1L,
     contributions: Long = 0L,
+    personaType: String = "GOOSE",
 ): Leader {
     return Leader(
         userId = userId,
         name = name,
         personaId = personaId,
-        contributions = contributions
+        contributions = contributions,
+        personaType = personaType,
     )
 }
 
@@ -43,13 +45,15 @@ fun member(
     userId: Long = 2L,
     name: String = "DefaultName",
     personaId: Long = 200L,
-    contributions: Long = 500L
+    contributions: Long = 500L,
+    personaType: String = "GOOSE",
 ): Member {
     return Member.create(
         guild = guild,
         userId = userId,
         name = name,
         personaId = personaId,
-        contributions = contributions
+        contributions = contributions,
+        personaType = personaType,
     )
 }

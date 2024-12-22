@@ -38,6 +38,7 @@ internal class GuildServiceTest(
                 name = "devxb",
                 personaId = 2L,
                 contributions = 3L,
+                personaType = "GOOSE",
             )
 
             it("중복된 길드가 아니라면 길드를 생성한다.") {
@@ -94,6 +95,7 @@ internal class GuildServiceTest(
                     memberName = memberName,
                     memberPersonaId = memberPersonaId,
                     memberContributions = memberContributions,
+                    memberPersonaType = "GOOSE",
                 )
 
                 guildService.getGuildById(guild.id, loadMembers).getMembers().size shouldBe 1
@@ -115,6 +117,7 @@ internal class GuildServiceTest(
                     memberName = memberName,
                     memberPersonaId = memberPersonaId,
                     memberContributions = memberContributions,
+                    memberPersonaType = "GOOSE",
                 )
 
                 guildService.getGuildById(guild.id, loadWaitMembers)
@@ -137,6 +140,7 @@ internal class GuildServiceTest(
                         memberName = memberName,
                         memberPersonaId = memberPersonaId,
                         memberContributions = memberContributions,
+                        memberPersonaType = "GOOSE",
                     )
                 }
             }
@@ -157,6 +161,7 @@ internal class GuildServiceTest(
                 memberName = memberName,
                 memberPersonaId = memberPersonaId,
                 memberContributions = memberContributions,
+                memberPersonaType = "GOOSE",
             )
 
             it("멤버를 가입시킨다.") {

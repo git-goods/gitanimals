@@ -111,7 +111,7 @@ internal class CreateGuildFacadeTest(
             guildIcon = "gitanimals.org",
             autoJoin = true,
             farmType = GuildFarmType.DUMMY,
-            personaId = "123456789",
+            personaId = "3",
         )
 
         private val poolIdentityUserResponse = IdentityApi.UserResponse(

@@ -32,6 +32,7 @@ class JoinGuildFacade(
             memberName = member.username,
             memberPersonaId = memberPersonaId,
             memberContributions = renderInfo.totalContributions.toLong(),
+            memberPersonaType = renderInfo.personas.find { it.id.toLong() == memberPersonaId }!!.type,
         )
 
         val guild = guildService.getGuildById(guildId)

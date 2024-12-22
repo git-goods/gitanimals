@@ -60,6 +60,7 @@ internal class PersonaDeletedSagaHandlerTest(
                 memberName = memberName,
                 memberPersonaId = memberPersonaId,
                 memberContributions = 100L,
+                memberPersonaType = "GOOSE",
             )
             guild = guildRepository.save(guild)
 
@@ -81,7 +82,11 @@ internal class PersonaDeletedSagaHandlerTest(
                 name = "devxb",
                 totalContributions = "1",
                 personas = listOf(
-                    RenderApi.UserResponse.PersonaResponse(changePersonaId.toString(), "10")
+                    RenderApi.UserResponse.PersonaResponse(
+                        changePersonaId.toString(),
+                        "10",
+                        "GOOSE",
+                    )
                 )
             )
 
@@ -90,7 +95,11 @@ internal class PersonaDeletedSagaHandlerTest(
                 name = "member",
                 totalContributions = "1",
                 personas = listOf(
-                    RenderApi.UserResponse.PersonaResponse(changePersonaId.toString(), "10")
+                    RenderApi.UserResponse.PersonaResponse(
+                        changePersonaId.toString(),
+                        "10",
+                        "GOOSE",
+                    )
                 )
             )
 
