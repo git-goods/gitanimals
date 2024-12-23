@@ -110,6 +110,10 @@ class Guild(
         members.add(acceptUser.toMember())
     }
 
+    fun deny(denyUserId: Long) {
+        waitMembers.removeIf { it.userId == denyUserId }
+    }
+
     fun kickMember(kickUserId: Long) {
         members.removeIf { it.userId == kickUserId }
     }

@@ -4,18 +4,14 @@ import org.gitanimals.guild.domain.GuildService
 import org.springframework.stereotype.Service
 
 @Service
-class AcceptJoinGuildFacade(
+class DenyJoinGuildFacade(
     private val identityApi: IdentityApi,
     private val guildService: GuildService,
 ) {
 
-    fun acceptJoin(token: String, guildId: Long, acceptUserId: Long) {
+    fun denyJoin(token: String, guildId: Long, denyUserId: Long) {
         val user = identityApi.getUserByToken(token)
 
-        guildService.acceptJoin(
-            acceptorId = user.id.toLong(),
-            guildId = guildId,
-            acceptUserId = acceptUserId,
-        )
+        guildService.denyJoin(denierId = user.id.toLong(), guildId = guildId, denyUserId = denyUserId)
     }
 }

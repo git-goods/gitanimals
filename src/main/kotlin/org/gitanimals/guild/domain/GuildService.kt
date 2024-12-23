@@ -71,6 +71,14 @@ class GuildService(
     }
 
     @Transactional
+    fun denyJoin(denierId: Long, guildId: Long, denyUserId: Long) {
+        val guild = guildRepository.findGuildByIdAndLeaderId(guildId, denierId)
+            ?: throw IllegalArgumentException("Cannot deny join cause your not a leader.")
+
+        guild.deny(denyUserId)
+    }
+
+    @Transactional
     fun kickMember(kickerId: Long, guildId: Long, kickUserId: Long) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, kickerId)
             ?: throw IllegalArgumentException("Cannot kick member cause your not a leader.")
