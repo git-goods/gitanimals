@@ -48,8 +48,9 @@ class UserService(
     fun getUserByName(name: String): User = userRepository.findByName(name)
         ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
 
-    fun getUserByNameWithAllContributions(name: String): User = userRepository.findByName(name)
-        ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
+    fun getUserByNameWithAllContributions(name: String): User =
+        userRepository.findByNameWithContributions(name)
+            ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
 
     @Transactional
     fun createNewUser(name: String, contributions: Map<Int, Int>): User =
