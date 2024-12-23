@@ -10,7 +10,7 @@ interface UserRepository : JpaRepository<User, Long> {
 
     @Query(
         """
-            select u from User as u
+            select u from user as u
             left join fetch u.contributions
             where u.name = :name
         """
