@@ -3,9 +3,11 @@ package org.gitanimals.guild.controller
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.controller.request.JoinGuildRequest
+import org.gitanimals.guild.controller.response.GuildIconsResponse
 import org.gitanimals.guild.controller.response.GuildPagingResponse
 import org.gitanimals.guild.controller.response.GuildResponse
 import org.gitanimals.guild.controller.response.GuildsResponse
+import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.SearchFilter
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
@@ -105,5 +107,13 @@ class GuildController(
         )
 
         return GuildPagingResponse.from(guilds)
+    }
+
+    @GetMapping("/guilds/icons")
+    @ResponseStatus(HttpStatus.OK)
+    fun findAllGuildIcons(): GuildIconsResponse {
+        return GuildIconsResponse(
+            GuildIcons.entries.map { it.getImagePath() }.toList()
+        )
     }
 }

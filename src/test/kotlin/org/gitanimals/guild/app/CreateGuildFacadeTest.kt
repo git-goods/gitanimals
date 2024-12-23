@@ -9,6 +9,7 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.mockk.every
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.domain.GuildFarmType
+import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildRepository
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.supports.RedisContainer
@@ -108,7 +109,7 @@ internal class CreateGuildFacadeTest(
         private val createGuildRequest = CreateGuildRequest(
             title = "Gitanimals",
             body = "We are gitanimals",
-            guildIcon = "gitanimals.org",
+            guildIcon = GuildIcons.CAT.getImagePath(),
             autoJoin = true,
             farmType = GuildFarmType.DUMMY,
             personaId = "3",

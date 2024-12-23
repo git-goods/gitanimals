@@ -29,7 +29,7 @@ internal class GuildServiceTest(
 
     describe("createGuild 메소드는") {
         context("guild 정보와 leader 정보를 입력받으면") {
-            val guildIcon = "guildIcon"
+            val guildIcon = GuildIcons.CAT.getImagePath()
             val title = "guildTitle"
             val body = "guildBody"
             val farmType = GuildFarmType.DUMMY

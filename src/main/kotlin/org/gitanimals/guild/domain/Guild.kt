@@ -194,6 +194,7 @@ class Guild(
             farmType: GuildFarmType,
             autoJoin: Boolean,
         ): Guild {
+            GuildIcons.requireExistImagePath(guildIcon)
 
             return Guild(
                 id = IdGenerator.generate(),
