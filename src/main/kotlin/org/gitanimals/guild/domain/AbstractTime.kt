@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain
+package org.gitanimals.guild.domain
 
 import jakarta.persistence.Column
 import jakarta.persistence.EntityListeners
@@ -29,3 +29,4 @@ abstract class AbstractTime(
         }
     }
 }
+

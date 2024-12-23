@@ -1,6 +1,6 @@
-package org.gitanimals.render.saga.event
+package org.gitanimals.guild.saga.event
 
-data class GavePoint(
+data class UserContributionUpdated(
     val username: String,
     val point: Long,
     val contributions: Int,

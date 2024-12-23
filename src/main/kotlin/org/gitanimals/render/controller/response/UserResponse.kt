@@ -5,6 +5,7 @@ import org.gitanimals.render.domain.User
 data class UserResponse(
     val id: String,
     val name: String,
+    val totalContributions: String,
     private val personas: List<PersonaResponse>,
 ) {
 
@@ -13,6 +14,7 @@ data class UserResponse(
             return UserResponse(
                 user.id.toString(),
                 user.name,
+                user.contributionCount().toString(),
                 user.personas.map {
                     PersonaResponse(
                         it.id.toString(),

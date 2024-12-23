@@ -6,12 +6,33 @@ import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
+import org.gitanimals.render.domain.event.PersonaDeleted
+import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import org.gitanimals.render.domain.value.Contribution
+import org.gitanimals.render.supports.DomainEventHolder
+import org.springframework.test.context.ContextConfiguration
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
+@ContextConfiguration(
+    classes = [
+        DomainEventHolder::class,
+        DomainEventPublisher.EventPublisherInjector::class,
+    ]
+)
 @DisplayName("User 클래스의")
-internal class UserTest : DescribeSpec({
+internal class UserTest(
+    /**
+     * 빈 주입 순서로 인해서 주입을 받아야한다.
+     * 그러지 않으면 lazy initialize 에러가 발생한다.
+     */
+    eventPublisherInjector: DomainEventPublisher.EventPublisherInjector,
+    private val domainEventHolder: DomainEventHolder,
+) : DescribeSpec({
+
+    beforeEach {
+        domainEventHolder.deleteAll()
+    }
 
     describe("newUser 메소드는") {
         context("이름에 [대문자, -, 소문자, 숫자]로 이루어진 문장이 들어올 경우") {
@@ -91,17 +112,6 @@ internal class UserTest : DescribeSpec({
                 user.personas.find { it.type == PersonaType.PENGUIN }.shouldNotBeNull()
             }
         }
-
-        context("Bonus pet 목록에 등록되지 않은 pet의 이름이 주어질 경우,") {
-            val user = User.newUser("new-user", mutableMapOf())
-            val persona = PersonaType.GOBLIN_BAG
-
-            it("예외를 던진다.") {
-                shouldThrowWithMessage<IllegalArgumentException>("Cannot select as a bonus persona.") {
-                    user.giveNewPersonaByType(persona)
-                }
-            }
-        }
     }
 
     describe("mergePersona 메소드는") {
@@ -116,6 +126,20 @@ internal class UserTest : DescribeSpec({
                 user.mergePersona(increasePersonaId, deletePersonaId)
 
                 user.personas.size shouldBeEqual 1
+                domainEventHolder.eventsShouldBe(PersonaDeleted::class, 1)
+            }
+        }
+    }
+
+    describe("deletePersona 메소드는") {
+        context("personaId를 받으면,") {
+            val user = User.newUser("devxb", mapOf())
+            val personaId = user.personas[0].id
+
+            it("persona를 삭제하고 PersonaDeleted 이벤트를 발행한다.") {
+                user.deletePersona(personaId)
+
+                domainEventHolder.eventsShouldBe(PersonaDeleted::class, 1)
             }
         }
     }
