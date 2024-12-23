@@ -25,7 +25,7 @@ class PersonaController(
 
     @GetMapping("/users/{username}")
     fun getUserByName(@PathVariable("username") username: String): UserResponse {
-        return UserResponse.from(userService.getUserByName(username))
+        return UserResponse.from(userService.getUserByNameWithAllContributions(username))
     }
 
     @GetMapping("/personas/{persona-id}")
