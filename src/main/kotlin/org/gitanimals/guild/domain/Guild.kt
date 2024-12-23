@@ -202,6 +202,14 @@ class Guild(
         }
     }
 
+    fun leave(userId: Long) {
+        require(userId != leader.userId) {
+            "Leader cannot leave guild guildId: \"$id\", userId: \"$userId\""
+        }
+
+        members.removeIf { it.userId == userId }
+    }
+
     companion object {
 
         fun create(

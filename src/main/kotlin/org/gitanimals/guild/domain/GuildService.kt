@@ -6,6 +6,8 @@ import org.hibernate.Hibernate
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.orm.ObjectOptimisticLockingFailureException
+import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -43,6 +45,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun joinGuild(
         guildId: Long,
         memberUserId: Long,
@@ -63,6 +66,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun acceptJoin(acceptorId: Long, guildId: Long, acceptUserId: Long) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, acceptorId)
             ?: throw IllegalArgumentException("Cannot accept join cause your not a leader.")
@@ -71,6 +75,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun denyJoin(denierId: Long, guildId: Long, denyUserId: Long) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, denierId)
             ?: throw IllegalArgumentException("Cannot deny join cause your not a leader.")
@@ -79,6 +84,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun kickMember(kickerId: Long, guildId: Long, kickUserId: Long) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, kickerId)
             ?: throw IllegalArgumentException("Cannot kick member cause your not a leader.")
@@ -87,6 +93,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun changeGuild(changeRequesterId: Long, guildId: Long, request: ChangeGuildRequest) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, changeRequesterId)
             ?: throw IllegalArgumentException("Cannot kick member cause your not a leader.")
@@ -95,10 +102,19 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun changeMainPersona(guildId: Long, userId: Long, personaId: Long, personaType: String) {
         val guild = getGuildById(guildId)
 
         guild.changeMainPersona(userId, personaId, personaType)
+    }
+
+    @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
+    fun leave(guildId: Long, userId: Long) {
+        val guild = getGuildById(guildId)
+
+        guild.leave(userId)
     }
 
     fun getGuildById(id: Long, vararg lazyLoading: (Guild) -> Unit): Guild {
@@ -110,6 +126,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun updateContribution(username: String, contributions: Long) {
         val guilds = guildRepository.findAllGuildByUsernameWithMembers(username)
 
@@ -138,6 +155,7 @@ class GuildService(
     }
 
     @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
     fun deletePersonaSync(
         userId: Long,
         deletedPersonaId: Long,

@@ -26,6 +26,7 @@ class GuildController(
     private val joinedGuildFacade: GetJoinedGuildFacade,
     private val searchGuildFacade: SearchGuildFacade,
     private val changeMainPersonaFacade: ChangeMainPersonaFacade,
+    private val leaveGuildFacade: LeaveGuildFacade,
 ) {
 
     @ResponseStatus(HttpStatus.OK)
@@ -128,4 +129,10 @@ class GuildController(
         guildId = guildId,
         personaId = personaId,
     )
+
+    @DeleteMapping("/guilds/{guildId}/leave")
+    fun leaveGuild(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @PathVariable("guildId") guildId: Long,
+    ) = leaveGuildFacade.leave(token, guildId)
 }
