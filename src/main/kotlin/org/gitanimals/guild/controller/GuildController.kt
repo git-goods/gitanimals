@@ -25,6 +25,7 @@ class GuildController(
     private val changeGuildFacade: ChangeGuildFacade,
     private val joinedGuildFacade: GetJoinedGuildFacade,
     private val searchGuildFacade: SearchGuildFacade,
+    private val changeMainPersonaFacade: ChangeMainPersonaFacade,
 ) {
 
     @ResponseStatus(HttpStatus.OK)
@@ -116,4 +117,15 @@ class GuildController(
             GuildIcons.entries.map { it.getImagePath() }.toList()
         )
     }
+
+    @PostMapping("/guilds/{guildId}/personas")
+    fun changeMainPersona(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @PathVariable("guildId") guildId: Long,
+        @RequestParam("persona-id") personaId: Long,
+    ) = changeMainPersonaFacade.changeMainPersona(
+        token = token,
+        guildId = guildId,
+        personaId = personaId,
+    )
 }

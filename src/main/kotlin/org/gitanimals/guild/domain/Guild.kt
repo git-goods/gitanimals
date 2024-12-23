@@ -187,6 +187,21 @@ class Guild(
         return leader.personaType
     }
 
+    fun changeMainPersona(userId: Long, personaId: Long, personaType: String) {
+        if (leader.userId == userId) {
+            leader.personaId = personaId
+            leader.personaType = personaType
+            return
+        }
+
+        members.first {
+            it.userId == userId
+        }.run {
+            this.personaId = personaId
+            this.personaType = personaType
+        }
+    }
+
     companion object {
 
         fun create(

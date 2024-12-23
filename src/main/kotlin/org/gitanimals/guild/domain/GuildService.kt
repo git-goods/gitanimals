@@ -94,6 +94,13 @@ class GuildService(
         guild.change(request)
     }
 
+    @Transactional
+    fun changeMainPersona(guildId: Long, userId: Long, personaId: Long, personaType: String) {
+        val guild = getGuildById(guildId)
+
+        guild.changeMainPersona(userId, personaId, personaType)
+    }
+
     fun getGuildById(id: Long, vararg lazyLoading: (Guild) -> Unit): Guild {
         val guild = guildRepository.findByIdOrNull(id)
             ?: throw IllegalArgumentException("Cannot fint guild by id \"$id\"")
