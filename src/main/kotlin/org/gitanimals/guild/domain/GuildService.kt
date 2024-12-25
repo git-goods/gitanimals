@@ -140,11 +140,14 @@ class GuildService(
     }
 
     fun search(text: String, pageNumber: Int, filter: SearchFilter): Page<Guild> {
-        return guildRepository.search(text, Pageable.ofSize(PAGE_SIZE).withPage(pageNumber))
-            .onEach {
-                loadMembers.invoke(it)
-                loadWaitMembers.invoke(it)
-            }
+        return if (text.isBlank()) {
+            guildRepository.search(Pageable.ofSize(PAGE_SIZE).withPage(pageNumber))
+        } else {
+            guildRepository.search(text, Pageable.ofSize(PAGE_SIZE).withPage(pageNumber))
+        }.onEach {
+            loadMembers.invoke(it)
+            loadWaitMembers.invoke(it)
+        }
     }
 
     fun findAllWithLimit(limit: Int): List<Guild> {
