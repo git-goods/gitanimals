@@ -69,7 +69,7 @@ class JoinGuildFacade(
     ) {
         sagaManager.startSync(
             InboxInputEvent.guildJoinRequest(
-                userId = guild.getLeaderId(),
+                userId = guild.getLeaderUserId(),
                 newUserImage = member.profileImage,
                 newUserName = member.username,
                 guildTitle = guild.getTitle(),

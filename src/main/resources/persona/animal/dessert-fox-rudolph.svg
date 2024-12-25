@@ -122,6 +122,24 @@
     </svg>
   </g>
 </g>
+
+<g id="username-tag-wrap-*{id}">
+  <g id="username-tag" transform="translate(-14, -25)" style="display:*{username-tag-display};">
+    <rect x="3" width="77" height="9" fill="white"/>
+    <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
+    <rect y="1.20001" width="83" height="6.6" fill="white"/>
+  </g>
+</g>
+
+<g id="username-wrap-*{id}">
+  <g id="username" transform="translate(*{usernamex}, -24.5)" style="display:*{username-display};">
+    <svg width="600" height="300" viewBox="0 0 2400 1200" fill="none" overflow="visible"
+      xmlns="http://www.w3.org/2000/svg">
+      *{username}
+    </svg>
+  </g>
+</g>
+
 <g id="level-tag-wrap-*{id}">
   <g id="level-tag" transform="translate(-14, -16.5)" style="display:*{level-tag-display};">
     <rect x="3" width="77" height="9" fill="white"/>
@@ -259,7 +277,8 @@
         <rect width="2" height="1" transform="matrix(-1 0 0 1 14 7)" fill="#C3845B"/>
         <rect x="11" y="10" width="1" height="1" fill="#E52D37"/>
         <rect x="11" y="10.6667" width="1" height="0.333333" fill="white" fill-opacity="0.1"/>
-        <rect x="11" y="10.3333" width="0.666667" height="0.333333" fill="white" fill-opacity="0.1"/>
+        <rect x="11" y="10.3333" width="0.666667" height="0.333333" fill="white"
+          fill-opacity="0.1"/>
       </g>
     </g>
   </g>
