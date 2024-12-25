@@ -114,6 +114,23 @@
   </g>
 </g>
 
+<g id="username-tag-wrap-*{id}">
+  <g id="username-tag" transform="translate(-13, -40.5)" style="display:*{username-tag-display};">
+    <rect x="3" width="77" height="9" fill="white"/>
+    <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
+    <rect y="1.20001" width="83" height="6.6" fill="white"/>
+  </g>
+</g>
+
+<g id="username-wrap-*{id}">
+  <g id="username" transform="translate(*{usernamex}, -40)" style="display:*{username-display};">
+    <svg width="600" height="300" viewBox="0 0 2400 1200" fill="none" overflow="visible"
+      xmlns="http://www.w3.org/2000/svg">
+      *{username}
+    </svg>
+  </g>
+</g>
+
 <g id="level-tag-wrap-*{id}">
   <g id="level-tag" transform="translate(-16, -32)" style="display:*{level-tag-display};">
     <rect x="3" width="77" height="9" fill="white"/>

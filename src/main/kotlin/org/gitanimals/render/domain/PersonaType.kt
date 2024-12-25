@@ -17,6 +17,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(goose)
@@ -37,6 +42,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -59,6 +69,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(goose)
@@ -79,6 +94,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -101,6 +121,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(goose)
@@ -122,6 +147,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(goose)
@@ -142,6 +172,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -185,6 +220,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(goose)
@@ -205,6 +245,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -227,6 +272,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(littleChick)
@@ -247,6 +297,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -269,6 +324,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(littleChick)
@@ -289,6 +349,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -311,6 +376,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(littleChick)
@@ -331,6 +401,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -353,6 +428,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(littleChick)
@@ -374,6 +454,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
 
             return StringBuilder()
                 .append(littleChick)
@@ -393,6 +478,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
 
             return StringBuilder()
@@ -415,6 +505,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -431,6 +526,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -449,6 +549,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -465,6 +570,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -483,6 +593,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -499,6 +614,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -517,6 +637,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -533,6 +658,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -551,6 +681,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-4 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -567,6 +702,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -585,6 +725,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -601,6 +746,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -619,6 +769,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -635,6 +790,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -653,6 +813,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -669,6 +834,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -687,6 +857,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -703,6 +878,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -721,6 +901,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -736,6 +921,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -753,6 +943,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -768,6 +963,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -785,6 +985,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -800,6 +1005,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -817,6 +1027,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -832,6 +1047,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -849,6 +1069,16 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -865,6 +1095,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -880,6 +1115,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-1 * (persona.level.value.toString().length)).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -900,6 +1140,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-2 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (26 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -915,6 +1160,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6.5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (13 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -932,6 +1182,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6.5 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (13 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -947,6 +1202,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-1.5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (27 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -964,6 +1224,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -979,6 +1244,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -996,6 +1266,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1011,6 +1286,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1028,6 +1308,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1043,6 +1328,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1060,6 +1350,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1074,6 +1369,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1090,6 +1390,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-9 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1104,6 +1409,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1120,6 +1430,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-9 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1134,6 +1449,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-8 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (8.5 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1150,6 +1470,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-8 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (8.5 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1164,6 +1489,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1180,6 +1510,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-9 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1194,6 +1529,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1210,6 +1550,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-3 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (23 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1225,6 +1570,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-3 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (23 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1236,26 +1586,16 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             return dessertFoxRudolphSvg.replace("*{act}", act(persona.id))
                 .replace("*{id}", persona.id.toString())
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
                 .replace(
                     "*{levelx}",
                     (-3 + (-1 * (persona.level.value.toString().length))).toString()
-                ).replace(
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
                     "*{usernamex}",
                     (23 + (-3 * user.name.length)).toString()
                 )
         }
-
-        /**
-         * devxb 시작 위치 : 8 -> 기댓값 왼쪽 8 우측 8
-         * sjolee 시작 위치 : 9 -> 기댓값 왼쪽 9 우측
-         * hyesung-oh9
-         * -> 논리: 이름이 길면 더 왼쪽으로 보내야함. 이름은 하나에 -4.5byte 먹는듯..?
-         * f(A) = 8
-         *
-         * flippedWith: 최대길이 * 3 / 2
-         *
-         */
 
         override fun act(id: Long, flippedWidth: Double): String =
             StringBuilder().moveRandomly("dessert-fox", id, 40, "180s", 5, 28.0)
@@ -1269,6 +1609,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1285,6 +1630,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1298,7 +1648,12 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1315,6 +1670,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (29 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1329,6 +1689,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-1.8 * (persona.level.value.toString().length)).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (23 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1345,6 +1710,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-1.8 * (persona.level.value.toString().length)).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (23 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String = StringBuilder()
@@ -1359,6 +1729,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1375,6 +1750,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1389,6 +1769,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1405,6 +1790,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1419,6 +1809,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1435,6 +1830,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1449,6 +1849,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1465,6 +1870,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1479,6 +1889,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
                 )
         }
 
@@ -1495,6 +1910,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1510,6 +1930,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     "*{levelx}",
                     (-6 + (-1 * (persona.level.value.toString().length))).toString()
                 )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * user.name.length)).toString()
+                )
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
@@ -1524,6 +1949,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .replace(
                     "*{levelx}",
                     (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                )
+                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (17 + (-3 * user.name.length)).toString()
                 )
         }
 
