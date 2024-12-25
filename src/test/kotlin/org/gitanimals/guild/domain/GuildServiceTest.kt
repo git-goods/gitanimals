@@ -190,7 +190,7 @@ internal class GuildServiceTest(
 
             it("멤버를 추방시킨다.") {
                 guildService.kickMember(
-                    kickerId = guild.getLeaderId(),
+                    kickerId = guild.getLeaderUserId(),
                     guildId = guild.id,
                     kickUserId = memberId
                 )

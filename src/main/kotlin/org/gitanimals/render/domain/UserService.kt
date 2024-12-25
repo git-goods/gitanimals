@@ -157,6 +157,10 @@ class UserService(
             ?: throw IllegalArgumentException("Cannot find matched persona \"$personaId\" by user name \"$name\"")
     }
 
+    fun findAllUsersByIdWithContributions(userIds: Set<Long>): List<User> {
+        return userRepository.findAllByIdsWithContributions(userIds)
+    }
+
     companion object {
         val loadField: (User) -> Unit = { Hibernate.initialize(it.fields) }
     }

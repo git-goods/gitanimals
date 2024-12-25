@@ -27,6 +27,7 @@ class GuildController(
     private val searchGuildFacade: SearchGuildFacade,
     private val changeMainPersonaFacade: ChangeMainPersonaFacade,
     private val leaveGuildFacade: LeaveGuildFacade,
+    private val drawGuildProxy: DrawGuildProxy,
 ) {
 
     @ResponseStatus(HttpStatus.OK)
@@ -135,4 +136,9 @@ class GuildController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
     ) = leaveGuildFacade.leave(token, guildId)
+
+    @GetMapping("/guilds/{guildId}/draw")
+    fun draw(
+        @PathVariable("guildId") guildId: Long,
+    ) = drawGuildProxy.drawGuild(guildId)
 }

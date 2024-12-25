@@ -101,7 +101,7 @@ class Guild(
         waitMembers.add(waitMember)
     }
 
-    fun getLeaderId(): Long = leader.userId
+    fun getLeaderUserId(): Long = leader.userId
 
     fun accept(acceptUserId: Long) {
         val acceptUser = waitMembers.firstOrNull { it.userId == acceptUserId } ?: return

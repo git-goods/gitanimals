@@ -17,5 +17,14 @@ interface UserRepository : JpaRepository<User, Long> {
     )
     fun findByNameWithContributions(@Param("name") name: String): User?
 
+    @Query(
+        """
+            select u from user as u
+            left join fetch u.contributions
+            where u.id in :userIds
+        """
+    )
+    fun findAllByIdsWithContributions(@Param("userIds") userIds: Set<Long>): List<User>
+
     fun existsByName(name: String): Boolean
 }

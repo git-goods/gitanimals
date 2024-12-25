@@ -56,7 +56,7 @@ data class GuildResponse(
                 body = guild.getBody(),
                 guildIcon = guild.getGuildIcon(),
                 leader = Leader(
-                    userId = guild.getLeaderId().toString(),
+                    userId = guild.getLeaderUserId().toString(),
                     name = guild.getLeaderName(),
                     contributions = guild.getContributions().toString(),
                     personaId = guild.getLeaderPersonaId().toString(),
