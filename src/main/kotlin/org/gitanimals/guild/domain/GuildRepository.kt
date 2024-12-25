@@ -50,4 +50,7 @@ interface GuildRepository : JpaRepository<Guild, Long> {
         nativeQuery = true,
     )
     fun search(@Param("text") text: String, pageable: Pageable): Page<Guild>
+
+    @Query(value = "select g from Guild as g")
+    fun search(pageable: Pageable): Page<Guild>
 }

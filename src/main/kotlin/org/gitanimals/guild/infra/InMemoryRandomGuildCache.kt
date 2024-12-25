@@ -52,7 +52,7 @@ class InMemoryRandomGuildCache(
             response.add(filteredGuilds[idx])
         }
 
-        return PageImpl(filter.sort(response), Pageable.ofSize(pageNumber), guilds.size.toLong())
+        return PageImpl(filter.sort(response), Pageable.ofSize(PAGE_SIZE), guilds.size.toLong())
     }
 
     @Scheduled(cron = ONCE_0AM_TIME)
