@@ -8,7 +8,7 @@ fun guild(
     leader: Leader = leader(),
     members: MutableSet<Member> = mutableSetOf(),
     waitMembers: MutableSet<WaitMember> = mutableSetOf(),
-    farmType: GuildFarmType = GuildFarmType.DUMMY,
+    farmType: GuildFarmType = GuildFarmType.LOGO_SHOWING,
     autoJoin: Boolean = true,
 ): Guild {
     return Guild(

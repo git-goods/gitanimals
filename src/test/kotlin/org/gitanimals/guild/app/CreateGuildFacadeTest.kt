@@ -111,7 +111,7 @@ internal class CreateGuildFacadeTest(
             body = "We are gitanimals",
             guildIcon = GuildIcons.CAT.getImagePath(),
             autoJoin = true,
-            farmType = GuildFarmType.DUMMY,
+            farmType = GuildFarmType.LOGO_SHOWING,
             personaId = "3",
         )
 

@@ -6,6 +6,9 @@ import java.nio.charset.Charset
 val dummyGuildFieldSvg: String = ClassPathResource("persona/field/white-field.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val logoShowingFieldSvg: String = ClassPathResource("persona/field/logo-showing.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val largeTextSvgs = lazy {
     val map = mutableMapOf<String, String>()
     for (i in 'A'..'Z') {
