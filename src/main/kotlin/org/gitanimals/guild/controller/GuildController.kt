@@ -3,10 +3,8 @@ package org.gitanimals.guild.controller
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.controller.request.JoinGuildRequest
-import org.gitanimals.guild.controller.response.GuildIconsResponse
-import org.gitanimals.guild.controller.response.GuildPagingResponse
-import org.gitanimals.guild.controller.response.GuildResponse
-import org.gitanimals.guild.controller.response.GuildsResponse
+import org.gitanimals.guild.controller.response.*
+import org.gitanimals.guild.domain.GuildFarmType
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.SearchFilter
@@ -118,6 +116,12 @@ class GuildController(
         return GuildIconsResponse(
             GuildIcons.entries.map { it.getImagePath() }.toList()
         )
+    }
+
+    @GetMapping("/guilds/backgrounds")
+    @ResponseStatus(HttpStatus.OK)
+    fun findAllGuildBackgrounds(): GuildBackgroundResponse {
+        return GuildBackgroundResponse(GuildFarmType.entries)
     }
 
     @PostMapping("/guilds/{guildId}/personas")
