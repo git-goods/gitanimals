@@ -32,7 +32,7 @@ internal class GuildServiceTest(
             val guildIcon = GuildIcons.CAT.getImagePath()
             val title = "guildTitle"
             val body = "guildBody"
-            val farmType = GuildFarmType.DUMMY
+            val farmType = GuildFarmType.LOGO_SHOWING
             val leaderRequest = CreateLeaderRequest(
                 userId = 1L,
                 name = "devxb",
