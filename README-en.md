@@ -4,7 +4,7 @@
 
 <div align="center">
 
-**English** | [한국어](README.md) | [简体中文](README-zhcn.md)
+**English** | [한국어](README.md) | [简体中文](README-zhcn.md) | [日本語](README-ja.md)
 
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
 </div>
