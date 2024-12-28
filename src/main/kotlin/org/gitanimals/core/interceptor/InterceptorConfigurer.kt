@@ -1,4 +1,4 @@
-package org.gitanimals.render.controller.interceptor
+package org.gitanimals.core.interceptor
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean

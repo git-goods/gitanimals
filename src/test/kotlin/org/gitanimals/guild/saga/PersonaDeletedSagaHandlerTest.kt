@@ -5,6 +5,7 @@ import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.every
+import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.app.RenderApi
 import org.gitanimals.guild.domain.*
 import org.gitanimals.guild.saga.event.PersonaDeleted
@@ -60,7 +61,7 @@ internal class PersonaDeletedSagaHandlerTest(
                 memberName = memberName,
                 memberPersonaId = memberPersonaId,
                 memberContributions = 100L,
-                memberPersonaType = "GOOSE",
+                memberPersonaType = PersonaType.GOOSE,
             )
             guild = guildRepository.save(guild)
 
@@ -85,7 +86,7 @@ internal class PersonaDeletedSagaHandlerTest(
                     RenderApi.UserResponse.PersonaResponse(
                         changePersonaId.toString(),
                         "10",
-                        "GOOSE",
+                        PersonaType.GOOSE,
                     )
                 )
             )
@@ -98,7 +99,7 @@ internal class PersonaDeletedSagaHandlerTest(
                     RenderApi.UserResponse.PersonaResponse(
                         changePersonaId.toString(),
                         "10",
-                        "GOOSE",
+                        PersonaType.GOOSE,
                     )
                 )
             )

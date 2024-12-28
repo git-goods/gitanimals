@@ -1,12 +1,21 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.PersonaType
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.service.annotation.GetExchange
 
-fun interface RenderApi {
+interface RenderApi {
 
     @GetExchange("/users/{username}")
     fun getUserByName(@PathVariable("username") username: String): UserResponse
+
+    @GetExchange("/internals/personas/all")
+    fun getAllPersonasByUserIdsAndPersonaIds(
+        @RequestHeader(INTERNAL_SECRET_KEY) internalSecret: String,
+        @RequestBody userIdAndPersonaIdRequests: List<UserIdAndPersonaIdRequest>,
+    ): List<UserResponse>
 
     data class UserResponse(
         val id: String,
@@ -18,7 +27,16 @@ fun interface RenderApi {
         data class PersonaResponse(
             val id: String,
             val level: String,
-            val type: String,
+            val type: PersonaType,
         )
+    }
+
+    data class UserIdAndPersonaIdRequest(
+        val userId: Long,
+        val personaId: Long,
+    )
+
+    private companion object {
+        private const val INTERNAL_SECRET_KEY = "Internal-Secret"
     }
 }

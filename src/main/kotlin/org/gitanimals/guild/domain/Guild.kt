@@ -4,6 +4,7 @@ import jakarta.persistence.*
 import org.gitanimals.core.AggregateRoot
 import org.gitanimals.core.FieldType
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.hibernate.annotations.BatchSize
@@ -73,7 +74,7 @@ class Guild(
         memberName: String,
         memberPersonaId: Long,
         memberContributions: Long,
-        memberPersonaType: String,
+        memberPersonaType: PersonaType,
     ) {
         require(leader.userId != memberUserId) {
             "Leader cannot join their own guild leaderId: \"${leader.userId}\", memberUserId: \"$memberUserId\""
@@ -156,7 +157,7 @@ class Guild(
         userId: Long,
         deletedPersonaId: Long,
         changePersonaId: Long,
-        changePersonaType: String,
+        changePersonaType: PersonaType,
     ) {
         if (leader.userId == userId) {
             if (leader.personaId == deletedPersonaId) {
@@ -185,11 +186,11 @@ class Guild(
         return leader.personaId
     }
 
-    fun getLeaderPersonaType(): String {
+    fun getLeaderPersonaType(): PersonaType {
         return leader.personaType
     }
 
-    fun changeMainPersona(userId: Long, personaId: Long, personaType: String) {
+    fun changeMainPersona(userId: Long, personaId: Long, personaType: PersonaType) {
         if (leader.userId == userId) {
             leader.personaId = personaId
             leader.personaType = personaType

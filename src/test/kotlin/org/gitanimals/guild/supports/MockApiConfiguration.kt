@@ -4,6 +4,7 @@ import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
+import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.app.IdentityApi
 import org.gitanimals.guild.app.RenderApi
 import org.springframework.boot.test.context.TestConfiguration
@@ -42,12 +43,12 @@ class MockApiConfiguration {
                 RenderApi.UserResponse.PersonaResponse(
                     id = "3",
                     level = "99",
-                    type = "GOOSE",
+                    type = PersonaType.GOOSE,
                 ),
                 RenderApi.UserResponse.PersonaResponse(
                     id = "4",
                     level = "98",
-                    type = "GOOSE",
+                    type = PersonaType.GOOSE,
                 ),
             )
         )

@@ -1,6 +1,7 @@
 package org.gitanimals.guild.domain
 
 import org.gitanimals.core.FieldType
+import org.gitanimals.core.PersonaType
 
 fun guild(
     id: Long = 1L,
@@ -31,7 +32,7 @@ fun leader(
     name: String = "Default Leader",
     personaId: Long = 1L,
     contributions: Long = 0L,
-    personaType: String = "GOOSE",
+    personaType: PersonaType = PersonaType.GOOSE,
 ): Leader {
     return Leader(
         userId = userId,
@@ -48,7 +49,7 @@ fun member(
     name: String = "DefaultName",
     personaId: Long = 200L,
     contributions: Long = 500L,
-    personaType: String = "GOOSE",
+    personaType: PersonaType = PersonaType.GOOSE,
 ): Member {
     return Member.create(
         guild = guild,

@@ -1989,7 +1989,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         loadSvg(name, animationId, level, mode)
             .drawContribution(mode, contributionCount)
 
-    abstract fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String
+    protected abstract fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String
 
     protected abstract fun act(id: Long, flippedWidth: Double = 0.0): String
 
