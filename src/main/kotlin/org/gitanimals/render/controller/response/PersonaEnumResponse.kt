@@ -1,6 +1,6 @@
 package org.gitanimals.render.controller.response
 
-import org.gitanimals.render.domain.PersonaType
+import org.gitanimals.core.PersonaType
 
 data class PersonaEnumResponse(
     val type: PersonaType,

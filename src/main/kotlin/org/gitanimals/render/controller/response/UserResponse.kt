@@ -26,5 +26,24 @@ data class UserResponse(
                 }.toList()
             )
         }
+
+        fun fromWithSpecificPersona(user: User, personaId: List<Long>): UserResponse {
+            return UserResponse(
+                user.id.toString(),
+                user.name,
+                user.contributionCount().toString(),
+                user.personas.filter {
+                    it.id in personaId
+                }.map {
+                    PersonaResponse(
+                        it.id.toString(),
+                        it.type,
+                        it.level().toString(),
+                        it.visible,
+                        it.type.getDropRate()
+                    )
+                }.toList()
+            )
+        }
     }
 }

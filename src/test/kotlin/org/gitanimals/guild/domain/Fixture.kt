@@ -1,5 +1,8 @@
 package org.gitanimals.guild.domain
 
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.PersonaType
+
 fun guild(
     id: Long = 1L,
     guildIcon: String = "default_icon.png",
@@ -8,7 +11,7 @@ fun guild(
     leader: Leader = leader(),
     members: MutableSet<Member> = mutableSetOf(),
     waitMembers: MutableSet<WaitMember> = mutableSetOf(),
-    farmType: GuildFarmType = GuildFarmType.LOGO_SHOWING,
+    farmType: FieldType = FieldType.LOGO_SHOWING,
     autoJoin: Boolean = true,
 ): Guild {
     return Guild(
@@ -29,7 +32,7 @@ fun leader(
     name: String = "Default Leader",
     personaId: Long = 1L,
     contributions: Long = 0L,
-    personaType: String = "GOOSE",
+    personaType: PersonaType = PersonaType.GOOSE,
 ): Leader {
     return Leader(
         userId = userId,
@@ -46,7 +49,7 @@ fun member(
     name: String = "DefaultName",
     personaId: Long = 200L,
     contributions: Long = 500L,
-    personaType: String = "GOOSE",
+    personaType: PersonaType = PersonaType.GOOSE,
 ): Member {
     return Member.create(
         guild = guild,

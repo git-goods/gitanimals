@@ -1,6 +1,6 @@
 package org.gitanimals.render.controller.response
 
-import org.gitanimals.render.domain.FieldType
+import org.gitanimals.core.FieldType
 import org.gitanimals.render.domain.User
 
 data class BackgroundResponse(

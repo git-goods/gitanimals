@@ -1,4 +1,4 @@
-package org.gitanimals.render.core
+package org.gitanimals.core
 
 import com.github.f4b6a3.tsid.TsidFactory
 

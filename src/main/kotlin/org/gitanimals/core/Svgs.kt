@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain
+package org.gitanimals.core
 
 import org.springframework.core.io.ClassPathResource
 import java.nio.charset.Charset
@@ -37,6 +37,12 @@ val grassChristmasTreeFieldSvg: String =
 val grassChristmasTreeBackgroundSvg: String =
     ClassPathResource("persona/field/grass-christmastree-background.svg")
         .getContentAsString(Charset.defaultCharset())
+
+val dummyGuildFieldSvg: String = ClassPathResource("persona/field/white-field.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val logoShowingFieldSvg: String = ClassPathResource("persona/field/logo-showing.svg")
+    .getContentAsString(Charset.defaultCharset())
 
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())

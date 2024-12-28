@@ -1,7 +1,8 @@
 package org.gitanimals.guild.domain
 
 import jakarta.persistence.*
-import org.gitanimals.guild.core.IdGenerator
+import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.PersonaType
 
 @Entity
 @Table(
@@ -27,8 +28,9 @@ class WaitMember(
     @Column(name = "persona_id", nullable = false)
     var personaId: Long,
 
-    @Column(name = "persona_type", nullable = false)
-    var personaType: String,
+    @Enumerated(EnumType.STRING)
+    @Column(name = "persona_type", nullable = false, columnDefinition = "VARCHAR(255)")
+    var personaType: PersonaType,
 
     @Column(name = "contributions", nullable = false)
     private var contributions: Long,
@@ -66,7 +68,7 @@ class WaitMember(
             userId: Long,
             name: String,
             personaId: Long,
-            personaType: String,
+            personaType: PersonaType,
             contributions: Long,
         ): WaitMember {
             return WaitMember(

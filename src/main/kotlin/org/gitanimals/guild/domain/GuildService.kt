@@ -1,5 +1,7 @@
 package org.gitanimals.guild.domain
 
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.hibernate.Hibernate
@@ -22,7 +24,7 @@ class GuildService(
         guildIcon: String,
         title: String,
         body: String,
-        farmType: GuildFarmType,
+        farmType: FieldType,
         autoJoin: Boolean,
         createLeaderRequest: CreateLeaderRequest,
     ) {
@@ -51,7 +53,7 @@ class GuildService(
         memberUserId: Long,
         memberName: String,
         memberPersonaId: Long,
-        memberPersonaType: String,
+        memberPersonaType: PersonaType,
         memberContributions: Long,
     ) {
         val guild = getGuildById(guildId)
@@ -103,7 +105,7 @@ class GuildService(
 
     @Transactional
     @Retryable(ObjectOptimisticLockingFailureException::class)
-    fun changeMainPersona(guildId: Long, userId: Long, personaId: Long, personaType: String) {
+    fun changeMainPersona(guildId: Long, userId: Long, personaId: Long, personaType: PersonaType) {
         val guild = getGuildById(guildId)
 
         guild.changeMainPersona(userId, personaId, personaType)
@@ -163,7 +165,7 @@ class GuildService(
         userId: Long,
         deletedPersonaId: Long,
         changePersonaId: Long,
-        changePersonaType: String,
+        changePersonaType: PersonaType,
     ) {
         val guilds = guildRepository.findAllGuildByUserIdWithMembers(userId)
 

@@ -1,4 +1,4 @@
-package org.gitanimals.guild.core
+package org.gitanimals.core
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)

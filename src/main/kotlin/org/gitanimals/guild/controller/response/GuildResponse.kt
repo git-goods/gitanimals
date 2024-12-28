@@ -1,6 +1,7 @@
 package org.gitanimals.guild.controller.response
 
 import com.fasterxml.jackson.annotation.JsonFormat
+import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.domain.Guild
 import java.time.Instant
 
@@ -26,7 +27,7 @@ data class GuildResponse(
         val name: String,
         val contributions: String,
         val personaId: String,
-        val personaType: String,
+        val personaType: PersonaType,
     )
 
     data class Member(
@@ -35,7 +36,7 @@ data class GuildResponse(
         val name: String,
         val contributions: String,
         val personaId: String,
-        val personaType: String,
+        val personaType: PersonaType,
     )
 
     data class WaitMember(
@@ -44,7 +45,7 @@ data class GuildResponse(
         val name: String,
         val contributions: String,
         val personaId: String,
-        val personaType: String,
+        val personaType: PersonaType,
     )
 
     companion object {

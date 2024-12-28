@@ -6,7 +6,7 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.should
-import org.gitanimals.render.domain.PersonaType
+import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.UserRepository
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.user

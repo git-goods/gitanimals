@@ -5,6 +5,8 @@ import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
 import org.gitanimals.guild.domain.GuildService.Companion.loadWaitMembers
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
@@ -32,13 +34,13 @@ internal class GuildServiceTest(
             val guildIcon = GuildIcons.CAT.getImagePath()
             val title = "guildTitle"
             val body = "guildBody"
-            val farmType = GuildFarmType.LOGO_SHOWING
+            val farmType = FieldType.LOGO_SHOWING
             val leaderRequest = CreateLeaderRequest(
                 userId = 1L,
                 name = "devxb",
                 personaId = 2L,
                 contributions = 3L,
-                personaType = "GOOSE",
+                personaType = PersonaType.GOOSE,
             )
 
             it("중복된 길드가 아니라면 길드를 생성한다.") {
@@ -95,7 +97,7 @@ internal class GuildServiceTest(
                     memberName = memberName,
                     memberPersonaId = memberPersonaId,
                     memberContributions = memberContributions,
-                    memberPersonaType = "GOOSE",
+                    memberPersonaType = PersonaType.GOOSE,
                 )
 
                 guildService.getGuildById(guild.id, loadMembers).getMembers().size shouldBe 1
@@ -117,7 +119,7 @@ internal class GuildServiceTest(
                     memberName = memberName,
                     memberPersonaId = memberPersonaId,
                     memberContributions = memberContributions,
-                    memberPersonaType = "GOOSE",
+                    memberPersonaType = PersonaType.GOOSE,
                 )
 
                 guildService.getGuildById(guild.id, loadWaitMembers)
@@ -140,7 +142,7 @@ internal class GuildServiceTest(
                         memberName = memberName,
                         memberPersonaId = memberPersonaId,
                         memberContributions = memberContributions,
-                        memberPersonaType = "GOOSE",
+                        memberPersonaType = PersonaType.GOOSE,
                     )
                 }
             }
@@ -161,7 +163,7 @@ internal class GuildServiceTest(
                 memberName = memberName,
                 memberPersonaId = memberPersonaId,
                 memberContributions = memberContributions,
-                memberPersonaType = "GOOSE",
+                memberPersonaType = PersonaType.GOOSE,
             )
 
             it("멤버를 가입시킨다.") {

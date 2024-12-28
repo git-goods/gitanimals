@@ -1,8 +1,11 @@
 package org.gitanimals.guild.domain
 
 import jakarta.persistence.*
-import org.gitanimals.guild.core.AggregateRoot
-import org.gitanimals.guild.core.IdGenerator
+import org.gitanimals.core.AggregateRoot
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.PersonaType
+import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.hibernate.annotations.BatchSize
 
@@ -33,7 +36,7 @@ class Guild(
 
     @Enumerated(EnumType.STRING)
     @Column(name = "farm_type", nullable = false, columnDefinition = "TEXT")
-    private var farmType: GuildFarmType,
+    private var farmType: FieldType,
 
     @Column(name = "auto_join", nullable = false)
     private var autoJoin: Boolean,
@@ -71,7 +74,7 @@ class Guild(
         memberName: String,
         memberPersonaId: Long,
         memberContributions: Long,
-        memberPersonaType: String,
+        memberPersonaType: PersonaType,
     ) {
         require(leader.userId != memberUserId) {
             "Leader cannot join their own guild leaderId: \"${leader.userId}\", memberUserId: \"$memberUserId\""
@@ -136,7 +139,7 @@ class Guild(
 
     fun getContributions(): Long = leader.contributions
 
-    fun getGuildFarmType(): GuildFarmType = farmType
+    fun getGuildFarmType(): FieldType = farmType
 
     fun getTotalContributions(): Long {
         return leader.contributions + members.sumOf { it.getContributions() }
@@ -154,7 +157,7 @@ class Guild(
         userId: Long,
         deletedPersonaId: Long,
         changePersonaId: Long,
-        changePersonaType: String,
+        changePersonaType: PersonaType,
     ) {
         if (leader.userId == userId) {
             if (leader.personaId == deletedPersonaId) {
@@ -183,11 +186,11 @@ class Guild(
         return leader.personaId
     }
 
-    fun getLeaderPersonaType(): String {
+    fun getLeaderPersonaType(): PersonaType {
         return leader.personaType
     }
 
-    fun changeMainPersona(userId: Long, personaId: Long, personaType: String) {
+    fun changeMainPersona(userId: Long, personaId: Long, personaType: PersonaType) {
         if (leader.userId == userId) {
             leader.personaId = personaId
             leader.personaType = personaType
@@ -218,9 +221,13 @@ class Guild(
             body: String,
             leader: Leader,
             members: MutableSet<Member> = mutableSetOf(),
-            farmType: GuildFarmType,
+            farmType: FieldType,
             autoJoin: Boolean,
         ): Guild {
+            require(farmType.isGuildField()) {
+                "Cannot create guild cause \"$farmType\" is not guild field."
+            }
+
             GuildIcons.requireExistImagePath(guildIcon)
 
             return Guild(

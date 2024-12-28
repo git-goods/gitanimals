@@ -4,7 +4,7 @@ import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.ChangeFieldRequest
 import org.gitanimals.render.controller.response.BackgroundResponse
 import org.gitanimals.render.controller.response.ErrorResponse
-import org.gitanimals.render.domain.FieldType
+import org.gitanimals.core.FieldType
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.UserService.Companion.loadField
 import org.springframework.http.HttpHeaders

@@ -1,5 +1,8 @@
 package org.gitanimals.render.domain
 
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.Mode
+import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.hibernate.Hibernate

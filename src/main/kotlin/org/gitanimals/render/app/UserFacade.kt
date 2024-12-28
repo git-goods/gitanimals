@@ -1,7 +1,7 @@
 package org.gitanimals.render.app
 
 import org.gitanimals.render.app.request.MergePersonaRequest
-import org.gitanimals.render.domain.FieldType
+import org.gitanimals.core.FieldType
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.gitanimals.render.domain.response.PersonaResponse

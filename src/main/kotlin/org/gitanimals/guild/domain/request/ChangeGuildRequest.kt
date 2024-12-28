@@ -1,11 +1,11 @@
 package org.gitanimals.guild.domain.request
 
-import org.gitanimals.guild.domain.GuildFarmType
+import org.gitanimals.core.FieldType
 
 data class ChangeGuildRequest(
     val title: String,
     val body: String,
-    val farmType: GuildFarmType,
+    val farmType: FieldType,
     val guildIcon: String,
     val autoJoin: Boolean,
 )

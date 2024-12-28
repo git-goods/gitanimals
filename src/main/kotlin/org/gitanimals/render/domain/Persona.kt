@@ -2,7 +2,9 @@ package org.gitanimals.render.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
-import org.gitanimals.render.core.IdGenerator
+import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.Mode
+import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.value.Level
 
 @Table(name = "persona")
@@ -52,13 +54,26 @@ class Persona(
     )
 
 
-    fun toSvgForce(mode: Mode): String = type.load(user!!, this, mode)
+    fun toSvgForce(mode: Mode): String = type.load(
+        name = user!!.name,
+        contributionCount = user!!.contributionCount(),
+        animationId = this.id,
+        level = this.level(),
+        mode = mode,
+    )
 
     fun toSvg(mode: Mode): String {
         if (!visible) {
             return ""
         }
-        return type.load(user!!, this, mode)
+        
+        return type.load(
+            name = user!!.name,
+            contributionCount = user!!.contributionCount(),
+            animationId = this.id,
+            level = this.level(),
+            mode = mode,
+        )
     }
 
     fun level(): Long = level.value
