@@ -1,6 +1,6 @@
 package org.gitanimals.guild.app.event
 
-import org.gitanimals.guild.core.clock
+import org.gitanimals.core.clock
 import java.time.Instant
 
 data class InboxInputEvent(

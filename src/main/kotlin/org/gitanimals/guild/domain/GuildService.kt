@@ -1,5 +1,6 @@
 package org.gitanimals.guild.domain
 
+import org.gitanimals.core.FieldType
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.hibernate.Hibernate
@@ -22,7 +23,7 @@ class GuildService(
         guildIcon: String,
         title: String,
         body: String,
-        farmType: GuildFarmType,
+        farmType: FieldType,
         autoJoin: Boolean,
         createLeaderRequest: CreateLeaderRequest,
     ) {

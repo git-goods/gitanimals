@@ -1,8 +1,10 @@
 package org.gitanimals.guild.domain
 
 import jakarta.persistence.*
-import org.gitanimals.guild.core.AggregateRoot
-import org.gitanimals.guild.core.IdGenerator
+import org.gitanimals.core.AggregateRoot
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.IdGenerator
+import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.hibernate.annotations.BatchSize
 
@@ -33,7 +35,7 @@ class Guild(
 
     @Enumerated(EnumType.STRING)
     @Column(name = "farm_type", nullable = false, columnDefinition = "TEXT")
-    private var farmType: GuildFarmType,
+    private var farmType: FieldType,
 
     @Column(name = "auto_join", nullable = false)
     private var autoJoin: Boolean,
@@ -136,7 +138,7 @@ class Guild(
 
     fun getContributions(): Long = leader.contributions
 
-    fun getGuildFarmType(): GuildFarmType = farmType
+    fun getGuildFarmType(): FieldType = farmType
 
     fun getTotalContributions(): Long {
         return leader.contributions + members.sumOf { it.getContributions() }
@@ -218,9 +220,13 @@ class Guild(
             body: String,
             leader: Leader,
             members: MutableSet<Member> = mutableSetOf(),
-            farmType: GuildFarmType,
+            farmType: FieldType,
             autoJoin: Boolean,
         ): Guild {
+            require(farmType.isGuildField()) {
+                "Cannot create guild cause \"$farmType\" is not guild field."
+            }
+
             GuildIcons.requireExistImagePath(guildIcon)
 
             return Guild(

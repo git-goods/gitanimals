@@ -1,4 +1,4 @@
-package org.gitanimals.guild.core
+package org.gitanimals.core
 
 import java.time.Clock
 import java.time.Instant

@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain
+package org.gitanimals.core
 
 enum class Mode {
     FARM,

@@ -2,7 +2,7 @@ package org.gitanimals.render.controller
 
 import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.render.app.AnimationFacade
-import org.gitanimals.render.domain.Mode
+import org.gitanimals.core.Mode
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

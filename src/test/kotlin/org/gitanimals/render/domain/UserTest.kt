@@ -6,6 +6,7 @@ import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
+import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.event.PersonaDeleted
 import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import org.gitanimals.render.domain.value.Contribution

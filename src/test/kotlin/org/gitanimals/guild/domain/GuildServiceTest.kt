@@ -5,6 +5,7 @@ import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
+import org.gitanimals.core.FieldType
 import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
 import org.gitanimals.guild.domain.GuildService.Companion.loadWaitMembers
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
@@ -32,7 +33,7 @@ internal class GuildServiceTest(
             val guildIcon = GuildIcons.CAT.getImagePath()
             val title = "guildTitle"
             val body = "guildBody"
-            val farmType = GuildFarmType.LOGO_SHOWING
+            val farmType = FieldType.LOGO_SHOWING
             val leaderRequest = CreateLeaderRequest(
                 userId = 1L,
                 name = "devxb",

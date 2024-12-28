@@ -1,7 +1,7 @@
 package org.gitanimals.render.app
 
-import org.gitanimals.guild.domain.GuildFarmType
-import org.gitanimals.render.domain.Mode
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.Mode
 import org.gitanimals.render.domain.UserService
 import org.springframework.stereotype.Service
 
@@ -13,14 +13,14 @@ class DrawGuildFacade(
     fun drawGuild(
         title: String,
         totalContributions: Long,
-        guildFarmType: GuildFarmType,
+        fieldType: FieldType,
         userIds: List<Long>,
         personaIds: List<Long>,
     ): String {
         val users = userService.findAllUsersByIdWithContributions(userIds.toSet())
 
         val svgBuilder = StringBuilder().openGuild()
-            .append(guildFarmType.fillBackground())
+            .append(fieldType.fillBackground())
 
         val personaSvgs = users.flatMap { user ->
             user.personas.filter { persona ->
@@ -32,8 +32,8 @@ class DrawGuildFacade(
 
         personaSvgs.forEach { svgBuilder.append(it) }
 
-        return svgBuilder.append(guildFarmType.loadComponent(title, totalContributions))
-            .append(guildFarmType.drawBorder())
+        return svgBuilder.append(fieldType.loadComponent(title, totalContributions))
+            .append(fieldType.drawBorder())
             .closeGuild()
     }
 

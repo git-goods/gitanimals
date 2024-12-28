@@ -9,8 +9,8 @@ import org.gitanimals.render.controller.response.ErrorResponse
 import org.gitanimals.render.controller.response.PersonaEnumResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
-import org.gitanimals.render.core.IdGenerator
-import org.gitanimals.render.domain.PersonaType
+import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.request.PersonaChangeRequest
 import org.springframework.http.HttpHeaders

@@ -1,7 +1,7 @@
 package org.gitanimals.guild.domain
 
 import jakarta.persistence.*
-import org.gitanimals.guild.core.IdGenerator
+import org.gitanimals.core.IdGenerator
 
 @Entity
 @Table(

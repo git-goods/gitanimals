@@ -2,9 +2,9 @@ package org.gitanimals.render.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
-import org.gitanimals.render.core.AggregateRoot
-import org.gitanimals.render.core.IdGenerator
+import org.gitanimals.core.*
 import org.gitanimals.render.domain.event.PersonaDeleted
+import org.gitanimals.render.domain.extension.RenderFieldTypeExtension.isRenderField
 import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
@@ -233,6 +233,9 @@ class User(
     }
 
     fun addField(fieldType: FieldType) {
+        require(fieldType.isRenderField()) {
+            "Cannot add field cause \"$fieldType\" is not render field."
+        }
         require(fields.any { it.fieldType == fieldType }.not()) {
             "Duplicated add field request."
         }

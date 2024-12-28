@@ -7,8 +7,8 @@ import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.mockk.every
+import org.gitanimals.core.FieldType
 import org.gitanimals.guild.app.request.CreateGuildRequest
-import org.gitanimals.guild.domain.GuildFarmType
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildRepository
 import org.gitanimals.guild.domain.GuildService
@@ -111,7 +111,7 @@ internal class CreateGuildFacadeTest(
             body = "We are gitanimals",
             guildIcon = GuildIcons.CAT.getImagePath(),
             autoJoin = true,
-            farmType = GuildFarmType.LOGO_SHOWING,
+            farmType = FieldType.LOGO_SHOWING,
             personaId = "3",
         )
 

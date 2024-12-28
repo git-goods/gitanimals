@@ -1,6 +1,6 @@
 package org.gitanimals.render.domain
 
-import org.gitanimals.render.core.IdGenerator
+import org.gitanimals.core.IdGenerator
 import org.gitanimals.render.domain.value.Contribution
 
 fun user(

@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain
+package org.gitanimals.core
 
 import java.text.DecimalFormat
 import kotlin.math.atan2
@@ -8,19 +8,19 @@ import kotlin.random.Random
 
 enum class PersonaType(val weight: Double, private var dropRate: String? = null) {
     GOOSE(1.0) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -34,19 +34,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_SUNGLASSES(0.05) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseSunglassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -60,19 +60,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_KOTLIN(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseKotlinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseKotlinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -86,19 +86,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_JAVA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseJavaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseJavaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -112,19 +112,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_JS(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseJsSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseJsSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -138,19 +138,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_NODE(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseNodeSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseNodeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -164,19 +164,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_SWIFT(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseSwiftSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseSwiftSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -190,14 +190,14 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_LINUX(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseLinuxSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseLinuxSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
 
             return StringBuilder()
@@ -211,19 +211,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOOSE_SPRING(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val goose = gooseSpringSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val goose = gooseSpringSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -237,19 +237,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK(0.9) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -263,19 +263,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_SUNGLASSES(0.4) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickSunglassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -289,19 +289,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_KOTLIN(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickKotlinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickKotlinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -315,19 +315,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_JAVA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickJavaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickJavaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -341,19 +341,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_JS(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickJsSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickJsSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -367,19 +367,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_NODE(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickNodeSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickNodeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -393,19 +393,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_SWIFT(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickSwiftSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickSwiftSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -419,19 +419,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_LINUX(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickLinuxSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickLinuxSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -445,19 +445,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     LITTLE_CHICK_SPRING(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickSpringSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickSpringSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -470,19 +470,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .toString()
     },
     LITTLE_CHICK_SANTA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            val littleChick = littleChickSantaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickSantaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
 
             return StringBuilder()
@@ -496,19 +496,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN(0.5) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -518,19 +518,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_SUNGLASSES(0.2) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinSunglassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -540,19 +540,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_KOTLIN(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinKotlinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinKotlinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -562,19 +562,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_JAVA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinJavaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinJavaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -584,19 +584,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_JS(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinJsSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinJsSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -606,19 +606,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_NODE(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinNodeSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinNodeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -628,19 +628,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_SWIFT(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinSwiftSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinSwiftSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -650,19 +650,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_LINUX(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinLinuxSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinLinuxSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -672,19 +672,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PENGUIN_SPRING(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return penguinSpringSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return penguinSpringSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-4 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-4 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (20 + (-3 * user.name.length)).toString()
+                    (20 + (-3 * name.length)).toString()
                 )
         }
 
@@ -694,19 +694,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG(0.2) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -716,19 +716,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_SUNGLASSES(0.08) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigSunglassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -738,19 +738,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_KOTLIN(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigKotlinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigKotlinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -760,19 +760,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_JAVA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigJavaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigJavaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -782,19 +782,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_JS(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigJsSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigJsSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -804,19 +804,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_NODE(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigNodeSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigNodeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -826,19 +826,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_SWIFT(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigSwiftSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigSwiftSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -848,19 +848,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_LINUX(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigLinuxSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigLinuxSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -870,19 +870,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_SPRING(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigSpringSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigSpringSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -892,19 +892,19 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     PIG_COLLABORATOR(0.0) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return pigCollaboratorSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (56 + (-3 * user.name.length)).toString()
+                    (56 + (-3 * name.length)).toString()
                 )
         }
 
@@ -914,18 +914,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED(0.1) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -935,18 +935,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED_KOTLIN(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedKotlinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedKotlinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -956,18 +956,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED_JAVA(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedJavaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedJavaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -977,18 +977,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED_JS(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedJsSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedJsSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -998,18 +998,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED_NODE(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedNodeSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedNodeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1019,18 +1019,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED_SWIFT(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedSwiftSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedSwiftSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1040,18 +1040,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_RED_LINUX(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeRedLinuxSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeRedLinuxSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1061,23 +1061,23 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_BLUE(0.1) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeBlueSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeBlueSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1087,18 +1087,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     SLIME_GREEN(0.1) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimeGreenSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeGreenSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1108,18 +1108,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     FLAMINGO(0.05) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return flamingoSvg.replace("*{position}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return flamingoSvg.replace("*{position}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 * (persona.level.value.toString().length)).toString()
+                    (-1 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (32 + (-3 * user.name.length)).toString()
+                    (32 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1132,18 +1132,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     TEN_MM(0.000) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return tenmmSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return tenmmSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-2 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-2 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (26 + (-3 * user.name.length)).toString()
+                    (26 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1153,18 +1153,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOBLIN(0.06) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return goblinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return goblinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6.5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6.5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (13 + (-3 * user.name.length)).toString()
+                    (13 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1174,18 +1174,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GOBLIN_BAG(0.03) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return goblinBagSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return goblinBagSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6.5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6.5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (13 + (-3 * user.name.length)).toString()
+                    (13 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1195,18 +1195,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     BBIBBI(0.000) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return bbibbiSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return bbibbiSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1.5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-1.5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (27 + (-3 * user.name.length)).toString()
+                    (27 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1216,18 +1216,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     CAT(0.1) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return catSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return catSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1237,18 +1237,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     CHEESE_CAT(0.04) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return cheeseCatSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return cheeseCatSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1258,18 +1258,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     CHEESE_CAT_COLLABORATOR(0.0) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return cheeseCatCollaboratorSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return cheeseCatCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1279,18 +1279,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     GALCHI_CAT(0.06) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return galchiCatSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return galchiCatSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1300,18 +1300,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     WHITE_CAT(0.04) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return whiteCatSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return whiteCatSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1321,18 +1321,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     WHITE_CAT_COLLABORATOR(0.00) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return whiteCatCollaboratorSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return whiteCatCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1342,18 +1342,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
     },
 
     FISH_MAN(0.002) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return fishManSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return fishManSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1362,18 +1362,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     FISH_MAN_GLASSES(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return fishManGlassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return fishManGlassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1382,18 +1382,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     QUOKKA(0.3) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return quokkaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return quokkaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-9 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (6 + (-3 * user.name.length)).toString()
+                    (6 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1402,18 +1402,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     QUOKKA_LEAF(0.1) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return quokkaLeafSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return quokkaLeafSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-9 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (6 + (-3 * user.name.length)).toString()
+                    (6 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1422,18 +1422,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     QUOKKA_SUNGLASSES(0.05) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return quokkaSunglassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return quokkaSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-9 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (6 + (-3 * user.name.length)).toString()
+                    (6 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1442,18 +1442,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     MOLE(0.3) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return moleSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return moleSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (8.5 + (-3 * user.name.length)).toString()
+                    (8.5 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1462,18 +1462,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     MOLE_GRASS(0.1) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return moleGrassSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return moleGrassSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-8 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-8 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (8.5 + (-3 * user.name.length)).toString()
+                    (8.5 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1482,18 +1482,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     RABBIT(0.9) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return rabbitSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return rabbitSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-9 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (6 + (-3 * user.name.length)).toString()
+                    (6 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1502,18 +1502,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     RABBIT_BROWN_RUDOLPH(0.007) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return rabbitBrownRudolphSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return rabbitBrownRudolphSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-9 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (6 + (-3 * user.name.length)).toString()
+                    (6 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1522,18 +1522,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     RABBIT_COLLABORATOR(0.0) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return rabbitCollaboratorSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return rabbitCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-9 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-9 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (6 + (-3 * user.name.length)).toString()
+                    (6 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1542,18 +1542,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     DESSERT_FOX(0.05) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return dessertFoxSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return dessertFoxSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-3 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-3 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (23 + (-3 * user.name.length)).toString()
+                    (23 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1562,18 +1562,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     DESSERT_FOX_COLLABORATOR(0.0) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return dessertFoxCollaboratorSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return dessertFoxCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-3 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-3 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (23 + (-3 * user.name.length)).toString()
+                    (23 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1582,18 +1582,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     DESSERT_FOX_RUDOLPH(0.005) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return dessertFoxRudolphSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return dessertFoxRudolphSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-3 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-3 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (23 + (-3 * user.name.length)).toString()
+                    (23 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1602,18 +1602,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SLOTH(0.7) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slothSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slothSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1622,18 +1622,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SLOTH_KING(0.05) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slothKingSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slothKingSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1642,18 +1642,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SLOTH_SUNGLASSES(0.06) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slothSunglassesSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slothSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1662,18 +1662,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     TURTLE(0.03) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return turtleSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return turtleSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-1 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (29 + (-3 * user.name.length)).toString()
+                    (29 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1682,18 +1682,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     GHOST(0.05) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return ghostSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return ghostSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1.8 * (persona.level.value.toString().length)).toString()
+                    (-1.8 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (23 + (-3 * user.name.length)).toString()
+                    (23 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1702,18 +1702,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .toString()
     },
     GHOST_KING(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return ghostKingSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return ghostKingSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-1.8 * (persona.level.value.toString().length)).toString()
+                    (-1.8 * (level.toString().length)).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (23 + (-3 * user.name.length)).toString()
+                    (23 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1722,18 +1722,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .toString()
     },
     SCREAM(0.005) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return screamSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return screamSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1742,18 +1742,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SCREAM_GHOST(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return screamGhostSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return screamGhostSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1762,18 +1762,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SLIME_PUMPKIN_1(0.08) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimePumpkin1Svg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimePumpkin1Svg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1782,18 +1782,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SLIME_PUMPKIN_2(0.08) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return slimePumpkin2Svg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimePumpkin2Svg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1802,18 +1802,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     HAMSTER(0.8) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return hamsterSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return hamsterSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1822,18 +1822,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     HAMSTER_SPRING(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return hamsterSpringSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return hamsterSpringSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1842,18 +1842,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     HAMSTER_JAVA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return hamsterJavaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return hamsterJavaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1862,18 +1862,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     HAMSTER_KOTLIN(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return hamsterKotlinSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return hamsterKotlinSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1882,18 +1882,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     HAMSTER_JS(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return hamsterJsSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return hamsterJsSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1902,18 +1902,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     HAMSTER_SANTA(0.01) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return hamsterSantaSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return hamsterSantaSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1922,18 +1922,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SNOWMAN(0.005) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return snowmanSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return snowmanSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-6 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-6 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (15 + (-3 * user.name.length)).toString()
+                    (15 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1942,18 +1942,18 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
     SNOWMAN_MELT(0.001) {
-        override fun loadSvg(user: User, persona: Persona, mode: Mode): String {
-            return snowmanMeltSvg.replace("*{act}", act(persona.id))
-                .replace("*{id}", persona.id.toString())
-                .replace("*{level}", persona.level.value.toSvg(14.0, 2.0))
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return snowmanMeltSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
                     "*{levelx}",
-                    (-5 + (-1 * (persona.level.value.toString().length))).toString()
+                    (-5 + (-1 * (level.toString().length))).toString()
                 )
-                .replace("*{username}", user.name.toSvg(14.0, 25.0))
+                .replace("*{username}", name.toSvg(14.0, 25.0))
                 .replace(
                     "*{usernamex}",
-                    (17 + (-3 * user.name.length)).toString()
+                    (17 + (-3 * name.length)).toString()
                 )
         }
 
@@ -1985,17 +1985,17 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         return dropRate!!
     }
 
-    fun load(user: User, persona: Persona, mode: Mode): String =
-        loadSvg(user, persona, mode)
-            .drawContribution(mode, user)
+    fun load(name: String, contributionCount: Long, animationId: Long, level: Long, mode: Mode): String =
+        loadSvg(name, animationId, level, mode)
+            .drawContribution(mode, contributionCount)
 
-    abstract fun loadSvg(user: User, persona: Persona, mode: Mode): String
+    abstract fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String
 
     protected abstract fun act(id: Long, flippedWidth: Double = 0.0): String
 
     protected fun String.drawContribution(
         mode: Mode,
-        user: User
+        contributionCount: Long,
     ): String {
         return when (mode) {
             Mode.LINE -> {
@@ -2003,11 +2003,11 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     .replace("*{username-display}", "none")
                     .replace(
                         "*{contributionx}",
-                        (12.8 + (-1 * (user.contributionCount().toString().length))).toString()
+                        (12.8 + (-1 * (contributionCount.toString().length))).toString()
                     )
                     .replace(
                         "*{contribution}",
-                        user.contributionCount().toSvg(0.0, 2.0)
+                        contributionCount.toSvg(0.0, 2.0)
                     ).replace("*{contribution-display}", "default")
                     .replace("*{level-tag-display}", "default")
             }

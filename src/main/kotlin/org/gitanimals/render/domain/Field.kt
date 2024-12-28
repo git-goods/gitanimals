@@ -2,7 +2,8 @@ package org.gitanimals.render.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
-import org.gitanimals.render.core.IdGenerator
+import org.gitanimals.core.FieldType
+import org.gitanimals.core.IdGenerator
 
 @Entity
 @Table(name = "field")

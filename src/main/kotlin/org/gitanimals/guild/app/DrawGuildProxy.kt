@@ -17,7 +17,7 @@ class DrawGuildProxy(
         return renderDrawGuildFacade.drawGuild(
             title = guild.getTitle(),
             totalContributions = guild.getTotalContributions(),
-            guildFarmType = guild.getGuildFarmType(),
+            fieldType = guild.getGuildFarmType(),
             userIds = guild.getMembers().map { it.userId } + guild.getLeaderUserId(),
             personaIds = guild.getMembers().map { it.personaId } + guild.getLeaderPersonaId(),
         )

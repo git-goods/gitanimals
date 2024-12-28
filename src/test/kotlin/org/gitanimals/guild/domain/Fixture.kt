@@ -1,5 +1,7 @@
 package org.gitanimals.guild.domain
 
+import org.gitanimals.core.FieldType
+
 fun guild(
     id: Long = 1L,
     guildIcon: String = "default_icon.png",
@@ -8,7 +10,7 @@ fun guild(
     leader: Leader = leader(),
     members: MutableSet<Member> = mutableSetOf(),
     waitMembers: MutableSet<WaitMember> = mutableSetOf(),
-    farmType: GuildFarmType = GuildFarmType.LOGO_SHOWING,
+    farmType: FieldType = FieldType.LOGO_SHOWING,
     autoJoin: Boolean = true,
 ): Guild {
     return Guild(

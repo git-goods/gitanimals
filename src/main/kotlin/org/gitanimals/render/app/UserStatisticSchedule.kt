@@ -1,7 +1,7 @@
 package org.gitanimals.render.app
 
-import org.gitanimals.render.core.instant
-import org.gitanimals.render.core.toKr
+import org.gitanimals.core.instant
+import org.gitanimals.core.toKr
 import org.gitanimals.render.domain.UserStatisticService
 import org.gitanimals.render.domain.event.UserYesterdayReport
 import org.rooftop.netx.api.SagaManager

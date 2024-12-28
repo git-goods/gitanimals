@@ -1,7 +1,7 @@
 package org.gitanimals.guild.controller.response
 
-import org.gitanimals.guild.domain.GuildFarmType
+import org.gitanimals.core.FieldType
 
 data class GuildBackgroundResponse(
-    val backgrounds: List<GuildFarmType>
+    val backgrounds: List<FieldType>
 )

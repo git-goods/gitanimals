@@ -1,6 +1,6 @@
 package org.gitanimals.render.app
 
-import org.gitanimals.render.domain.Mode
+import org.gitanimals.core.Mode
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.NewUserCreated

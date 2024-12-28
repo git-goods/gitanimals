@@ -1,13 +1,14 @@
 package org.gitanimals.guild.controller
 
+import org.gitanimals.core.FieldType
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.controller.request.JoinGuildRequest
 import org.gitanimals.guild.controller.response.*
-import org.gitanimals.guild.domain.GuildFarmType
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.SearchFilter
+import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -121,7 +122,7 @@ class GuildController(
     @GetMapping("/guilds/backgrounds")
     @ResponseStatus(HttpStatus.OK)
     fun findAllGuildBackgrounds(): GuildBackgroundResponse {
-        return GuildBackgroundResponse(GuildFarmType.entries)
+        return GuildBackgroundResponse(FieldType.entries.filter { it.isGuildField() })
     }
 
     @PostMapping("/guilds/{guildId}/personas")

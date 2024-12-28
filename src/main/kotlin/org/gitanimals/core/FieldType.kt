@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain
+package org.gitanimals.core
 
 enum class FieldType {
 
@@ -316,7 +316,7 @@ enum class FieldType {
         override fun drawBorder(): String {
             return "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#D9D9D9\"/>"
         }
-    }, 
+    },
     SNOW_GRASS_FIELD {
         override fun loadComponent(name: String, commit: Long): String {
             return snowGrassFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
@@ -341,6 +341,21 @@ enum class FieldType {
             return "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#00894D\"/>"
         }
     },
+    LOGO_SHOWING {
+        override fun loadComponent(name: String, commit: Long): String {
+            return dummyGuildFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
+        }
+
+        override fun fillBackground(): String =
+            """
+                <rect x="0.5" y="0.5" width="599" height="299" rx="4.5" fill="#1E1E1E"/>
+                $logoShowingFieldSvg
+            """
+
+        override fun drawBorder(): String =
+            "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#D9D9D9\" fill=\"none\"/>"
+    }
     ;
 
     abstract fun loadComponent(name: String, commit: Long): String
