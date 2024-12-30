@@ -15,7 +15,11 @@ class HttpClientConfigurer {
 
     @Bean
     fun identityApiHttpClient(): IdentityApi {
-        val restClient = RestClient.create("https://api.gitanimals.org")
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(httpClientErrorHandler())
+            .baseUrl("https://api.gitanimals.org")
+            .build()
 
         val httpServiceProxyFactory = HttpServiceProxyFactory
             .builderFor(RestClientAdapter.create(restClient))
@@ -26,7 +30,11 @@ class HttpClientConfigurer {
 
     @Bean
     fun renderApiHttpClient(): RenderApi {
-        val restClient = RestClient.create("https://render.gitanimals.org")
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(httpClientErrorHandler())
+            .baseUrl("https://render.gitanimals.org")
+            .build()
 
         val httpServiceProxyFactory = HttpServiceProxyFactory
             .builderFor(RestClientAdapter.create(restClient))
@@ -34,6 +42,9 @@ class HttpClientConfigurer {
 
         return httpServiceProxyFactory.createClient(RenderApi::class.java)
     }
+
+    @Bean
+    fun httpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
 }
 
 @Configuration
@@ -42,7 +53,11 @@ class TestHttpClientConfigurer {
 
     @Bean
     fun identityApiHttpClient(): IdentityApi {
-        val restClient = RestClient.create("http://localhost:8080")
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(httpClientErrorHandler())
+            .baseUrl("http://localhost:8080")
+            .build()
 
         val httpServiceProxyFactory = HttpServiceProxyFactory
             .builderFor(RestClientAdapter.create(restClient))
@@ -53,7 +68,11 @@ class TestHttpClientConfigurer {
 
     @Bean
     fun renderApiHttpClient(): RenderApi {
-        val restClient = RestClient.create("http://localhost:8080")
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(httpClientErrorHandler())
+            .baseUrl("http://localhost:8080")
+            .build()
 
         val httpServiceProxyFactory = HttpServiceProxyFactory
             .builderFor(RestClientAdapter.create(restClient))
@@ -61,4 +80,8 @@ class TestHttpClientConfigurer {
 
         return httpServiceProxyFactory.createClient(RenderApi::class.java)
     }
+
+
+    @Bean
+    fun httpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
 }

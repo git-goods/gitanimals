@@ -1,7 +1,7 @@
 package org.gitanimals.render.controller
 
 import org.gitanimals.core.IdGenerator
-import org.gitanimals.render.app.AuthorizationException
+import org.gitanimals.core.AuthorizationException
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest

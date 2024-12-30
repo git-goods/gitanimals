@@ -1,7 +1,7 @@
 package org.gitanimals.render.controller
 
 import org.gitanimals.core.PersonaType
-import org.gitanimals.render.app.AuthorizationException
+import org.gitanimals.core.AuthorizationException
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.app.request.MergePersonaRequest
 import org.gitanimals.render.controller.response.ErrorResponse
@@ -81,6 +81,11 @@ class PersonaController(
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
         ErrorResponse.from(exception)
+
+    @ExceptionHandler(IllegalStateException::class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    fun handleIllegalArgumentException(exception: IllegalStateException): org.gitanimals.guild.controller.response.ErrorResponse =
+        org.gitanimals.guild.controller.response.ErrorResponse.from(exception)
 
     @ExceptionHandler(AuthorizationException::class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)

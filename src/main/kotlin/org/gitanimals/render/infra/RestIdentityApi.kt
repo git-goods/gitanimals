@@ -1,6 +1,6 @@
 package org.gitanimals.render.infra
 
-import org.gitanimals.render.app.AUTHORIZATION_EXCEPTION
+import org.gitanimals.core.AUTHORIZATION_EXCEPTION
 import org.gitanimals.render.app.IdentityApi
 import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
