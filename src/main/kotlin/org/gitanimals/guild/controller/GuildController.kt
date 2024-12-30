@@ -73,7 +73,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/guilds/{guildId}")
-    fun getGuildById(guildId: Long): GuildResponse {
+    fun getGuildById(@PathVariable("guildId") guildId: Long): GuildResponse {
         val guild = guildService.getGuildById(
             guildId,
             GuildService.loadMembers,
