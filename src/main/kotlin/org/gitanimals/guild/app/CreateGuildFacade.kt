@@ -8,6 +8,7 @@ import org.rooftop.netx.api.OrchestratorFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import java.util.*
+import kotlin.time.Duration.Companion.minutes
 
 @Service
 class CreateGuildFacade(
@@ -25,8 +26,9 @@ class CreateGuildFacade(
         createGuildRequest: CreateGuildRequest,
     ) {
         createGuildOrchestrator.sagaSync(
-            createGuildRequest,
+            request = createGuildRequest,
             context = mapOf("token" to token, IDEMPOTENCY_KEY to UUID.randomUUID().toString()),
+            timeoutMillis = 1.minutes.inWholeMilliseconds,
         ).decodeResultOrThrow(Unit::class)
     }
 
