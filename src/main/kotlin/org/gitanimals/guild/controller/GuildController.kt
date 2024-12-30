@@ -1,5 +1,6 @@
 package org.gitanimals.guild.controller
 
+import org.gitanimals.core.AuthorizationException
 import org.gitanimals.core.FieldType
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
@@ -10,6 +11,7 @@ import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.SearchFilter
 import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
+import org.gitanimals.guild.controller.response.ErrorResponse
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -146,4 +148,19 @@ class GuildController(
     fun draw(
         @PathVariable("guildId") guildId: Long,
     ) = drawGuildFacade.drawGuild(guildId)
+
+    @ExceptionHandler(IllegalArgumentException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
+        ErrorResponse.from(exception)
+
+    @ExceptionHandler(IllegalStateException::class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    fun handleIllegalArgumentException(exception: IllegalStateException): ErrorResponse =
+        ErrorResponse.from(exception)
+
+    @ExceptionHandler(AuthorizationException::class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    fun handleAuthorizationException(exception: AuthorizationException): ErrorResponse =
+        ErrorResponse.from(exception)
 }
