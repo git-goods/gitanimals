@@ -25,8 +25,6 @@ class UsedCouponSagaHandlers(
     private companion object {
         private val acceptableCouponCodes = listOf(
             "NEW_USER_BONUS_PET",
-            "CHRISTMAS_2024",
-            "CHRISTMAS_2024_STAR_BONUS",
         )
     }
 }
