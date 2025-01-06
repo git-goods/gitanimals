@@ -36,7 +36,7 @@ class GuildController(
     fun createGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody createGuildRequest: CreateGuildRequest,
-    ) = createGuildFacade.createGuild(token, createGuildRequest)
+    ) = GuildResponse.from(createGuildFacade.createGuild(token, createGuildRequest))
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/guilds/{guildId}")

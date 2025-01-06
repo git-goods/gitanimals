@@ -27,7 +27,7 @@ class GuildService(
         farmType: FieldType,
         autoJoin: Boolean,
         createLeaderRequest: CreateLeaderRequest,
-    ) {
+    ): Guild {
         require(guildRepository.existsByTitle(title).not()) {
             "Cannot create guild cause duplicated guild already exists."
         }
@@ -43,7 +43,7 @@ class GuildService(
             autoJoin = autoJoin,
         )
 
-        guildRepository.save(newGuild)
+        return guildRepository.save(newGuild)
     }
 
     @Transactional
