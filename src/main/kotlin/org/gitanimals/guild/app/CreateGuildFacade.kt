@@ -1,6 +1,7 @@
 package org.gitanimals.guild.app
 
 import org.gitanimals.guild.app.request.CreateGuildRequest
+import org.gitanimals.guild.app.response.GuildResponse
 import org.gitanimals.guild.domain.Guild
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
@@ -20,17 +21,17 @@ class CreateGuildFacade(
     orchestratorFactory: OrchestratorFactory,
 ) {
 
-    private lateinit var createGuildOrchestrator: Orchestrator<CreateGuildRequest, Guild>
+    private lateinit var createGuildOrchestrator: Orchestrator<CreateGuildRequest, GuildResponse>
 
     fun createGuild(
         token: String,
         createGuildRequest: CreateGuildRequest,
-    ): Guild {
+    ): GuildResponse {
         return createGuildOrchestrator.sagaSync(
             request = createGuildRequest,
             context = mapOf("token" to token, IDEMPOTENCY_KEY to UUID.randomUUID().toString()),
             timeoutMillis = 1.minutes.inWholeMilliseconds,
-        ).decodeResultOrThrow(Guild::class)
+        ).decodeResultOrThrow(GuildResponse::class)
     }
 
     init {
@@ -84,7 +85,7 @@ class CreateGuildFacade(
                             personaType = renderUser.personas.find { it.id == createGuildRequest.personaId }!!.type,
                         )
 
-                        guildService.createGuild(
+                        val guild = guildService.createGuild(
                             title = createGuildRequest.title,
                             body = createGuildRequest.body,
                             guildIcon = createGuildRequest.guildIcon,
@@ -92,6 +93,8 @@ class CreateGuildFacade(
                             autoJoin = createGuildRequest.autoJoin,
                             createLeaderRequest = createLeaderRequest,
                         )
+
+                        return@commitWithContext GuildResponse.from(guild)
                     }
                 )
     }

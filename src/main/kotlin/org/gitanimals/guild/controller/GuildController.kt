@@ -4,14 +4,13 @@ import org.gitanimals.core.AuthorizationException
 import org.gitanimals.core.FieldType
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
+import org.gitanimals.guild.app.response.*
 import org.gitanimals.guild.controller.request.JoinGuildRequest
-import org.gitanimals.guild.controller.response.*
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.SearchFilter
 import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
-import org.gitanimals.guild.controller.response.ErrorResponse
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -36,7 +35,7 @@ class GuildController(
     fun createGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody createGuildRequest: CreateGuildRequest,
-    ) = GuildResponse.from(createGuildFacade.createGuild(token, createGuildRequest))
+    ) = createGuildFacade.createGuild(token, createGuildRequest)
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/guilds/{guildId}")

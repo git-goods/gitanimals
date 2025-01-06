@@ -1,4 +1,4 @@
-package org.gitanimals.guild.controller.response
+package org.gitanimals.guild.app.response
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import org.gitanimals.core.PersonaType
