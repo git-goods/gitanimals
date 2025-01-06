@@ -160,8 +160,8 @@ class UserService(
             ?: throw IllegalArgumentException("Cannot find matched persona \"$personaId\" by user name \"$name\"")
     }
 
-    fun findAllUsersByIdWithContributions(userIds: Set<Long>): List<User> {
-        return userRepository.findAllByIdsWithContributions(userIds)
+    fun findAllUsersByNameWithContributions(usernames: Set<String>): List<User> {
+        return userRepository.findAllByIdsWithContributions(usernames)
     }
 
     companion object {

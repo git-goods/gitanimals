@@ -1,6 +1,6 @@
 package org.gitanimals.render.controller.request
 
-data class UserIdAndPersonaIdRequest(
-    val userId: Long,
+data class UsernameAndPersonaIdRequest(
+    val username: String,
     val personaId: Long,
 )

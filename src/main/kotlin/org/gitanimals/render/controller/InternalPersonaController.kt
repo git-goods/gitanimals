@@ -5,7 +5,7 @@ import org.gitanimals.core.AuthorizationException
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest
-import org.gitanimals.render.controller.request.UserIdAndPersonaIdRequest
+import org.gitanimals.render.controller.request.UsernameAndPersonaIdRequest
 import org.gitanimals.render.controller.response.ErrorResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
@@ -86,14 +86,14 @@ class InternalPersonaController(
     @GetMapping("/internals/personas/all")
     @ResponseStatus(HttpStatus.OK)
     fun getAllPersonasByUserIdsAndPersonaIds(
-        @RequestBody userIdAndPersonaIdRequests: List<UserIdAndPersonaIdRequest>
+        @RequestBody usernameAndPersonaIdRequests: List<UsernameAndPersonaIdRequest>
     ): List<UserResponse> {
-        val users = userService.findAllUsersByIdWithContributions(
-            userIdAndPersonaIdRequests.map { it.userId }.toSet()
+        val users = userService.findAllUsersByNameWithContributions(
+            usernameAndPersonaIdRequests.map { it.username }.toSet()
         )
 
         return users.map { user ->
-            val personaId = userIdAndPersonaIdRequests.first { it.userId == user.id }.personaId
+            val personaId = usernameAndPersonaIdRequests.first { it.username == user.name }.personaId
             UserResponse.fromWithSpecificPersona(user, listOf(personaId))
         }
     }
