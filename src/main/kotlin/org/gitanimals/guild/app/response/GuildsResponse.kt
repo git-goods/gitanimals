@@ -1,4 +1,4 @@
-package org.gitanimals.guild.controller.response
+package org.gitanimals.guild.app.response
 
 import org.gitanimals.guild.domain.Guild
 

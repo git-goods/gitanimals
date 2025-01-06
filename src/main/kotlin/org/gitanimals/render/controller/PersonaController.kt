@@ -84,8 +84,8 @@ class PersonaController(
 
     @ExceptionHandler(IllegalStateException::class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleIllegalArgumentException(exception: IllegalStateException): org.gitanimals.guild.controller.response.ErrorResponse =
-        org.gitanimals.guild.controller.response.ErrorResponse.from(exception)
+    fun handleIllegalArgumentException(exception: IllegalStateException): org.gitanimals.guild.app.response.ErrorResponse =
+        org.gitanimals.guild.app.response.ErrorResponse.from(exception)
 
     @ExceptionHandler(AuthorizationException::class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
