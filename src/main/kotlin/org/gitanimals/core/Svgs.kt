@@ -44,6 +44,15 @@ val dummyGuildFieldSvg: String = ClassPathResource("persona/field/white-field.sv
 val logoShowingFieldSvg: String = ClassPathResource("persona/field/logo-showing.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val redSofaFieldSvg: String = ClassPathResource("persona/field/red-sofa.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val redComputerFieldSvg: String = ClassPathResource("persona/field/red-computer.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val folderFieldSvg: String = ClassPathResource("persona/field/folder.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val gooseSvg: String = ClassPathResource("persona/animal/goose.svg")
     .getContentAsString(Charset.defaultCharset())
 

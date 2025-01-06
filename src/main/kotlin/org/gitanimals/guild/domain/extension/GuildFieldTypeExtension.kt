@@ -8,5 +8,9 @@ object GuildFieldTypeExtension {
         return this in guildFields
     }
 
-    private val guildFields = listOf(FieldType.LOGO_SHOWING)
+    private val guildFields = setOf(
+        FieldType.FOLDER,
+        FieldType.RED_COMPUTER,
+        FieldType.RED_SOFA,
+    )
 }
