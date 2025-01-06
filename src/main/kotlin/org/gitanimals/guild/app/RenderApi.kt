@@ -14,7 +14,7 @@ interface RenderApi {
     @GetExchange("/internals/personas/all")
     fun getAllPersonasByUserIdsAndPersonaIds(
         @RequestHeader(INTERNAL_SECRET_KEY) internalSecret: String,
-        @RequestBody userIdAndPersonaIdRequests: List<UserIdAndPersonaIdRequest>,
+        @RequestBody usernameAndPersonaIdRequests: List<UsernameAndPersonaIdRequest>,
     ): List<UserResponse>
 
     data class UserResponse(
@@ -31,8 +31,8 @@ interface RenderApi {
         )
     }
 
-    data class UserIdAndPersonaIdRequest(
-        val userId: Long,
+    data class UsernameAndPersonaIdRequest(
+        val username: String,
         val personaId: Long,
     )
 

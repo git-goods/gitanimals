@@ -43,19 +43,19 @@ class DrawGuildFacade(
     }
 
     private fun getRenderUsers(guild: Guild): List<RenderApi.UserResponse> {
-        val userIdAndPersonaIdRequests = guild.getMembers().map {
-            RenderApi.UserIdAndPersonaIdRequest(
+        val usernameAndPersonaIdRequests = guild.getMembers().map {
+            RenderApi.UsernameAndPersonaIdRequest(
                 personaId = it.personaId,
-                userId = it.userId,
+                username = it.name,
             )
-        } + RenderApi.UserIdAndPersonaIdRequest(
+        } + RenderApi.UsernameAndPersonaIdRequest(
             personaId = guild.getLeaderPersonaId(),
-            userId = guild.getLeaderUserId(),
+            username = guild.getLeaderName(),
         )
 
         return renderApi.getAllPersonasByUserIdsAndPersonaIds(
             internalSecret = internalSecret,
-            userIdAndPersonaIdRequests = userIdAndPersonaIdRequests,
+            usernameAndPersonaIdRequests = usernameAndPersonaIdRequests,
         )
     }
 

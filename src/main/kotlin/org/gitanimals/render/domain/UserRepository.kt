@@ -21,10 +21,10 @@ interface UserRepository : JpaRepository<User, Long> {
         """
             select u from user as u
             left join fetch u.contributions
-            where u.id in :userIds
+            where u.name in :usernames
         """
     )
-    fun findAllByIdsWithContributions(@Param("userIds") userIds: Set<Long>): List<User>
+    fun findAllByIdsWithContributions(@Param("usernames") usernames: Set<String>): List<User>
 
     fun existsByName(name: String): Boolean
 }
