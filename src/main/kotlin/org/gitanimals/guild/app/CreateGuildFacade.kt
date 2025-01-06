@@ -1,6 +1,7 @@
 package org.gitanimals.guild.app
 
 import org.gitanimals.guild.app.request.CreateGuildRequest
+import org.gitanimals.guild.domain.Guild
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.rooftop.netx.api.Orchestrator
@@ -19,17 +20,17 @@ class CreateGuildFacade(
     orchestratorFactory: OrchestratorFactory,
 ) {
 
-    private lateinit var createGuildOrchestrator: Orchestrator<CreateGuildRequest, Unit>
+    private lateinit var createGuildOrchestrator: Orchestrator<CreateGuildRequest, Guild>
 
     fun createGuild(
         token: String,
         createGuildRequest: CreateGuildRequest,
-    ) {
-        createGuildOrchestrator.sagaSync(
+    ): Guild {
+        return createGuildOrchestrator.sagaSync(
             request = createGuildRequest,
             context = mapOf("token" to token, IDEMPOTENCY_KEY to UUID.randomUUID().toString()),
             timeoutMillis = 1.minutes.inWholeMilliseconds,
-        ).decodeResultOrThrow(Unit::class)
+        ).decodeResultOrThrow(Guild::class)
     }
 
     init {

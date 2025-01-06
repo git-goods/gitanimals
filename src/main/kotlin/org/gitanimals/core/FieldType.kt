@@ -355,7 +355,52 @@ enum class FieldType {
 
         override fun drawBorder(): String =
             "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#D9D9D9\" fill=\"none\"/>"
-    }
+    },
+    FOLDER {
+        override fun loadComponent(name: String, commit: Long): String {
+            return whiteFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
+        }
+
+        override fun fillBackground(): String =
+            """
+                <rect x="0.5" y="0.5" width="599" height="299" rx="4.5" fill="#F5EDFD"/>
+                $folderFieldSvg
+            """
+
+        override fun drawBorder(): String =
+            "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#F5EDFD\" fill=\"none\"/>"
+    },
+    RED_COMPUTER {
+        override fun loadComponent(name: String, commit: Long): String {
+            return whiteFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
+        }
+
+        override fun fillBackground(): String =
+            """
+                <rect x="0.5" y="0.5" width="599" height="299" rx="4.5" fill="#DAFDEC"/>
+                $redComputerFieldSvg
+            """
+
+        override fun drawBorder(): String =
+            "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#DAFDEC\" fill=\"none\"/>"
+    },
+    RED_SOFA {
+        override fun loadComponent(name: String, commit: Long): String {
+            return whiteFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
+        }
+
+        override fun fillBackground(): String =
+            """
+                <rect x="0.5" y="0.5" width="599" height="299" rx="4.5" fill="#C4F2F7"/>
+                $redSofaFieldSvg
+            """
+
+        override fun drawBorder(): String =
+            "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#C4F2F7\" fill=\"none\"/>"
+    },
     ;
 
     abstract fun loadComponent(name: String, commit: Long): String
