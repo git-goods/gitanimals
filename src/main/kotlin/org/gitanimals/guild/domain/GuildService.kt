@@ -98,7 +98,7 @@ class GuildService(
     @Retryable(ObjectOptimisticLockingFailureException::class)
     fun changeGuild(changeRequesterId: Long, guildId: Long, request: ChangeGuildRequest) {
         val guild = guildRepository.findGuildByIdAndLeaderId(guildId, changeRequesterId)
-            ?: throw IllegalArgumentException("Cannot kick member cause your not a leader.")
+            ?: throw IllegalArgumentException("Cannot change guild cause your not a leader.")
 
         guild.change(request)
     }
