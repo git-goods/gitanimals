@@ -107,7 +107,8 @@ class Guild(
     fun getLeaderUserId(): Long = leader.userId
 
     fun accept(acceptUserId: Long) {
-        val acceptUser = waitMembers.firstOrNull { it.userId == acceptUserId } ?: return
+        val acceptUser = waitMembers.firstOrNull { it.userId == acceptUserId }
+            ?: throw IllegalArgumentException("Cannot find waitMember by userId: \"$acceptUserId\"")
         waitMembers.remove(acceptUser)
 
         members.add(acceptUser.toMember())
