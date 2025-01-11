@@ -143,7 +143,7 @@ class GuildController(
         @PathVariable("guildId") guildId: Long,
     ) = leaveGuildFacade.leave(token, guildId)
 
-    @GetMapping("/guilds/{guildId}/draw")
+    @GetMapping(value = ["/guilds/{guildId}/draw"], produces = ["image/svg+xml"])
     fun draw(
         @PathVariable("guildId") guildId: Long,
     ) = drawGuildFacade.drawGuild(guildId)
