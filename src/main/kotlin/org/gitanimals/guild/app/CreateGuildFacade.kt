@@ -2,7 +2,6 @@ package org.gitanimals.guild.app
 
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.app.response.GuildResponse
-import org.gitanimals.guild.domain.Guild
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.rooftop.netx.api.Orchestrator
@@ -27,6 +26,8 @@ class CreateGuildFacade(
         token: String,
         createGuildRequest: CreateGuildRequest,
     ): GuildResponse {
+        createGuildRequest.requireValidTitle()
+
         return createGuildOrchestrator.sagaSync(
             request = createGuildRequest,
             context = mapOf("token" to token, IDEMPOTENCY_KEY to UUID.randomUUID().toString()),
