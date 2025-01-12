@@ -11,6 +11,8 @@ class ChangeGuildFacade(
 ) {
 
     fun changeGuild(token: String, guildId: Long, changeGuildRequest: ChangeGuildRequest) {
+        changeGuildRequest.requireValidTitle()
+        
         val user = identityApi.getUserByToken(token)
 
         guildService.changeGuild(
