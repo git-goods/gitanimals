@@ -1,6 +1,7 @@
 package org.gitanimals.guild.app.request
 
 import org.gitanimals.core.FieldType
+import org.gitanimals.core.largetTextAcceptableChars
 
 data class CreateGuildRequest(
     val title: String,
@@ -13,24 +14,7 @@ data class CreateGuildRequest(
 
     fun requireValidTitle() {
         title.forEach {
-            require(it in acceptableTitle) { "Cannot accept title \"$it\"" }
-        }
-    }
-
-    companion object {
-        val acceptableTitle = run {
-            val acceptableTitles = mutableListOf<Char>()
-            for (i in 'A'..'Z') {
-                acceptableTitles.add(i)
-            }
-            for (i in 'a'..'z') {
-                acceptableTitles.add(i)
-            }
-            for (i in 0..9) {
-                acceptableTitles.add(i.toChar())
-            }
-            acceptableTitles.add('-')
-            acceptableTitles.toList()
+            require(it in largetTextAcceptableChars) { "Cannot accept title \"$it\"" }
         }
     }
 }

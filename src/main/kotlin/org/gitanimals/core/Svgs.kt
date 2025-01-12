@@ -345,6 +345,21 @@ val largeTextSvgs = lazy {
     map
 }.value
 
+val largetTextAcceptableChars = lazy {
+    val acceptableTitles = mutableListOf<Char>()
+    for (i in 'A'..'Z') {
+        acceptableTitles.add(i)
+    }
+    for (i in 'a'..'z') {
+        acceptableTitles.add(i)
+    }
+    for (i in 0..9) {
+        acceptableTitles.add(i.toChar())
+    }
+    acceptableTitles.add('-')
+    acceptableTitles.toList()
+}.value
+
 val mediumNumberSvgs = lazy {
     val list = mutableListOf<String>()
     for (i in 0..9) {
