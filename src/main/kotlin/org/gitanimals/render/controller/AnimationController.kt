@@ -3,6 +3,7 @@ package org.gitanimals.render.controller
 import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.render.app.AnimationFacade
 import org.gitanimals.core.Mode
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -13,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController
 class AnimationController(
     private val animationFacade: AnimationFacade,
 ) {
+
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
+
+    @GetMapping("/for-logging-test")
+    fun forLoggingTest() {
+        logger.warn("For logging test")
+    }
 
     @GetMapping(value = ["/farms/{username}"], produces = ["image/svg+xml"])
     fun getFarmSvgAnimation(

@@ -1,0 +1,3 @@
+dependencies {
+    implementation "co.elastic.logging:logback-ecs-encoder:${logbackEcsEncoderVersion}"
+}

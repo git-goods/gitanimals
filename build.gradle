@@ -37,6 +37,8 @@ sentry {
 apply from: "gradle/db.gradle"
 apply from: "gradle/core.gradle"
 apply from: "gradle/test.gradle"
+apply from: "gradle/slack.gradle"
 apply from: "gradle/spring.gradle"
 apply from: "gradle/monitor.gradle"
+apply from: "gradle/logging.gradle"
 apply from: "gradle/jetbrains.gradle"

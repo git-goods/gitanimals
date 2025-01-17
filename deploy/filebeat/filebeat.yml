@@ -1,0 +1,18 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - ./logs/*.json
+    json:
+      keys_under_root: true
+      add_error_key: true
+
+output.elasticsearch:
+  hosts: ["192.168.0.31:9200"]
+  username: "elastic"
+  password: ""
+
+processors:
+  - decode_json_fields:
+      fields: ["message"]
+      target: ""
