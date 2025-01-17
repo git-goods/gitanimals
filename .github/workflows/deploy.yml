@@ -74,6 +74,15 @@ jobs:
             "INTERNAL_SECRET=${{ secrets.INTERNAL_SECRET }}"
             "SLACK_TOKEN=${{ secrets.SLACK_TOKEN }}"
 
+      - name: build and push filebeat
+        uses: docker/build-push-action@v4
+        with:
+          context: ./deploy/filebeat
+          platforms: linux/arm64/v8
+          push: true
+          tags: |
+            filebeat-gitanimals:latest
+
   deploy:
     needs: build
     name: deploy
@@ -111,6 +120,5 @@ jobs:
       - name: run file beats
         if: env.status == 'stopped'
         run: |
-          sudo docker build -t filebeat-gitanimals:latest ./deploy/filebeat
           sudo docker run -d --name filebeat -v logs:/logs -t filebeat-gitanimals:latest  
             
