@@ -1,7 +1,9 @@
 package org.gitanimals.guild.infra
 
+import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.guild.app.IdentityApi
 import org.gitanimals.guild.app.RenderApi
+import org.slf4j.MDC
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -17,6 +19,9 @@ class HttpClientConfigurer {
     fun identityApiHttpClient(): IdentityApi {
         val restClient = RestClient
             .builder()
+            .defaultHeaders {
+                it.add(TRACE_ID, MDC.get(TRACE_ID))
+            }
             .defaultStatusHandler(httpClientErrorHandler())
             .baseUrl("https://api.gitanimals.org")
             .build()
@@ -32,6 +37,9 @@ class HttpClientConfigurer {
     fun renderApiHttpClient(): RenderApi {
         val restClient = RestClient
             .builder()
+            .defaultHeaders {
+                it.add(TRACE_ID, MDC.get(TRACE_ID))
+            }
             .defaultStatusHandler(httpClientErrorHandler())
             .baseUrl("https://render.gitanimals.org")
             .build()

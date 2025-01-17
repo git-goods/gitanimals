@@ -6,7 +6,8 @@
   <springProperty name="slackToken" source="slack.token"/>
   <property name="LOG_PATH" value="${LOG_PATH:-./logs}"/>
   <property name="LOG_FILE" value="${LOG_FILE:-app}"/>
-  <property name="LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread] %-5level %logger{36} - %msg%n"/>
+  <property name="LOG_PATTERN"
+    value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%thread] %-5level %logger{36} - %msg%n"/>
   <property name="MAX_HISTORY" value="${LOGBACK_ROLLINGPOLICY_MAX_HISTORY:-1}"/>
 
   <appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
@@ -27,20 +28,22 @@
       <maxHistory>${MAX_HISTORY}</maxHistory>
     </rollingPolicy>
   </appender>
-  <appender name = "ASYNC_ENC_JSON_FILE_APPENDER" class="ch.qos.logback.classic.AsyncAppender">
+  <appender name="ASYNC_ENC_JSON_FILE_APPENDER" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="ECS_JSON_FILE_APPENDER"/>
   </appender>
 
   <appender name="SLACK_APPENDER" class="org.gitanimals.core.appender.SlackAppender">
-    <param name="token" value="${slackToken}" />
+    <param name="token" value="${slackToken}"/>
   </appender>
   <appender name="ASYNC_SLACK_APPENDER" class="ch.qos.logback.classic.AsyncAppender">
-    <appender-ref ref="SLACK_APPENDER" />
+    <appender-ref ref="SLACK_APPENDER"/>
   </appender>
 
   <root level="${LOG_LEVEL}">
     <appender-ref ref="ASYNC_ENC_JSON_FILE_APPENDER"/>
-    <appender-ref ref="ASYNC_SLACK_APPENDER"/>
+    <springProfile name="prod">
+      <appender-ref ref="ASYNC_SLACK_APPENDER"/>
+    </springProfile>
     <springProfile name="test">
       <appender-ref ref="CONSOLE_APPENDER"/>
     </springProfile>
