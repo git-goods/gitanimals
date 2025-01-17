@@ -81,7 +81,7 @@ jobs:
           platforms: linux/arm64/v8
           push: true
           tags: |
-            filebeat-gitanimals:latest
+            ghcr.io/devxb/gitanimals-filebeat:latest
 
   deploy:
     needs: build
@@ -120,5 +120,5 @@ jobs:
       - name: run file beats
         if: env.status == 'stopped'
         run: |
-          sudo docker run -d --name filebeat -v logs:/logs -t filebeat-gitanimals:latest  
+          sudo docker run -d --name filebeat -v logs:/logs -t ghcr.io/devxb/gitanimals-filebeat:latest
             
