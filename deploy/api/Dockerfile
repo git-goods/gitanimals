@@ -9,7 +9,7 @@ ARG REDIS_PORT
 ARG INTERNAL_SECRET
 ARG SLACK_TOKEN
 
-ARG JAR_FILE=../../build/libs/*.jar
+ARG JAR_FILE=./build/libs/*.jar
 COPY ${JAR_FILE} gitanimals-render.jar
 
 ENV db_url=${DB_URL} \
