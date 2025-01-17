@@ -9,7 +9,7 @@ import com.slack.api.methods.request.chat.ChatPostMessageRequest
 
 class SlackAppender : AppenderBase<ILoggingEvent>() {
 
-    lateinit var slack: MethodsClient
+    private lateinit var slack: MethodsClient
 
     private val errorChannel = "C080GR85WM9"
     private val warnChannel = "C08977RL38C"

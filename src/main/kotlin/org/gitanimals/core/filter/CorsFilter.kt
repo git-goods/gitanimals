@@ -1,4 +1,4 @@
-package org.gitanimals.render.controller.filter
+package org.gitanimals.core.filter
 
 import jakarta.servlet.Filter
 import jakarta.servlet.FilterChain

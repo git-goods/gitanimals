@@ -18,6 +18,8 @@
   <appender name="ECS_JSON_FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <encoder class="co.elastic.logging.logback.EcsEncoder">
       <serviceName>${SERVICE_NAME}</serviceName>
+      <includeMarkers>true</includeMarkers>
+      <includeMdc>true</includeMdc>
     </encoder>
     <file>${LOG_PATH}/${LOG_FILE}.json</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
