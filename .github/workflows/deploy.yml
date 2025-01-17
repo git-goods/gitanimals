@@ -101,7 +101,7 @@ jobs:
       - name: check filebeat status
         id: check-status
         run: |
-          if docker ps --filter "name=filebeat" --filter "status=running" --format "{{.Names}}" | grep -q "^filebeat$"; then
+          if sudo docker ps --filter "name=filebeat" --filter "status=running" --format "{{.Names}}" | grep -q "^filebeat$"; then
             echo "Filebeat is already running"
             echo "status=running" >> $GITHUB_ENV
           else
