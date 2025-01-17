@@ -111,6 +111,6 @@ jobs:
       - name: run file beats
         if: env.status == 'stopped'
         run: |
-          docker build -t filebeat-gitanimals:latest ./deploy/filebeat
-          docker run -d --name filebeat -v logs:/logs -t filebeat-gitanimals:latest  
+          sudo docker build -t filebeat-gitanimals:latest ./deploy/filebeat
+          sudo docker run -d --name filebeat -v logs:/logs -t filebeat-gitanimals:latest  
             
