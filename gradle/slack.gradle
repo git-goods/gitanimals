@@ -1,0 +1,5 @@
+dependencies {
+    implementation "com.slack.api:bolt:${slackVersion}"
+    implementation "com.slack.api:bolt-servlet:${slackVersion}"
+    implementation "com.slack.api:bolt-jetty:${slackVersion}"
+}

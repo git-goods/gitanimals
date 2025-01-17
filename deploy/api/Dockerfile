@@ -7,8 +7,9 @@ ARG GITHUB_TOKEN
 ARG REDIS_HOST
 ARG REDIS_PORT
 ARG INTERNAL_SECRET
+ARG SLACK_TOKEN
 
-ARG JAR_FILE=./build/libs/*.jar
+ARG JAR_FILE=../../build/libs/*.jar
 COPY ${JAR_FILE} gitanimals-render.jar
 
 ENV db_url=${DB_URL} \
@@ -17,7 +18,8 @@ ENV db_url=${DB_URL} \
   github_token=${GITHUB_TOKEN} \
   redis_host=${REDIS_HOST} \
   redis_port=${REDIS_PORT} \
-  internal_secret=${INTERNAL_SECRET}
+  internal_secret=${INTERNAL_SECRET} \
+  slack_token=${SLACK_TOKEN}
 
 ENTRYPOINT java -jar gitanimals-render.jar \
   --spring.datasource.url=${db_url} \
@@ -26,4 +28,5 @@ ENTRYPOINT java -jar gitanimals-render.jar \
   --netx.host=${redis_host} \
   --netx.port=${redis_port} \
   --github.token=${github_token} \
-  --internal.secret=${internal_secret}
+  --internal.secret=${internal_secret} \
+  --slack.token=${slack_token}

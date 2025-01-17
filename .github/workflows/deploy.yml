@@ -53,10 +53,10 @@ jobs:
         run: echo "##[set-output name=version;]$(echo '${{ github.event.head_commit.message }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
         id: extract_version_name
 
-      - name: push
+      - name: build and push api server
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./deploy/api
           platforms: linux/arm64/v8
           push: true
           tags: |
@@ -69,6 +69,7 @@ jobs:
             "REDIS_HOST=${{ secrets.REDIS_HOST }}"
             "REDIS_PORT=${{ secrets.REDIS_PORT }}"
             "INTERNAL_SECRET=${{ secrets.INTERNAL_SECRET }}"
+            "SLACK_TOKEN=${{ secrets.SLACK_TOKEN }}"
 
   deploy:
     needs: build
@@ -79,8 +80,34 @@ jobs:
         run: echo "##[set-output name=version;]$(echo '${{ github.event.head_commit.message }}' | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')"
         id: extract_version_name
 
-      - name: run server
+      - name: run api server
         run: |
           sudo docker pull ghcr.io/devxb/gitanimals:${{ steps.extract_version_name.outputs.version }}
           sudo docker ps -q --filter "expose=8080" | xargs sudo docker stop | xargs sudo docker rm
-          sudo docker run -d -p 8081:8080 ghcr.io/devxb/gitanimals:${{ steps.extract_version_name.outputs.version }}
+          sudo docker run -d -p 8081:8080 -v logs:/logs ghcr.io/devxb/gitanimals:${{ steps.extract_version_name.outputs.version }}
+
+      - name: check filebeat status
+        id: check-status
+        run: |
+          if docker ps --filter "name=filebeat" --filter "status=running" --format "{{.Names}}" | grep -q "^filebeat$"; then
+            echo "Filebeat is already running"
+            echo "status=running" >> $GITHUB_ENV
+          else
+            echo "Filebeat is not running"
+            echo "status=stopped" >> $GITHUB_ENV
+          fi
+          
+      - name: display filebeat status
+        run: |
+          if [ "${{ env.status }}" == "running" ]; then
+            echo "✅ Filebeat is already running"
+          else
+            echo "🚀 Filebeat is not running. Starting deployment..."
+          fi
+
+      - name: run file beats
+        if: env.status == 'running'
+        run: |
+          docker build -t filebeat-gitanimals:latest ./deploy/filebeat
+          docker run -d --name filebeat -v logs:/logs -t filebeat-gitanimals:latest  
+            
