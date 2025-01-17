@@ -1,11 +1,14 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.app.response.GuildResponse
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.rooftop.netx.api.Orchestrator
 import org.rooftop.netx.api.OrchestratorFactory
+import org.slf4j.LoggerFactory
+import org.slf4j.MDC
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import java.util.*
@@ -20,6 +23,7 @@ class CreateGuildFacade(
     orchestratorFactory: OrchestratorFactory,
 ) {
 
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
     private lateinit var createGuildOrchestrator: Orchestrator<CreateGuildRequest, GuildResponse>
 
     fun createGuild(
@@ -30,7 +34,11 @@ class CreateGuildFacade(
 
         return createGuildOrchestrator.sagaSync(
             request = createGuildRequest,
-            context = mapOf("token" to token, IDEMPOTENCY_KEY to UUID.randomUUID().toString()),
+            context = mapOf(
+                "token" to token,
+                IDEMPOTENCY_KEY to UUID.randomUUID().toString(),
+                TRACE_ID to MDC.get(TRACE_ID),
+            ),
             timeoutMillis = 1.minutes.inWholeMilliseconds,
         ).decodeResultOrThrow(GuildResponse::class)
     }
@@ -40,6 +48,7 @@ class CreateGuildFacade(
             orchestratorFactory.create<CreateGuildRequest>("Create guild orchestrator")
                 .startWithContext(
                     contextOrchestrate = { context, createGuildRequest ->
+                        MDC.put(TRACE_ID, context.decodeContext(TRACE_ID, String::class))
                         val token = context.decodeContext("token", String::class)
                         val idempotencyKey = context.decodeContext(IDEMPOTENCY_KEY, String::class)
 
@@ -57,19 +66,23 @@ class CreateGuildFacade(
                         createGuildRequest
                     },
                     contextRollback = { context, _ ->
+                        MDC.put(TRACE_ID, context.decodeContext(TRACE_ID, String::class))
                         val token = context.decodeContext("token", String::class)
                         val idempotencyKey = context.decodeContext(IDEMPOTENCY_KEY, String::class)
 
+                        logger.warn("Fail to create guild increase point...")
                         identityApi.increasePoint(
                             token = token,
                             internalSecret = internalSecret,
                             idempotencyKey = idempotencyKey,
                             point = CREATE_GUILD_COST.toString(),
                         )
+                        logger.warn("Fail to create guild increase point success")
                     }
                 )
                 .commitWithContext(
                     contextOrchestrate = { context, createGuildRequest ->
+                        MDC.put(TRACE_ID, context.decodeContext(TRACE_ID, String::class))
                         val token = context.decodeContext("token", String::class)
 
                         val leader = identityApi.getUserByToken(token)
