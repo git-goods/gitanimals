@@ -31,7 +31,9 @@ class MDCFilter : OncePerRequestFilter() {
             }
             MDC.put(ELAPSED_TIME, elapsedTime.toString())
         }.onSuccess {
-            logger.info("Request Success with status ${response.status}")
+            if ((MDC.get(PATH) in ignorePath).not()) {
+                logger.info("Request Success with status ${response.status}")
+            }
         }.also {
             MDC.remove(TRACE_ID)
             MDC.remove(ELAPSED_TIME)
@@ -43,5 +45,9 @@ class MDCFilter : OncePerRequestFilter() {
         const val TRACE_ID = "traceId"
         const val ELAPSED_TIME = "elapsedTime"
         const val PATH = "path"
+
+        private val ignorePath = setOf(
+            "/actuator/prometheus"
+        )
     }
 }
