@@ -108,7 +108,7 @@ jobs:
             echo "Filebeat is not running"
             echo "status=stopped" >> $GITHUB_ENV
           fi
-          
+
       - name: display filebeat status
         run: |
           if [ "${{ env.status }}" == "running" ]; then
@@ -119,6 +119,9 @@ jobs:
 
       - name: run file beats
         if: env.status == 'stopped'
+        env:
+          FILEBEAT_USERNAME: ${{ secrets.FILEBEAT_USERNAME }}
+          FILEBEAT_PASSWORD: ${{ secrets.FILEBEAT_PASSWORD }}
         run: |
-          sudo docker run -d --name filebeat -v logs:/logs -t ghcr.io/devxb/gitanimals-filebeat:${{ steps.extract_version_name.outputs.version }}
+          sudo docker run -d --name filebeat -v logs:/logs -e FILEBEAT_USERNAME=$FILEBEAT_USERNAME -e FILEBEAT_PASSWORD=$FILEBEAT_PASSWORD -t ghcr.io/devxb/gitanimals-filebeat:${{ steps.extract_version_name.outputs.version }}
             

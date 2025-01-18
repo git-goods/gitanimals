@@ -9,8 +9,8 @@ filebeat.inputs:
 
 output.elasticsearch:
   hosts: ["192.168.0.31:9200"]
-  username: "elastic"
-  password: ""
+  username: "${FILEBEAT_USERNAME}"
+  password: "${FILEBEAT_PASSWORD}"
 
 processors:
   - decode_json_fields:
