@@ -6,7 +6,7 @@ import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest
 import org.gitanimals.render.controller.request.UsernameAndPersonaIdRequest
-import org.gitanimals.render.controller.response.ErrorResponse
+import org.gitanimals.core.ErrorResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
 import org.gitanimals.render.domain.UserService

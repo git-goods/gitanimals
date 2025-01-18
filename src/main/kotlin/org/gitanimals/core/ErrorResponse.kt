@@ -1,4 +1,4 @@
-package org.gitanimals.render.controller.response
+package org.gitanimals.core
 
 data class ErrorResponse(
     val message: String,

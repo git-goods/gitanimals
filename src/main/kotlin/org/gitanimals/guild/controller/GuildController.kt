@@ -1,6 +1,7 @@
 package org.gitanimals.guild.controller
 
 import org.gitanimals.core.AuthorizationException
+import org.gitanimals.core.ErrorResponse
 import org.gitanimals.core.FieldType
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
