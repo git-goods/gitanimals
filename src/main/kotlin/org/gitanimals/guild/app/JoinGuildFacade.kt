@@ -57,6 +57,7 @@ class JoinGuildFacade(
                         userId = it.userId,
                         newUserImage = member.profileImage,
                         newUserName = member.username,
+                        guildId = guild.id,
                         guildTitle = guild.getTitle(),
                     )
                 )
@@ -72,6 +73,7 @@ class JoinGuildFacade(
                 userId = guild.getLeaderUserId(),
                 newUserImage = member.profileImage,
                 newUserName = member.username,
+                guildId = guild.id,
                 guildTitle = guild.getTitle(),
             )
         )
@@ -84,7 +86,9 @@ class JoinGuildFacade(
         sagaManager.startSync(
             InboxInputEvent.sentJoinRequest(
                 userId = member.id.toLong(),
+                guildId = guild.id,
                 guildTitle = guild.getTitle(),
+                guildIcon = guild.getGuildIcon(),
             )
         )
     }

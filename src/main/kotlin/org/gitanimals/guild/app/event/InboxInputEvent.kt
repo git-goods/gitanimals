@@ -28,6 +28,7 @@ data class InboxInputEvent(
             userId: Long,
             newUserImage: String,
             newUserName: String,
+            guildId: Long,
             guildTitle: String,
         ): InboxInputEvent {
             return InboxInputEvent(
@@ -40,13 +41,14 @@ data class InboxInputEvent(
                     title = "New user join",
                     body = "$newUserName join $guildTitle guild.",
                     image = newUserImage,
-                    redirectTo = "",
+                    redirectTo = "/guild/$guildId",
                 )
             )
         }
 
         fun guildJoinRequest(
             userId: Long,
+            guildId: Long,
             newUserImage: String,
             newUserName: String,
             guildTitle: String,
@@ -61,14 +63,16 @@ data class InboxInputEvent(
                     title = "Guild join request",
                     body = "$newUserName has sent a join request to the $guildTitle guild.",
                     image = newUserImage,
-                    redirectTo = "",
+                    redirectTo = "/guild/$guildId/setting/member",
                 )
             )
         }
 
         fun sentJoinRequest(
             userId: Long,
+            guildId: Long,
             guildTitle: String,
+            guildIcon: String,
         ): InboxInputEvent {
             return InboxInputEvent(
                 publisher = Publisher(
@@ -79,8 +83,8 @@ data class InboxInputEvent(
                     userId = userId,
                     title = "Guild join request sent",
                     body = "Guild join request sent to $guildTitle.",
-                    image = "guild-image", // guild 이미지 추가
-                    redirectTo = "",
+                    image = guildIcon,
+                    redirectTo = "/guild/detail/$guildId",
                 )
             )
         }
