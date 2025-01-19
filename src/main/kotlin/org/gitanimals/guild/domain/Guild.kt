@@ -140,7 +140,7 @@ class Guild(
 
     fun getLeaderName(): String = leader.name
 
-    fun getContributions(): Long = leader.contributions
+    fun getLeaderContributions(): Long = leader.contributions
 
     fun getGuildFarmType(): FieldType = farmType
 

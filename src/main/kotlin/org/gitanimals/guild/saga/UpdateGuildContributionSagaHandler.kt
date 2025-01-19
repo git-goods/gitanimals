@@ -20,7 +20,7 @@ class UpdateGuildContributionSagaHandler(
 
         guildService.updateContribution(
             username = userContributionUpdated.username,
-            contributions = userContributionUpdated.contributions.toLong(),
+            contributions = userContributionUpdated.contributions,
         )
     }
 }

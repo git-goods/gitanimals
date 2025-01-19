@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import org.gitanimals.core.*
 import org.gitanimals.render.domain.event.PersonaDeleted
+import org.gitanimals.render.domain.event.UserContributionUpdated
 import org.gitanimals.render.domain.extension.RenderFieldTypeExtension.isRenderField
 import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import org.gitanimals.render.domain.response.PersonaResponse
@@ -143,6 +144,13 @@ class User(
         lastPersonaGivePoint += newContribution
         currentYearContribution.lastUpdatedContribution = Instant.now()
         levelUpPersonas(newContribution)
+
+        DomainEventPublisher.publish(
+            UserContributionUpdated(
+                username = this.name,
+                contributions = contributions.totalCount(),
+            )
+        )
 
         return newContribution
     }

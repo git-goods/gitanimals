@@ -60,7 +60,7 @@ data class GuildResponse(
                 leader = Leader(
                     userId = guild.getLeaderUserId().toString(),
                     name = guild.getLeaderName(),
-                    contributions = guild.getContributions().toString(),
+                    contributions = guild.getLeaderContributions().toString(),
                     personaId = guild.getLeaderPersonaId().toString(),
                     personaType = guild.getLeaderPersonaType(),
                 ),
