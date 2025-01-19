@@ -3,7 +3,7 @@ package org.gitanimals.render.controller
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.ChangeFieldRequest
 import org.gitanimals.render.controller.response.BackgroundResponse
-import org.gitanimals.render.controller.response.ErrorResponse
+import org.gitanimals.core.ErrorResponse
 import org.gitanimals.core.FieldType
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.UserService.Companion.loadField
@@ -47,8 +47,8 @@ class BackgroundController(
 
     @ExceptionHandler(IllegalStateException::class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleIllegalArgumentException(exception: IllegalStateException): org.gitanimals.guild.app.response.ErrorResponse =
-        org.gitanimals.guild.app.response.ErrorResponse.from(exception)
+    fun handleIllegalArgumentException(exception: IllegalStateException): ErrorResponse =
+        ErrorResponse.from(exception)
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

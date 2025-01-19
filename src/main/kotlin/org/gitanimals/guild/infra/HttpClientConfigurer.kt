@@ -19,8 +19,9 @@ class HttpClientConfigurer {
     fun identityApiHttpClient(): IdentityApi {
         val restClient = RestClient
             .builder()
-            .defaultHeaders {
-                it.add(TRACE_ID, MDC.get(TRACE_ID))
+            .requestInterceptor { request, body, execution ->
+                request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
+                execution.execute(request, body)
             }
             .defaultStatusHandler(httpClientErrorHandler())
             .baseUrl("https://api.gitanimals.org")
@@ -37,8 +38,9 @@ class HttpClientConfigurer {
     fun renderApiHttpClient(): RenderApi {
         val restClient = RestClient
             .builder()
-            .defaultHeaders {
-                it.add(TRACE_ID, MDC.get(TRACE_ID))
+            .requestInterceptor { request, body, execution ->
+                request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
+                execution.execute(request, body)
             }
             .defaultStatusHandler(httpClientErrorHandler())
             .baseUrl("https://render.gitanimals.org")
