@@ -25,17 +25,23 @@
 <br> 1개의 contribution은 랜덤한 펫의 level을 1 증가시켜요.
 <br> 키운 펫은 다른사람과 거래할 수 있어요.     
 <br> 배경을 구매하고 변경할 수 있어요.
+<br> 길드를 만들고 친구와 함께 펫을 키울 수 있어요.
 <br>
 <br>
 50 종류가 넘는 펫을 뽑고 기르세요.
 <br>
 
-[홈페이지](https://gitanimals.org) 에서 펫을 거래하고, 배경을 구매하고 관리할 수 있어요.
+[홈페이지](https://gitanimals.org) 에서 펫을 거래하고, 배경을 구매하고 길드를 만들 수 있어요.
 
 </h4>
 <br>
-<a href="https://github.com/devxb/gitanimals">
-    <img alt="docs/sample.svg" src="https://render.gitanimals.org/farms/devxb"/>
+<a href="https://www.gitanimals.org/">
+      <img
+        src="https://render.gitanimals.org/guilds/668749238833660322/draw"
+        width="600"
+        height="300"
+        alt="gitanimals"
+      />
 </a>
 </div>
 
@@ -91,6 +97,23 @@ farm mode는 가지고 있는 모든 동물과 추가적인 정보를 보여줘�
 ```html
 <a href="https://github.com/devxb/gitanimals">
   <img src="https://render.gitanimals.org/farms/{username}"/>
+</a>
+```
+
+### guild mode
+
+길드를 만들고 친구와 함께 펫을 키울 수 있어요.   
+[길드 만들러 가기](https://gitanimals.org/guilds) 
+
+<a href="https://www.gitanimals.org/">
+      <img src="https://render.gitanimals.org/guilds/668749238833660322/draw" width="300" alt="gitanimals"/>
+</a>
+
+**html**
+
+```html
+<a href="https://github.com/devxb/gitanimals">
+  <img src="https://render.gitanimals.org/guilds/{guildId}/draw"/>
 </a>
 ```
 

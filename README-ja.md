@@ -34,8 +34,13 @@
 
 </h4>
 <br>
-<a href="https://github.com/devxb/gitanimals">
-    <img alt="docs/sample.svg" src="https://render.gitanimals.org/farms/devxb"/>
+<a href="https://www.gitanimals.org/">
+      <img
+        src="https://render.gitanimals.org/guilds/668749238833660322/draw"
+        width="600"
+        height="300"
+        alt="gitanimals"
+      />
 </a>
 </div>
 

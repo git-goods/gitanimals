@@ -1,4 +1,4 @@
-<rect width="600" height="300" fill="#F5EDFD"/>
+<rect width="600" height="300" rx="5" fill="#F5EDFD"/>
 <rect x="264.594" y="147.158" width="26.1024" height="72.6634" transform="rotate(-90 264.594 147.158)" fill="#DD9CBB"/>
 <rect x="269.391" y="121.055" width="7.0547" height="23.2805" transform="rotate(-90 269.391 121.055)" fill="#EBB5CF"/>
 <rect x="262.055" y="145.042" width="23.986" height="7.33688" transform="rotate(-90 262.055 145.042)" fill="#EBB5CF"/>
