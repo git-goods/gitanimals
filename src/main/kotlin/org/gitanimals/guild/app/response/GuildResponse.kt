@@ -15,6 +15,7 @@ data class GuildResponse(
     val totalContributions: String,
     val members: List<Member>,
     val waitMembers: List<WaitMember>,
+    val autoJoin: Boolean,
     @JsonFormat(
         shape = JsonFormat.Shape.STRING,
         pattern = "yyyy-MM-dd HH:mm:ss",
@@ -59,7 +60,7 @@ data class GuildResponse(
                 leader = Leader(
                     userId = guild.getLeaderUserId().toString(),
                     name = guild.getLeaderName(),
-                    contributions = guild.getContributions().toString(),
+                    contributions = guild.getLeaderContributions().toString(),
                     personaId = guild.getLeaderPersonaId().toString(),
                     personaType = guild.getLeaderPersonaType(),
                 ),
@@ -85,6 +86,7 @@ data class GuildResponse(
                         personaType = it.personaType,
                     )
                 },
+                autoJoin = guild.isAutoJoin(),
                 createdAt = guild.createdAt,
             )
         }

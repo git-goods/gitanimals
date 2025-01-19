@@ -8,6 +8,8 @@ import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.mockk.every
 import org.gitanimals.core.FieldType
+import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildRepository
@@ -16,6 +18,7 @@ import org.gitanimals.guild.supports.RedisContainer
 import org.gitanimals.guild.supports.GuildSagaCapture
 import org.gitanimals.guild.supports.MockApiConfiguration
 import org.rooftop.netx.meta.EnableSaga
+import org.slf4j.MDC
 import org.springframework.boot.actuate.autoconfigure.wavefront.WavefrontProperties.Application
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
@@ -50,6 +53,7 @@ internal class CreateGuildFacadeTest(
     beforeEach {
         guildSagaCapture.clear()
         guildRepository.deleteAll()
+        MDC.put(TRACE_ID, IdGenerator.generate().toString())
     }
 
     describe("createGuild 메소드는") {
@@ -118,7 +122,7 @@ internal class CreateGuildFacadeTest(
         private val poolIdentityUserResponse = IdentityApi.UserResponse(
             id = "1",
             username = "devxb",
-            points = "29999",
+            points = "0",
             profileImage = "https://gitanimals.org"
         )
 

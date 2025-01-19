@@ -7,6 +7,8 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
 import org.gitanimals.core.PersonaType
+import org.gitanimals.core.instant
+import org.gitanimals.core.toZonedDateTime
 import org.gitanimals.render.domain.event.PersonaDeleted
 import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import org.gitanimals.render.domain.value.Contribution
@@ -79,7 +81,13 @@ internal class UserTest(
 
         context("user의 contribution이 업데이트 된지 1시간이 지나지 않았을 경우,") {
             val user = user(
-                contributions = mutableListOf(Contribution(2024, 0, Instant.now()))
+                contributions = mutableListOf(
+                    Contribution(
+                        instant().toZonedDateTime().year,
+                        0,
+                        instant(),
+                    )
+                )
             )
             it("false를 반환한다.") {
                 user.isContributionUpdatedBeforeOneHour() shouldBeEqual false

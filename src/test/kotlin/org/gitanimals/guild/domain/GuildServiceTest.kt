@@ -9,6 +9,7 @@ import org.gitanimals.core.FieldType
 import org.gitanimals.core.PersonaType
 import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
 import org.gitanimals.guild.domain.GuildService.Companion.loadWaitMembers
+import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
@@ -34,7 +35,7 @@ internal class GuildServiceTest(
             val guildIcon = GuildIcons.CAT.getImagePath()
             val title = "guildTitle"
             val body = "guildBody"
-            val farmType = FieldType.LOGO_SHOWING
+            val farmType = FieldType.entries.first { it.isGuildField() }
             val leaderRequest = CreateLeaderRequest(
                 userId = 1L,
                 name = "devxb",

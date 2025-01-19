@@ -11,4 +11,6 @@ fun instant() = Instant.now(clock)
 
 fun Instant.toZonedDateTime() = ZonedDateTime.ofInstant(this, clock.zone)
 
+fun Instant.toZonedDateTime(zoneId: ZoneId) = ZonedDateTime.ofInstant(this, zoneId)
+
 fun Instant.toKr() = ZonedDateTime.ofInstant(this, ZoneId.of("Asia/Seoul"))
