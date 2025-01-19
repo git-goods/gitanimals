@@ -54,7 +54,7 @@ class AnimationController(
         return username.substring(start, end)
     }
 
-    fun HttpServletResponse.cacheControl(maxAgeSeconds: Int): HttpServletResponse {
+    private fun HttpServletResponse.cacheControl(maxAgeSeconds: Int): HttpServletResponse {
         this.setHeader(
             HttpHeaders.CACHE_CONTROL,
             "no-cache, no-store, must-revalidate, max-age=$maxAgeSeconds"

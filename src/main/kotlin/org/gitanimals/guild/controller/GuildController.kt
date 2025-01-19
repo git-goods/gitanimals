@@ -1,5 +1,6 @@
 package org.gitanimals.guild.controller
 
+import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.core.AuthorizationException
 import org.gitanimals.core.ErrorResponse
 import org.gitanimals.core.FieldType
@@ -147,20 +148,28 @@ class GuildController(
     @GetMapping(value = ["/guilds/{guildId}/draw"], produces = ["image/svg+xml"])
     fun draw(
         @PathVariable("guildId") guildId: Long,
-    ) = drawGuildFacade.drawGuild(guildId)
+        response: HttpServletResponse,
+    ): String {
+        response.cacheControl(3600)
+        return drawGuildFacade.drawGuild(guildId)
+    }
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
         ErrorResponse.from(exception)
 
-    @ExceptionHandler(IllegalStateException::class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleIllegalArgumentException(exception: IllegalStateException): ErrorResponse =
-        ErrorResponse.from(exception)
-
     @ExceptionHandler(AuthorizationException::class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     fun handleAuthorizationException(exception: AuthorizationException): ErrorResponse =
         ErrorResponse.from(exception)
+
+    private fun HttpServletResponse.cacheControl(maxAgeSeconds: Int): HttpServletResponse {
+        this.setHeader(
+            HttpHeaders.CACHE_CONTROL,
+            "no-cache, no-store, must-revalidate, max-age=$maxAgeSeconds"
+        )
+        this.setHeader(HttpHeaders.PRAGMA, "no-cache")
+        return this
+    }
 }
