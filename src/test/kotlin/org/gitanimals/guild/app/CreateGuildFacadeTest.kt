@@ -14,6 +14,7 @@ import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildRepository
 import org.gitanimals.guild.domain.GuildService
+import org.gitanimals.guild.infra.InMemoryRandomGuildCache
 import org.gitanimals.guild.supports.RedisContainer
 import org.gitanimals.guild.supports.GuildSagaCapture
 import org.gitanimals.guild.supports.MockApiConfiguration
@@ -37,6 +38,7 @@ import kotlin.time.Duration.Companion.seconds
         CreateGuildFacade::class,
         MockApiConfiguration::class,
         GuildService::class,
+        InMemoryRandomGuildCache::class,
     ]
 )
 @DisplayName("CreateGuildFacade 클래스의")

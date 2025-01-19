@@ -4,6 +4,7 @@ import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.app.response.GuildResponse
 import org.gitanimals.guild.domain.GuildService
+import org.gitanimals.guild.domain.RandomGuildCache
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.rooftop.netx.api.Orchestrator
 import org.rooftop.netx.api.OrchestratorFactory
@@ -19,6 +20,7 @@ class CreateGuildFacade(
     private val guildService: GuildService,
     private val identityApi: IdentityApi,
     private val renderApi: RenderApi,
+    private val randomGuildCache: RandomGuildCache,
     @Value("\${internal.secret}") internalSecret: String,
     orchestratorFactory: OrchestratorFactory,
 ) {
@@ -40,7 +42,9 @@ class CreateGuildFacade(
                 TRACE_ID to MDC.get(TRACE_ID),
             ),
             timeoutMillis = 1.minutes.inWholeMilliseconds,
-        ).decodeResultOrThrow(GuildResponse::class)
+        ).decodeResultOrThrow(GuildResponse::class).also {
+            randomGuildCache.updateForce()
+        }
     }
 
     init {
