@@ -115,6 +115,6 @@ class CreateGuildFacade(
 
     private companion object {
         private const val IDEMPOTENCY_KEY = "IDEMPOTENCY_KEY"
-        private const val CREATE_GUILD_COST = 30_000
+        private const val CREATE_GUILD_COST = 10_000
     }
 }

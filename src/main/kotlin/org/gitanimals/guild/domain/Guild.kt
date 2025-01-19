@@ -123,6 +123,8 @@ class Guild(
     }
 
     fun change(request: ChangeGuildRequest) {
+        GuildIcons.requireExistImagePath(request.guildIcon)
+
         this.title = request.title
         this.body = request.body
         this.farmType = request.farmType
