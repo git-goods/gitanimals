@@ -5,6 +5,7 @@ import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.GuildService.Companion.PAGE_SIZE
 import org.gitanimals.guild.domain.RandomGuildCache
 import org.gitanimals.guild.domain.SearchFilter
+import org.slf4j.LoggerFactory
 import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
 import org.springframework.data.domain.Page
@@ -18,6 +19,7 @@ class InMemoryRandomGuildCache(
     private val guildService: GuildService,
 ) : RandomGuildCache {
 
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
     private lateinit var cache: Map<Int, List<Guild>>
 
     override fun get(key: Int, text: String, pageNumber: Int, filter: SearchFilter): Page<Guild> {
@@ -53,6 +55,14 @@ class InMemoryRandomGuildCache(
         }
 
         return PageImpl(filter.sort(response), Pageable.ofSize(PAGE_SIZE), guilds.size.toLong())
+    }
+
+    override fun updateForce() {
+        runCatching {
+            updateRandom()
+        }.onFailure {
+            logger.error("Fail to force update in-memory guild cache", it)
+        }
     }
 
     @Scheduled(cron = ONCE_0AM_TIME)
