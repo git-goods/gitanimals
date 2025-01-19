@@ -82,11 +82,6 @@ class PersonaController(
     fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =
         ErrorResponse.from(exception)
 
-    @ExceptionHandler(IllegalStateException::class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleIllegalArgumentException(exception: IllegalStateException): ErrorResponse =
-        ErrorResponse.from(exception)
-
     @ExceptionHandler(AuthorizationException::class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     fun handleAuthorizationException(exception: AuthorizationException): ErrorResponse =

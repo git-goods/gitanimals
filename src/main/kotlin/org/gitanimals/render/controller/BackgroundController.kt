@@ -45,11 +45,6 @@ class BackgroundController(
         @RequestParam(name = "name") name: String,
     ) = userFacade.deleteField(token, FieldType.valueOf(name.uppercase()))
 
-    @ExceptionHandler(IllegalStateException::class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleIllegalArgumentException(exception: IllegalStateException): ErrorResponse =
-        ErrorResponse.from(exception)
-
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(illegalArgumentException: IllegalArgumentException): ErrorResponse =
