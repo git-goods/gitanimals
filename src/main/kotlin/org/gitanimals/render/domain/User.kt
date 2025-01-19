@@ -104,7 +104,7 @@ class User(
 
     @JsonIgnore
     fun isContributionUpdatedBeforeOneHour(): Boolean {
-        val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
+        val currentYear = instant().toZonedDateTime(ZoneId.of("UTC")).year
         val currentYearContribution =
             contributions.firstOrNull { it.year == currentYear } ?: return true
 
