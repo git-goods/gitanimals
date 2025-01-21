@@ -97,6 +97,23 @@
 </a>
 ```
 
+### guild mode
+
+您可以创建公会，邀请朋友加入，一起养宠物！     
+[Click to create guild](https://gitanimals.org/guilds)
+
+<a href="https://www.gitanimals.org/">
+      <img src="https://render.gitanimals.org/guilds/668749238833660322/draw" width="300" alt="gitanimals"/>
+</a>
+
+**html**
+
+```html
+<a href="https://github.com/devxb/gitanimals">
+  <img src="https://render.gitanimals.org/guilds/{guildId}/draw"/>
+</a>
+```
+
 ## 提示
 
 ### 如何获取宠物
