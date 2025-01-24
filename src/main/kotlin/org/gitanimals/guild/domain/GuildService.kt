@@ -28,12 +28,6 @@ class GuildService(
         autoJoin: Boolean,
         createLeaderRequest: CreateLeaderRequest,
     ): Guild {
-        val forbiddenWords = listOf("fuck")
-
-        require(forbiddenWords.none { title.contains(it, ignoreCase = true) }) {
-            "Title contains forbidden word. title : \"$title\""
-        }
-
         require(guildRepository.existsByTitle(title).not()) {
             "Cannot create guild cause duplicated guild already exists."
         }

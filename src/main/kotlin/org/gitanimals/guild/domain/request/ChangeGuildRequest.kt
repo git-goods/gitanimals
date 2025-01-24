@@ -1,6 +1,7 @@
 package org.gitanimals.guild.domain.request
 
 import org.gitanimals.core.FieldType
+import org.gitanimals.core.forbiddenWordsList
 import org.gitanimals.core.largetTextAcceptableChars
 
 data class ChangeGuildRequest(
@@ -14,6 +15,10 @@ data class ChangeGuildRequest(
     fun requireValidTitle() {
         title.forEach {
             require(it in largetTextAcceptableChars) { "Cannot accept title \"$it\"" }
+        }
+
+        require(forbiddenWordsList.none { title.contains(it, ignoreCase = true) }) {
+            "Title contains forbidden word. title: \"$title\""
         }
     }
 }
