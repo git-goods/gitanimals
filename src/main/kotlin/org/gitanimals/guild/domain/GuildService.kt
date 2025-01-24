@@ -31,7 +31,7 @@ class GuildService(
         val forbiddenWords = listOf("fuck")
 
         require(forbiddenWords.none { title.contains(it, ignoreCase = true) }) {
-            "The title contains forbidden words and cannot be used."
+            "Title contains forbidden word. title : \"$title\""
         }
 
         require(guildRepository.existsByTitle(title).not()) {
