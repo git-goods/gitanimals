@@ -101,6 +101,23 @@ Farm mode shows all your animals and additional information.
 </a>
 ```
 
+### guild mode
+
+You can create a guild, invite friends to join, and raise pets together!   
+[Click to create guild](https://gitanimals.org/guilds)
+
+<a href="https://www.gitanimals.org/">
+      <img src="https://render.gitanimals.org/guilds/668749238833660322/draw" width="300" alt="gitanimals"/>
+</a>
+
+**html**
+
+```html
+<a href="https://github.com/devxb/gitanimals">
+  <img src="https://render.gitanimals.org/guilds/{guildId}/draw"/>
+</a>
+```
+
 ## Tips
 
 ### How to Acquire Pets

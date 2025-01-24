@@ -101,6 +101,23 @@ linesモードでは、ペットのレベルの上に総コントリビューシ
 </a>
 ```
 
+### guild mode
+
+ギルドを作成し、友達を招待して、一緒にペットを育てましょう！    
+[Click to create guild](https://gitanimals.org/guilds)
+
+<a href="https://www.gitanimals.org/">
+      <img src="https://render.gitanimals.org/guilds/668749238833660322/draw" width="300" alt="gitanimals"/>
+</a>
+
+**html**
+
+```html
+<a href="https://github.com/devxb/gitanimals">
+  <img src="https://render.gitanimals.org/guilds/{guildId}/draw"/>
+</a>
+```
+
 ## TIPS
 
 ### ペットを獲得する方法

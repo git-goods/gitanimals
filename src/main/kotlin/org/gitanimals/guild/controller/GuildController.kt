@@ -111,7 +111,7 @@ class GuildController(
             filter = filter,
         )
 
-        return GuildPagingResponse.from(guilds)
+        return GuildPagingResponse.from(guilds, pageNumber)
     }
 
     @GetMapping("/guilds/icons")

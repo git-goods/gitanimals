@@ -18,12 +18,12 @@ data class GuildPagingResponse(
 
     companion object {
         
-        fun from(guilds: Page<Guild>): GuildPagingResponse {
+        fun from(guilds: Page<Guild>, forceCurrentPage: Int): GuildPagingResponse {
             return GuildPagingResponse(
                 guilds = guilds.map { GuildResponse.from(it) }.toList(),
                 pagination = Pagination(
                     totalRecords = guilds.count(),
-                    currentPage = guilds.number,
+                    currentPage = forceCurrentPage,
                     totalPages = guilds.totalPages,
                     nextPage = when (guilds.hasNext()) {
                         true -> guilds.number + 1
