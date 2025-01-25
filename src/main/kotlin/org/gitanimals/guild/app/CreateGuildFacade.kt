@@ -1,5 +1,7 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.TraceIdContextOrchestrator
+import org.gitanimals.core.TraceIdContextRollback
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.app.response.GuildResponse
@@ -51,8 +53,7 @@ class CreateGuildFacade(
         createGuildOrchestrator =
             orchestratorFactory.create<CreateGuildRequest>("Create guild orchestrator")
                 .startWithContext(
-                    contextOrchestrate = { context, createGuildRequest ->
-                        MDC.put(TRACE_ID, context.decodeContext(TRACE_ID, String::class))
+                    contextOrchestrate = TraceIdContextOrchestrator { context, createGuildRequest ->
                         val token = context.decodeContext("token", String::class)
                         val idempotencyKey = context.decodeContext(IDEMPOTENCY_KEY, String::class)
 
@@ -69,8 +70,7 @@ class CreateGuildFacade(
                         )
                         createGuildRequest
                     },
-                    contextRollback = { context, _ ->
-                        MDC.put(TRACE_ID, context.decodeContext(TRACE_ID, String::class))
+                    contextRollback = TraceIdContextRollback { context, _ ->
                         val token = context.decodeContext("token", String::class)
                         val idempotencyKey = context.decodeContext(IDEMPOTENCY_KEY, String::class)
 
@@ -85,8 +85,7 @@ class CreateGuildFacade(
                     }
                 )
                 .commitWithContext(
-                    contextOrchestrate = { context, createGuildRequest ->
-                        MDC.put(TRACE_ID, context.decodeContext(TRACE_ID, String::class))
+                    contextOrchestrate = TraceIdContextOrchestrator { context, createGuildRequest ->
                         val token = context.decodeContext("token", String::class)
 
                         val leader = identityApi.getUserByToken(token)
@@ -112,7 +111,7 @@ class CreateGuildFacade(
                             createLeaderRequest = createLeaderRequest,
                         )
 
-                        return@commitWithContext GuildResponse.from(guild)
+                        GuildResponse.from(guild)
                     }
                 )
     }
