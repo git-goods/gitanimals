@@ -51,6 +51,50 @@ interface GuildRepository : JpaRepository<Guild, Long> {
     )
     fun search(@Param("text") text: String, pageable: Pageable): Page<Guild>
 
-    @Query(value = "select g from Guild as g")
-    fun search(pageable: Pageable): Page<Guild>
+    @Query(
+        value = """
+            select g from Guild as g
+            order by case 
+              when :filter = org.gitanimals.guild.domain.SearchFilter.PEOPLE_ASC then '%' 
+              else :personaType 
+            end
+        """
+    )
+    fun search(pageable: Pageable, @Param("filter") filter: SearchFilter): Page<Guild>
+
+    @Query(
+        """
+            select g from Guild as g 
+            left join g.members as m group by g.id 
+            order by count(m) asc
+        """
+    )
+    fun searchByPeopleCountAsc(pageable: Pageable): Page<Guild>
+
+    @Query(
+        """
+            select g from Guild as g 
+            left join g.members as m group by g.id 
+            order by count(m) desc
+        """
+    )
+    fun searchByPeopleCountDesc(pageable: Pageable): Page<Guild>
+
+    @Query(
+        """
+            select g from Guild as g
+            left join g.members as m group by g.id
+            order by (g.leader.contributions + coalesce(sum(m.contributions), 0)) asc
+        """
+    )
+    fun searchByContributionCountAsc(pageable: Pageable): Page<Guild>
+
+    @Query(
+        """
+            select g from Guild as g
+            left join g.members as m group by g.id
+            order by (g.leader.contributions + coalesce(sum(m.contributions), 0)) desc
+        """
+    )
+    fun searchByContributionCountDesc(pageable: Pageable): Page<Guild>
 }

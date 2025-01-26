@@ -6,7 +6,11 @@ import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.gitanimals.guild.domain.request.CreateLeaderRequest
 import org.hibernate.Hibernate
 import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
+import org.springframework.data.domain.Sort.Direction.ASC
+import org.springframework.data.domain.Sort.Direction.DESC
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
@@ -143,7 +147,21 @@ class GuildService(
 
     fun search(text: String, pageNumber: Int, filter: SearchFilter): Page<Guild> {
         return if (text.isBlank()) {
-            guildRepository.search(Pageable.ofSize(PAGE_SIZE).withPage(pageNumber))
+            when (filter) {
+                SearchFilter.RANDOM,
+                SearchFilter.PEOPLE_ASC ->
+                    guildRepository.searchByPeopleCountAsc(PageRequest.of(pageNumber, PAGE_SIZE))
+
+                SearchFilter.PEOPLE_DESC ->
+                    guildRepository.searchByPeopleCountDesc(PageRequest.of(pageNumber, PAGE_SIZE))
+
+                SearchFilter.CONTRIBUTION_ASC ->
+                    guildRepository.searchByContributionCountAsc(PageRequest.of(pageNumber, PAGE_SIZE))
+
+                SearchFilter.CONTRIBUTION_DESC ->
+                    guildRepository.searchByContributionCountDesc(PageRequest.of(pageNumber, PAGE_SIZE))
+
+            }
         } else {
             guildRepository.search(text, Pageable.ofSize(PAGE_SIZE).withPage(pageNumber))
         }.onEach {
