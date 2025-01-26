@@ -230,6 +230,7 @@ _新しいコントリビューションの反映には最大で1時間かかる
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/>  | 0.0   | コラボレーター [sumi-001](https://github.com/sumi-0011) のために作られたペット                                                                                            |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                 | 0.0   | コラボレーター [hyesungoh](https://github.com/hyesungoh) のために作られたペット                                                                                           |
 | rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>            | 0.0   | コラボレーター [Choi jiwoo](https://www.behance.net/sopungcjw42af) のために作られたペット                                                                                 |
+| hamster_collaborator <br> <img src = "docs/hamster-collaborator.svg" width="100px" height="50px"/>       | 0.8   | Pet made for collaborator [Orchemi](https://github.com/Orchemi)                                                                                         |
 
 ##
 

@@ -1,0 +1,126 @@
+
+<svg fill="none" overflow="visible" xmlns="http://www.w3.org/2000/svg"><style>
+  @keyframes hamster-14-hand-left-move {
+  0% {
+  transform: translate(9px, 2px);
+  }
+  50% {
+  transform: translate(9px, 2.5px);
+  }
+  100% {
+  transform: translate(9px, 2px);
+  }
+  }
+
+  @keyframes hamster-14-hand-right-move {
+  0% {
+  transform: translate(11px, 2px);
+  }
+  50% {
+  transform: translate(11px, 1.5px);
+  }
+  100% {
+  transform: translate(11px, 2px);
+  }
+  }
+
+  #hamster-14-hand-left {
+  animation-name:hamster-14-hand-left-move;
+  animation-duration:0.3s;
+  animation-iteration-count: infinite;
+  }
+
+  #hamster-14-hand-right {
+  animation-name:hamster-14-hand-right-move;
+  animation-duration:0.3s;
+  animation-iteration-count: infinite;
+  }
+
+</style>
+  <g id="hamster-14" transform="translate(5, 15)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="hamster-14-shadow" transform="translate(0, 6.5)">
+        <rect y="1.54541" width="14" height="1.90909" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.07693" y="1.06818" width="11.8462" height="0.477273" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect x="1.07693" y="3.45453" width="11.8462" height="0.477273" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect x="2.15378" y="0.590881" width="9.69231" height="0.477273" fill="#2B4447"
+          fill-opacity="0.1"/>
+        <rect x="2.15378" y="3.93182" width="9.69231" height="0.477273" fill="#2B4447"
+          fill-opacity="0.1"/>
+      </g>
+      <g id="hamster-14-body" transform="translate(0, 0)">
+        <rect x="7" y="8" width="3" height="1" fill="#FBB3BE"/>
+        <rect x="11" y="7" width="3" height="1" fill="#FBB3BE"/>
+        <rect x="1" y="3" width="2" height="4" fill="#FFE1BF"/>
+        <rect x="2" y="3" width="10" height="5" fill="#FFE1BF"/>
+        <rect x="4" width="4" height="9" fill="#FFE1BF"/>
+        <rect x="8" width="4" height="8" fill="#FFE1BF"/>
+        <rect x="4" y="8" width="4" height="1" fill="#F8D196"/>
+        <rect x="2" y="7" width="4" height="1" fill="#F8D196"/>
+        <rect x="1" y="3" width="1" height="3" fill="#F8D196"/>
+        <rect x="2" y="2" width="1" height="3" fill="#F8D196"/>
+        <rect x="1" y="3" width="3" height="2" fill="#F8D196"/>
+        <rect x="2" y="3" width="1" height="3" fill="#F8D196"/>
+        <rect x="4" y="1" width="1" height="3" fill="#F8D196"/>
+        <rect y="6" width="2" height="1" fill="#F8D196"/>
+        <rect y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="2" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="4" y="8" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="9" y="7" width="3" height="1" fill="#FFE9D0"/>
+        <rect x="10" y="6" width="2" height="1" fill="#FFE9D0"/>
+        <rect x="11" y="5" width="1" height="1" fill="#FFE9D0"/>
+      </g>
+      <g id="hamster-14-head" transform="translate(2, -5)">
+        <rect x="2" width="2" height="1" fill="#F8D196"/>
+        <rect x="2" width="2" height="4" fill="#F8D196"/>
+        <rect x="6" y="1" width="3" height="3" fill="#F8D196"/>
+        <rect x="6" width="2" height="3" fill="#F8D196"/>
+        <rect x="2" y="1" width="7" height="5" fill="#F8D196"/>
+        <rect x="4" y="2" width="7" height="5" fill="#F8D196"/>
+        <rect x="5" y="3" width="7" height="4" fill="#F8D196"/>
+        <rect x="1" y="3" width="7" height="4" fill="#F8D196"/>
+        <rect x="1" y="4" width="5" height="4" fill="#F8D196"/>
+        <rect y="4" width="6" height="3" fill="#F8D196"/>
+        <rect x="6" y="3" width="1" height="1" fill="black"/>
+        <rect x="9" y="3" width="1" height="1" fill="black"/>
+        <rect x="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <rect width="1" height="1" transform="matrix(1 0 0 -1 0 7)" fill="black" fill-opacity="0.1"/>
+        <rect x="5" y="6" width="6" height="2" fill="#FED9AF"/>
+        <rect x="4" y="7" width="6" height="1" fill="#FED9AF"/>
+        <rect x="10" y="5" width="2" height="2" fill="#FED9AF"/>
+        <rect x="3" width="1" height="1" fill="#FBB3BE"/>
+        <rect x="7" width="1" height="1" fill="#FBB3BE"/>
+        <rect x="8" y="5" width="1" height="1" fill="#765D49"/>
+      </g>
+      <g id="hamster-14-hand-right" transform="translate(11, 2)">
+        <rect y="0.333313" width="2" height="1.33333" fill="#FBB3BE"/>
+        <rect x="0.333344" width="1.33333" height="2" fill="#FBB3BE"/>
+      </g>
+
+      <g id="hamster-14-hand-left" transform="translate(9, 2.5)">
+        <rect y="0.833313" width="2" height="1.33333" fill="#FBB3BE"/>
+        <rect x="0.333344" y="0.5" width="1.33333" height="2" fill="#FBB3BE"/>
+      </g>
+
+      <g id="hamster-14-notebook" transform="translate(9, 1.5)">
+        <rect width="3.81818" height="2.72727" transform="matrix(-1 0 0 1 5.45447 0.454529)" fill="#E4E4E4"/>
+        <rect width="4.90909" height="2.72727" transform="matrix(-1 0 0 1 6 0.999939)" fill="#E4E4E4"/>
+        <rect width="4.90909" height="1.09091" transform="matrix(-1 0 0 1 5.45447 2.63623)" fill="#E4E4E4"/>
+        <rect width="4.90909" height="0.545455" transform="matrix(-1 0 0 1 4.90915 3.18182)" fill="#E4E4E4"/>
+        <rect width="0.545455" height="1.09091" transform="matrix(-1 0 0 1 1.09088 2.63623)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.545455" height="0.545455" transform="matrix(-1 0 0 1 0.54538 3.18182)" fill="black" fill-opacity="0.1"/>
+        <rect width="4.90909" height="0.545455" transform="matrix(-1 0 0 1 6 3.18182)" fill="black" fill-opacity="0.1"/>
+        <rect x="4.36365" y="2.36359" width="0.545455" height="0.272727" transform="rotate(180 4.36365 2.36359)" fill="#242427"/>
+        <rect width="0.545455" height="0.272727" transform="matrix(-1 0 0 1 4.091 1.81824)" fill="#242427"/>
+        <rect width="0.272727" height="1.09091" transform="matrix(-1 0 0 1 4.36365 1.54541)" fill="#242427"/>
+        <rect width="0.818182" height="0.272727" transform="matrix(-1 0 0 1 4.36365 2.36359)" fill="#242427"/>
+      </g>
+    </svg>
+  </g>
+</svg>

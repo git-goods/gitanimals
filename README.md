@@ -103,7 +103,7 @@ farm mode는 가지고 있는 모든 동물과 추가적인 정보를 보여줘�
 ### guild mode
 
 길드를 만들고 친구와 함께 펫을 키울 수 있어요.   
-[길드 만들러 가기](https://gitanimals.org/guild) 
+[길드 만들러 가기](https://gitanimals.org/guild)
 
 <a href="https://www.gitanimals.org/">
       <img src="https://render.gitanimals.org/guilds/668749238833660322/draw" width="300" alt="gitanimals"/>
@@ -229,6 +229,7 @@ _새로운 contribution 반영은 최대 1시간이 소요될 수 있어요._
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/>  | 0.0   | Pet made for collaborator [sumi-001](https://github.com/sumi-0011)                                                                                                           |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                 | 0.0   | Pet made for collaborator [hyesungoh](https://github.com/hyesungoh)                                                                                                          |
 | rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>            | 0.0   | Pet made for collaborator [Choi jiwoo](https://www.behance.net/sopungcjw42af)                                                                                                |
+| hamster_collaborator <br> <img src = "docs/hamster-collaborator.svg" width="100px" height="50px"/>       | 0.8   | Pet made for collaborator [Orchemi](https://github.com/Orchemi)                                                                                                              |
 
 ##
 
