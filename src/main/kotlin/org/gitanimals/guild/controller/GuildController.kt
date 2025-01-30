@@ -30,6 +30,7 @@ class GuildController(
     private val changeMainPersonaFacade: ChangeMainPersonaFacade,
     private val leaveGuildFacade: LeaveGuildFacade,
     private val drawGuildFacade: DrawGuildFacade,
+    private val denyJoinGuildFacade: DenyJoinGuildFacade,
 ) {
 
     @ResponseStatus(HttpStatus.OK)
@@ -144,6 +145,17 @@ class GuildController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
     ) = leaveGuildFacade.leave(token, guildId)
+
+    @PostMapping("guilds/{guildId}/deny")
+    fun deny(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @PathVariable("guildId") guildId: Long,
+        @RequestParam("user-id") denyUserId: Long,
+    ) = denyJoinGuildFacade.denyJoin(
+        token = token,
+        guildId = guildId,
+        denyUserId = denyUserId,
+    )
 
     @GetMapping(value = ["/guilds/{guildId}/draw"], produces = ["image/svg+xml"])
     fun draw(
