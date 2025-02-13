@@ -1,6 +1,7 @@
 package org.gitanimals.guild.app
 
 import org.springframework.http.HttpHeaders
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.service.annotation.GetExchange
@@ -26,6 +27,12 @@ interface IdentityApi {
         @RequestParam("idempotency-key") idempotencyKey: String,
         @RequestParam("point") point: String,
     )
+
+    @GetExchange("/internals/users/by-name/{name}")
+    fun getUserByName(
+        @PathVariable("name") name: String,
+        @RequestHeader(INTERNAL_SECRET_KEY) internalSecret: String,
+    ): UserResponse
 
     data class UserResponse(
         val id: String,
