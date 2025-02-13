@@ -5,36 +5,34 @@ import org.gitanimals.guild.app.RenderApi.UserResponse.PersonaResponse
 import org.gitanimals.guild.domain.Guild
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 
 @Service
 class DrawGuildFacade(
     private val renderApi: RenderApi,
+    private val identityApi: IdentityApi,
     private val guildService: GuildService,
     @Value("\${internal.secret}") private val internalSecret: String,
 ) {
-
-    private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     fun drawGuild(id: Long): String {
         val guild = guildService.getGuildById(id, loadMembers)
         val renderUsers = getRenderUsers(guild)
 
-        logger.info("[DrawGuildFacade] renderUsers response: \"$renderUsers\"")
-
         val svgBuilder = StringBuilder().openGuild()
             .append(guild.getGuildFarmType().fillBackground())
 
         val personaSvgs = renderUsers.map { user ->
-            logger.info("[DrawGuildFacade] user: \"$user\"")
             val persona = user.personas.firstOrNull()
                 ?: run {
                     val maxLevelPersona = getMaxLevelPersona(user.name)
                     guildService.changeMainPersona(
                         guildId = id,
-                        userId = user.id.toLong(),
+                        userId = identityApi.getUserByName(
+                            name = user.name,
+                            internalSecret = internalSecret,
+                        ).id.toLong(),
                         personaId = maxLevelPersona.id.toLong(),
                         personaType = maxLevelPersona.type,
                     )
@@ -74,9 +72,10 @@ class DrawGuildFacade(
             usernameAndPersonaIdRequests = usernameAndPersonaIdRequests,
         )
     }
-    
-    private fun getMaxLevelPersona(username: String): PersonaResponse = renderApi.getUserByName(username).personas.maxByOrNull { it.level }
-        ?: throw IllegalStateException("Cannot find any persona by username \"$username\"")
+
+    private fun getMaxLevelPersona(username: String): PersonaResponse =
+        renderApi.getUserByName(username).personas.maxByOrNull { it.level }
+            ?: throw IllegalStateException("Cannot find any persona by username \"$username\"")
 
     private fun StringBuilder.openGuild(): StringBuilder =
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
