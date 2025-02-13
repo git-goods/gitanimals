@@ -1,6 +1,7 @@
 package org.gitanimals.guild.app
 
 import org.gitanimals.core.Mode
+import org.gitanimals.guild.app.RenderApi.UserResponse.PersonaResponse
 import org.gitanimals.guild.domain.Guild
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
@@ -23,7 +24,16 @@ class DrawGuildFacade(
 
         val personaSvgs = renderUsers.map { user ->
             val persona = user.personas.firstOrNull()
-                ?: throw IllegalArgumentException("Cannot draw guild cause user does not have any persona. user: \"$user\"")
+                ?: run {
+                    val maxLevelPersona = getMaxLevelPersona(user.name)
+                    guildService.changeMainPersona(
+                        guildId = id,
+                        userId = user.id.toLong(),
+                        personaId = maxLevelPersona.id.toLong(),
+                        personaType = maxLevelPersona.type,
+                    )
+                    maxLevelPersona
+                }
 
             persona.type.load(
                 name = user.name,
@@ -58,7 +68,9 @@ class DrawGuildFacade(
             usernameAndPersonaIdRequests = usernameAndPersonaIdRequests,
         )
     }
-
+    
+    private fun getMaxLevelPersona(username: String): PersonaResponse = renderApi.getUserByName(username).personas.maxByOrNull { it.level }
+        ?: throw IllegalStateException("Cannot find any persona by username \"$username\"")
 
     private fun StringBuilder.openGuild(): StringBuilder =
         this.append("<svg width=\"600\" height=\"300\" viewBox=\"0 0 600 300\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">")
