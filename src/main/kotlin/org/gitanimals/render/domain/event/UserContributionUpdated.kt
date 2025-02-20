@@ -3,7 +3,6 @@ package org.gitanimals.render.domain.event
 import org.gitanimals.core.instant
 import org.gitanimals.core.redis.RedisPubSubChannel
 import org.gitanimals.core.redis.TransactionCommitRedisPubSubEvent
-import org.gitanimals.render.domain.listeners.DomainEventPublisher
 import java.time.Instant
 
 data class UserContributionUpdated(

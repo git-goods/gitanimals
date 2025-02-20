@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain.listeners
+package org.gitanimals.guild.domain.event
 
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Component
