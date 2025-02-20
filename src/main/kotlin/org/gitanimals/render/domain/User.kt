@@ -291,11 +291,6 @@ class User(
         private const val FOR_INIT_PERSONA_COUNT = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
-        private val bonusPersonas = listOf(
-            PersonaType.PENGUIN, PersonaType.GOOSE, PersonaType.LITTLE_CHICK,
-            PersonaType.SLIME_RED, PersonaType.SLIME_BLUE, PersonaType.SLIME_GREEN,
-            PersonaType.PIG,
-        )
 
         fun newUser(name: String, contributions: Map<Int, Int>): User {
             require(!nameConvention.containsMatchIn(name)) {
