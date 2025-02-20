@@ -2,7 +2,7 @@ package org.gitanimals.guild.infra
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.gitanimals.guild.domain.GuildService
-import org.gitanimals.guild.saga.event.UserContributionUpdated
+import org.gitanimals.guild.infra.event.UserContributionUpdated
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.data.redis.connection.Message

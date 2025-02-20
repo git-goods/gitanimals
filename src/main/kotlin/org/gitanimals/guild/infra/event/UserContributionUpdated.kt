@@ -1,4 +1,4 @@
-package org.gitanimals.guild.saga.event
+package org.gitanimals.guild.infra.event
 
 import java.time.Instant
 
