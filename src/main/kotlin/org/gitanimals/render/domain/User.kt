@@ -91,6 +91,8 @@ class User(
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
 
         this.personas.remove(persona)
+        check(personas.isNotEmpty()) { "Cannot delete last pet user must have least 1 pet. \"$name\"" }
+
         DomainEventPublisher.publish(
             PersonaDeleted(
                 userId = id,

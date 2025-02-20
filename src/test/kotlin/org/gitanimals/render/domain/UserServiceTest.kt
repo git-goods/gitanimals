@@ -43,6 +43,6 @@ internal class UserServiceTest(
 }) {
 
     private companion object {
-        val user = User.newUser("devxb", mapOf())
+        val user = User.newUser("devxb", mapOf(2025 to 1000))
     }
 }
