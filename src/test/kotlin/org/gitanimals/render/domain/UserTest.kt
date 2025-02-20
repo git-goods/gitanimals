@@ -1,6 +1,7 @@
 package org.gitanimals.render.domain
 
 import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.assertions.throwables.shouldThrowWithMessage
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
@@ -142,13 +143,24 @@ internal class UserTest(
 
     describe("deletePersona 메소드는") {
         context("personaId를 받으면,") {
-            val user = User.newUser("devxb", mapOf())
+            val user = User.newUser("devxb", mapOf(2025 to 1000))
             val personaId = user.personas[0].id
 
             it("persona를 삭제하고 PersonaDeleted 이벤트를 발행한다.") {
                 user.deletePersona(personaId)
 
                 domainEventHolder.eventsShouldBe(PersonaDeleted::class, 1)
+            }
+        }
+
+        context("persona 수가 하나라면") {
+            val user = User.newUser("devxb", mapOf())
+            val personaId = user.personas[0].id
+
+            it("IllegalStateException을 던진다") {
+                shouldThrowExactly<IllegalStateException> {
+                    user.deletePersona(personaId)
+                }
             }
         }
     }
