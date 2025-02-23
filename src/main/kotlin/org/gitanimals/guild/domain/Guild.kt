@@ -5,6 +5,8 @@ import org.gitanimals.core.AggregateRoot
 import org.gitanimals.core.FieldType
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.PersonaType
+import org.gitanimals.guild.domain.event.DomainEventPublisher
+import org.gitanimals.guild.domain.event.GuildContributionUpdated
 import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.hibernate.annotations.BatchSize
@@ -154,6 +156,15 @@ class Guild(
             return
         }
         members.firstOrNull { it.name == username }?.setContributions(contributions)
+
+        DomainEventPublisher.publish(
+            GuildContributionUpdated(
+                guildId = this.id,
+                guildTitle = this.title,
+                guildImage = this.guildIcon,
+                contributions = this.getTotalContributions(),
+            )
+        )
     }
 
     fun changePersonaIfDeleted(

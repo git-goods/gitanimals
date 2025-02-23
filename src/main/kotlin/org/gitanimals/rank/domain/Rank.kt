@@ -9,6 +9,6 @@ abstract class Rank(
     @Column(name = "id")
     val id: Long,
 
-    @Column(name = "order", nullable = false)
-    val order: Long,
+    @Column(name = "image", nullable = false)
+    val image: String,
 ) : AbstractTime()
