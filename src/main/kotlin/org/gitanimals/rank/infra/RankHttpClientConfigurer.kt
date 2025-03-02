@@ -24,9 +24,6 @@ class RankHttpClientConfigurer(
             .builder()
             .requestInterceptor { request, body, execution ->
                 request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
-                execution.execute(request, body)
-            }
-            .requestInterceptor { request, body, execution ->
                 if (request.uri.path.startsWith("/internals")) {
                     request.headers.add(INTERNAL_SECRET_KEY, internalSecret)
                 }
@@ -49,9 +46,6 @@ class RankHttpClientConfigurer(
             .builder()
             .requestInterceptor { request, body, execution ->
                 request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
-                execution.execute(request, body)
-            }
-            .requestInterceptor { request, body, execution ->
                 if (request.uri.path.startsWith("/internals")) {
                     request.headers.add(INTERNAL_SECRET_KEY, internalSecret)
                 }
