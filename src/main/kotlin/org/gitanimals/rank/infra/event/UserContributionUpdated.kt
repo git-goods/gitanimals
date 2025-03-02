@@ -7,4 +7,5 @@ data class UserContributionUpdated(
     val contributions: Long,
     val userContributionUpdated: Boolean,
     val contributionUpdatedAt: Instant,
+    val timestamp: Long,
 )
