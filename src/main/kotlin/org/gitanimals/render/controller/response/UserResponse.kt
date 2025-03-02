@@ -45,5 +45,25 @@ data class UserResponse(
                 }.toList()
             )
         }
+
+        fun fromOnlyTopLevelPersona(user: User): UserResponse {
+            return UserResponse(
+                id = user.id.toString(),
+                name = user.name,
+                totalContributions = user.contributionCount().toString(),
+                personas = listOf(user.personas
+                    .maxBy { it.level() }
+                    .let {
+                        PersonaResponse(
+                            it.id.toString(),
+                            it.type,
+                            it.level().toString(),
+                            it.visible,
+                            it.type.getDropRate()
+                        )
+                    }
+                )
+            )
+        }
     }
 }

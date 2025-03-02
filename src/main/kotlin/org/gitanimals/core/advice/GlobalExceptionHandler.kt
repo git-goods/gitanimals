@@ -30,4 +30,11 @@ class GlobalExceptionHandler {
         logger.error(exception.message, exception)
         return ErrorResponse.from(exception)
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse {
+        logger.info(exception.message, exception)
+        return ErrorResponse.from(exception)
+    }
 }
