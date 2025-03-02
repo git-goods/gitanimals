@@ -2,7 +2,9 @@ package org.gitanimals.rank.domain
 
 interface RankQueryRepository {
 
-    fun getRank(rankStartedAt: Int, type: Type, limit: Int): Set<RankId>
+    fun findAllRank(rankStartedAt: Int, type: Type, limit: Int): Set<RankQueryResponse>
+
+    fun getRankByRankId(type: Type, rankId: Long): RankQueryResponse
 
     fun updateRank(type: Type, rankId: RankId, score: Long)
 
@@ -11,6 +13,11 @@ interface RankQueryRepository {
         WEEKLY_USER_CONTRIBUTIONS,
         ;
     }
+
+    data class RankQueryResponse(
+        val id: Long,
+        val rank: Int,
+    )
 
 }
 

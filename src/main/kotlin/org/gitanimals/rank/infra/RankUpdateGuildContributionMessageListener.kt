@@ -12,7 +12,7 @@ import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Component
 
 @Component
-class UpdateGuildContributionMessageListener(
+class RankUpdateGuildContributionMessageListener(
     private val objectMapper: ObjectMapper,
     private val guildContributionService: GuildContributionRankService,
     @Qualifier("gitanimalsRedisTemplate") private val redisTemplate: StringRedisTemplate,

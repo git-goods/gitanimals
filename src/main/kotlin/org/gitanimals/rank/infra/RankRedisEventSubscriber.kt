@@ -3,14 +3,14 @@ package org.gitanimals.rank.infra
 import org.gitanimals.core.redis.RedisPubSubChannel
 import org.springframework.context.annotation.Bean
 import org.springframework.data.redis.connection.RedisConnectionFactory
+import org.springframework.data.redis.listener.ChannelTopic
 import org.springframework.data.redis.listener.RedisMessageListenerContainer
-import org.springframework.data.redis.listener.Topic
 import org.springframework.stereotype.Component
 
 @Component
 class RankRedisEventSubscriber(
     private val redisConnectionFactory: RedisConnectionFactory,
-    private val updateGuildContributionMessageListener: UpdateGuildContributionMessageListener,
+    private val rankUpdateGuildContributionMessageListener: RankUpdateGuildContributionMessageListener,
     private val updateUserContributionMessageListener: UpdateUserContributionMessageListener,
 ) {
 
@@ -20,11 +20,11 @@ class RankRedisEventSubscriber(
             this.connectionFactory = redisConnectionFactory
             this.addMessageListener(
                 updateUserContributionMessageListener,
-                Topic { RedisPubSubChannel.USER_CONTRIBUTION_UPDATED },
+                ChannelTopic(RedisPubSubChannel.USER_CONTRIBUTION_UPDATED),
             )
             this.addMessageListener(
-                updateGuildContributionMessageListener,
-                Topic { RedisPubSubChannel.GUILD_CONTRIBUTION_UPDATED },
+                rankUpdateGuildContributionMessageListener,
+                ChannelTopic(RedisPubSubChannel.GUILD_CONTRIBUTION_UPDATED),
             )
         }
     }

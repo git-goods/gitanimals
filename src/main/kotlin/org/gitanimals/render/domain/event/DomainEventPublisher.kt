@@ -11,7 +11,7 @@ object DomainEventPublisher {
         applicationEventPublisher.publishEvent(event)
     }
 
-    @Component
+    @Component("render.eventPublisherInjector")
     class EventPublisherInjector(applicationEventPublisher: ApplicationEventPublisher) {
 
         init {
