@@ -1,6 +1,7 @@
 package org.gitanimals.rank.infra
 
 import org.gitanimals.core.redis.RedisPubSubChannel
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.redis.connection.RedisConnectionFactory
@@ -14,6 +15,8 @@ class RankRedisEventSubscriber(
     private val updateUserContributionMessageListener: UpdateUserContributionMessageListener,
 ) {
 
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
+
     @Bean
     fun rankRedisListenerContainer(): RedisMessageListenerContainer {
         return RedisMessageListenerContainer().apply {
@@ -26,6 +29,9 @@ class RankRedisEventSubscriber(
                 rankUpdateGuildContributionMessageListener,
                 ChannelTopic(RedisPubSubChannel.GUILD_CONTRIBUTION_UPDATED),
             )
+            this.setErrorHandler {
+                logger.error("Fail to listen message", it)
+            }
         }
     }
 }

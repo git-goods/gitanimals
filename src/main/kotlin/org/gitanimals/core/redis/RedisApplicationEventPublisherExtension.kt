@@ -27,7 +27,7 @@ class RedisApplicationEventPublisherExtension(
                 objectMapper.writeValueAsString(event),
             )
         }.onFailure {
-            logger.error("Cannot publish event to redis. event: $event, channel: ${event.channel}, source: ${event.source}")
+            logger.error("Cannot publish event to redis. event: $event, channel: ${event.channel}, source: ${event.source}", it)
         }
     }
 }
