@@ -1,12 +1,12 @@
 package org.gitanimals.render.controller
 
-import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.AuthorizationException
+import org.gitanimals.core.ErrorResponse
+import org.gitanimals.core.IdGenerator
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest
 import org.gitanimals.render.controller.request.UsernameAndPersonaIdRequest
-import org.gitanimals.core.ErrorResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
 import org.gitanimals.render.domain.UserService
@@ -93,10 +93,15 @@ class InternalPersonaController(
         )
 
         return users.map { user ->
-            val personaId = usernameAndPersonaIdRequests.first { it.username == user.name }.personaId
+            val personaId =
+                usernameAndPersonaIdRequests.first { it.username == user.name }.personaId
             UserResponse.fromWithSpecificPersona(user, listOf(personaId))
         }
     }
+
+    @GetMapping("/internals/users/{username}/top-level-personas")
+    fun getTopLevelPersonaByUserName(@PathVariable(value = "username") username: String): UserResponse =
+        UserResponse.fromOnlyTopLevelPersona(userService.getUserByNameWithAllContributions(username))
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

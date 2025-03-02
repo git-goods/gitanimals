@@ -1,4 +1,4 @@
-package org.gitanimals.render.domain.listeners
+package org.gitanimals.guild.domain.event
 
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Component
@@ -11,7 +11,7 @@ object DomainEventPublisher {
         applicationEventPublisher.publishEvent(event)
     }
 
-    @Component
+    @Component("guild.eventPublisherInjector")
     class EventPublisherInjector(applicationEventPublisher: ApplicationEventPublisher) {
 
         init {

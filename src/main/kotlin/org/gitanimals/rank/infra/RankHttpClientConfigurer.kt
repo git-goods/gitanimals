@@ -1,9 +1,10 @@
-package org.gitanimals.guild.infra
+package org.gitanimals.rank.infra
 
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
-import org.gitanimals.guild.app.IdentityApi
-import org.gitanimals.guild.app.RenderApi
+import org.gitanimals.rank.app.IdentityApi
+import org.gitanimals.rank.app.RenderApi
 import org.slf4j.MDC
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -13,17 +14,25 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 
 @Configuration
 @Profile("!test")
-class HttpClientConfigurer {
+class RankHttpClientConfigurer(
+    @Value("\${internal.secret}") private val internalSecret: String,
+) {
 
     @Bean
-    fun identityApiHttpClient(): IdentityApi {
+    fun rankIdentityApiHttpClient(): IdentityApi {
         val restClient = RestClient
             .builder()
             .requestInterceptor { request, body, execution ->
                 request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
                 execution.execute(request, body)
             }
-            .defaultStatusHandler(httpClientErrorHandler())
+            .requestInterceptor { request, body, execution ->
+                if (request.uri.path.startsWith("/internals")) {
+                    request.headers.add(INTERNAL_SECRET_KEY, internalSecret)
+                }
+                execution.execute(request, body)
+            }
+            .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("https://api.gitanimals.org")
             .build()
 
@@ -35,14 +44,20 @@ class HttpClientConfigurer {
     }
 
     @Bean
-    fun renderApiHttpClient(): RenderApi {
+    fun rankRenderApiHttpClient(): RenderApi {
         val restClient = RestClient
             .builder()
             .requestInterceptor { request, body, execution ->
                 request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
                 execution.execute(request, body)
             }
-            .defaultStatusHandler(httpClientErrorHandler())
+            .requestInterceptor { request, body, execution ->
+                if (request.uri.path.startsWith("/internals")) {
+                    request.headers.add(INTERNAL_SECRET_KEY, internalSecret)
+                }
+                execution.execute(request, body)
+            }
+            .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("https://render.gitanimals.org")
             .build()
 
@@ -54,18 +69,22 @@ class HttpClientConfigurer {
     }
 
     @Bean
-    fun httpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
+    fun rankHttpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
+
+    private companion object {
+        private const val INTERNAL_SECRET_KEY = "Internal-Secret"
+    }
 }
 
 @Configuration
 @Profile("test")
-class TestHttpClientConfigurer {
+class RankTestHttpClientConfigurer {
 
     @Bean
-    fun identityApiHttpClient(): IdentityApi {
+    fun rankIdentityApiHttpClient(): IdentityApi {
         val restClient = RestClient
             .builder()
-            .defaultStatusHandler(httpClientErrorHandler())
+            .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("http://localhost:8080")
             .build()
 
@@ -77,10 +96,10 @@ class TestHttpClientConfigurer {
     }
 
     @Bean
-    fun renderApiHttpClient(): RenderApi {
+    fun rankRenderApiHttpClient(): RenderApi {
         val restClient = RestClient
             .builder()
-            .defaultStatusHandler(httpClientErrorHandler())
+            .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("http://localhost:8080")
             .build()
 
@@ -91,7 +110,6 @@ class TestHttpClientConfigurer {
         return httpServiceProxyFactory.createClient(RenderApi::class.java)
     }
 
-
     @Bean
-    fun httpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
+    fun rankHttpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
 }
