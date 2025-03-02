@@ -2,12 +2,12 @@ package org.gitanimals.rank.infra
 
 import org.gitanimals.core.redis.RedisPubSubChannel
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.listener.ChannelTopic
 import org.springframework.data.redis.listener.RedisMessageListenerContainer
-import org.springframework.stereotype.Component
 
-@Component
+@Configuration
 class RankRedisEventSubscriber(
     private val redisConnectionFactory: RedisConnectionFactory,
     private val rankUpdateGuildContributionMessageListener: RankUpdateGuildContributionMessageListener,
