@@ -131,6 +131,7 @@ class User(
     }
 
     fun updateContribution(contribution: Int): Int {
+        val beforeContribution = contributions.totalCount()
         val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
         val currentYearContribution =
             contributions.firstOrNull { it.year == currentYear }
@@ -147,11 +148,13 @@ class User(
         currentYearContribution.lastUpdatedContribution = Instant.now()
         levelUpPersonas(newContribution)
 
+        val afterContribution = contributions.totalCount()
+
         DomainEventPublisher.publish(
             UserContributionUpdated(
                 username = this.name,
-                updatedContributions = newContribution.toLong(),
-                contributions = contributions.totalCount(),
+                updatedContributions = afterContribution - beforeContribution,
+                contributions = beforeContribution,
             )
         )
 
