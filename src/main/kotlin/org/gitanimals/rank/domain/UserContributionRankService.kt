@@ -50,7 +50,7 @@ class UserContributionRankService(
                 contributions = it.totalContributions,
                 name = it.username,
             )
-        }
+        }.sortedBy { it.rank }
     }
 
     fun findUserRankByUsername(username: String): UserContributionRank? =

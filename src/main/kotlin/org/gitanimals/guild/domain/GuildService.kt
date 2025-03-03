@@ -8,9 +8,6 @@ import org.hibernate.Hibernate
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
-import org.springframework.data.domain.Sort
-import org.springframework.data.domain.Sort.Direction.ASC
-import org.springframework.data.domain.Sort.Direction.DESC
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.retry.annotation.Retryable
@@ -131,6 +128,14 @@ class GuildService(
         return guild
     }
 
+    fun getGuildByTitle(title: String, vararg lazyLoading: (Guild) -> Unit): Guild {
+        val guild = guildRepository.findByTitle(title)
+            ?: throw IllegalArgumentException("Cannot find guild by title \"$title\"")
+
+        lazyLoading.forEach { it.invoke(guild) }
+        return guild
+    }
+
     @Transactional
     @Retryable(ObjectOptimisticLockingFailureException::class)
     fun updateContribution(username: String, contributions: Long) {
@@ -156,10 +161,20 @@ class GuildService(
                     guildRepository.searchByPeopleCountDesc(PageRequest.of(pageNumber, PAGE_SIZE))
 
                 SearchFilter.CONTRIBUTION_ASC ->
-                    guildRepository.searchByContributionCountAsc(PageRequest.of(pageNumber, PAGE_SIZE))
+                    guildRepository.searchByContributionCountAsc(
+                        PageRequest.of(
+                            pageNumber,
+                            PAGE_SIZE
+                        )
+                    )
 
                 SearchFilter.CONTRIBUTION_DESC ->
-                    guildRepository.searchByContributionCountDesc(PageRequest.of(pageNumber, PAGE_SIZE))
+                    guildRepository.searchByContributionCountDesc(
+                        PageRequest.of(
+                            pageNumber,
+                            PAGE_SIZE
+                        )
+                    )
 
             }
         } else {

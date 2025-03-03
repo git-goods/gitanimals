@@ -1,6 +1,7 @@
 package org.gitanimals.rank.infra
 
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
+import org.gitanimals.rank.app.GuildApi
 import org.gitanimals.rank.app.IdentityApi
 import org.gitanimals.rank.app.RenderApi
 import org.slf4j.MDC
@@ -63,6 +64,28 @@ class RankHttpClientConfigurer(
     }
 
     @Bean
+    fun rankGuildApiHttpClient(): GuildApi {
+        val restClient = RestClient
+            .builder()
+            .requestInterceptor { request, body, execution ->
+                request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
+                if (request.uri.path.startsWith("/internals")) {
+                    request.headers.add(INTERNAL_SECRET_KEY, internalSecret)
+                }
+                execution.execute(request, body)
+            }
+            .defaultStatusHandler(rankHttpClientErrorHandler())
+            .baseUrl("https://render.gitanimals.org")
+            .build()
+
+        val httpServiceProxyFactory = HttpServiceProxyFactory
+            .builderFor(RestClientAdapter.create(restClient))
+            .build()
+
+        return httpServiceProxyFactory.createClient(GuildApi::class.java)
+    }
+
+    @Bean
     fun rankHttpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
 
     private companion object {
@@ -102,6 +125,21 @@ class RankTestHttpClientConfigurer {
             .build()
 
         return httpServiceProxyFactory.createClient(RenderApi::class.java)
+    }
+
+    @Bean
+    fun rankGuildApiHttpClient(): GuildApi {
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(rankHttpClientErrorHandler())
+            .baseUrl("http://localhost:8080")
+            .build()
+
+        val httpServiceProxyFactory = HttpServiceProxyFactory
+            .builderFor(RestClientAdapter.create(restClient))
+            .build()
+
+        return httpServiceProxyFactory.createClient(GuildApi::class.java)
     }
 
     @Bean

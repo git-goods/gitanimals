@@ -32,6 +32,7 @@ class RedisRankQueryRepository(
 
         return keySets.withIndex()
             .map { RankQueryResponse(rank = rankStartedAt + it.index, id = it.value.toLong()) }
+            .sortedBy { it.rank }
             .toSet()
     }
 

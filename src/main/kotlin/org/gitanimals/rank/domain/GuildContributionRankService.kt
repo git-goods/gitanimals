@@ -50,6 +50,6 @@ class GuildContributionRankService(
                 contributions = it.totalContributions,
                 name = it.guildName,
             )
-        }
+        }.sortedBy { it.rank }
     }
 }

@@ -8,6 +8,14 @@ import org.springframework.data.repository.query.Param
 
 interface GuildRepository : JpaRepository<Guild, Long> {
 
+    @Query(
+        """
+            select g from Guild as g
+            where g.title = :title
+        """
+    )
+    fun findByTitle(@Param("title") title: String): Guild?
+
     fun existsByTitle(title: String): Boolean
 
     @Query(
