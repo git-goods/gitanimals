@@ -5,6 +5,7 @@ import org.gitanimals.rank.domain.GuildContributionRankService
 import org.gitanimals.rank.domain.RankQueryRepository
 import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS
 import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
 @Component
@@ -14,6 +15,8 @@ class RankQueryFacade(
     private val userContributionRankService: GuildContributionRankService,
 ) {
 
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
+
     fun findAllRank(
         rank: Int,
         size: Int,
@@ -22,9 +25,16 @@ class RankQueryFacade(
         val rankWithIds =
             rankQueryRepository.findAllRank(rankStartedAt = rank, limit = rank + size, type = type)
                 .associate { it.rank to it.id }
-        return when(type) {
+
+        logger.info("rankWithIds: $rankWithIds")
+
+        val ans =  when(type) {
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
             WEEKLY_USER_CONTRIBUTIONS -> userContributionRankService.findAllByRankIds(rankWithIds)
         }
+
+        logger.info("response: $ans")
+
+        return ans
     }
 }
