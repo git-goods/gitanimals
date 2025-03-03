@@ -1,8 +1,23 @@
 package org.gitanimals.render.app
 
-fun interface IdentityApi {
+import org.springframework.http.HttpHeaders
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestHeader
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.service.annotation.GetExchange
+import org.springframework.web.service.annotation.PostExchange
 
-    fun getUserByToken(token: String): UserResponse
+interface IdentityApi {
+
+    @GetExchange("/users")
+    fun getUserByToken(@RequestHeader(HttpHeaders.AUTHORIZATION) token: String): UserResponse
+
+    @PostExchange("/internals/users/points/increases/by-username/{username}")
+    fun increaseUserPointsByUsername(
+        @PathVariable("username") username: String,
+        @RequestParam("point") point: Int,
+        @RequestParam("idempotency-key") idempotencyKey: String,
+    )
 
     data class UserResponse(
         val id: String,

@@ -6,6 +6,7 @@ import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.NewUserCreated
 import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.SagaManager
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestClientException
 
@@ -14,13 +15,14 @@ class AnimationFacade(
     private val userService: UserService,
     private val contributionApi: ContributionApi,
     private val sagaManager: SagaManager,
+    private val eventPublisher: ApplicationEventPublisher,
 ) {
 
     fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
             true -> {
                 val svgAnimation = userService.getFarmAnimationByUsername(username)
-                sagaManager.startSync(Visited(username))
+                eventPublisher.publishEvent(Visited(username))
                 svgAnimation
             }
 
@@ -36,7 +38,7 @@ class AnimationFacade(
         return when (userService.existsByName(username)) {
             true -> {
                 val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
-                sagaManager.startSync(Visited(username))
+                eventPublisher.publishEvent(Visited(username))
                 svgAnimation
             }
 
