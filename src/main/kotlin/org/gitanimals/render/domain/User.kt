@@ -154,7 +154,7 @@ class User(
             UserContributionUpdated(
                 username = this.name,
                 updatedContributions = afterContribution - beforeContribution,
-                contributions = beforeContribution,
+                contributions = afterContribution,
             )
         )
 
