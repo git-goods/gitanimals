@@ -29,7 +29,9 @@ class UpdateUserContributionMessageListener(
                 UserContributionUpdated::class.java,
             )
 
-            val user = identityApi.getUserByName(userContributionUpdated.username)
+            val user = runCatching {
+                identityApi.getUserByName(userContributionUpdated.username)
+            }.getOrElse { return }
 
             val updatedUserContributionRank = UserContributionRank.create(
                 image = user.profileImage,
