@@ -51,7 +51,7 @@ class GivePointToGuildFacade(
 
     private fun givePointToLeader(guild: GuildApi.GuildResponse, point: Int) {
         runCatching {
-            identityApi.increaseUserPointsByUserId(
+            identityApi.increaseUserPointsByUsername(
                 username = guild.leader.name,
                 point = point,
                 idempotencyKey = IdGenerator.generate().toString(),
@@ -64,7 +64,7 @@ class GivePointToGuildFacade(
     private fun givePointToMembers(guild: GuildApi.GuildResponse, point: Int) {
         guild.members.forEach { member ->
             runCatching {
-                identityApi.increaseUserPointsByUserId(
+                identityApi.increaseUserPointsByUsername(
                     member.name,
                     point = point,
                     idempotencyKey = IdGenerator.generate().toString(),

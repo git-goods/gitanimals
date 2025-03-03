@@ -36,7 +36,7 @@ class GivePointToUsersFacade(
                     else -> 0
                 }
 
-                identityApi.increaseUserPointsByUserId(
+                identityApi.increaseUserPointsByUsername(
                     username = rankResponse.name,
                     point = point,
                     idempotencyKey = IdGenerator.generate().toString(),

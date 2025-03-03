@@ -11,7 +11,7 @@ interface IdentityApi {
     fun getUserByName(@PathVariable("name") name: String): UserResponse
 
     @PostExchange("/internals/users/points/increases/by-username/{username}")
-    fun increaseUserPointsByUserId(
+    fun increaseUserPointsByUsername(
         @PathVariable("username") username: String,
         @RequestParam("point") point: Int,
         @RequestParam("idempotency-key") idempotencyKey: String,
