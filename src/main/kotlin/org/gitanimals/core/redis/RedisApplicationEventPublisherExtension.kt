@@ -22,10 +22,14 @@ class RedisApplicationEventPublisherExtension(
     )
     fun handleTransactionCommitRedisPubSubEvent(event: TransactionCommitRedisPubSubEvent) {
         runCatching {
+            val eventBody = objectMapper.writeValueAsString(event)
             redisTemplate.convertAndSend(
                 event.channel,
-                objectMapper.writeValueAsString(event),
+                eventBody,
             )
+            eventBody
+        }.onSuccess {
+            logger.info("Publish event: \"$it\" to channel: \"${event.channel}\"")
         }.onFailure {
             logger.error("Cannot publish event to redis. event: $event, channel: ${event.channel}, source: ${event.source}", it)
         }
