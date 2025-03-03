@@ -17,7 +17,7 @@ class GetRankByUsernameFacade(
     fun invoke(username: String): RankResponse {
         val userContributionRank = userContributionRankService.findUserRankByUsername(username)
 
-        logger.info("userContributionRank: $userContributionRank")
+        logger.info("userContributionRank: ${userContributionRank?.username}")
 
         checkNotNull(userContributionRank) {
             "UserContributionRank is null username: $username"
