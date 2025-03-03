@@ -17,8 +17,6 @@ class GetRankByUsernameFacade(
     fun invoke(username: String): RankResponse {
         val userContributionRank = userContributionRankService.findUserRankByUsername(username)
 
-        logger.info("userContributionRank: ${userContributionRank?.username}")
-
         checkNotNull(userContributionRank) {
             "UserContributionRank is null username: $username"
         }
@@ -27,8 +25,6 @@ class GetRankByUsernameFacade(
             type = RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS,
             rankId = userContributionRank.id,
         )
-
-        logger.info("rankQueryResponse: $rankQueryResponse")
 
         return RankResponse(
             rank = rankQueryResponse.rank,
