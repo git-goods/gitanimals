@@ -9,7 +9,7 @@ interface UserContributionRankRepository : JpaRepository<UserContributionRank, L
     fun findByUserId(userId: Long): UserContributionRank?
 
     @Query("select u from UserContributionRank as u where u.username = :username")
-    fun findByUsername(@Param("username") username: String): UserContributionRank
+    fun findByUsername(@Param("username") username: String): UserContributionRank?
 
     @Modifying
     @Query("update UserContributionRank as u set u.weeklyContributions = 0")
