@@ -29,16 +29,16 @@ class UpdateUserContributionMessageListener(
                 UserContributionUpdated::class.java,
             )
 
-            val user = runCatching {
-                identityApi.getUserByName(userContributionUpdated.username)
-            }.getOrElse { return }
+            val updatedUserContributionRank = runCatching {
+                val user = identityApi.getUserByName(userContributionUpdated.username)
 
-            val updatedUserContributionRank = UserContributionRank.create(
-                image = user.profileImage,
-                userId = user.id.toLong(),
-                username = user.username,
-                weeklyContributions = userContributionUpdated.updatedContributions,
-            )
+                UserContributionRank.create(
+                    image = user.profileImage,
+                    userId = user.id.toLong(),
+                    username = user.username,
+                    weeklyContributions = userContributionUpdated.updatedContributions,
+                )
+            }.getOrElse { return }
 
             userContributionRankService.updateContribution(updatedUserContributionRank)
         }.onFailure {

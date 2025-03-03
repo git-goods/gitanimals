@@ -28,6 +28,8 @@ class GetRankByUsernameFacade(
             rankId = userContributionRank.id,
         )
 
+        logger.info("rankQueryResponse: $rankQueryResponse")
+
         return RankResponse(
             rank = rankQueryResponse.rank,
             image = userContributionRank.image,
