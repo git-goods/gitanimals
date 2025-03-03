@@ -1,11 +1,13 @@
 package org.gitanimals.render.app
 
 import org.gitanimals.core.Mode
+import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.NewUserCreated
 import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.SagaManager
+import org.slf4j.MDC
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestClientException
@@ -22,7 +24,7 @@ class AnimationFacade(
         return when (userService.existsByName(username)) {
             true -> {
                 val svgAnimation = userService.getFarmAnimationByUsername(username)
-                eventPublisher.publishEvent(Visited(username))
+                eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
                 svgAnimation
             }
 
@@ -38,7 +40,7 @@ class AnimationFacade(
         return when (userService.existsByName(username)) {
             true -> {
                 val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
-                eventPublisher.publishEvent(Visited(username))
+                eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
                 svgAnimation
             }
 

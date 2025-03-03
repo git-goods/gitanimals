@@ -1,6 +1,7 @@
 package org.gitanimals.render.infra
 
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.render.app.ContributionApi
 import org.gitanimals.render.app.IdentityApi
 import org.gitanimals.render.domain.UserService
@@ -8,6 +9,7 @@ import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.*
 import org.rooftop.netx.meta.SagaHandler
 import org.slf4j.LoggerFactory
+import org.slf4j.MDC
 import org.springframework.context.event.EventListener
 import org.springframework.scheduling.annotation.Async
 import java.time.ZoneId
@@ -26,6 +28,7 @@ class VisitedEventListener(
     @EventListener(Visited::class)
     fun increaseUserVisited(visited: Visited) {
         runCatching {
+            MDC.put(TRACE_ID, visited.traceId)
             val username = visited.username
             userService.increaseVisit(username)
 
@@ -49,6 +52,8 @@ class VisitedEventListener(
             logger.info("Increase point to user. username: \"$username\", point:\"${increaseContributionCount * 100}\"")
         }.onFailure {
             logger.error("Cannot increase visit or point to user. username: \"${visited.username}\"", it)
+        }.also {
+            MDC.remove(TRACE_ID)
         }
     }
 }
