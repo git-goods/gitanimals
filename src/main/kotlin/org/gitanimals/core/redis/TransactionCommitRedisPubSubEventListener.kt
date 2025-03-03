@@ -9,7 +9,7 @@ import org.springframework.transaction.event.TransactionPhase
 import org.springframework.transaction.event.TransactionalEventListener
 
 @Component
-class RedisApplicationEventPublisherExtension(
+class TransactionCommitRedisPubSubEventListener(
     private val objectMapper: ObjectMapper,
     @Qualifier("gitanimalsRedisTemplate") private val redisTemplate: StringRedisTemplate,
 ) {

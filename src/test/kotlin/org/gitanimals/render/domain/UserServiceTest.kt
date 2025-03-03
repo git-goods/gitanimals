@@ -3,7 +3,7 @@ package org.gitanimals.render.domain
 import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.nulls.shouldBeNull
-import org.gitanimals.render.domain.event.DomainEventPublisher
+import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.render.supports.IntegrationTest
 
 @IntegrationTest(

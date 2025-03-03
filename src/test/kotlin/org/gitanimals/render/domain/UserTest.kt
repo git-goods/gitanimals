@@ -11,7 +11,7 @@ import org.gitanimals.core.PersonaType
 import org.gitanimals.core.instant
 import org.gitanimals.core.toZonedDateTime
 import org.gitanimals.render.domain.event.PersonaDeleted
-import org.gitanimals.render.domain.event.DomainEventPublisher
+import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.supports.DomainEventHolder
 import org.springframework.test.context.ContextConfiguration

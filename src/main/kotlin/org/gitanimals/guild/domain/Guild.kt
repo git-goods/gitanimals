@@ -5,7 +5,7 @@ import org.gitanimals.core.AggregateRoot
 import org.gitanimals.core.FieldType
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.PersonaType
-import org.gitanimals.guild.domain.event.DomainEventPublisher
+import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.guild.domain.event.GuildContributionUpdated
 import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest

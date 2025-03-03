@@ -6,7 +6,7 @@ import org.gitanimals.core.*
 import org.gitanimals.render.domain.event.PersonaDeleted
 import org.gitanimals.render.domain.event.UserContributionUpdated
 import org.gitanimals.render.domain.extension.RenderFieldTypeExtension.isRenderField
-import org.gitanimals.render.domain.event.DomainEventPublisher
+import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.domain.value.Level
