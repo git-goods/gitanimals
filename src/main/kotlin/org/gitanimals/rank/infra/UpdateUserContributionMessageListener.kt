@@ -35,7 +35,7 @@ class UpdateUserContributionMessageListener(
                 image = user.profileImage,
                 userId = user.id.toLong(),
                 username = user.username,
-                weeklyContributions = userContributionUpdated.contributions,
+                weeklyContributions = userContributionUpdated.updatedContributions,
             )
 
             userContributionRankService.updateContribution(updatedUserContributionRank)
