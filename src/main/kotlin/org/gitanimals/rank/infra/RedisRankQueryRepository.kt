@@ -43,7 +43,7 @@ class RedisRankQueryRepository(
 
     override fun getRankByRankId(type: Type, rankId: Long): RankQueryResponse {
         val rank = redisTemplate.opsForZSet()
-            .reverseRank(type.name, rankId)
+            .reverseRank(type.name, rankId.toString())
 
         checkNotNull(rank) { "Rank data in redis is null. rankId: $rankId, type: $type" }
 

@@ -51,10 +51,10 @@ class RenderHttpClientConfigurer(
 
 @Configuration
 @Profile("test")
-class RankTestHttpClientConfigurer {
+class RenderTestHttpClientConfigurer {
 
     @Bean
-    fun rankIdentityApiHttpClient(): IdentityApi {
+    fun renderIdentityApiHttpClient(): IdentityApi {
         val restClient = RestClient
             .builder()
             .defaultStatusHandler(renderHttpClientErrorHandler())
