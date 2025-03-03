@@ -27,7 +27,7 @@ class GetRankByUsernameFacade(
             rank = rankQueryResponse.rank,
             image = userContributionRank.image,
             name = userContributionRank.username,
-            contributions = userContributionRank.totalContributions,
+            contributions = userContributionRank.weeklyContributions,
         )
     }
 }

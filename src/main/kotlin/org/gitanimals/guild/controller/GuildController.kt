@@ -166,6 +166,19 @@ class GuildController(
         return drawGuildFacade.drawGuild(guildId)
     }
 
+    @GetMapping("/internals/guilds/by-title/{title}")
+    fun getGuildByTitle(
+        @PathVariable("title") title: String,
+    ): GuildResponse {
+        val guild = guildService.getGuildByTitle(
+            title,
+            GuildService.loadMembers,
+            GuildService.loadWaitMembers,
+        )
+
+        return GuildResponse.from(guild)
+    }
+
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(exception: IllegalArgumentException): ErrorResponse =

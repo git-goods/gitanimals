@@ -15,8 +15,8 @@ class GuildContributionRank(
     val guildId: Long,
     @Column(name = "guild_name", nullable = false, unique = true)
     val guildName: String,
-    @Column(name = "total_contributions", nullable = false)
-    var totalContributions: Long,
+    @Column(name = "weekly_contributions", nullable = false)
+    var weeklyContributions: Long,
 ) : Rank(id, image) {
 
     companion object {
@@ -24,14 +24,14 @@ class GuildContributionRank(
             image: String,
             guildId: Long,
             guildName: String,
-            totalContributions: Long,
+            weeklyContributions: Long,
         ): GuildContributionRank {
             return GuildContributionRank(
                 id = IdGenerator.generate(),
                 image = image,
                 guildId = guildId,
                 guildName = guildName,
-                totalContributions = totalContributions,
+                weeklyContributions = weeklyContributions,
             )
         }
     }

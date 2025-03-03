@@ -8,6 +8,7 @@ import java.time.Instant
 data class UserContributionUpdated(
     val username: String,
     val contributions: Long,
+    val updatedContributions: Long,
     val userContributionUpdated: Boolean = true,
     val contributionUpdatedAt: Instant = instant(),
 ) : TransactionCommitRedisPubSubEvent(

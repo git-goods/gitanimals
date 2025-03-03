@@ -3,7 +3,6 @@ package org.gitanimals.rank.infra
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.gitanimals.core.redis.TraceableMessageListener
 import org.gitanimals.rank.app.IdentityApi
-import org.gitanimals.rank.app.RenderApi
 import org.gitanimals.rank.domain.UserContributionRank
 import org.gitanimals.rank.domain.UserContributionRankService
 import org.gitanimals.rank.infra.event.UserContributionUpdated
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class UpdateUserContributionMessageListener(
-    private val renderApi: RenderApi,
     private val identityApi: IdentityApi,
     private val objectMapper: ObjectMapper,
     private val userContributionRankService: UserContributionRankService,
@@ -32,14 +30,12 @@ class UpdateUserContributionMessageListener(
             )
 
             val user = identityApi.getUserByName(userContributionUpdated.username)
-            val renderUserWithTopLevelPersona =
-                renderApi.getUserWithTopLevelPersona(username = userContributionUpdated.username)
 
             val updatedUserContributionRank = UserContributionRank.create(
                 image = user.profileImage,
                 userId = user.id.toLong(),
                 username = user.username,
-                totalContributions = renderUserWithTopLevelPersona.totalContributions.toLong(),
+                weeklyContributions = userContributionUpdated.contributions,
             )
 
             userContributionRankService.updateContribution(updatedUserContributionRank)

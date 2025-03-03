@@ -6,6 +6,7 @@ data class UserContributionUpdated(
     val traceId: String,
     val username: String,
     val contributions: Long,
+    val updatedContributions: Long,
     val userContributionUpdated: Boolean,
     val contributionUpdatedAt: Instant,
     val timestamp: Long,

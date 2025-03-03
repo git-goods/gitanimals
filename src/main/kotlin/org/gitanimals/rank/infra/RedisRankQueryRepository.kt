@@ -32,6 +32,7 @@ class RedisRankQueryRepository(
 
         return keySets.withIndex()
             .map { RankQueryResponse(rank = rankStartedAt + it.index, id = it.value.toLong()) }
+            .sortedBy { it.rank }
             .toSet()
     }
 
@@ -57,6 +58,10 @@ class RedisRankQueryRepository(
             rankId = rankUpdated.rankId,
             score = rankUpdated.score,
         )
+    }
+
+    override fun initialRank(type: Type) {
+        redisTemplate.delete(type.name)
     }
 
     override fun updateRank(type: Type, rankId: RankId, score: Long) {

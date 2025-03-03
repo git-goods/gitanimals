@@ -9,6 +9,7 @@ data class GuildContributionUpdated(
     val guildTitle: String,
     val guildImage: String,
     val contributions: Long,
+    val updatedContributions: Long,
 ) : TransactionCommitRedisPubSubEvent(
     channel = RedisPubSubChannel.GUILD_CONTRIBUTION_UPDATED,
     source = DomainEventPublisher::class,
