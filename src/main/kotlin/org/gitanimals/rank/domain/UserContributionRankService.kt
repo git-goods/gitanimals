@@ -35,7 +35,8 @@ class UserContributionRankService(
     }
 
     fun findAllByRankIds(rankWithId: Map<Int, Long>): List<RankResponse> {
-        val rankIds = rankWithId.values
+        val rankIds = rankWithId.values.toList()
+        logger.info("rankIds: $rankIds")
         val idWithRank = rankWithId.map { it.value to it.key }.toMap()
 
         return userContributionRankRepository.findAllById(rankIds).map {
