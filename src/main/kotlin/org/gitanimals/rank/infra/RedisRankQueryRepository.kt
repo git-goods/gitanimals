@@ -5,6 +5,7 @@ import org.gitanimals.rank.domain.RankQueryRepository
 import org.gitanimals.rank.domain.RankQueryRepository.RankQueryResponse
 import org.gitanimals.rank.domain.RankQueryRepository.Type
 import org.gitanimals.rank.domain.event.RankUpdated
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Component
@@ -15,6 +16,8 @@ import org.springframework.transaction.event.TransactionalEventListener
 class RedisRankQueryRepository(
     @Qualifier("gitanimalsRedisTemplate") val redisTemplate: StringRedisTemplate,
 ) : RankQueryRepository {
+
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     override fun findAllRank(
         rankStartedAt: Int,
@@ -27,6 +30,8 @@ class RedisRankQueryRepository(
                 rankStartedAt.toLong(),
                 limit.toLong(),
             )
+
+        logger.info("keySets: $keySets")
 
         checkNotNull(keySets) { "Rank data in redis is null. rankStartedAt: $rankStartedAt, type: $type, limit: $limit" }
 
