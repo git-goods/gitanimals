@@ -20,7 +20,7 @@ class RankQueryFacade(
         type: RankQueryRepository.Type,
     ): List<RankResponse> {
         val rankWithIds =
-            rankQueryRepository.findAllRank(rankStartedAt = rank, limit = size, type = type)
+            rankQueryRepository.findAllRank(rankStartedAt = rank, limit = rank + size, type = type)
                 .associate { it.rank to it.id }
         return when(type) {
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
