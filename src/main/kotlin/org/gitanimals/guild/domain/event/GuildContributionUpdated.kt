@@ -2,7 +2,7 @@ package org.gitanimals.guild.domain.event
 
 import org.gitanimals.core.redis.RedisPubSubChannel
 import org.gitanimals.core.redis.TransactionCommitRedisPubSubEvent
-import org.gitanimals.render.domain.event.DomainEventPublisher
+import org.gitanimals.core.DomainEventPublisher
 
 data class GuildContributionUpdated(
     val guildId: Long,
