@@ -6,5 +6,6 @@ data class GuildContributionUpdated(
     val guildTitle: String,
     val guildImage: String,
     val contributions: Long,
+    val updatedContributions: Long,
     val timestamp: Long,
 )

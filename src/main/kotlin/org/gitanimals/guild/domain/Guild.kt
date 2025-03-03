@@ -151,18 +151,22 @@ class Guild(
     }
 
     fun updateContributions(username: String, contributions: Long) {
+        val beforeContributions = this.getTotalContributions()
         if (leader.name == username) {
             leader.contributions = contributions
-            return
         }
-        members.firstOrNull { it.name == username }?.setContributions(contributions)
+        else {
+            members.firstOrNull { it.name == username }?.setContributions(contributions)
+        }
+        val afterContributions = this.getTotalContributions()
 
         DomainEventPublisher.publish(
             GuildContributionUpdated(
                 guildId = this.id,
                 guildTitle = this.title,
                 guildImage = this.guildIcon,
-                contributions = this.getTotalContributions(),
+                contributions = afterContributions,
+                updatedContributions = afterContributions - beforeContributions,
             )
         )
     }

@@ -15,8 +15,8 @@ class UserContributionRank(
     val userId: Long,
     @Column(name = "username", nullable = false, unique = true)
     val username: String,
-    @Column(name = "total_contributions", nullable = false)
-    var totalContributions: Long,
+    @Column(name = "weekly_contributions", nullable = false)
+    var weeklyContributions: Long,
 ) : Rank(id, image) {
 
     companion object {
@@ -25,14 +25,14 @@ class UserContributionRank(
             image: String,
             userId: Long,
             username: String,
-            totalContributions: Long,
+            weeklyContributions: Long,
         ): UserContributionRank {
             return UserContributionRank(
                 id = IdGenerator.generate(),
                 image = image,
                 userId = userId,
                 username = username,
-                totalContributions = totalContributions,
+                weeklyContributions = weeklyContributions,
             )
         }
     }

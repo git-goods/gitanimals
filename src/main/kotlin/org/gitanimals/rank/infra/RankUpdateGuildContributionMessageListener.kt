@@ -31,7 +31,7 @@ class RankUpdateGuildContributionMessageListener(
                 image = guildContributionUpdated.guildImage,
                 guildName = guildContributionUpdated.guildTitle,
                 guildId = guildContributionUpdated.guildId,
-                totalContributions = guildContributionUpdated.contributions,
+                weeklyContributions = guildContributionUpdated.updatedContributions,
             )
 
             guildContributionService.updateContribution(updatedGuildContributionRank)

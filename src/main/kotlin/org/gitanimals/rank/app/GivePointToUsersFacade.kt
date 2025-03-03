@@ -2,6 +2,7 @@ package org.gitanimals.rank.app
 
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.rank.domain.RankQueryRepository
+import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS
 import org.gitanimals.rank.domain.UserContributionRankService
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
@@ -21,7 +22,7 @@ class GivePointToUsersFacade(
         val userRankWithIds = rankQueryRepository.findAllRank(
             rankStartedAt = 0,
             limit = 2,
-            type = RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS,
+            type = WEEKLY_USER_CONTRIBUTIONS,
         ).associate { it.rank to it.id }
 
         val userRanks = userContributionRankService.findAllByRankIds(userRankWithIds)
@@ -44,5 +45,8 @@ class GivePointToUsersFacade(
                 logger.error("Cannot give point to user. rank info: \"${rankResponse}\"", it)
             }
         }
+
+        userContributionRankService.initialWeeklyRanks()
+        rankQueryRepository.initialRank(WEEKLY_USER_CONTRIBUTIONS)
     }
 }

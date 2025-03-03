@@ -60,6 +60,10 @@ class RedisRankQueryRepository(
         )
     }
 
+    override fun initialRank(type: Type) {
+        redisTemplate.delete(type.name)
+    }
+
     override fun updateRank(type: Type, rankId: RankId, score: Long) {
         redisTemplate.opsForZSet()
             .add(type.name, rankId.value.toString(), score.toDouble())

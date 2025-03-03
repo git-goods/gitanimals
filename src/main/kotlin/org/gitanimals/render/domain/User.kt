@@ -150,6 +150,7 @@ class User(
         DomainEventPublisher.publish(
             UserContributionUpdated(
                 username = this.name,
+                updatedContributions = newContribution.toLong(),
                 contributions = contributions.totalCount(),
             )
         )

@@ -8,6 +8,8 @@ interface RankQueryRepository {
 
     fun updateRank(type: Type, rankId: RankId, score: Long)
 
+    fun initialRank(type: Type)
+
     enum class Type {
         WEEKLY_GUILD_CONTRIBUTIONS,
         WEEKLY_USER_CONTRIBUTIONS,

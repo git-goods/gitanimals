@@ -3,6 +3,7 @@ package org.gitanimals.rank.app
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.rank.domain.GuildContributionRankService
 import org.gitanimals.rank.domain.RankQueryRepository
+import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
@@ -22,7 +23,7 @@ class GivePointToGuildFacade(
         val guildRankWithIds = rankQueryRepository.findAllRank(
             rankStartedAt = 0,
             limit = 2,
-            type = RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS,
+            type = WEEKLY_GUILD_CONTRIBUTIONS,
         ).associate { it.rank to it.id }
 
         val guildRanks = guildContributionRankService.findAllByRankIds(guildRankWithIds)
@@ -43,6 +44,9 @@ class GivePointToGuildFacade(
                 logger.error("Cannot give point to guild. rank info: \"${rankResponse}\"", it)
             }
         }
+
+        guildContributionRankService.initialWeeklyRanks()
+        rankQueryRepository.initialRank(WEEKLY_GUILD_CONTRIBUTIONS)
     }
 
     private fun givePointToLeader(guild: GuildApi.GuildResponse, point: Int) {

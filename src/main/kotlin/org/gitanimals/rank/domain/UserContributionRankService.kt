@@ -17,25 +17,21 @@ class UserContributionRankService(
 
     @Transactional
     fun updateContribution(updateUserContributionRank: UserContributionRank) {
-        runCatching {
-            userContributionRankRepository.findByUserId(updateUserContributionRank.userId)
-                ?: throw IllegalArgumentException("Cannot find UserContributionRank by userId: \"${updateUserContributionRank.userId}\"")
-        }.recoverCatching {
+        val userRank = runCatching {
+            userContributionRankRepository.findByUserId(updateUserContributionRank.userId)?.also {
+                it.weeklyContributions += updateUserContributionRank.weeklyContributions
+            } ?: throw IllegalArgumentException("Cannot find UserContributionRank by userId: \"${updateUserContributionRank.userId}\"")
+        }.getOrElse {
             userContributionRankRepository.save(updateUserContributionRank)
-        }.onSuccess {
-            it.totalContributions = updateUserContributionRank.totalContributions
-            eventPublisher.publishEvent(
-                RankUpdated(
-                    type = RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS,
-                    rankId = RankId(it.id),
-                    score = it.totalContributions,
-                )
-            )
-        }.onFailure {
-            logger.error(
-                "Cannot update UserContributionRank by userId: \"${updateUserContributionRank.userId}\"", it
-            )
         }
+
+        eventPublisher.publishEvent(
+            RankUpdated(
+                type = RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS,
+                rankId = RankId(userRank.id),
+                score = userRank.weeklyContributions,
+            )
+        )
     }
 
     fun findAllByRankIds(rankWithId: Map<Int, Long>): List<RankResponse> {
@@ -47,7 +43,7 @@ class UserContributionRankService(
                 rank = idWithRank[it.id]
                     ?: throw IllegalStateException("Cannot find rank value by id ${it.id}"),
                 image = it.image,
-                contributions = it.totalContributions,
+                contributions = it.weeklyContributions,
                 name = it.username,
             )
         }.sortedBy { it.rank }
@@ -55,4 +51,8 @@ class UserContributionRankService(
 
     fun findUserRankByUsername(username: String): UserContributionRank? =
         userContributionRankRepository.findByUsername(username)
+
+    fun initialWeeklyRanks() {
+        userContributionRankRepository.initialWeeklyRanks()
+    }
 }
