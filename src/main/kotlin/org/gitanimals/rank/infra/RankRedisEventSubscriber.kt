@@ -30,6 +30,7 @@ class RankRedisEventSubscriber(
                 ChannelTopic(RedisPubSubChannel.GUILD_CONTRIBUTION_UPDATED),
             )
             this.setErrorHandler {
+                it.printStackTrace() // FOR DEBUGGING
                 logger.error("Fail to listen message ${it.message}", it)
             }
         }
