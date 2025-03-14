@@ -8,6 +8,7 @@ import org.springframework.web.bind.MissingRequestHeaderException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
+import org.springframework.web.servlet.NoHandlerFoundException
 import java.lang.Exception
 
 @RestControllerAdvice
@@ -44,5 +45,11 @@ class GlobalExceptionHandler {
     fun handleAllUnHandledException(exception: Exception): ErrorResponse {
         logger.error(exception.message, exception)
         return ErrorResponse("UN HANDLED EXCEPTION")
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NoHandlerFoundException::class)
+    fun handleNoHandlerFoundException(exception: Exception): ErrorResponse {
+        return ErrorResponse("CANNOT FOUND ANY RESOURCE.")
     }
 }
