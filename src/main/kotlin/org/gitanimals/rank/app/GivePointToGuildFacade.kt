@@ -1,10 +1,12 @@
 package org.gitanimals.rank.app
 
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.rank.domain.GuildContributionRankService
 import org.gitanimals.rank.domain.RankQueryRepository
 import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS
 import org.slf4j.LoggerFactory
+import org.slf4j.MDC
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
@@ -20,33 +22,38 @@ class GivePointToGuildFacade(
 
     @Scheduled(cron = "0 0 23 * * SUN")
     fun givePointsToGuildUsers() {
-        val guildRankWithIds = rankQueryRepository.findAllRank(
-            rankStartedAt = 0,
-            limit = 2,
-            type = WEEKLY_GUILD_CONTRIBUTIONS,
-        ).associate { it.rank to it.id }
+        runCatching {
+            MDC.put(TRACE_ID, IdGenerator.generate().toString())
+            val guildRankWithIds = rankQueryRepository.findAllRank(
+                rankStartedAt = 0,
+                limit = 2,
+                type = WEEKLY_GUILD_CONTRIBUTIONS,
+            ).associate { it.rank to it.id }
 
-        val guildRanks = guildContributionRankService.findAllByRankIds(guildRankWithIds)
+            val guildRanks = guildContributionRankService.findAllByRankIds(guildRankWithIds)
 
-        guildRanks.forEach { rankResponse ->
-            runCatching {
-                val point = when {
-                    rankResponse.rank == 0 -> 3_000
-                    rankResponse.rank == 1 -> 2_000
-                    rankResponse.rank == 2 -> 1_000
-                    else -> 0
+            guildRanks.forEach { rankResponse ->
+                runCatching {
+                    val point = when {
+                        rankResponse.rank == 0 -> 3_000
+                        rankResponse.rank == 1 -> 2_000
+                        rankResponse.rank == 2 -> 1_000
+                        else -> 0
+                    }
+
+                    val guild = guildApi.getGuildByTitle(rankResponse.name)
+                    givePointToLeader(guild, point)
+                    givePointToMembers(guild, point)
+                }.onFailure {
+                    logger.error("Cannot give point to guild. rank info: \"${rankResponse}\"", it)
                 }
-
-                val guild = guildApi.getGuildByTitle(rankResponse.name)
-                givePointToLeader(guild, point)
-                givePointToMembers(guild, point)
-            }.onFailure {
-                logger.error("Cannot give point to guild. rank info: \"${rankResponse}\"", it)
             }
-        }
 
-        guildContributionRankService.initialWeeklyRanks()
-        rankQueryRepository.initialRank(WEEKLY_GUILD_CONTRIBUTIONS)
+            guildContributionRankService.initialWeeklyRanks()
+            rankQueryRepository.initialRank(WEEKLY_GUILD_CONTRIBUTIONS)
+        }.also {
+            MDC.remove(TRACE_ID)
+        }
     }
 
     private fun givePointToLeader(guild: GuildApi.GuildResponse, point: Int) {
@@ -57,7 +64,10 @@ class GivePointToGuildFacade(
                 idempotencyKey = IdGenerator.generate().toString(),
             )
         }.onFailure {
-            logger.error("Cannot give point to guild leader. point: \"$point\", leader name: \"${guild.leader.name}\"", it)
+            logger.error(
+                "Cannot give point to guild leader. point: \"$point\", leader name: \"${guild.leader.name}\"",
+                it
+            )
         }
     }
 
@@ -70,7 +80,10 @@ class GivePointToGuildFacade(
                     idempotencyKey = IdGenerator.generate().toString(),
                 )
             }.onFailure {
-                logger.error("Cannot give point to guild member. point: \"$point\", member name: \"${member.name}\"", it)
+                logger.error(
+                    "Cannot give point to guild member. point: \"$point\", member name: \"${member.name}\"",
+                    it
+                )
             }
         }
     }
