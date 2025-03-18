@@ -3,6 +3,9 @@ filebeat.inputs:
     enabled: true
     paths:
       - /logs/*.json
+    multiline.pattern: '^{'
+    multiline.negate: true
+    multiline.match: after
     json:
       keys_under_root: true
       add_error_key: true
@@ -16,3 +19,13 @@ processors:
   - decode_json_fields:
       fields: ["message"]
       target: ""
+      overwrite_keys: true
+  - script:
+      when:
+        has_fields: ['error.stack_trace']
+      lang: javascript
+      id: my_filter
+      source: >
+        function process(event) {
+            event.Put("error.stack_trace", event.Get("error.stack_trace").join("\n"));
+        }
