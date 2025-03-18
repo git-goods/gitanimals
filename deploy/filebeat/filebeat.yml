@@ -7,6 +7,7 @@ filebeat.inputs:
     multiline.negate: true
     multiline.match: after
     json:
+      message_key: error.stack_trace
       keys_under_root: true
       add_error_key: true
 
