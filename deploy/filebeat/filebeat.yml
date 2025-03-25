@@ -3,11 +3,7 @@ filebeat.inputs:
     enabled: true
     paths:
       - /logs/*.json
-    multiline.pattern: '^{'
-    multiline.negate: true
-    multiline.match: after
     json:
-      message_key: error.stack_trace
       keys_under_root: true
       add_error_key: true
 
@@ -17,10 +13,6 @@ output.elasticsearch:
   password: "${FILEBEAT_PASSWORD}"
 
 processors:
-  - decode_json_fields:
-      fields: ["message"]
-      target: ""
-      overwrite_keys: true
   - script:
       when:
         has_fields: ['error.stack_trace']
@@ -28,5 +20,11 @@ processors:
       id: my_filter
       source: >
         function process(event) {
-            event.Put("error.stack_trace", event.Get("error.stack_trace").join("\n"));
+          var trace = event.Get("error.stack_trace");
+          if (Array.isArray(trace)) {
+            event.Put("error.stack_trace", trace.join("\n"));
+          } else if (typeof trace === "string") {
+          } else {
+            event.Delete("error.stack_trace");
+          }
         }
