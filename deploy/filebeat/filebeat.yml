@@ -3,27 +3,11 @@ filebeat.inputs:
     enabled: true
     paths:
       - /logs/*.json
-    multiline:
-      pattern: '^{'
-      negate: true
-      match: after
-
-processors:
-  - script:
-      when:
-        has_fields: ['error.stack_trace']
-      lang: javascript
-      id: stacktrace_stringify
-      source: >
-        function process(event) {
-          var trace = event.Get("error.stack_trace");
-          if (Array.isArray(trace)) {
-            event.Put("error.stack_trace", trace.join("\n"));
-          } else if (typeof trace === "string") {
-          } else {
-            event.Delete("error.stack_trace");
-          }
-        }
+    parsers:
+      - ndjson: # 로그가 JSON이므로 ndjson 파서 사용
+          keys_under_root: true
+          overwrite_keys: true
+          add_error_key: true
 
 output.elasticsearch:
   hosts: ["192.168.0.31:9200"]
