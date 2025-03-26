@@ -6,18 +6,17 @@ filebeat.inputs:
     json:
       keys_under_root: true
       add_error_key: true
-
-output.elasticsearch:
-  hosts: ["192.168.0.31:9200"]
-  username: "${FILEBEAT_USERNAME}"
-  password: "${FILEBEAT_PASSWORD}"
+    multiline:
+      pattern: '^{'
+      negate: true
+      match: after
 
 processors:
   - script:
       when:
         has_fields: ['error.stack_trace']
       lang: javascript
-      id: my_filter
+      id: stacktrace_stringify
       source: >
         function process(event) {
           var trace = event.Get("error.stack_trace");
@@ -28,3 +27,9 @@ processors:
             event.Delete("error.stack_trace");
           }
         }
+
+# Elasticsearch 출력 설정
+output.elasticsearch:
+  hosts: ["192.168.0.31:9200"]
+  username: "${FILEBEAT_USERNAME}"
+  password: "${FILEBEAT_PASSWORD}"
