@@ -1,5 +1,5 @@
 filebeat.inputs:
-  - type: log
+  - type: filestream
     enabled: true
     paths:
       - /logs/*.json
