@@ -1,13 +1,15 @@
 filebeat.inputs:
-  - type: logs
+  - type: log
     enabled: true
     paths:
       - /logs/*.json
     multiline.pattern: "^[[:space:]]+(at|\\.{3})\\b|^Caused by:"
     multiline.negate: false
     multiline.match: after
-    json.message_key: log
-    json.keys_under_root: true
+    json:
+      message_key: error.stack_trace
+      keys_under_root: true
+      add_error_key: true
 
 output.elasticsearch:
   hosts: ["192.168.0.31:9200"]
