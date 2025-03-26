@@ -3,10 +3,6 @@ filebeat.inputs:
     enabled: true
     paths:
       - /logs/*.json
-    json:
-      keys_under_root: true
-      add_error_key: true
-      message_key: error.stack_trace
     multiline:
       pattern: '^{'
       negate: true
