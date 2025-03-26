@@ -3,11 +3,7 @@ filebeat.inputs:
     enabled: true
     paths:
       - /logs/*.json
-    multiline.pattern: "^[[:space:]]+(at|\\.{3})\\b|^Caused by:"
-    multiline.negate: false
-    multiline.match: after
     json:
-      message_key: message
       keys_under_root: true
       add_error_key: true
 
