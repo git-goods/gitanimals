@@ -4,10 +4,12 @@ filebeat.inputs:
     paths:
       - /logs/*.json
     parsers:
-      - ndjson: # 로그가 JSON이므로 ndjson 파서 사용
-          keys_under_root: true
-          overwrite_keys: true
-          add_error_key: true
+      - multiline:
+        type: pattern
+        pattern: '^[[:space:]]+(at|\.{3})[[:space:]]+\b|^Caused by:'
+        negate: true
+        match: after
+
 
 output.elasticsearch:
   hosts: ["192.168.0.31:9200"]
