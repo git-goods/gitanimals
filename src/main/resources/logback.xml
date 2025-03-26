@@ -21,7 +21,7 @@
       <serviceName>${SERVICE_NAME}</serviceName>
       <includeMarkers>true</includeMarkers>
       <includeMdc>true</includeMdc>
-      <stackTraceAsArray>true</stackTraceAsArray>
+      <stackTraceAsArray>false</stackTraceAsArray>
     </encoder>
     <file>${LOG_PATH}/${LOG_FILE}.json</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
