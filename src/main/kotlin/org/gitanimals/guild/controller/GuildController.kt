@@ -33,13 +33,6 @@ class GuildController(
     private val denyJoinGuildFacade: DenyJoinGuildFacade,
 ) {
 
-    @GetMapping("/error")
-    fun doError() {
-        throw IllegalStateException("error!", throwError())
-    }
-
-    fun throwError() = Exception("error error")
-
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/guilds")
     fun createGuild(
