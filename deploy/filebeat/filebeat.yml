@@ -6,7 +6,7 @@ filebeat.inputs:
     json:
       keys_under_root: true
       add_error_key: true
-      message_key: message
+      message_key: error.stack_trace
     multiline:
       pattern: '^{'
       negate: true
