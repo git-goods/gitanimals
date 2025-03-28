@@ -51,7 +51,11 @@ class VisitedEventListener(
             )
             logger.info("Increase point to user. username: \"$username\", point:\"${increaseContributionCount * 100}\"")
         }.onFailure {
-            logger.error("Cannot increase visit or point to user. username: \"${visited.username}\"", it)
+            if (it !is IllegalArgumentException) {
+                logger.error(
+                    "Cannot increase visit or point to user. username: \"${visited.username}\"", it
+                )
+            }
         }.also {
             MDC.remove(TRACE_ID)
         }
