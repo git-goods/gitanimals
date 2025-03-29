@@ -23,9 +23,15 @@ class RankQueryFacade(
         size: Int,
         type: RankQueryRepository.Type,
     ): List<RankResponse> {
-        val rankWithIds =
-            rankQueryRepository.findAllRank(rankStartedAt = rank, limit = rank + size, type = type)
-                .associate { it.rank to it.id }
+        require(size > 1) { "Size must be lager than 1. size: $size" }
+        require(size <= 20) { "Maximum request size is 20. size: $size" }
+        require(rank > 0) { "Rank must be larger than 0. rank: $rank" }
+
+        val rankWithIds = rankQueryRepository.findAllRank(
+            rankStartedAt = rank,
+            limit = rank + size - 1,
+            type = type
+        ).associate { it.rank to it.id }
 
         return when (type) {
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
