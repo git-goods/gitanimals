@@ -27,6 +27,7 @@ class GetRankByUsernameFacade(
         )
 
         return RankResponse(
+            id = userContributionRank.userId.toString(),
             rank = rankQueryResponse.rank,
             image = userContributionRank.image,
             name = userContributionRank.username,

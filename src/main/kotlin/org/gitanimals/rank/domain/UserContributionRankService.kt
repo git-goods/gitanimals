@@ -20,7 +20,8 @@ class UserContributionRankService(
         val userRank = runCatching {
             userContributionRankRepository.findByUserId(updateUserContributionRank.userId)?.also {
                 it.weeklyContributions += updateUserContributionRank.weeklyContributions
-            } ?: throw IllegalArgumentException("Cannot find UserContributionRank by userId: \"${updateUserContributionRank.userId}\"")
+            }
+                ?: throw IllegalArgumentException("Cannot find UserContributionRank by userId: \"${updateUserContributionRank.userId}\"")
         }.getOrElse {
             userContributionRankRepository.save(updateUserContributionRank)
         }
@@ -41,6 +42,7 @@ class UserContributionRankService(
 
         return userContributionRankRepository.findAllById(rankIds).map {
             RankResponse(
+                id = it.userId.toString(),
                 rank = idWithRank[it.id]
                     ?: throw IllegalStateException("Cannot find rank value by id ${it.id}"),
                 image = it.image,

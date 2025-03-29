@@ -39,6 +39,7 @@ class GuildContributionRankService(
 
         return guildContributionRankRepository.findAllById(rankIds).map {
             RankResponse(
+                id = it.guildId.toString(),
                 rank = idWithRank[it.id]
                     ?: throw IllegalStateException("Cannot find rank value by id ${it.id}"),
                 image = it.image,
