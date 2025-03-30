@@ -3,6 +3,7 @@ package org.gitanimals.guild.app
 import org.gitanimals.guild.app.event.InboxInputEvent
 import org.gitanimals.guild.domain.Guild
 import org.gitanimals.guild.domain.GuildService
+import org.gitanimals.guild.domain.GuildService.Companion.loadMembers
 import org.rooftop.netx.api.SagaManager
 import org.springframework.stereotype.Service
 
@@ -35,7 +36,7 @@ class JoinGuildFacade(
             memberPersonaType = renderInfo.personas.find { it.id.toLong() == memberPersonaId }!!.type,
         )
 
-        val guild = guildService.getGuildById(guildId)
+        val guild = guildService.getGuildById(guildId, loadMembers)
         if (guild.isAutoJoin()) {
             publishNewUserJoinEvents(guild, member)
             return
