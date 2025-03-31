@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
+  <style>
+    @keyframes maltese-head-0-move {
+    0% {
+    transform: translate(0, 1px);
+    }
+    50% {
+    transform: translate(0, 0px);
+    }
+    100% {
+    transform: translate(0, 1px);
+    }
+    }
+
+    @keyframes maltese-head-left-ear-0-move {
+    0% {
+    transform: translate(-3px, 0px) rotate(0deg);
+    }
+    50% {
+    transform: translate(-3px, -0.5px) rotate(5deg);
+    }
+    100% {
+    transform: translate(-3px, 0px) rotate(0deg);
+    }
+    }
+
+    @keyframes maltese-head-right-ear-0-move {
+    0% {
+    transform: translate(8px, 0px) rotate(0deg);
+    }
+    50% {
+    transform: translate(8px, -0.15px) rotate(-5deg);
+    }
+    100% {
+    transform: translate(8px, 0px) rotate(0deg);
+    }
+    }
+
+    @keyframes maltese-0-shadow-move {
+    0% {
+    transform: translate(-2px, 8px) scaleX(1);
+    }
+    15% {
+    transform: translate(-2px, 8px) scaleX(1.2);
+    }
+    30% {
+    transform: translate(-2px, 8px) scaleX(1);
+    }
+    100% {
+    transform: translate(-2px, 8px) scaleX(1);
+    }
+    }
+
+    @keyframes maltese-0-obj-move {
+    0% {
+    transform: translate(0, 0px);
+    }
+    15% {
+    transform: translate(0, -2.5px);
+    }
+    30% {
+    transform: translate(0, 0px);
+    }
+    100% {
+    transform: translate(0, 0px);
+    }
+    }
+
+    #maltese-head-0 {
+    animation-name: maltese-head-0-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #maltese-head-right-ear-0 {
+    animation-name: maltese-head-right-ear-0-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #maltese-head-left-ear-0 {
+    animation-name: maltese-head-left-ear-0-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #maltese-0-shadow {
+    animation-name: maltese-0-shadow-move;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #maltese-0-obj {
+    animation-name: maltese-0-obj-move;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+  </style>
+
+  <g id="maltese-0" transform="translate(15, 10)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="maltese-0-shadow" transform="translate(-2, 8)">
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+        <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+
+      <g id="maltese-0-obj">
+        <g id="maltese-body-0" transform="translate(-4, 4)">
+          <rect x="4" width="6" height="4" fill="#F7F7F7"/>
+          <rect x="2" y="1" width="8" height="3" fill="#F7F7F7"/>
+          <rect x="1" y="2" width="8" height="2" fill="#F7F7F7"/>
+          <rect x="2" y="3" width="8" height="2" fill="#F7F7F7"/>
+          <rect y="2" width="8" height="1" fill="#F7F7F7"/>
+          <rect x="2" y="1" width="2" height="1" fill="#765D49"/>
+          <rect y="2" width="3" height="1" fill="#765D49"/>
+          <rect x="1" y="2" width="2" height="1" fill="#765D49"/>
+          <rect x="2" y="4" width="2" height="1" fill="#765D49"/>
+          <rect x="3" y="1" width="2" height="1" fill="#765D49"/>
+          <rect x="3" y="1" width="1" height="2" fill="#765D49"/>
+          <rect x="2" y="1" width="1" height="2" fill="#765D49"/>
+          <rect x="1" y="3" width="1" height="1" fill="#765D49"/>
+          <rect x="1" y="3" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="6" y="4" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="8" y="4" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="2" y="4" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        </g>
+        <g id="maltese-head-0" transform="translate(0, 0)">
+          <g id="maltese-head">
+            <rect x="1" y="1" width="7" height="5" fill="#F7F7F7"/>
+            <rect y="2" width="9" height="3" fill="#F7F7F7"/>
+            <rect y="1" width="2" height="2" fill="#F7F7F7"/>
+            <rect x="2" width="5" height="7" fill="#F7F7F7"/>
+            <rect x="2" width="5" height="7" fill="#F7F7F7"/>
+            <rect x="2" width="2" height="1" fill="#765D49"/>
+            <rect x="1" y="1" width="2" height="2" fill="#765D49"/>
+            <rect x="2" width="2" height="2" fill="#765D49"/>
+            <rect x="5" width="2" height="1" fill="#765D49"/>
+            <rect x="6" width="1" height="2" fill="#765D49"/>
+            <rect x="7" y="1" width="1" height="2" fill="#765D49"/>
+            <rect x="8" y="2" width="1" height="2" fill="#765D49"/>
+            <rect x="6" y="1" width="3" height="1" fill="#765D49"/>
+            <rect y="1" width="2" height="3" fill="#765D49"/>
+            <rect y="1" width="3" height="1" fill="#765D49"/>
+            <rect x="3" y="3" width="1" height="1" fill="black"/>
+            <rect x="6" y="3" width="1" height="1" fill="black"/>
+            <rect width="1" height="1" transform="matrix(-1 0 0 1 6 4)" fill="black"/>
+            <rect width="1" height="1" transform="matrix(-1 0 0 1 7 5)" fill="black"/>
+            <rect width="1" height="1" transform="matrix(-1 0 0 1 5 5)" fill="black"/>
+            <rect width="2" height="1" transform="matrix(-1 0 0 1 3 4)" fill="#FF778F"/>
+            <rect width="2" height="1" transform="matrix(-1 0 0 1 9 4)" fill="#FF778F"/>
+            <rect x="1" y="5" width="1" height="1" fill="black" fill-opacity="0.05"/>
+            <rect y="4" width="1" height="1" fill="black" fill-opacity="0.05"/>
+            <rect x="2" y="6" width="2" height="1" fill="black" fill-opacity="0.05"/>
+          </g>
+
+          <g id="maltese-head-left-ear-0" transform="translate(-3, 0)">
+            <rect y="2" width="2" height="2" fill="#765D49"/>
+            <rect x="1" y="1" width="2" height="1" fill="#765D49"/>
+            <rect x="2" width="2" height="2" fill="#765D49"/>
+            <rect x="2" y="1" width="2" height="2" fill="#765D49"/>
+          </g>
+
+          <g id="maltese-head-right-ear-0" transform="translate(8, 0)">
+            <rect width="2" height="2" fill="#765D49"/>
+            <rect x="1" y="1" width="2" height="2" fill="#765D49"/>
+            <rect y="1" width="2" height="2" fill="#765D49"/>
+            <rect x="2" y="2" width="2" height="2" fill="#765D49"/>
+          </g>
+
+          <g id="maltese-notebook-0" transform="translate(4, 4)">
+            <rect width="4.66667" height="3.33333" transform="matrix(-1 0 0 1 6.66669 0)" fill="#E4E4E4"/>
+            <rect width="6" height="3.33333" transform="matrix(-1 0 0 1 7.33334 0.666626)" fill="#E4E4E4"/>
+            <rect width="6" height="1.33333" transform="matrix(-1 0 0 1 6.66669 2.66663)" fill="#E4E4E4"/>
+            <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 6 3.33337)" fill="#E4E4E4"/>
+            <rect width="0.666667" height="1.33333" transform="matrix(-1 0 0 1 1.33334 2.66663)" fill="black" fill-opacity="0.1"/>
+            <rect width="0.666667" height="0.666667" transform="matrix(-1 0 0 1 0.666687 3.33337)" fill="black" fill-opacity="0.1"/>
+            <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 7.33334 3.33337)" fill="black" fill-opacity="0.1"/>
+            <rect x="5.33334" y="2.33337" width="0.666667" height="0.333333" transform="rotate(180 5.33334 2.33337)" fill="#242427"/>
+            <rect width="0.666667" height="0.333333" transform="matrix(-1 0 0 1 5 1.66675)" fill="#242427"/>
+            <rect width="0.333333" height="1.33333" transform="matrix(-1 0 0 1 5.33334 1.33337)" fill="#242427"/>
+            <rect width="1" height="0.333333" transform="matrix(-1 0 0 1 5.33334 2.33337)" fill="#242427"/>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </g>
+</svg>

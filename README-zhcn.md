@@ -6,7 +6,7 @@
 
 [English](README-en.md) | [한국어](README.md) | **简体中文** | [日本語](README-ja.md)
 
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevxb%2Fgitanimals&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23000000&title=hits&edge_flat=true"/></a>
+<a href="https://hits.sh/github.com/git-goods/gitanmals/"><img alt="Hits" src="https://hits.sh/github.com/git-goods/gitanmals.svg?style=flat-square&label=visit&color=000000&labelColor=000000&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAACXBIWXMAAAEUAAABFAH7OeD%2FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJDSURBVHgB7d1BapNBGIfx%2F0ggbqp7XbTulG5yBw8QTyB6Aj1Cu%2FAAXbiueAH1AHoDFyKt7vQIoYJQBceEgttmxCnzPT4%2F%2BLLqQJMnzOLLm0kiSZIkSZIkSZIkSZIk6QqVDKR%2Byl5Gcz2rcierTNQsI6n5ktF8z%2BH68SATdS1CMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhut2Lrqd5sL63vMzUlSzrSXabluzncQbR78OGmsX6xXmU6ds8j0XaDBPYLRrOwHAGhjMwnIHhDAxnYDgDwxkYzsBws22Hzcu9fM1%2FaPVtfZ01LWkf4O84XD9rGDYf6lsQV%2BXoZXLwvGnJ5oOWtgH%2BjsP1btFwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzDc1nPR9STHadE%2BS9zs9dvkzbumJTl%2B1vTnWd5Pdm9lsrYffB9wiP3D5%2BTFq6YlzYEXdy%2BuqXKLhjMwnIHhDAxnYDgDwxkYzsBwBoYzMNxYB4I3urmT7N1OX%2Bcl%2BdF5JPzXn4d%2FbtKBnz68uLr6OE%2Fez9NV2byB%2BvxqgFs0nIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMN%2Bl70Ri1LuuTG22nyh%2BdbXXouIHHsFgn63KqvFs0nIHhDAxnYDgDwxkYzsBwBoYzMJyB4bxVeZl5TXZqujovq%2FwsXQajSz1N5%2F9el6o5LPue%2BK6%2FYGA4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4X4DH8pLebxREVkAAAAASUVORK5CYII%3D"/></a>
 </div>
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
@@ -232,7 +232,9 @@ _新的贡献可能需要1个小时才能显示_
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | 协作者 [sumi-001](https://github.com/sumi-0011) 制作                                                                    |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | 协作者 [hyesungoh](https://github.com/hyesungoh) 制作                                                                   |
 | rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>           | 0.0   | 协作者 [Choi jiwoo](https://www.behance.net/sopungcjw42af) 制作                                                         |
-| hamster_collaborator <br> <img src = "docs/hamster-collaborator.svg" width="100px" height="50px"/>      | 0.8   | Pet made for collaborator [Orchemi](https://github.com/Orchemi)                                                    |
+| hamster_collaborator <br> <img src = "docs/hamster-collaborator.svg" width="100px" height="50px"/>      | 0.0   | 协作者 [Orchemi](https://github.com/Orchemi) 制作                                                          |
+| maltese_collaborator <br> <img src = "docs/maltese-collaborator.svg" width="60px" height="40px"/>       | 0.0   | 协作者 [Choi_sunwoo]() 制作                                                                                |
+| ghost_collaborator <br> <img src = "docs/ghost-collaborator.svg" width="100px" height="70px"/>          | 0.0   | 协作者 [Han_gaeun]() 制作                                                                                  |
 
 ##
 
