@@ -232,8 +232,9 @@ _新的贡献可能需要1个小时才能显示_
 | dessert_fox_collaborator <br> <img src="docs/dessert-fox-collaborator.svg" width="80px" height="65px"/> | 0.0   | 协作者 [sumi-001](https://github.com/sumi-0011) 制作                                                                    |
 | pig_collaborator <br> <img src="docs/pig-collaborator.svg" width="120px" height="90px"/>                | 0.0   | 协作者 [hyesungoh](https://github.com/hyesungoh) 制作                                                                   |
 | rabbit_collaborator <br> <img src="docs/rabbit-collaborator.svg" width="40px" height="55px"/>           | 0.0   | 协作者 [Choi jiwoo](https://www.behance.net/sopungcjw42af) 制作                                                         |
-| hamster_collaborator <br> <img src = "docs/hamster-collaborator.svg" width="100px" height="50px"/>      | 0.8   | Pet made for collaborator [Orchemi](https://github.com/Orchemi)                                                    |
-| maltese_collaborator <br> <img src = "docs/maltese-collaborator.svg" width="60px" height="40px"/>       | 0.8   | Pet made for collaborator [Choi_sunwoo]()                                                                          |
+| hamster_collaborator <br> <img src = "docs/hamster-collaborator.svg" width="100px" height="50px"/>      | 0.0   | 协作者 [Orchemi](https://github.com/Orchemi) 制作                                                          |
+| maltese_collaborator <br> <img src = "docs/maltese-collaborator.svg" width="60px" height="40px"/>       | 0.0   | 协作者 [Choi_sunwoo]() 制作                                                                                |
+| ghost_collaborator <br> <img src = "docs/ghost-collaborator.svg" width="100px" height="70px"/>          | 0.0   | 协作者 [Han_gaeun]() 制作                                                                                  |
 
 ##
 

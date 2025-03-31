@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><style>
+  @keyframes ghost-0-shadow-move {
+  0% {
+  transform: translate(3px, 14px) scaleX(1);
+  }
+  50% {
+  transform: translate(2px, 14px) scaleX(1.4);
+  }
+  100% {
+  transform: translate(3px, 14px) scaleX(1);
+  }
+  }
+
+  @keyframes ghost-0-obj-move {
+  0% {
+  transform: translate(0px, 0px);
+  }
+  50% {
+  transform: translate(0px, -5px);
+  }
+  100% {
+  transform: translate(0px, 0px);
+  }
+  }
+
+  @keyframes ghost-0-tongue-move {
+  0% {
+  transform: translate(8px, 6px) scale(1);
+  }
+  30% {
+  transform: translate(8px, 6px) scale(1.2);
+  }
+  60% {
+  transform: translate(8px, 6px) scale(1);
+  }
+  100% {
+  transform: translate(8px, 6px) scale(1);
+  }
+  }
+
+  #ghost-0-shadow {
+  animation-name: ghost-0-shadow-move;
+  animation-duration: 2s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #ghost-0-obj {
+  animation-name: ghost-0-obj-move;
+  animation-duration: 2s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #ghost-0-tongue {
+  animation-name: ghost-0-tongue-move;
+  animation-duration: 2s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+</style>
+
+  <g id="ghost-0" transform="translate(5, 15)">
+
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="ghost-0-shadow" transform="translate(3, 14)">
+        <rect y="0.613632" width="9" height="1.22727" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.692322" y="0.306808" width="7.61539" height="0.306818" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="0.692322" y="1.84091" width="7.61539" height="0.306818" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.38458" width="6.23077" height="0.306818" fill="#2B4447" fill-opacity="0.1"/>
+        <rect x="1.38458" y="2.14774" width="6.23077" height="0.306818" fill="#2B4447" fill-opacity="0.1"/>
+      </g>
+
+      <g id="ghost-0-obj">
+        <g id="ghost-0-body">
+          <rect x="6" width="5" height="1" fill="#EAEDEF"/>
+          <rect x="4" y="1" width="8" height="1" fill="#EAEDEF"/>
+          <rect x="4" y="2" width="9" height="1" fill="#EAEDEF"/>
+          <rect x="3" y="3" width="10" height="10" fill="#EAEDEF"/>
+          <rect x="3" y="4" width="11" height="2" fill="#EAEDEF"/>
+          <rect x="2" y="5" width="11" height="1" fill="#EAEDEF"/>
+          <rect x="2" y="13" width="10" height="1" fill="#EAEDEF"/>
+          <rect x="1" y="6" width="13" height="1" fill="#EAEDEF"/>
+          <rect x="2" y="7" width="12" height="2" fill="#EAEDEF"/>
+          <rect x="2" y="9" width="12" height="3" fill="#EAEDEF"/>
+          <rect x="1" y="10" width="12" height="2" fill="#EAEDEF"/>
+          <rect y="11" width="12" height="1" fill="#EAEDEF"/>
+          <rect x="1" y="12" width="12" height="1" fill="#EAEDEF"/>
+          <rect x="4" y="14" width="5" height="1" fill="#EAEDEF"/>
+          <rect x="5" y="2" width="7" height="12" fill="#EAEDEF"/>
+          <rect x="8" y="3" width="1.12" height="1.68" fill="black"/>
+          <rect x="10.8" y="3" width="1.12" height="1.68" fill="black"/>
+          <rect x="4" y="1" width="1" height="2" fill="black" fill-opacity="0.1"/>
+          <rect x="3" y="3" width="1" height="2" fill="black" fill-opacity="0.1"/>
+          <rect x="2" y="5" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="1" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="2" y="7" width="1" height="3" fill="black" fill-opacity="0.1"/>
+          <rect x="3" y="9" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="1" y="10" width="4" height="3" fill="black" fill-opacity="0.1"/>
+          <rect y="11" width="3" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="1" y="10" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="1" y="12" width="3" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="2" y="13" width="4" height="1" fill="black" fill-opacity="0.1"/>
+          <rect y="11" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="2" y="13" width="2" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="4" y="14" width="3" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="4" y="14" width="5" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="9" y="13" width="3" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="12" y="12" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="13" y="11" width="1" height="1" fill="black" fill-opacity="0.1"/>
+          <rect x="13" y="6" width="3" height="1" fill="#EAEDEF"/>
+          <rect x="13" y="7" width="2" height="1" fill="#EAEDEF"/>
+        </g>
+        <g id="ghost-0-tongue" transform="translate(8, 6)">
+          <rect x="0.888855" width="2.22222" height="0.857141" fill="#E2141F"/>
+          <rect x="1.33325" y="0.428574" width="2.22222" height="0.857141" fill="#E2141F"/>
+          <rect x="2.22217" y="0.857117" width="1.77778" height="0.857141" fill="#E2141F"/>
+          <rect x="1.77771" y="1.28571" width="2.22222" height="0.857141" fill="#E2141F"/>
+          <rect x="2.22217" y="1.71428" width="1.33333" height="0.857141" fill="#E2141F"/>
+          <rect x="0.444397" y="0.428574" width="0.444444" height="0.428571" fill="black" fill-opacity="0.19"/>
+          <rect x="0.888855" y="0.857117" width="0.444444" height="0.428571" fill="black" fill-opacity="0.19"/>
+          <rect x="1.33325" y="1.28571" width="0.444444" height="0.857141" fill="black" fill-opacity="0.19"/>
+          <rect x="1.77771" y="2.14285" width="0.444444" height="0.428571" fill="black" fill-opacity="0.19"/>
+          <rect x="2.22217" y="2.57143" width="0.888889" height="0.428571" fill="black" fill-opacity="0.19"/>
+        </g>
+        <g id="ghost-0-lip" transform="translate(8, 6)">
+          <rect x="-6.10352e-05" width="4" height="0.428571" fill="#7C2C34"/>
+        </g>
+      </g>
+      <g id="ghost-0-notebook" transform="translate(11, 7)">
+        <rect width="4.66667" height="3.33333" transform="matrix(-1 0 0 1 6.66669 0)" fill="#E4E4E4"/>
+        <rect width="6" height="3.33333" transform="matrix(-1 0 0 1 7.33334 0.666626)" fill="#E4E4E4"/>
+        <rect width="6" height="1.33333" transform="matrix(-1 0 0 1 6.66669 2.66663)" fill="#E4E4E4"/>
+        <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 6 3.33337)" fill="#E4E4E4"/>
+        <rect width="0.666667" height="1.33333" transform="matrix(-1 0 0 1 1.33334 2.66663)" fill="black" fill-opacity="0.1"/>
+        <rect width="0.666667" height="0.666667" transform="matrix(-1 0 0 1 0.666687 3.33337)" fill="black" fill-opacity="0.1"/>
+        <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 7.33334 3.33337)" fill="black" fill-opacity="0.1"/>
+        <rect x="5.33334" y="2.33337" width="0.666667" height="0.333333" transform="rotate(180 5.33334 2.33337)" fill="#242427"/>
+        <rect width="0.666667" height="0.333333" transform="matrix(-1 0 0 1 5 1.66675)" fill="#242427"/>
+        <rect width="0.333333" height="1.33333" transform="matrix(-1 0 0 1 5.33334 1.33337)" fill="#242427"/>
+        <rect width="1" height="0.333333" transform="matrix(-1 0 0 1 5.33334 2.33337)" fill="#242427"/>
+      </g>
+    </svg>
+  </g>
+</svg>
