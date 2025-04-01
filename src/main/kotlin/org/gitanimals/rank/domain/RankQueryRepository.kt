@@ -2,15 +2,15 @@ package org.gitanimals.rank.domain
 
 interface RankQueryRepository {
 
-    fun findAllRank(rankStartedAt: Int, type: Type, limit: Int): Set<RankQueryResponse>
+    fun findAllRank(rankStartedAt: Int, rankType: RankType, limit: Int): Set<RankQueryResponse>
 
-    fun getRankByRankId(type: Type, rankId: Long): RankQueryResponse
+    fun getRankByRankId(rankType: RankType, rankId: Long): RankQueryResponse
 
-    fun updateRank(type: Type, rankId: RankId, score: Long)
+    fun updateRank(rankType: RankType, rankId: RankId, score: Long)
 
-    fun initialRank(type: Type)
+    fun initialRank(rankType: RankType)
 
-    enum class Type {
+    enum class RankType {
         WEEKLY_GUILD_CONTRIBUTIONS,
         WEEKLY_USER_CONTRIBUTIONS,
         ;

@@ -26,7 +26,7 @@ class GuildContributionRankService(
 
         eventPublisher.publishEvent(
             RankUpdated(
-                type = RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS,
+                type = RankQueryRepository.RankType.WEEKLY_GUILD_CONTRIBUTIONS,
                 rankId = RankId(guildRank.id),
                 score = guildRank.weeklyContributions,
             )

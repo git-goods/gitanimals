@@ -19,8 +19,8 @@ class RankController(
     fun findAllRanks(
         @RequestParam("rank") rank: Int,
         @RequestParam("size") size: Int,
-        @RequestParam("type") type: RankQueryRepository.Type,
-    ): List<RankResponse> = rankQueryFacade.findAllRank(rank = rank, size = size, type = type)
+        @RequestParam("type") rankType: RankQueryRepository.RankType,
+    ): List<RankResponse> = rankQueryFacade.findAllRank(rank = rank, size = size, rankType = rankType)
 
     @GetMapping("/ranks/by-username/{username}")
     fun findUserRankByUsername(
