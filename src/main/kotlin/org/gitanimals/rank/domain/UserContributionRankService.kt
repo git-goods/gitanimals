@@ -28,7 +28,7 @@ class UserContributionRankService(
 
         eventPublisher.publishEvent(
             RankUpdated(
-                type = RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS,
+                type = RankQueryRepository.RankType.WEEKLY_USER_CONTRIBUTIONS,
                 rankId = RankId(userRank.id),
                 score = userRank.weeklyContributions,
             )
