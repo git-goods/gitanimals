@@ -4,7 +4,10 @@ import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.rank.domain.GuildContributionRankService
 import org.gitanimals.rank.domain.RankQueryRepository
-import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS
+import org.gitanimals.rank.domain.RankQueryRepository.RankType.WEEKLY_GUILD_CONTRIBUTIONS
+import org.gitanimals.rank.domain.history.RankHistoryService
+import org.gitanimals.rank.domain.history.request.InitRankHistoryRequest
+import org.gitanimals.rank.domain.response.RankResponse
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.springframework.scheduling.annotation.Scheduled
@@ -16,6 +19,7 @@ class GivePointToGuildFacade(
     private val identityApi: IdentityApi,
     private val rankQueryRepository: RankQueryRepository,
     private val guildContributionRankService: GuildContributionRankService,
+    private val rankHistoryService: RankHistoryService,
 ) {
 
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
@@ -27,19 +31,14 @@ class GivePointToGuildFacade(
             val guildRankWithIds = rankQueryRepository.findAllRank(
                 rankStartedAt = 0,
                 limit = 2,
-                type = WEEKLY_GUILD_CONTRIBUTIONS,
+                rankType = WEEKLY_GUILD_CONTRIBUTIONS,
             ).associate { it.rank to it.id }
 
             val guildRanks = guildContributionRankService.findAllByRankIds(guildRankWithIds)
 
             guildRanks.forEach { rankResponse ->
                 runCatching {
-                    val point = when {
-                        rankResponse.rank == 0 -> 3_000
-                        rankResponse.rank == 1 -> 2_000
-                        rankResponse.rank == 2 -> 1_000
-                        else -> 0
-                    }
+                    val point = getPoint(rankResponse)
 
                     val guild = guildApi.getGuildByTitle(rankResponse.name)
                     givePointToLeader(guild, point)
@@ -49,11 +48,29 @@ class GivePointToGuildFacade(
                 }
             }
 
+            rankHistoryService.initTop3Rank(
+                guildRanks.map {
+                    InitRankHistoryRequest(
+                        rank = it.rank,
+                        prize = getPoint(it),
+                        rankType = WEEKLY_GUILD_CONTRIBUTIONS,
+                        winnerId = it.id.toLong(),
+                        winnerName = it.name,
+                    )
+                }
+            )
             guildContributionRankService.initialWeeklyRanks()
             rankQueryRepository.initialRank(WEEKLY_GUILD_CONTRIBUTIONS)
         }.also {
             MDC.remove(TRACE_ID)
         }
+    }
+
+    private fun getPoint(rankResponse: RankResponse) = when {
+        rankResponse.rank == 0 -> 3_000
+        rankResponse.rank == 1 -> 2_000
+        rankResponse.rank == 2 -> 1_000
+        else -> 0
     }
 
     private fun givePointToLeader(guild: GuildApi.GuildResponse, point: Int) {

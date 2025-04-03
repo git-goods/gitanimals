@@ -2,8 +2,8 @@ package org.gitanimals.rank.app
 
 import org.gitanimals.rank.domain.GuildContributionRankService
 import org.gitanimals.rank.domain.RankQueryRepository
-import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_GUILD_CONTRIBUTIONS
-import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS
+import org.gitanimals.rank.domain.RankQueryRepository.RankType.WEEKLY_GUILD_CONTRIBUTIONS
+import org.gitanimals.rank.domain.RankQueryRepository.RankType.WEEKLY_USER_CONTRIBUTIONS
 import org.gitanimals.rank.domain.UserContributionRankService
 import org.gitanimals.rank.domain.response.RankResponse
 import org.slf4j.LoggerFactory
@@ -21,7 +21,7 @@ class RankQueryFacade(
     fun findAllRank(
         rank: Int,
         size: Int,
-        type: RankQueryRepository.Type,
+        rankType: RankQueryRepository.RankType,
     ): List<RankResponse> {
         require(size > 1) { "Size must be lager than 1. size: $size" }
         require(size <= 20) { "Maximum request size is 20. size: $size" }
@@ -30,10 +30,10 @@ class RankQueryFacade(
         val rankWithIds = rankQueryRepository.findAllRank(
             rankStartedAt = rank,
             limit = rank + size - 1,
-            type = type
+            rankType = rankType
         ).associate { it.rank to it.id }
 
-        return when (type) {
+        return when (rankType) {
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
             WEEKLY_USER_CONTRIBUTIONS -> userContributionRankService.findAllByRankIds(rankWithIds)
         }

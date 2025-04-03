@@ -22,7 +22,7 @@ class GetRankByUsernameFacade(
         }
 
         val rankQueryResponse = rankQueryRepository.getRankByRankId(
-            type = RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS,
+            rankType = RankQueryRepository.RankType.WEEKLY_USER_CONTRIBUTIONS,
             rankId = userContributionRank.id,
         )
 

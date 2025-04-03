@@ -3,8 +3,11 @@ package org.gitanimals.rank.app
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.rank.domain.RankQueryRepository
-import org.gitanimals.rank.domain.RankQueryRepository.Type.WEEKLY_USER_CONTRIBUTIONS
+import org.gitanimals.rank.domain.RankQueryRepository.RankType.WEEKLY_USER_CONTRIBUTIONS
 import org.gitanimals.rank.domain.UserContributionRankService
+import org.gitanimals.rank.domain.history.RankHistoryService
+import org.gitanimals.rank.domain.history.request.InitRankHistoryRequest
+import org.gitanimals.rank.domain.response.RankResponse
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.springframework.scheduling.annotation.Scheduled
@@ -15,6 +18,7 @@ class GivePointToUsersFacade(
     private val identityApi: IdentityApi,
     private val rankQueryRepository: RankQueryRepository,
     private val userContributionRankService: UserContributionRankService,
+    private val rankHistoryService: RankHistoryService,
 ) {
 
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
@@ -26,19 +30,14 @@ class GivePointToUsersFacade(
             val userRankWithIds = rankQueryRepository.findAllRank(
                 rankStartedAt = 0,
                 limit = 2,
-                type = WEEKLY_USER_CONTRIBUTIONS,
+                rankType = WEEKLY_USER_CONTRIBUTIONS,
             ).associate { it.rank to it.id }
 
             val userRanks = userContributionRankService.findAllByRankIds(userRankWithIds)
 
             userRanks.forEach { rankResponse ->
                 runCatching {
-                    val point = when {
-                        rankResponse.rank == 0 -> 10_000
-                        rankResponse.rank == 1 -> 5_000
-                        rankResponse.rank == 2 -> 3_000
-                        else -> 0
-                    }
+                    val point = getPoint(rankResponse)
 
                     identityApi.increaseUserPointsByUsername(
                         username = rankResponse.name,
@@ -50,10 +49,28 @@ class GivePointToUsersFacade(
                 }
             }
 
+            rankHistoryService.initTop3Rank(
+                userRanks.map {
+                    InitRankHistoryRequest(
+                        rank = it.rank,
+                        prize = getPoint(it),
+                        rankType = RankQueryRepository.RankType.WEEKLY_USER_CONTRIBUTIONS,
+                        winnerId  = it.id.toLong(),
+                        winnerName = it.name,
+                    )
+                }
+            )
             userContributionRankService.initialWeeklyRanks()
             rankQueryRepository.initialRank(WEEKLY_USER_CONTRIBUTIONS)
         }.also {
             MDC.remove(TRACE_ID)
         }
+    }
+
+    private fun getPoint(rankResponse: RankResponse) = when (rankResponse.rank) {
+        0 -> 10_000
+        1 -> 5_000
+        2 -> 3_000
+        else -> 0
     }
 }

@@ -4,7 +4,7 @@ import org.gitanimals.rank.domain.RankId
 import org.gitanimals.rank.domain.RankQueryRepository
 
 data class RankUpdated(
-    val type: RankQueryRepository.Type,
+    val type: RankQueryRepository.RankType,
     val rankId: RankId,
     val score: Long,
 )
