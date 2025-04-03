@@ -9,8 +9,8 @@ import org.gitanimals.rank.domain.RankQueryRepository.RankType
 class RankHistory(
     @Id
     val id: Long,
-    @Column(name = "rank")
-    val rank: Int,
+    @Column(name = "ranks")
+    val ranks: Int,
     @Column(name = "prize")
     val prize: Int,
     @Column(name = "rank_type")
