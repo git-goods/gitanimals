@@ -13,6 +13,7 @@ class RankHistory(
     val ranks: Int,
     @Column(name = "prize")
     val prize: Int,
+    @Enumerated(EnumType.STRING)
     @Column(name = "rank_type")
     val rankType: RankType,
     @Embedded
