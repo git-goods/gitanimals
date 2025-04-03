@@ -55,6 +55,8 @@ class GivePointToUsersFacade(
                         rank = it.rank,
                         prize = getPoint(it),
                         rankType = RankQueryRepository.RankType.WEEKLY_USER_CONTRIBUTIONS,
+                        winnerId  = it.id.toLong(),
+                        winnerName = it.name,
                     )
                 }
             )

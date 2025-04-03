@@ -22,11 +22,15 @@ class RankHistoryService(
                 rank = it.rank,
                 prize = it.prize,
                 rankType = it.rankType,
+                winner = Winner(
+                    id = it.winnerId,
+                    name = it.winnerName,
+                )
             )
         })
     }
 
-    @Cacheable("find_top3_history_by_rank_type")
+    @Cacheable(cacheNames = ["find_top3_history_by_rank_type"], )
     fun findTop3HistoryByRankType(rankType: RankType): List<RankHistory> {
         return rankHistoryRepository.findTop3ByRankTypeOrderByCreatedAtDesc(rankType)
             .sortedBy { it.rank }

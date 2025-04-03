@@ -1,9 +1,6 @@
 package org.gitanimals.rank.domain.history
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import org.gitanimals.rank.domain.AbstractTime
 import org.gitanimals.rank.domain.RankQueryRepository.RankType
 
@@ -18,4 +15,6 @@ class RankHistory(
     val prize: Int,
     @Column(name = "rank_type")
     val rankType: RankType,
+    @Embedded
+    val winner: Winner,
 ) : AbstractTime()

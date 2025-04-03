@@ -54,6 +54,8 @@ class GivePointToGuildFacade(
                         rank = it.rank,
                         prize = getPoint(it),
                         rankType = WEEKLY_GUILD_CONTRIBUTIONS,
+                        winnerId = it.id.toLong(),
+                        winnerName = it.name,
                     )
                 }
             )
