@@ -21,7 +21,7 @@ data class RankHistoryResponse(
                     Result(
                         id = it.winner.id.toString(),
                         name = it.winner.name,
-                        rank = it.rank,
+                        rank = it.ranks,
                         prize = it.prize,
                         rankType = it.rankType,
                     )
