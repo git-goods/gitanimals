@@ -7,6 +7,7 @@
 [English](README-en.md) | [한국어](README.md) | **简体中文** | [日本語](README-ja.md)
 
 <a href="https://hits.sh/github.com/git-goods/gitanmals/"><img alt="Hits" src="https://hits.sh/github.com/git-goods/gitanmals.svg?style=flat-square&label=visit&color=000000&labelColor=000000&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAACXBIWXMAAAEUAAABFAH7OeD%2FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJDSURBVHgB7d1BapNBGIfx%2F0ggbqp7XbTulG5yBw8QTyB6Aj1Cu%2FAAXbiueAH1AHoDFyKt7vQIoYJQBceEgttmxCnzPT4%2F%2BLLqQJMnzOLLm0kiSZIkSZIkSZIkSZIk6QqVDKR%2Byl5Gcz2rcierTNQsI6n5ktF8z%2BH68SATdS1CMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhut2Lrqd5sL63vMzUlSzrSXabluzncQbR78OGmsX6xXmU6ds8j0XaDBPYLRrOwHAGhjMwnIHhDAxnYDgDwxkYzsBws22Hzcu9fM1%2FaPVtfZ01LWkf4O84XD9rGDYf6lsQV%2BXoZXLwvGnJ5oOWtgH%2BjsP1btFwBoYzMJyB4QwMZ2A4A8MZGM7AcAaGMzDc1nPR9STHadE%2BS9zs9dvkzbumJTl%2B1vTnWd5Pdm9lsrYffB9wiP3D5%2BTFq6YlzYEXdy%2BuqXKLhjMwnIHhDAxnYDgDwxkYzsBwBoYzMNxYB4I3urmT7N1OX%2Bcl%2BdF5JPzXn4d%2FbtKBnz68uLr6OE%2Fez9NV2byB%2BvxqgFs0nIHhDAxnYDgDwxkYzsBwBoYzMJyB4QwMN%2Bl70Ri1LuuTG22nyh%2BdbXXouIHHsFgn63KqvFs0nIHhDAxnYDgDwxkYzsBwBoYzMJyB4bxVeZl5TXZqujovq%2FwsXQajSz1N5%2F9el6o5LPue%2BK6%2FYGA4A8MZGM7AcAaGMzCcgeEMDGdgOAPDGRjOwHAGhjMwnIHhDAxnYDgDwxkYzsBwBoYzMJyB4X4DH8pLebxREVkAAAAASUVORK5CYII%3D"/></a>
+<a href="https://www.instagram.com/gitanimals"><img width=88 src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white"/></a>
 </div>
 <div align = "center">  
 <a href="https://github.com/devxb/gitanimals">
