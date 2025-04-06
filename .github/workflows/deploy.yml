@@ -73,6 +73,7 @@ jobs:
             "REDIS_PORT=${{ secrets.REDIS_PORT }}"
             "INTERNAL_SECRET=${{ secrets.INTERNAL_SECRET }}"
             "SLACK_TOKEN=${{ secrets.SLACK_TOKEN }}"
+            "RELAY_APPROVE_TOKEN=${{ secrets.RELAY_APPROVE_TOKEN }}"
 
       - name: build and push filebeat
         uses: docker/build-push-action@v4

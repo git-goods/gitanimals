@@ -8,6 +8,7 @@ ARG REDIS_HOST
 ARG REDIS_PORT
 ARG INTERNAL_SECRET
 ARG SLACK_TOKEN
+ARG RELAY_APPROVE_TOKEN
 
 ARG JAR_FILE=./*.jar
 COPY ${JAR_FILE} gitanimals-render.jar
@@ -19,7 +20,8 @@ ENV db_url=${DB_URL} \
   redis_host=${REDIS_HOST} \
   redis_port=${REDIS_PORT} \
   internal_secret=${INTERNAL_SECRET} \
-  slack_token=${SLACK_TOKEN}
+  slack_token=${SLACK_TOKEN} \
+  relay_approve_token=${RELAY_APPROVE_TOKEN}
 
 ENTRYPOINT java -jar gitanimals-render.jar \
   --spring.datasource.url=${db_url} \
@@ -29,4 +31,5 @@ ENTRYPOINT java -jar gitanimals-render.jar \
   --netx.port=${redis_port} \
   --github.token=${github_token} \
   --internal.secret=${internal_secret} \
-  --slack.token=${slack_token}
+  --slack.token=${slack_token} \
+  --relay.approve.token=${relay_approve_token}
