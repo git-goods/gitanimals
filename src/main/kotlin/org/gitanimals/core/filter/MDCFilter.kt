@@ -47,7 +47,8 @@ class MDCFilter : OncePerRequestFilter() {
         const val PATH = "path"
 
         private val ignorePath = setOf(
-            "/actuator/prometheus"
+            "/actuator/prometheus",
+            "/actuator/health",
         )
     }
 }
