@@ -1,5 +1,6 @@
 package org.gitanimals.rank.infra
 
+import org.gitanimals.core.auth.InternalAuthRequestInterceptor
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.rank.app.GuildApi
 import org.gitanimals.rank.app.IdentityApi
@@ -17,6 +18,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 @Profile("!test")
 class RankHttpClientConfigurer(
     @Value("\${internal.secret}") private val internalSecret: String,
+    private val internalAuthRequestInterceptor: InternalAuthRequestInterceptor,
 ) {
 
     @Bean
@@ -30,6 +32,7 @@ class RankHttpClientConfigurer(
                 }
                 execution.execute(request, body)
             }
+            .requestInterceptor(internalAuthRequestInterceptor)
             .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("https://api.gitanimals.org")
             .build()
@@ -52,6 +55,7 @@ class RankHttpClientConfigurer(
                 }
                 execution.execute(request, body)
             }
+            .requestInterceptor(internalAuthRequestInterceptor)
             .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("https://render.gitanimals.org")
             .build()
@@ -74,6 +78,7 @@ class RankHttpClientConfigurer(
                 }
                 execution.execute(request, body)
             }
+            .requestInterceptor(internalAuthRequestInterceptor)
             .defaultStatusHandler(rankHttpClientErrorHandler())
             .baseUrl("https://render.gitanimals.org")
             .build()

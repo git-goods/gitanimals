@@ -1,19 +1,20 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.auth.InternalAuth
 import org.gitanimals.guild.domain.GuildService
 import org.springframework.stereotype.Service
 
 @Service
 class AcceptJoinGuildFacade(
-    private val identityApi: IdentityApi,
+    private val internalAuth: InternalAuth,
     private val guildService: GuildService,
 ) {
 
-    fun acceptJoin(token: String, guildId: Long, acceptUserId: Long) {
-        val user = identityApi.getUserByToken(token)
+    fun acceptJoin(guildId: Long, acceptUserId: Long) {
+        val userId = internalAuth.getUserId()
 
         guildService.acceptJoin(
-            acceptorId = user.id.toLong(),
+            acceptorId = userId,
             guildId = guildId,
             acceptUserId = acceptUserId,
         )
