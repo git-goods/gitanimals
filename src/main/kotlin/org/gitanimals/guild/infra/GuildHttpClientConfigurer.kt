@@ -1,5 +1,6 @@
 package org.gitanimals.guild.infra
 
+import org.gitanimals.core.auth.InternalAuthRequestInterceptor
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.guild.app.IdentityApi
 import org.gitanimals.guild.app.RenderApi
@@ -13,7 +14,9 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 
 @Configuration
 @Profile("!test")
-class GuildHttpClientConfigurer {
+class GuildHttpClientConfigurer(
+    private val internalAuthRequestInterceptor: InternalAuthRequestInterceptor,
+) {
 
     @Bean
     fun identityApiHttpClient(): IdentityApi {
@@ -23,6 +26,7 @@ class GuildHttpClientConfigurer {
                 request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
                 execution.execute(request, body)
             }
+            .requestInterceptor(internalAuthRequestInterceptor)
             .defaultStatusHandler(guildHttpClientErrorHandler())
             .baseUrl("https://api.gitanimals.org")
             .build()
@@ -42,6 +46,7 @@ class GuildHttpClientConfigurer {
                 request.headers.add(TRACE_ID, MDC.get(TRACE_ID))
                 execution.execute(request, body)
             }
+            .requestInterceptor(internalAuthRequestInterceptor)
             .defaultStatusHandler(guildHttpClientErrorHandler())
             .baseUrl("https://render.gitanimals.org")
             .build()

@@ -1,5 +1,6 @@
 package org.gitanimals.render.infra
 
+import org.gitanimals.core.auth.InternalAuthRequestInterceptor
 import org.gitanimals.core.filter.MDCFilter
 import org.gitanimals.rank.infra.HttpClientErrorHandler
 import org.gitanimals.render.app.IdentityApi
@@ -16,6 +17,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 @Profile("!test")
 class RenderHttpClientConfigurer(
     @Value("\${internal.secret}") private val internalSecret: String,
+    private val internalAuthRequestInterceptor: InternalAuthRequestInterceptor,
 ) {
 
     @Bean
@@ -29,6 +31,7 @@ class RenderHttpClientConfigurer(
                 }
                 execution.execute(request, body)
             }
+            .requestInterceptor(internalAuthRequestInterceptor)
             .defaultStatusHandler(renderHttpClientErrorHandler())
             .baseUrl("https://api.gitanimals.org")
             .build()

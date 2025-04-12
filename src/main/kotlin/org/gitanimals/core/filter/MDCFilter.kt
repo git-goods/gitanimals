@@ -4,6 +4,7 @@ import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.auth.InternalAuth
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.springframework.stereotype.Component
@@ -11,7 +12,9 @@ import org.springframework.web.filter.OncePerRequestFilter
 import kotlin.system.measureTimeMillis
 
 @Component
-class MDCFilter : OncePerRequestFilter() {
+class MDCFilter(
+    private val internalAuth: InternalAuth,
+) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
         request: HttpServletRequest,
@@ -25,6 +28,7 @@ class MDCFilter : OncePerRequestFilter() {
 
             MDC.put(TRACE_ID, traceId)
             MDC.put(PATH, request.requestURI)
+            internalAuth.findUserId()?.let { MDC.put(USER_ID, it.toString()) }
 
             val elapsedTime = measureTimeMillis {
                 filterChain.doFilter(request, response)
@@ -38,10 +42,12 @@ class MDCFilter : OncePerRequestFilter() {
             MDC.remove(TRACE_ID)
             MDC.remove(ELAPSED_TIME)
             MDC.remove(PATH)
+            MDC.remove(USER_ID)
         }
     }
 
     companion object {
+        const val USER_ID = "userId"
         const val TRACE_ID = "traceId"
         const val ELAPSED_TIME = "elapsedTime"
         const val PATH = "path"
