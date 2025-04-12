@@ -1,17 +1,18 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.auth.InternalAuth
 import org.gitanimals.guild.domain.GuildService
 import org.springframework.stereotype.Component
 
 @Component
 class LeaveGuildFacade(
-    private val identityApi: IdentityApi,
+    private val internalAuth: InternalAuth,
     private val guildService: GuildService,
 ) {
 
-    fun leave(token: String, guildId: Long) {
-        val user = identityApi.getUserByToken(token)
+    fun leave(guildId: Long) {
+        val userId = internalAuth.getUserId()
 
-        guildService.leave(guildId, user.id.toLong())
+        guildService.leave(guildId, userId)
     }
 }

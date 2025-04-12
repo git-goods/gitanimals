@@ -55,7 +55,7 @@ class GuildController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
         @RequestParam("user-id") acceptUserId: Long,
-    ) = acceptJoinGuildFacade.acceptJoin(token, guildId, acceptUserId)
+    ) = acceptJoinGuildFacade.acceptJoin(guildId, acceptUserId)
 
 
     @ResponseStatus(HttpStatus.OK)
@@ -64,7 +64,7 @@ class GuildController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
         @RequestParam("user-id") kickUserId: Long,
-    ) = kickGuildFacade.kickMember(token, guildId, kickUserId)
+    ) = kickGuildFacade.kickMember(guildId, kickUserId)
 
 
     @ResponseStatus(HttpStatus.OK)
@@ -73,7 +73,7 @@ class GuildController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
         @RequestBody changeGuildRequest: ChangeGuildRequest,
-    ) = changeGuildFacade.changeGuild(token, guildId, changeGuildRequest)
+    ) = changeGuildFacade.changeGuild(guildId, changeGuildRequest)
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/guilds/{guildId}")
@@ -92,7 +92,7 @@ class GuildController(
     fun getAllJoinedGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
     ): GuildsResponse {
-        val guilds = joinedGuildFacade.getJoinedGuilds(token)
+        val guilds = joinedGuildFacade.getJoinedGuilds()
 
         return GuildsResponse.from(guilds)
     }
@@ -144,7 +144,7 @@ class GuildController(
     fun leaveGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
-    ) = leaveGuildFacade.leave(token, guildId)
+    ) = leaveGuildFacade.leave(guildId)
 
     @PostMapping("guilds/{guildId}/deny")
     fun deny(
@@ -152,7 +152,6 @@ class GuildController(
         @PathVariable("guildId") guildId: Long,
         @RequestParam("user-id") denyUserId: Long,
     ) = denyJoinGuildFacade.denyJoin(
-        token = token,
         guildId = guildId,
         denyUserId = denyUserId,
     )

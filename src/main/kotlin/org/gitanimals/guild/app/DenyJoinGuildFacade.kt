@@ -1,17 +1,18 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.auth.InternalAuth
 import org.gitanimals.guild.domain.GuildService
 import org.springframework.stereotype.Service
 
 @Service
 class DenyJoinGuildFacade(
-    private val identityApi: IdentityApi,
+    private val internalAuth: InternalAuth,
     private val guildService: GuildService,
 ) {
 
-    fun denyJoin(token: String, guildId: Long, denyUserId: Long) {
-        val user = identityApi.getUserByToken(token)
+    fun denyJoin(guildId: Long, denyUserId: Long) {
+        val userId = internalAuth.getUserId()
 
-        guildService.denyJoin(denierId = user.id.toLong(), guildId = guildId, denyUserId = denyUserId)
+        guildService.denyJoin(denierId = userId, guildId = guildId, denyUserId = denyUserId)
     }
 }

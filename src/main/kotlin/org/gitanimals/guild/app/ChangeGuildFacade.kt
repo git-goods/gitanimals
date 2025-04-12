@@ -1,22 +1,23 @@
 package org.gitanimals.guild.app
 
+import org.gitanimals.core.auth.InternalAuth
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
 import org.springframework.stereotype.Service
 
 @Service
 class ChangeGuildFacade(
-    private val identityApi: IdentityApi,
+    private val internalAuth: InternalAuth,
     private val guildService: GuildService,
 ) {
 
-    fun changeGuild(token: String, guildId: Long, changeGuildRequest: ChangeGuildRequest) {
+    fun changeGuild(guildId: Long, changeGuildRequest: ChangeGuildRequest) {
         changeGuildRequest.requireValidTitle()
         
-        val user = identityApi.getUserByToken(token)
+        val userId = internalAuth.getUserId()
 
         guildService.changeGuild(
-            changeRequesterId = user.id.toLong(),
+            changeRequesterId = userId,
             guildId = guildId,
             request = changeGuildRequest,
         )

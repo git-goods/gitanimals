@@ -1,6 +1,7 @@
 package org.gitanimals.core.auth
 
 import jakarta.servlet.http.HttpServletRequest
+import org.gitanimals.core.AUTHORIZATION_EXCEPTION
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
@@ -23,6 +24,16 @@ class InternalAuth(
     private val secretKey by lazy {
         val decodedKey = Base64.getDecoder().decode(internalAuthSecret)
         SecretKeySpec(decodedKey, "AES")
+    }
+
+    fun getUserId(throwOnFailure: () -> Unit = throwCannotGetUserId): Long {
+        val userId = findUserId()
+
+        if (userId == null) {
+            throwOnFailure.invoke()
+        }
+
+        return userId ?: throw AUTHORIZATION_EXCEPTION
     }
 
     fun findUserId(): Long? {
@@ -83,6 +94,10 @@ class InternalAuth(
     companion object {
         const val INTERNAL_AUTH_IV_KEY = "Internal-Auth-Iv"
         const val INTERNAL_AUTH_SECRET_KEY = "Internal-Auth-Secret"
+
+        private val throwCannotGetUserId: () -> Unit = {
+            throw AUTHORIZATION_EXCEPTION
+        }
     }
 }
 

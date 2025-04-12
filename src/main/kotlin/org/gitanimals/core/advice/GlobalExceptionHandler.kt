@@ -1,5 +1,6 @@
 package org.gitanimals.core.advice
 
+import org.gitanimals.core.AuthorizationException
 import org.gitanimals.core.ErrorResponse
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -52,4 +53,9 @@ class GlobalExceptionHandler {
     fun handleNoHandlerFoundException(exception: Exception): ErrorResponse {
         return ErrorResponse("CANNOT FOUND ANY RESOURCE.")
     }
+
+    @ExceptionHandler(AuthorizationException::class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    fun handleAuthorizationException(exception: AuthorizationException): ErrorResponse =
+        ErrorResponse.from(exception)
 }
