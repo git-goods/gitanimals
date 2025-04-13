@@ -2,7 +2,10 @@ package org.gitanimals.core.auth
 
 import jakarta.servlet.http.HttpServletRequest
 import org.gitanimals.core.AUTHORIZATION_EXCEPTION
+import org.gitanimals.core.AuthorizationException
+import org.gitanimals.core.filter.MDCFilter.Companion.USER_ID
 import org.slf4j.LoggerFactory
+import org.slf4j.MDC
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
@@ -37,6 +40,14 @@ class InternalAuth(
     }
 
     fun findUserId(): Long? {
+        val userIdInMdc = runCatching {
+            MDC.get(USER_ID).toLong()
+        }.getOrNull()
+
+        if (userIdInMdc != null) {
+            return userIdInMdc
+        }
+
         val token: String? = httpServletRequest.getHeader(HttpHeaders.AUTHORIZATION)
         val iv: String? = httpServletRequest.getHeader(INTERNAL_AUTH_IV_KEY)
         val internalAuthSecret: String? = httpServletRequest.getHeader(INTERNAL_AUTH_SECRET_KEY)
@@ -58,6 +69,9 @@ class InternalAuth(
             userId = runCatching {
                 internalAuthClient.getUserByToken(token).id.toLong()
             }.getOrElse {
+                if (it is AuthorizationException) {
+                    return@getOrElse null
+                }
                 logger.warn("[InternalAuth] Fail to get userId by token", it)
                 null
             }
