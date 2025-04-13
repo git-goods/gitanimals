@@ -1,5 +1,6 @@
 package org.gitanimals.star.infra
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Profile
 import org.springframework.core.io.ClassPathResource
@@ -61,33 +62,33 @@ class GithubStargazerApi(
     }
 }
 
-data class GithubStargazerGraphqlResponse(
+data class GithubStargazerGraphqlResponse @JsonCreator constructor(
     val data: Data,
 ) {
-    data class Data(
+    data class Data @JsonCreator constructor(
         val repository: Repository,
     ) {
-        data class Repository(
+        data class Repository @JsonCreator constructor(
             val stargazers: StargazersResponse,
         )
     }
 }
 
-data class StargazersResponse(
+data class StargazersResponse @JsonCreator constructor(
     val edges: List<StarPushedPeople>,
     val pageInfo: PageInfo,
 ) {
 
-    data class StarPushedPeople(
+    data class StarPushedPeople @JsonCreator constructor(
         val starredAt: String,
         val node: Node,
     ) {
-        data class Node(
+        data class Node @JsonCreator constructor(
             val login: String,
         )
     }
 
-    data class PageInfo(
+    data class PageInfo @JsonCreator constructor(
         val endCursor: String,
         val hasNextPage: Boolean,
     )
