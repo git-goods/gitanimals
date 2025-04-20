@@ -7,6 +7,7 @@ import org.gitanimals.rank.domain.RankQueryRepository.RankType.WEEKLY_USER_CONTR
 import org.gitanimals.rank.domain.UserContributionRankService
 import org.gitanimals.rank.domain.response.RankResponse
 import org.slf4j.LoggerFactory
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Component
 
 @Component
@@ -37,5 +38,12 @@ class RankQueryFacade(
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
             WEEKLY_USER_CONTRIBUTIONS -> userContributionRankService.findAllByRankIds(rankWithIds)
         }
+    }
+
+    @Cacheable(cacheNames = ["rankTotalCountCacheManager"], key = "#rankType")
+    fun findRankTotalCountByRankType(
+        rankType: RankQueryRepository.RankType,
+    ): Int {
+        return rankQueryRepository.getTotalRankCount(rankType)
     }
 }

@@ -10,6 +10,8 @@ interface RankQueryRepository {
 
     fun initialRank(rankType: RankType)
 
+    fun getTotalRankCount(rankType: RankType): Int
+
     enum class RankType {
         WEEKLY_GUILD_CONTRIBUTIONS,
         WEEKLY_USER_CONTRIBUTIONS,
