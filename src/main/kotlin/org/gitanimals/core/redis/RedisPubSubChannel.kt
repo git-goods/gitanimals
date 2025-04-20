@@ -9,4 +9,6 @@ object RedisPubSubChannel {
     const val SLACK_REPLIED = "SLACK_REPLIED"
 
     const val DEAD_LETTER_OCCURRED = "DEAD_LETTER_OCCURRED"
+
+    const val NEW_PET_DROP_RATE_DISTRIBUTION = "NEW_PET_DROP_RATE_DISTRIBUTION"
 }
