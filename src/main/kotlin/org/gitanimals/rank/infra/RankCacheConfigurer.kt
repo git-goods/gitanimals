@@ -1,26 +1,23 @@
-package org.gitanimals.render.infra
+package org.gitanimals.rank.infra
 
 import com.github.benmanes.caffeine.cache.Caffeine
 import org.springframework.cache.CacheManager
 import org.springframework.cache.caffeine.CaffeineCacheManager
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Primary
-import kotlin.time.Duration.Companion.hours
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.toJavaDuration
 
 @Configuration
-class CacheConfigurer {
+class RankCacheConfigurer {
 
     @Bean
-    @Primary
-    fun cacheManager(caffeine: Caffeine<Any, Any>): CacheManager {
+    fun rankTotalCountCacheManager(): CacheManager {
+        val caffeineConfig = Caffeine.newBuilder().expireAfterWrite(10.minutes.toJavaDuration())
+
         val caffeineCacheManager = CaffeineCacheManager()
-        caffeineCacheManager.setCaffeine(caffeine)
+        caffeineCacheManager.setCaffeine(caffeineConfig)
+
         return caffeineCacheManager
     }
-
-    @Bean
-    fun caffeineConfig(): Caffeine<Any, Any> =
-        Caffeine.newBuilder().expireAfterWrite(1.hours.toJavaDuration())
 }

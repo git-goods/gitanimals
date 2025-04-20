@@ -3,6 +3,7 @@ package org.gitanimals.rank.controller
 import org.gitanimals.rank.app.GetRankByUsernameFacade
 import org.gitanimals.rank.app.RankQueryFacade
 import org.gitanimals.rank.controller.response.RankHistoryResponse
+import org.gitanimals.rank.controller.response.RankTotalCountResponse
 import org.gitanimals.rank.domain.RankQueryRepository
 import org.gitanimals.rank.domain.history.RankHistoryService
 import org.gitanimals.rank.domain.response.RankResponse
@@ -39,4 +40,10 @@ class RankController(
 
         return RankHistoryResponse.from(rankHistories)
     }
+
+    @GetMapping("/ranks/total")
+    fun getTotalRankCountsByRankType(
+        @RequestParam("type") rankType: RankQueryRepository.RankType,
+    ): RankTotalCountResponse =
+        RankTotalCountResponse(rankQueryFacade.findRankTotalCountByRankType(rankType))
 }

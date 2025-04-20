@@ -40,7 +40,10 @@ class RedisRankQueryRepository(
             .toSet()
     }
 
-    override fun getRankByRankId(rankType: RankQueryRepository.RankType, rankId: Long): RankQueryResponse {
+    override fun getRankByRankId(
+        rankType: RankQueryRepository.RankType,
+        rankId: Long,
+    ): RankQueryResponse {
         val rank = redisTemplate.opsForZSet()
             .reverseRank(rankType.name, rankId.toString())
 
@@ -50,6 +53,11 @@ class RedisRankQueryRepository(
             id = rankId,
             rank = rank.toInt(),
         )
+    }
+
+    override fun getTotalRankCount(rankType: RankQueryRepository.RankType): Int {
+        return redisTemplate.opsForZSet()
+            .zCard(rankType.name)?.toInt() ?: RETURN_ZERO_WHEN_USED_IN_PIPELINE_BIA_TRANSACTION
     }
 
     @TransactionalEventListener(
@@ -71,5 +79,9 @@ class RedisRankQueryRepository(
     override fun updateRank(rankType: RankQueryRepository.RankType, rankId: RankId, score: Long) {
         redisTemplate.opsForZSet()
             .add(rankType.name, rankId.value.toString(), score.toDouble())
+    }
+
+    companion object {
+        private const val RETURN_ZERO_WHEN_USED_IN_PIPELINE_BIA_TRANSACTION = 0
     }
 }
