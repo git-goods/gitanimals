@@ -1,7 +1,9 @@
 package org.gitanimals.render.domain
 
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.value.Contribution
+import org.gitanimals.render.domain.value.Level
 
 fun user(
     id: Long = IdGenerator.generate(),
@@ -20,3 +22,15 @@ fun user(
         lastPersonaGivePoint = 0,
     )
 }
+
+fun persona(
+    id: Long = IdGenerator.generate(),
+    type: PersonaType = PersonaType.CAT,
+    user: User,
+) = Persona(
+    id = id,
+    type = type,
+    level = Level(0),
+    visible = false,
+    user = user,
+)
