@@ -2062,6 +2062,27 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("maltese", id, 40, "180s", 5, 12.0)
                 .toString()
     },
+
+    UNICORN(0.001) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return unicornSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-8 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (8.5 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String =
+            StringBuilder().moveRandomly("unicorn", id, 40, "180s", 5, 12.0)
+                .toString()
+    }
     ;
 
     init {
@@ -2085,7 +2106,13 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         return dropRate!!
     }
 
-    fun load(name: String, contributionCount: Long, animationId: Long, level: Long, mode: Mode): String =
+    fun load(
+        name: String,
+        contributionCount: Long,
+        animationId: Long,
+        level: Long,
+        mode: Mode
+    ): String =
         loadSvg(name, animationId, level, mode)
             .drawContribution(mode, contributionCount)
 
