@@ -2063,7 +2063,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
-    UNICORN(0.01) {
+    UNICORN(0.001) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return unicornSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
