@@ -9,6 +9,7 @@ import org.gitanimals.rank.domain.response.RankResponse
 import org.slf4j.LoggerFactory
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Component
+import kotlin.math.max
 
 @Component
 class RankQueryFacade(
@@ -37,7 +38,7 @@ class RankQueryFacade(
         return when (rankType) {
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
             WEEKLY_USER_CONTRIBUTIONS -> userContributionRankService.findAllByRankIds(rankWithIds)
-        }
+        }.map { it.copy(contributions = max(0, it.contributions)) }
     }
 
     @Cacheable(cacheNames = ["rankTotalCountCacheManager"], key = "#rankType")
