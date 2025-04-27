@@ -33,7 +33,7 @@ class NewPetDropRateDistributionReport(
     @Scheduled(cron = EVERY_SUNDAY_9AM, zone = "Asia/Seoul")
     fun reportWeeklyNewPetDropRateDistribution() {
         runCatching {
-            publishDropRateDistribution(7, Type.DAILY)
+            publishDropRateDistribution(7, Type.WEEKLY)
         }.also {
             MDC.remove(TRACE_ID)
         }
@@ -42,7 +42,7 @@ class NewPetDropRateDistributionReport(
     @Scheduled(cron = EVERY_FIRST_DAY_OF_MONTH_9AM, zone = "Asia/Seoul")
     fun reportMonthlyNewPetDropRateDistribution() {
         runCatching {
-            publishDropRateDistribution(30, Type.DAILY)
+            publishDropRateDistribution(30, Type.MONTHLY)
         }.also {
             MDC.remove(TRACE_ID)
         }
