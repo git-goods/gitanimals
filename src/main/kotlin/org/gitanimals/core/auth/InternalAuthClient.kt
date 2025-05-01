@@ -22,6 +22,7 @@ fun interface InternalAuthClient {
 
     data class UserResponse(
         val id: String,
+        val entryPoint: String,
     )
 }
 

@@ -5,6 +5,8 @@ import org.gitanimals.render.controller.request.ChangeFieldRequest
 import org.gitanimals.render.controller.response.BackgroundResponse
 import org.gitanimals.core.ErrorResponse
 import org.gitanimals.core.FieldType
+import org.gitanimals.core.auth.RequiredUserEntryPoints
+import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.UserService.Companion.loadField
 import org.springframework.http.HttpHeaders
@@ -25,6 +27,7 @@ class BackgroundController(
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/users/backgrounds")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun changeBackground(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody changeFieldRequest: ChangeFieldRequest,
@@ -32,6 +35,7 @@ class BackgroundController(
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/internals/backgrounds")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun addBackground(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestParam(name = "name") name: String,
@@ -40,6 +44,7 @@ class BackgroundController(
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/internals/backgrounds")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun deleteBackground(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestParam(name = "name") name: String,
