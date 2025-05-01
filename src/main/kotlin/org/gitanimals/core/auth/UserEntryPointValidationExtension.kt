@@ -9,20 +9,23 @@ object UserEntryPointValidationExtension {
     fun <T> withUserEntryPointValidation(
         expectedUserEntryPoints: Array<UserEntryPoint>,
         onSuccess: () -> T,
-        failMessage: () -> String = {
-            "\"$expectedUserEntryPoints\" User cannot pass."
+        failMessage: (UserEntryPoint?) -> String = { userEntryPoint ->
+            "ExpectedUserEntryPoints: \"$expectedUserEntryPoints\" but request user entryPoint is \"$userEntryPoint\""
         }
     ): T {
-        val userEntryPoint = internalAuth.getUserEntryPoint {
-            throw IllegalArgumentException(failMessage.invoke())
+        val userEntryPoint = runCatching {
+            val userEntryPointString = internalAuth.getUserEntryPoint {
+                throw IllegalArgumentException(failMessage.invoke(null))
+            }
+            UserEntryPoint.valueOf(userEntryPointString)
+        }.getOrElse {
+            throw IllegalArgumentException(failMessage.invoke(null))
         }
 
         require(
-            expectedUserEntryPoints.contains(UserEntryPoint.ANY) ||
-            UserEntryPoint.valueOf(userEntryPoint) in expectedUserEntryPoints
-        ) {
-            failMessage.invoke()
-        }
+            expectedUserEntryPoints.contains(UserEntryPoint.ANY)
+                    || userEntryPoint in expectedUserEntryPoints
+        ) { failMessage.invoke(userEntryPoint) }
 
         return onSuccess.invoke()
     }
