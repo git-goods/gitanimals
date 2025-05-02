@@ -143,6 +143,8 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| SHIBA <br> <img src = "docs/shiba.svg" width="60px" height="60px"/>                                     | 0.3   |                                                                                                                    |
+| SHIBA_KING <br> <img src = "docs/shiba-king.svg" width="60px" height="60px"/>                           | 0.01  |                                                                                                                    |
 | UNICORN <br> <img src = "docs/unicorn.svg" width="60px" height="60px"/>                                 | 0.001 | Designed by [@Choi_sunwoo](https://www.behance.net/6a39a177)                                                       |
 | MALTESE_KING <br> <img src = "docs/maltese-king.svg" width="60px" height="40px"/>                       | 0.01  |                                                                                                                    |
 | MALTESE <br> <img src = "docs/maltese.svg" width="60px" height="40px"/>                                 | 0.02  |                                                                                                                    |
