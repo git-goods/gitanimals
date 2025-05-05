@@ -91,6 +91,9 @@ class Guild(
                 contributions = memberContributions,
                 personaType = memberPersonaType,
             )
+            require(members.size < MAX_MEMBER_SIZE) {
+                "Cannot join guild cause already has 15 members."
+            }
             members.add(member)
             return
         }
@@ -109,6 +112,10 @@ class Guild(
     fun getLeaderUserId(): Long = leader.userId
 
     fun accept(acceptUserId: Long) {
+        require(members.size < MAX_MEMBER_SIZE) {
+            "Cannot accept member cause already has 15 members."
+        }
+
         val acceptUser = waitMembers.firstOrNull { it.userId == acceptUserId }
             ?: throw IllegalArgumentException("Cannot find waitMember by userId: \"$acceptUserId\"")
         waitMembers.remove(acceptUser)
@@ -232,6 +239,9 @@ class Guild(
     }
 
     companion object {
+
+        private const val LEADER_SIZE = 1
+        private const val MAX_MEMBER_SIZE = 15 - LEADER_SIZE
 
         fun create(
             guildIcon: String,
