@@ -2,6 +2,8 @@ package org.gitanimals.render.controller
 
 import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.core.Mode
+import org.gitanimals.core.extension.StringExtension.deleteBrackets
+import org.gitanimals.core.extension.StringExtension.trimNotDigitCharacters
 import org.gitanimals.render.app.AnimationFacade
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.GetMapping
@@ -20,13 +22,13 @@ class AnimationController(
         response: HttpServletResponse
     ): String {
         response.cacheControl(3600)
-        return animationFacade.getFarmAnimation(deleteBrackets(username))
+        return animationFacade.getFarmAnimation(username.deleteBrackets())
     }
 
     @GetMapping(value = ["/lines/{username}"], produces = ["image/svg+xml"])
     fun getLineSvgAnimation(
         @PathVariable("username") username: String,
-        @RequestParam(name = "pet-id", defaultValue = "0") personaId: Long,
+        @RequestParam(name = "pet-id", defaultValue = "0") personaId: String,
         @RequestParam(name = "contribution-view", defaultValue = "true") contributionView: Boolean,
         response: HttpServletResponse,
     ): String {
@@ -37,21 +39,11 @@ class AnimationController(
             false -> Mode.LINE_NO_CONTRIBUTION
         }
 
-        return animationFacade.getLineAnimation(deleteBrackets(username), personaId, mode)
-    }
-
-    private fun deleteBrackets(username: String): String {
-        val start = when (username[0]) {
-            '{' -> 1
-            else -> 0
-        }
-
-        val end = when (username.last()) {
-            '}' -> username.length - 1
-            else -> username.length
-        }
-
-        return username.substring(start, end)
+        return animationFacade.getLineAnimation(
+            username = username.deleteBrackets(),
+            personaId = personaId.trimNotDigitCharacters().toLong(),
+            mode = mode,
+        )
     }
 
     private fun HttpServletResponse.cacheControl(maxAgeSeconds: Int): HttpServletResponse {

@@ -40,7 +40,7 @@ class GivePointToGuildFacade(
                 runCatching {
                     val point = getPoint(rankResponse)
 
-                    val guild = guildApi.getGuildByTitle(rankResponse.name)
+                    val guild = guildApi.getGuildById(rankResponse.id.toLong())
                     givePointToLeader(guild, point)
                     givePointToMembers(guild, point)
                 }.onFailure {

@@ -5,10 +5,13 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.service.annotation.GetExchange
 import java.time.Instant
 
-fun interface GuildApi {
+interface GuildApi {
 
     @GetExchange("/internals/guilds/by-title/{title}")
     fun getGuildByTitle(@PathVariable("title") title: String): GuildResponse
+
+    @GetExchange("/guilds/{guildId}")
+    fun getGuildById(@PathVariable("guildId") guildId: Long): GuildResponse
 
     data class GuildResponse(
         val id: String,
