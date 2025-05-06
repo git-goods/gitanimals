@@ -8,6 +8,7 @@ import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.NewUserCreated
 import org.gitanimals.render.domain.event.Visited
 import org.rooftop.netx.api.SagaManager
+import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
@@ -21,6 +22,8 @@ class AnimationFacade(
     private val eventPublisher: ApplicationEventPublisher,
     private val githubOpenApi: GithubOpenApi,
 ) {
+
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
@@ -59,15 +62,19 @@ class AnimationFacade(
     }
 
     private fun setUserAuthInfoIfNotSet(username: String) {
-        val user = userService.getUserByName(username)
+        runCatching {
+            val user = userService.getUserByName(username)
 
-        if (user.isAuthInfoSet().not()) {
-            val githubUserAuthInfo = githubOpenApi.getGithubUser(user.getName())
-            userService.setAuthInfo(
-                name = user.getName(),
-                entryPoint = EntryPoint.GITHUB,
-                githubUserAuthInfo.id,
-            )
+            if (user.isAuthInfoSet().not()) {
+                val githubUserAuthInfo = githubOpenApi.getGithubUser(user.getName())
+                userService.setAuthInfo(
+                    name = user.getName(),
+                    entryPoint = EntryPoint.GITHUB,
+                    githubUserAuthInfo.id,
+                )
+            }
+        }.onFailure {
+            logger.info("Fail to update userAuthInfo cause: ${it.message}", it)
         }
     }
 
