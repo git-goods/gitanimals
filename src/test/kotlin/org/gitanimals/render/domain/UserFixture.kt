@@ -10,6 +10,7 @@ fun user(
     name: String = "devxb",
     personas: MutableList<Persona> = mutableListOf(),
     contributions: MutableList<Contribution> = mutableListOf(),
+    authInfo: UserAuthInfo = UserAuthInfo(EntryPoint.GITHUB, id.toString()),
     visit: Long = 0L,
 ): User {
     return User(
@@ -20,6 +21,7 @@ fun user(
         visit = visit,
         version = 0L,
         lastPersonaGivePoint = 0,
+        authInfo = authInfo,
     )
 }
 

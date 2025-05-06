@@ -17,7 +17,7 @@ data class BackgroundResponse(
         fun from(user: User): BackgroundResponse {
             return BackgroundResponse(
                 id = user.id.toString(),
-                name = user.name,
+                name = user.getName(),
                 backgrounds = user.fields.map { Background(it.fieldType) }.ifEmpty {
                     listOf(Background(FieldType.WHITE_FIELD))
                 },

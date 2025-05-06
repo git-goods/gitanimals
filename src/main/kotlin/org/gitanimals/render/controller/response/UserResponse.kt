@@ -13,7 +13,7 @@ data class UserResponse(
         fun from(user: User): UserResponse {
             return UserResponse(
                 user.id.toString(),
-                user.name,
+                user.getName(),
                 user.contributionCount().toString(),
                 user.personas.map {
                     PersonaResponse(
@@ -30,7 +30,7 @@ data class UserResponse(
         fun fromWithSpecificPersona(user: User, personaId: List<Long>): UserResponse {
             return UserResponse(
                 user.id.toString(),
-                user.name,
+                user.getName(),
                 user.contributionCount().toString(),
                 user.personas.filter {
                     it.id in personaId
@@ -49,7 +49,7 @@ data class UserResponse(
         fun fromOnlyTopLevelPersona(user: User): UserResponse {
             return UserResponse(
                 id = user.id.toString(),
-                name = user.name,
+                name = user.getName(),
                 totalContributions = user.contributionCount().toString(),
                 personas = listOf(user.personas
                     .maxBy { it.level() }

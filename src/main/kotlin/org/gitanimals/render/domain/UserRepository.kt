@@ -26,5 +26,17 @@ interface UserRepository : JpaRepository<User, Long> {
     )
     fun findAllByIdsWithContributions(@Param("usernames") usernames: Set<String>): List<User>
 
+    @Query(
+        """
+            select u from user as u
+            where u.authInfo.entryPoint = :entryPoint
+            and u.authInfo.authenticationId = :authenticationId
+        """
+    )
+    fun findByEntryPointAndAuthenticationId(
+        @Param("entryPoint") entryPoint: EntryPoint,
+        @Param("authenticationId") authenticationId: String,
+    ): User?
+
     fun existsByName(name: String): Boolean
 }

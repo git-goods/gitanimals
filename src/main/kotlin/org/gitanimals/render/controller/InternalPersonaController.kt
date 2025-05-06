@@ -99,7 +99,7 @@ class InternalPersonaController(
 
         return users.map { user ->
             val personaId =
-                usernameAndPersonaIdRequests.first { it.username == user.name }.personaId
+                usernameAndPersonaIdRequests.first { it.username == user.getName() }.personaId
             UserResponse.fromWithSpecificPersona(user, listOf(personaId))
         }
     }

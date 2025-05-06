@@ -2,6 +2,7 @@ package org.gitanimals.render.app
 
 import org.gitanimals.core.Mode
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
+import org.gitanimals.render.domain.EntryPoint
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
 import org.gitanimals.render.domain.event.NewUserCreated
@@ -18,11 +19,14 @@ class AnimationFacade(
     private val contributionApi: ContributionApi,
     private val sagaManager: SagaManager,
     private val eventPublisher: ApplicationEventPublisher,
+    private val githubOpenApi: GithubOpenApi,
 ) {
 
     fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
             true -> {
+                setUserAuthInfoIfNotSet(username)
+
                 val svgAnimation = userService.getFarmAnimationByUsername(username)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
                 svgAnimation
@@ -30,8 +34,8 @@ class AnimationFacade(
 
             false -> {
                 val user = createNewUser(username)
-                sagaManager.startSync(NewUserCreated(user.id, user.name))
-                userService.getFarmAnimationByUsername(user.name)
+                sagaManager.startSync(NewUserCreated(user.id, user.getName()))
+                userService.getFarmAnimationByUsername(user.getName())
             }
         }
     }
@@ -39,6 +43,8 @@ class AnimationFacade(
     fun getLineAnimation(username: String, personaId: Long, mode: Mode): String {
         return when (userService.existsByName(username)) {
             true -> {
+                setUserAuthInfoIfNotSet(username)
+
                 val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
                 svgAnimation
@@ -46,18 +52,38 @@ class AnimationFacade(
 
             false -> {
                 val user = createNewUser(username)
-                sagaManager.startSync(NewUserCreated(user.id, user.name))
-                userService.getLineAnimationByUsername(user.name, personaId, mode)
+                sagaManager.startSync(NewUserCreated(user.id, user.getName()))
+                userService.getLineAnimationByUsername(user.getName(), personaId, mode)
             }
+        }
+    }
+
+    private fun setUserAuthInfoIfNotSet(username: String) {
+        val user = userService.getUserByName(username)
+
+        if (user.isAuthInfoSet().not()) {
+            val githubUserAuthInfo = githubOpenApi.getGithubUser(user.getName())
+            userService.setAuthInfo(
+                name = user.getName(),
+                entryPoint = EntryPoint.GITHUB,
+                githubUserAuthInfo.id,
+            )
         }
     }
 
     fun createNewUser(username: String): User {
         return runCatching {
+            val githubUserResponse = githubOpenApi.getGithubUser(username)
             val contributionYears = contributionApi.getAllContributionYears(username)
             val contributionCountPerYear =
                 contributionApi.getContributionCount(username, contributionYears)
-            userService.createNewUser(username, contributionCountPerYear)
+
+            userService.createNewUser(
+                name = username,
+                entryPoint = EntryPoint.GITHUB,
+                authenticationId = githubUserResponse.id,
+                contributions = contributionCountPerYear,
+            )
         }.getOrElse {
             require(it !is RestClientException) { "Cannot create new user from username \"$username\"" }
             throw it

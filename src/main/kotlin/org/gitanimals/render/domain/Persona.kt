@@ -55,7 +55,7 @@ class Persona(
 
 
     fun toSvgForce(mode: Mode): String = type.load(
-        name = user!!.name,
+        name = user!!.getName(),
         contributionCount = user!!.contributionCount(),
         animationId = this.id,
         level = this.level(),
@@ -68,7 +68,7 @@ class Persona(
         }
         
         return type.load(
-            name = user!!.name,
+            name = user!!.getName(),
             contributionCount = user!!.contributionCount(),
             animationId = this.id,
             level = this.level(),
