@@ -4,6 +4,8 @@ import jakarta.servlet.http.HttpServletResponse
 import org.gitanimals.core.AuthorizationException
 import org.gitanimals.core.ErrorResponse
 import org.gitanimals.core.FieldType
+import org.gitanimals.core.auth.RequiredUserEntryPoints
+import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.guild.app.*
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.app.response.*
@@ -35,6 +37,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/guilds")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun createGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody createGuildRequest: CreateGuildRequest,
@@ -42,6 +45,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/guilds/{guildId}")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun joinGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
@@ -51,6 +55,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/guilds/{guildId}/accepts")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun acceptJoinGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
@@ -60,6 +65,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/guilds/{guildId}")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun kickFromGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
@@ -69,6 +75,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @PatchMapping("/guilds/{guildId}")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun changeGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
@@ -89,6 +96,7 @@ class GuildController(
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/guilds")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun getAllJoinedGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
     ): GuildsResponse {
@@ -130,6 +138,7 @@ class GuildController(
     }
 
     @PostMapping("/guilds/{guildId}/personas")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun changeMainPersona(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
@@ -141,12 +150,14 @@ class GuildController(
     )
 
     @DeleteMapping("/guilds/{guildId}/leave")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun leaveGuild(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,
     ) = leaveGuildFacade.leave(guildId)
 
     @PostMapping("guilds/{guildId}/deny")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun deny(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("guildId") guildId: Long,

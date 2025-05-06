@@ -1,5 +1,6 @@
 package org.gitanimals.core.auth
 
+import org.gitanimals.core.filter.MDCFilter.Companion.USER_ENTRY_POINT
 import org.gitanimals.core.filter.MDCFilter.Companion.USER_ID
 import org.slf4j.MDC
 import org.springframework.http.HttpRequest
@@ -23,6 +24,10 @@ class InternalAuthRequestInterceptor(
             MDC.get(USER_ID).toLong()
         }.getOrNull()
 
+        val userEntryPoint = runCatching {
+            MDC.get(USER_ENTRY_POINT)
+        }.getOrNull()
+
         if (userId != null) {
             val encrypt = internalAuth.encrypt(userId = userId)
 
@@ -33,6 +38,10 @@ class InternalAuthRequestInterceptor(
             request.headers.add(
                 InternalAuth.INTERNAL_AUTH_IV_KEY,
                 Base64.getEncoder().encodeToString(encrypt.iv),
+            )
+            request.headers.add(
+                InternalAuth.INTERNAL_ENTRY_POINT_KEY,
+                userEntryPoint,
             )
         }
 

@@ -3,6 +3,7 @@ package org.gitanimals.core.auth
 import jakarta.servlet.http.HttpServletRequest
 import org.gitanimals.core.AUTHORIZATION_EXCEPTION
 import org.gitanimals.core.AuthorizationException
+import org.gitanimals.core.filter.MDCFilter.Companion.USER_ENTRY_POINT
 import org.gitanimals.core.filter.MDCFilter.Companion.USER_ID
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
@@ -29,7 +30,7 @@ class InternalAuth(
         SecretKeySpec(decodedKey, "AES")
     }
 
-    fun getUserId(throwOnFailure: () -> Unit = throwCannotGetUserId): Long {
+    fun getUserId(throwOnFailure: () -> Unit = throwCannotGetUserInfo): Long {
         val userId = findUserId()
 
         if (userId == null) {
@@ -80,6 +81,36 @@ class InternalAuth(
         return userId
     }
 
+    fun getUserEntryPoint(throwOnFailure: () -> Unit = throwCannotGetUserInfo): String {
+        val entryPoint = findUserEntryPoint()
+
+        if (entryPoint == null) {
+            throwOnFailure.invoke()
+        }
+
+        return entryPoint ?: throw AUTHORIZATION_EXCEPTION
+    }
+
+    fun findUserEntryPoint(): String? {
+        val entryPointInMdc = runCatching {
+            MDC.get(USER_ENTRY_POINT)
+        }.getOrNull()
+
+        if (entryPointInMdc != null) {
+            return entryPointInMdc
+        }
+
+        httpServletRequest.getHeader(INTERNAL_ENTRY_POINT_KEY)?.let {
+            return it
+        }
+
+        val token: String = httpServletRequest.getHeader(HttpHeaders.AUTHORIZATION) ?: return null
+
+        return runCatching {
+            internalAuthClient.getUserByToken(token).entryPoint
+        }.getOrNull()
+    }
+
     private fun decrypt(iv: ByteArray, secret: ByteArray): Long {
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
         val spec = GCMParameterSpec(128, iv)
@@ -108,8 +139,9 @@ class InternalAuth(
     companion object {
         const val INTERNAL_AUTH_IV_KEY = "Internal-Auth-Iv"
         const val INTERNAL_AUTH_SECRET_KEY = "Internal-Auth-Secret"
+        const val INTERNAL_ENTRY_POINT_KEY = "Internal-Entry-Point"
 
-        private val throwCannotGetUserId: () -> Unit = {
+        private val throwCannotGetUserInfo: () -> Unit = {
             throw AUTHORIZATION_EXCEPTION
         }
     }

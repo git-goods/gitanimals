@@ -5,6 +5,8 @@ import org.gitanimals.core.AuthorizationException
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.app.request.MergePersonaRequest
 import org.gitanimals.core.ErrorResponse
+import org.gitanimals.core.auth.RequiredUserEntryPoints
+import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.render.controller.response.PersonaEnumResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
@@ -26,6 +28,7 @@ class PersonaController(
     }
 
     @GetMapping("/personas/{persona-id}")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun getPersonaById(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @PathVariable("persona-id") personaId: Long,
@@ -43,6 +46,7 @@ class PersonaController(
 
     @PatchMapping("/personas")
     @ResponseStatus(HttpStatus.OK)
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun changePersona(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody personaChangeRequest: PersonaChangeRequest,
@@ -72,6 +76,7 @@ class PersonaController(
 
     @PutMapping("/personas/merges")
     @ResponseStatus(HttpStatus.OK)
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun mergePersona(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody meregPersonaRequest: MergePersonaRequest,

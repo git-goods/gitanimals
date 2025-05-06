@@ -3,6 +3,8 @@ package org.gitanimals.render.controller
 import org.gitanimals.core.AuthorizationException
 import org.gitanimals.core.ErrorResponse
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.auth.RequiredUserEntryPoints
+import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.controller.request.AddMultiplyPersonaRequest
 import org.gitanimals.render.controller.request.AddPersonaRequest
@@ -21,6 +23,7 @@ class InternalPersonaController(
 ) {
 
     @PostMapping("/internals/personas")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun addPersona(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestParam("idempotency-key") idempotencyKey: String,
@@ -44,6 +47,7 @@ class InternalPersonaController(
     }
 
     @PostMapping("/internals/personas/multiply")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun addPersonaMultiple(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody addPersonaRequests: List<AddMultiplyPersonaRequest>,
@@ -68,6 +72,7 @@ class InternalPersonaController(
     }
 
     @DeleteMapping("/internals/personas")
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
     fun deletePersona(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestParam("persona-id") personaId: Long,
