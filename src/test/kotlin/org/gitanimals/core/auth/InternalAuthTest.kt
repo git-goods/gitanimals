@@ -65,7 +65,10 @@ internal class InternalAuthTest(
 
             every { httpServletRequest.getHeader(any()) } returns null
             every { httpServletRequest.getHeader(HttpHeaders.AUTHORIZATION) } returns "Bearer ..."
-            every { internalAuthClient.getUserByToken(any()) } returns UserResponse(userId.toString())
+            every { internalAuthClient.getUserByToken(any()) } returns UserResponse(
+                userId.toString(),
+                "GITHUB",
+            )
 
             it("userId를 응답한다") {
                 val expected = internalAuth.findUserId()

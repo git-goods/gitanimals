@@ -7,11 +7,11 @@ import io.kotest.core.annotation.DisplayName
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
+import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.core.PersonaType
 import org.gitanimals.core.instant
 import org.gitanimals.core.toZonedDateTime
 import org.gitanimals.render.domain.event.PersonaDeleted
-import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.supports.DomainEventHolder
 import org.springframework.test.context.ContextConfiguration
@@ -42,7 +42,12 @@ internal class UserTest(
         context("이름에 [대문자, -, 소문자, 숫자]로 이루어진 문장이 들어올 경우") {
             it("새로운 유저를 생성한다.") {
                 shouldNotThrowAny {
-                    User.newUser("$ALPHABET-${ALPHABET.lowercase()}01234567890", mutableMapOf())
+                    User.newUser(
+                        "$ALPHABET-${ALPHABET.lowercase()}01234567890",
+                        mutableMapOf(),
+                        EntryPoint.GITHUB,
+                        "1"
+                    )
                 }
             }
         }
@@ -50,7 +55,7 @@ internal class UserTest(
         context("이름에 [대문에, -, 소문자, 숫자]를 제외한 다른 문자가 들어올 경우") {
             it("IllegalArgumentException 을 던진다.") {
                 shouldThrowWithMessage<IllegalArgumentException>("Not supported word contained in \"d안b\"") {
-                    User.newUser("d안b", mutableMapOf())
+                    User.newUser("d안b", mutableMapOf(), EntryPoint.GITHUB, "1")
                 }
             }
         }
@@ -98,7 +103,7 @@ internal class UserTest(
 
     describe("giveNewPersona 메소드는") {
         context("펫이 30마리가 넘을경우,") {
-            val user = User.newUser("new-user", mutableMapOf())
+            val user = User.newUser("new-user", mutableMapOf(), EntryPoint.GITHUB, "1")
 
             it("visible false의 pet을 생성한다.") {
                 repeat(99) {
@@ -113,7 +118,7 @@ internal class UserTest(
 
     describe("giveBonusPersona 메소드는") {
         context("Bonus pet 목록에 등록된 pet의 이름이 주어질 경우,") {
-            val user = User.newUser("new-user", mutableMapOf())
+            val user = User.newUser("new-user", mutableMapOf(), EntryPoint.GITHUB, "1")
             val persona = PersonaType.PENGUIN
 
             it("새로운 펫을 지급한다.") {
@@ -126,7 +131,7 @@ internal class UserTest(
 
     describe("mergePersona 메소드는") {
         context("increasePersonaId와 deletePersonaId를 받아서,") {
-            val user = User.newUser("devxb", mapOf())
+            val user = User.newUser("devxb", mapOf(), EntryPoint.GITHUB, "1")
             user.updateContribution(30)
             user.giveNewPersona()
 
@@ -143,7 +148,7 @@ internal class UserTest(
 
     describe("deletePersona 메소드는") {
         context("personaId를 받으면,") {
-            val user = User.newUser("devxb", mapOf(2025 to 1000))
+            val user = User.newUser("devxb", mapOf(2025 to 1000), EntryPoint.GITHUB, "1")
             val personaId = user.personas[0].id
 
             it("persona를 삭제하고 PersonaDeleted 이벤트를 발행한다.") {
@@ -154,7 +159,7 @@ internal class UserTest(
         }
 
         context("persona 수가 하나라면") {
-            val user = User.newUser("devxb", mapOf())
+            val user = User.newUser("devxb", mapOf(), EntryPoint.GITHUB, "1")
             val personaId = user.personas[0].id
 
             it("IllegalStateException을 던진다") {

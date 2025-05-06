@@ -3,6 +3,7 @@ package org.gitanimals.render.infra
 import org.gitanimals.core.auth.InternalAuthRequestInterceptor
 import org.gitanimals.core.filter.MDCFilter
 import org.gitanimals.rank.infra.HttpClientErrorHandler
+import org.gitanimals.render.app.GithubOpenApi
 import org.gitanimals.render.app.IdentityApi
 import org.slf4j.MDC
 import org.springframework.beans.factory.annotation.Value
@@ -44,6 +45,21 @@ class RenderHttpClientConfigurer(
     }
 
     @Bean
+    fun renderGithubOpenApiHttpClient(): GithubOpenApi {
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(renderHttpClientErrorHandler())
+            .baseUrl("https://api.github.com")
+            .build()
+
+        val httpServiceProxyFactory = HttpServiceProxyFactory
+            .builderFor(RestClientAdapter.create(restClient))
+            .build()
+
+        return httpServiceProxyFactory.createClient(GithubOpenApi::class.java)
+    }
+
+    @Bean
     fun renderHttpClientErrorHandler(): HttpClientErrorHandler = HttpClientErrorHandler()
 
     private companion object {
@@ -69,6 +85,21 @@ class RenderTestHttpClientConfigurer {
             .build()
 
         return httpServiceProxyFactory.createClient(IdentityApi::class.java)
+    }
+
+    @Bean
+    fun renderGithubOpenApiHttpClient(): GithubOpenApi {
+        val restClient = RestClient
+            .builder()
+            .defaultStatusHandler(renderHttpClientErrorHandler())
+            .baseUrl("https://api.github.com")
+            .build()
+
+        val httpServiceProxyFactory = HttpServiceProxyFactory
+            .builderFor(RestClientAdapter.create(restClient))
+            .build()
+
+        return httpServiceProxyFactory.createClient(GithubOpenApi::class.java)
     }
 
     @Bean

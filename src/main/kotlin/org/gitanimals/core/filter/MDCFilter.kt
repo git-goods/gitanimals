@@ -29,6 +29,7 @@ class MDCFilter(
             MDC.put(TRACE_ID, traceId)
             MDC.put(PATH, request.requestURI)
             internalAuth.findUserId()?.let { MDC.put(USER_ID, it.toString()) }
+            internalAuth.findUserEntryPoint()?.let { MDC.put(USER_ENTRY_POINT, it) }
 
             val elapsedTime = measureTimeMillis {
                 filterChain.doFilter(request, response)
@@ -43,12 +44,14 @@ class MDCFilter(
             MDC.remove(ELAPSED_TIME)
             MDC.remove(PATH)
             MDC.remove(USER_ID)
+            MDC.remove(USER_ENTRY_POINT)
         }
     }
 
     companion object {
         const val USER_ID = "userId"
         const val TRACE_ID = "traceId"
+        const val USER_ENTRY_POINT = "userEntryPoint"
         const val ELAPSED_TIME = "elapsedTime"
         const val PATH = "path"
 

@@ -56,8 +56,44 @@ class UserService(
             ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")
 
     @Transactional
-    fun createNewUser(name: String, contributions: Map<Int, Int>): User =
-        userRepository.save(User.newUser(name, contributions))
+    fun createNewUser(
+        name: String,
+        entryPoint: EntryPoint,
+        authenticationId: String,
+        contributions: Map<Int, Int>
+    ): User {
+        val existsUser =
+            userRepository.findByEntryPointAndAuthenticationId(entryPoint, authenticationId)
+                ?: return userRepository.save(
+                    User.newUser(
+                        name = name,
+                        contributions = contributions,
+                        entryPoint = entryPoint,
+                        authenticationId = authenticationId,
+                    )
+                )
+
+        if (existsUser.getName() == name) {
+            return existsUser
+        }
+
+        existsUser.updateName(name)
+        return existsUser
+    }
+
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 3)
+    @Transactional
+    fun setAuthInfo(
+        name: String,
+        entryPoint: EntryPoint,
+        authenticationId: String,
+    ) {
+        val user = getUserByName(name)
+
+        require(user.isAuthInfoSet().not()) { "Already set authInfo. name: $name" }
+
+        user.setAuthInfo(entryPoint, authenticationId)
+    }
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     @Transactional

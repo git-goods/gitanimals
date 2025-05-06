@@ -6,7 +6,6 @@ import org.gitanimals.core.*
 import org.gitanimals.render.domain.event.PersonaDeleted
 import org.gitanimals.render.domain.event.UserContributionUpdated
 import org.gitanimals.render.domain.extension.RenderFieldTypeExtension.isRenderField
-import org.gitanimals.core.DomainEventPublisher
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.domain.value.Level
@@ -20,14 +19,20 @@ import kotlin.math.min
 
 @AggregateRoot
 @Entity(name = "user")
-@Table(name = "user", indexes = [Index(columnList = "name")])
+@Table(
+    name = "user",
+    indexes = [
+        Index(columnList = "name", unique = true),
+        Index(columnList = "entry_point, authentication_id", unique = true),
+    ],
+)
 class User(
     @Id
     @Column(name = "id")
     val id: Long,
 
     @Column(name = "name", unique = true, nullable = false)
-    val name: String,
+    private var name: String,
 
     @OneToMany(
         mappedBy = "user",
@@ -58,9 +63,29 @@ class User(
     @Version
     @Column(name = "version", nullable = false)
     val version: Long,
+
+    @Embedded
+    private var authInfo: UserAuthInfo? = null,
 ) : AbstractTime() {
+
     init {
         personas.forEach { it.user = this }
+    }
+
+    fun getName(): String = this.name
+
+    fun updateName(name: String) {
+        this.name = name
+    }
+
+    fun isAuthInfoSet(): Boolean = authInfo != null
+
+    fun setAuthInfo(entryPoint: EntryPoint, authenticationId: String) {
+        require(authInfo == null) {
+            "Cannot set user auth info cause user auth is not null."
+        }
+
+        authInfo = UserAuthInfo(entryPoint = entryPoint, authenticationId = authenticationId)
     }
 
     fun addPersona(id: Long, personaType: PersonaType, level: Int): PersonaResponse {
@@ -152,7 +177,7 @@ class User(
 
         DomainEventPublisher.publish(
             UserContributionUpdated(
-                username = this.name,
+                username = this.getName(),
                 updatedContributions = afterContribution - beforeContribution,
                 contributions = afterContribution,
             )
@@ -296,7 +321,12 @@ class User(
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
 
-        fun newUser(name: String, contributions: Map<Int, Int>): User {
+        fun newUser(
+            name: String,
+            contributions: Map<Int, Int>,
+            entryPoint: EntryPoint,
+            authenticationId: String
+        ): User {
             require(!nameConvention.containsMatchIn(name)) {
                 throw IllegalArgumentException("Not supported word contained in \"${name}\"")
             }
@@ -313,6 +343,7 @@ class User(
                 visit = 1,
                 version = 0,
                 lastPersonaGivePoint = (totalContributionCount(contributions) % FOR_NEW_PERSONA_COUNT).toInt(),
+                authInfo = UserAuthInfo(entryPoint, authenticationId),
             )
 
             user.addField(FieldType.WHITE_FIELD)
