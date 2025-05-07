@@ -58,27 +58,14 @@ class UserService(
     @Transactional
     fun createNewUser(
         name: String,
-        entryPoint: EntryPoint,
-        authenticationId: String,
         contributions: Map<Int, Int>
     ): User {
-        val existsUser =
-            userRepository.findByEntryPointAndAuthenticationId(entryPoint, authenticationId)
-                ?: return userRepository.save(
-                    User.newUser(
-                        name = name,
-                        contributions = contributions,
-                        entryPoint = entryPoint,
-                        authenticationId = authenticationId,
-                    )
-                )
-
-        if (existsUser.getName() == name) {
-            return existsUser
-        }
-
-        existsUser.updateName(name)
-        return existsUser
+        return userRepository.save(
+            User.newUser(
+                name = name,
+                contributions = contributions,
+            )
+        )
     }
 
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 3)

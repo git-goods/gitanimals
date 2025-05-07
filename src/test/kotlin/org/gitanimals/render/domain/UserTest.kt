@@ -45,8 +45,6 @@ internal class UserTest(
                     User.newUser(
                         "$ALPHABET-${ALPHABET.lowercase()}01234567890",
                         mutableMapOf(),
-                        EntryPoint.GITHUB,
-                        "1"
                     )
                 }
             }
@@ -55,7 +53,7 @@ internal class UserTest(
         context("이름에 [대문에, -, 소문자, 숫자]를 제외한 다른 문자가 들어올 경우") {
             it("IllegalArgumentException 을 던진다.") {
                 shouldThrowWithMessage<IllegalArgumentException>("Not supported word contained in \"d안b\"") {
-                    User.newUser("d안b", mutableMapOf(), EntryPoint.GITHUB, "1")
+                    User.newUser("d안b", mutableMapOf())
                 }
             }
         }
@@ -103,7 +101,7 @@ internal class UserTest(
 
     describe("giveNewPersona 메소드는") {
         context("펫이 30마리가 넘을경우,") {
-            val user = User.newUser("new-user", mutableMapOf(), EntryPoint.GITHUB, "1")
+            val user = User.newUser("new-user", mutableMapOf())
 
             it("visible false의 pet을 생성한다.") {
                 repeat(99) {
@@ -118,7 +116,7 @@ internal class UserTest(
 
     describe("giveBonusPersona 메소드는") {
         context("Bonus pet 목록에 등록된 pet의 이름이 주어질 경우,") {
-            val user = User.newUser("new-user", mutableMapOf(), EntryPoint.GITHUB, "1")
+            val user = User.newUser("new-user", mutableMapOf())
             val persona = PersonaType.PENGUIN
 
             it("새로운 펫을 지급한다.") {
@@ -131,7 +129,7 @@ internal class UserTest(
 
     describe("mergePersona 메소드는") {
         context("increasePersonaId와 deletePersonaId를 받아서,") {
-            val user = User.newUser("devxb", mapOf(), EntryPoint.GITHUB, "1")
+            val user = User.newUser("devxb", mapOf())
             user.updateContribution(30)
             user.giveNewPersona()
 
@@ -148,7 +146,7 @@ internal class UserTest(
 
     describe("deletePersona 메소드는") {
         context("personaId를 받으면,") {
-            val user = User.newUser("devxb", mapOf(2025 to 1000), EntryPoint.GITHUB, "1")
+            val user = User.newUser("devxb", mapOf(2025 to 1000))
             val personaId = user.personas[0].id
 
             it("persona를 삭제하고 PersonaDeleted 이벤트를 발행한다.") {
@@ -159,7 +157,7 @@ internal class UserTest(
         }
 
         context("persona 수가 하나라면") {
-            val user = User.newUser("devxb", mapOf(), EntryPoint.GITHUB, "1")
+            val user = User.newUser("devxb", mapOf())
             val personaId = user.personas[0].id
 
             it("IllegalStateException을 던진다") {
