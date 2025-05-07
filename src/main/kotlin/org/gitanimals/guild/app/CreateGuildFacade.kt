@@ -3,6 +3,7 @@ package org.gitanimals.guild.app
 import org.gitanimals.core.TraceIdContextOrchestrator
 import org.gitanimals.core.TraceIdContextRollback
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
+import org.gitanimals.core.filter.MDCFilter.Companion.USER_ENTRY_POINT
 import org.gitanimals.core.filter.MDCFilter.Companion.USER_ID
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.app.response.GuildResponse
@@ -44,6 +45,7 @@ class CreateGuildFacade(
                 IDEMPOTENCY_KEY to UUID.randomUUID().toString(),
                 TRACE_ID to MDC.get(TRACE_ID),
                 USER_ID to MDC.get(USER_ID),
+                USER_ENTRY_POINT to MDC.get(USER_ENTRY_POINT),
             ),
             timeoutMillis = 1.minutes.inWholeMilliseconds,
         ).decodeResultOrThrow(GuildResponse::class).also {
