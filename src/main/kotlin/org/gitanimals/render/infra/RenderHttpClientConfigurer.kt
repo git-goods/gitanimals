@@ -3,13 +3,14 @@ package org.gitanimals.render.infra
 import org.gitanimals.core.auth.InternalAuthRequestInterceptor
 import org.gitanimals.core.filter.MDCFilter
 import org.gitanimals.rank.infra.HttpClientErrorHandler
-import org.gitanimals.render.app.GithubOpenApi
+import org.gitanimals.render.app.GithubRestApi
 import org.gitanimals.render.app.IdentityApi
 import org.slf4j.MDC
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
+import org.springframework.http.HttpHeaders
 import org.springframework.web.client.RestClient
 import org.springframework.web.client.support.RestClientAdapter
 import org.springframework.web.service.invoker.HttpServiceProxyFactory
@@ -18,6 +19,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 @Profile("!test")
 class RenderHttpClientConfigurer(
     @Value("\${internal.secret}") private val internalSecret: String,
+    @Value("\${github.token}") private val token: String,
     private val internalAuthRequestInterceptor: InternalAuthRequestInterceptor,
 ) {
 
@@ -45,10 +47,14 @@ class RenderHttpClientConfigurer(
     }
 
     @Bean
-    fun renderGithubOpenApiHttpClient(): GithubOpenApi {
+    fun renderGithubRestApiHttpClient(): GithubRestApi {
         val restClient = RestClient
             .builder()
             .defaultStatusHandler(renderHttpClientErrorHandler())
+            .requestInterceptor { request, body, execution ->
+                request.headers.add(HttpHeaders.AUTHORIZATION, token)
+                execution.execute(request, body)
+            }
             .baseUrl("https://api.github.com")
             .build()
 
@@ -56,7 +62,7 @@ class RenderHttpClientConfigurer(
             .builderFor(RestClientAdapter.create(restClient))
             .build()
 
-        return httpServiceProxyFactory.createClient(GithubOpenApi::class.java)
+        return httpServiceProxyFactory.createClient(GithubRestApi::class.java)
     }
 
     @Bean
@@ -88,7 +94,7 @@ class RenderTestHttpClientConfigurer {
     }
 
     @Bean
-    fun renderGithubOpenApiHttpClient(): GithubOpenApi {
+    fun renderGithubRestApiHttpClient(): GithubRestApi {
         val restClient = RestClient
             .builder()
             .defaultStatusHandler(renderHttpClientErrorHandler())
@@ -99,7 +105,7 @@ class RenderTestHttpClientConfigurer {
             .builderFor(RestClientAdapter.create(restClient))
             .build()
 
-        return httpServiceProxyFactory.createClient(GithubOpenApi::class.java)
+        return httpServiceProxyFactory.createClient(GithubRestApi::class.java)
     }
 
     @Bean

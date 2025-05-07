@@ -20,7 +20,7 @@ class AnimationFacade(
     private val contributionApi: ContributionApi,
     private val sagaManager: SagaManager,
     private val eventPublisher: ApplicationEventPublisher,
-    private val githubOpenApi: GithubOpenApi,
+    private val githubRestApi: GithubRestApi,
 ) {
 
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
@@ -61,23 +61,6 @@ class AnimationFacade(
         }
     }
 
-    private fun setUserAuthInfoIfNotSet(username: String) {
-        runCatching {
-            val user = userService.getUserByName(username)
-
-            if (user.isAuthInfoSet().not()) {
-                val githubUserAuthInfo = githubOpenApi.getGithubUser(user.getName())
-                userService.setAuthInfo(
-                    name = user.getName(),
-                    entryPoint = EntryPoint.GITHUB,
-                    githubUserAuthInfo.id,
-                )
-            }
-        }.onFailure {
-            logger.info("Fail to update userAuthInfo cause: ${it.message}", it)
-        }
-    }
-
     fun createNewUser(username: String): User {
         return runCatching {
             val contributionYears = contributionApi.getAllContributionYears(username)
@@ -88,9 +71,28 @@ class AnimationFacade(
                 name = username,
                 contributions = contributionCountPerYear,
             )
+        }.onSuccess {
+            setUserAuthInfoIfNotSet(username)
         }.getOrElse {
             require(it !is RestClientException) { "Cannot create new user from username \"$username\"" }
             throw it
+        }
+    }
+
+    private fun setUserAuthInfoIfNotSet(username: String) {
+        runCatching {
+            val user = userService.getUserByName(username)
+
+            if (user.isAuthInfoSet().not()) {
+                val githubUserAuthInfo = githubRestApi.getGithubUser(user.getName())
+                userService.setAuthInfo(
+                    name = user.getName(),
+                    entryPoint = EntryPoint.GITHUB,
+                    githubUserAuthInfo.id,
+                )
+            }
+        }.onFailure {
+            logger.info("Fail to update userAuthInfo cause: ${it.message}", it)
         }
     }
 }
