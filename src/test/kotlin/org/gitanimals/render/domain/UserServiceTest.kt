@@ -57,8 +57,6 @@ internal class UserServiceTest(
             it("기존 user의 name을 새로운 유저의 name으로 변경한다.") {
                 val response = userService.createNewUser(
                     name = "world",
-                    entryPoint = EntryPoint.GITHUB,
-                    authenticationId = id.toString(),
                     contributions = emptyMap(),
                 )
 
@@ -73,8 +71,6 @@ internal class UserServiceTest(
         val user = User.newUser(
             name = "devxb",
             contributions = mapOf(2025 to 1000),
-            entryPoint = EntryPoint.GITHUB,
-            authenticationId = "1",
         )
     }
 }

@@ -80,15 +80,12 @@ class AnimationFacade(
 
     fun createNewUser(username: String): User {
         return runCatching {
-            val githubUserResponse = githubOpenApi.getGithubUser(username)
             val contributionYears = contributionApi.getAllContributionYears(username)
             val contributionCountPerYear =
                 contributionApi.getContributionCount(username, contributionYears)
 
             userService.createNewUser(
                 name = username,
-                entryPoint = EntryPoint.GITHUB,
-                authenticationId = githubUserResponse.id,
                 contributions = contributionCountPerYear,
             )
         }.getOrElse {

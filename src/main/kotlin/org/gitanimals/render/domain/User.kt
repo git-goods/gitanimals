@@ -324,8 +324,6 @@ class User(
         fun newUser(
             name: String,
             contributions: Map<Int, Int>,
-            entryPoint: EntryPoint,
-            authenticationId: String
         ): User {
             require(!nameConvention.containsMatchIn(name)) {
                 throw IllegalArgumentException("Not supported word contained in \"${name}\"")
@@ -343,7 +341,6 @@ class User(
                 visit = 1,
                 version = 0,
                 lastPersonaGivePoint = (totalContributionCount(contributions) % FOR_NEW_PERSONA_COUNT).toInt(),
-                authInfo = UserAuthInfo(entryPoint, authenticationId),
             )
 
             user.addField(FieldType.WHITE_FIELD)
