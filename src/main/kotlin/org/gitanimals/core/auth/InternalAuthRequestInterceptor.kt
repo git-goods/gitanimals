@@ -24,10 +24,6 @@ class InternalAuthRequestInterceptor(
             MDC.get(USER_ID).toLong()
         }.getOrNull()
 
-        val userEntryPoint = runCatching {
-            MDC.get(USER_ENTRY_POINT)
-        }.getOrNull()
-
         if (userId != null) {
             val encrypt = internalAuth.encrypt(userId = userId)
 
@@ -39,6 +35,13 @@ class InternalAuthRequestInterceptor(
                 InternalAuth.INTERNAL_AUTH_IV_KEY,
                 Base64.getEncoder().encodeToString(encrypt.iv),
             )
+        }
+
+        val userEntryPoint = runCatching {
+            MDC.get(USER_ENTRY_POINT)
+        }.getOrNull()
+
+        if (userEntryPoint != null) {
             request.headers.add(
                 InternalAuth.INTERNAL_ENTRY_POINT_KEY,
                 userEntryPoint,
