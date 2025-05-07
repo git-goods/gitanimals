@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.service.annotation.GetExchange
 
-fun interface GithubOpenApi {
+fun interface GithubRestApi {
 
     @GetExchange("/users/{username}")
     fun getGithubUser(@PathVariable("username") username: String): GithubUserResponse
