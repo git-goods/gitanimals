@@ -5,5 +5,6 @@ enum class Mode {
     LINE,
     LINE_NO_CONTRIBUTION,
     NAME_WITH_LEVEL,
+    NONE,
     ;
 }

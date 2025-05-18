@@ -63,6 +63,7 @@
 
 
   <g id="mole-*{id}" transform="translate(100, 100)">
+    <g id="id"> *{id} </g>
     <g id="contributions-wrap-*{id}">
       <g id="contributions" transform="translate(-24, -62)"
         style="display:*{contribution-display};">
@@ -108,7 +109,7 @@
       </g>
     </g>
 
-    <g id="level-wrap-*{id}">
+    <g id="level-wrap-*{id}" style="display:*{level-display};">
       <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
         <g id="level" transform="translate(*{levelx}, -13)">
           <g transform="translate(10, -0.05)">
