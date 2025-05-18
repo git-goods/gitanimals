@@ -10,6 +10,7 @@ ARG INTERNAL_SECRET
 ARG SLACK_TOKEN
 ARG RELAY_APPROVE_TOKEN
 ARG INTERNAL_AUTH_SECRET
+ARG INTERNAL_IMAGE_SECRET
 
 ARG JAR_FILE=./*.jar
 COPY ${JAR_FILE} gitanimals-render.jar
@@ -23,7 +24,8 @@ ENV db_url=${DB_URL} \
   internal_secret=${INTERNAL_SECRET} \
   slack_token=${SLACK_TOKEN} \
   relay_approve_token=${RELAY_APPROVE_TOKEN} \
-  internal_auth_secret=${INTERNAL_AUTH_SECRET}
+  internal_auth_secret=${INTERNAL_AUTH_SECRET} \
+  internal_image_secret=${INTERNAL_IMAGE_SECRET}
 
 ENTRYPOINT java -jar gitanimals-render.jar \
   --spring.datasource.url=${db_url} \
@@ -35,4 +37,5 @@ ENTRYPOINT java -jar gitanimals-render.jar \
   --internal.secret=${internal_secret} \
   --slack.token=${slack_token} \
   --relay.approve.token=${relay_approve_token} \
-  --internal.auth.secret=${internal_auth_secret}
+  --internal.auth.secret=${internal_auth_secret} \
+  --internal.image.secret=${internal_image_secret}

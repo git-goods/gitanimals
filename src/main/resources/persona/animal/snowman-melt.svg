@@ -53,6 +53,7 @@
   }
 </style>
 <g id="snowman-*{id}" transform="translate(100, 100)">
+<g id="id"> *{id} </g>
 <g id="contributions-wrap-*{id}">
   <g id="contributions" transform="translate(-17, -30)" style="display:*{contribution-display};">
     <g id="contribution-tag" transform="translate(-3, -1)">
@@ -97,7 +98,7 @@
   </g>
 </g>
 
-<g id="level-wrap-*{id}">
+<g id="level-wrap-*{id}" style="display:*{level-display};">
   <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
     xmlns="http://www.w3.org/2000/svg">
     <g id="level" transform="translate(*{levelx}, -2.5)">

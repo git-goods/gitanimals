@@ -105,6 +105,7 @@
   </style>
 
   <g id="maltese-*{id}" transform="translate(100, 100)">
+    <g id="id"> *{id} </g>
     <g id="contributions-wrap-*{id}">
       <g id="contributions" transform="translate(-28.5, -41)"
         style="display:*{contribution-display};">
@@ -152,7 +153,7 @@
       </g>
     </g>
 
-    <g id="level-wrap-*{id}">
+    <g id="level-wrap-*{id}" style="display:*{level-display};">
       <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
         <g id="level" transform="translate(*{levelx}, -6.5)">
           <g transform="translate(10, -0.05)">

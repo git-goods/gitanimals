@@ -75,6 +75,7 @@ jobs:
             "SLACK_TOKEN=${{ secrets.SLACK_TOKEN }}"
             "RELAY_APPROVE_TOKEN=${{ secrets.RELAY_APPROVE_TOKEN }}"
             "INTERNAL_AUTH_SECRET=${{ secrets.INTERNAL_AUTH_SECRET }}"
+            "INTERNAL_IMAGE_SECRET=${{ secrets.INTERNAL_IMAGE_SECRET }}"
 
       - name: build and push filebeat
         uses: docker/build-push-action@v4

@@ -2156,13 +2156,13 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
         mode: Mode
     ): String =
         loadSvg(name, animationId, level, mode)
-            .drawContribution(mode, contributionCount)
+            .drawDisplayOptions(mode, contributionCount)
 
     protected abstract fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String
 
     protected abstract fun act(id: Long, flippedWidth: Double = 0.0): String
 
-    protected fun String.drawContribution(
+    protected fun String.drawDisplayOptions(
         mode: Mode,
         contributionCount: Long,
     ): String {
@@ -2179,6 +2179,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                         contributionCount.toSvg(0.0, 2.0)
                     ).replace("*{contribution-display}", "default")
                     .replace("*{level-tag-display}", "default")
+                    .replace("*{level-display}", "default")
             }
 
             Mode.LINE_NO_CONTRIBUTION -> {
@@ -2186,6 +2187,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     .replace("*{username-display}", "none")
                     .replace("*{contribution-display}", "none")
                     .replace("*{level-tag-display}", "default")
+                    .replace("*{level-display}", "default")
             }
 
             Mode.NAME_WITH_LEVEL -> {
@@ -2193,6 +2195,15 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     .replace("*{username-display}", "default")
                     .replace("*{level-tag-display}", "none")
                     .replace("*{contribution-display}", "none")
+                    .replace("*{level-display}", "default")
+            }
+
+            Mode.NONE -> {
+                this.replace("*{username-tag-display}", "none")
+                    .replace("*{username-display}", "none")
+                    .replace("*{contribution-display}", "none")
+                    .replace("*{level-tag-display}", "none")
+                    .replace("*{level-display}", "none")
             }
 
             else -> {
@@ -2200,6 +2211,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                     .replace("*{username-display}", "none")
                     .replace("*{contribution-display}", "none")
                     .replace("*{level-tag-display}", "none")
+                    .replace("*{level-display}", "default")
             }
         }
     }

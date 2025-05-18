@@ -61,6 +61,7 @@
 
 </style>
 <g id="cat-*{id}" transform="translate(100, 100)">
+<g id="id"> *{id} </g>
 <g id="contributions-wrap-*{id}">
   <g id="contributions" transform="translate(-20, -61)"
     style="display:*{contribution-display};">
@@ -106,7 +107,7 @@
   </g>
 </g>
 
-<g id="level-wrap-*{id}">
+<g id="level-wrap-*{id}" style="display:*{level-display};">
   <rect width="27.5" height="1" fill="none"/>
   <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
     <g id="level" transform="translate(*{levelx}, -13)">
