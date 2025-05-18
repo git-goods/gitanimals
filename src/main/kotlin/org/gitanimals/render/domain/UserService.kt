@@ -168,6 +168,9 @@ class UserService(
         getUserByName(name).changeField(fieldType)
     }
 
+    @Transactional
+    fun deleteByName(name: String) = userRepository.deleteByName(name)
+
     fun getByNameWithLazyLoading(name: String, vararg lazyLoading: (User) -> Unit): User {
         val user = getUserByName(name)
 
