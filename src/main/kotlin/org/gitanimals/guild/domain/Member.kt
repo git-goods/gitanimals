@@ -5,7 +5,12 @@ import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.PersonaType
 
 @Entity
-@Table(name = "member")
+@Table(
+    name = "member",
+    indexes = [
+        Index(name = "member_idx_name", columnList = "user_name"),
+    ]
+)
 class Member(
     @Id
     @Column(name = "id")
@@ -15,7 +20,7 @@ class Member(
     val userId: Long,
 
     @Column(name = "user_name", nullable = false)
-    val name: String,
+    var name: String,
 
     @Column(name = "persona_id", nullable = false)
     var personaId: Long,

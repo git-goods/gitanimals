@@ -12,7 +12,7 @@ data class Leader(
     val userId: Long,
 
     @Column(name = "name", nullable = false, columnDefinition = "TEXT")
-    val name: String,
+    var name: String,
 
     @Column(name = "persona_id", nullable = false)
     var personaId: Long,

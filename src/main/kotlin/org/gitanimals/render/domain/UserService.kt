@@ -190,6 +190,26 @@ class UserService(
         return userRepository.findAllByIdsWithContributions(usernames)
     }
 
+    @Transactional(readOnly = true)
+    fun findUserByEntryPointAndAuthenticationId(
+        entryPoint: EntryPoint,
+        authenticationId: String
+    ): User? {
+        return userRepository.findByEntryPointAndAuthenticationId(entryPoint, authenticationId)
+    }
+
+    @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
+    fun updateUsernameById(id: Long, username: String) {
+        val user = getUserById(id)
+        user.updateName(username)
+    }
+
+    private fun getUserById(id: Long): User {
+        return userRepository.findByIdOrNull(id)
+            ?: throw IllegalArgumentException("Cannot find user by id : \"$id\"")
+    }
+
     companion object {
         val loadField: (User) -> Unit = { Hibernate.initialize(it.fields) }
     }

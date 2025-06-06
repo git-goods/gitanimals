@@ -2,6 +2,7 @@ package org.gitanimals.guild.domain
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Slice
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
@@ -105,4 +106,14 @@ interface GuildRepository : JpaRepository<Guild, Long> {
         """
     )
     fun searchByContributionCountDesc(pageable: Pageable): Page<Guild>
+
+    @Query(
+        """
+            select g from Guild as g
+            left join fetch g.members as m
+            left join g.waitMembers as wm
+            where g.leader.name = :name or m.name = :name or wm.name = :name
+        """
+    )
+    fun findAllByNameContains(@Param("name") name: String, pageable: Pageable): Slice<Guild>
 }

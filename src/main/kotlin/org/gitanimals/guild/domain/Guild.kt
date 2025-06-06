@@ -1,11 +1,7 @@
 package org.gitanimals.guild.domain
 
 import jakarta.persistence.*
-import org.gitanimals.core.AggregateRoot
-import org.gitanimals.core.FieldType
-import org.gitanimals.core.IdGenerator
-import org.gitanimals.core.PersonaType
-import org.gitanimals.core.DomainEventPublisher
+import org.gitanimals.core.*
 import org.gitanimals.guild.domain.event.GuildContributionUpdated
 import org.gitanimals.guild.domain.extension.GuildFieldTypeExtension.isGuildField
 import org.gitanimals.guild.domain.request.ChangeGuildRequest
@@ -16,7 +12,8 @@ import org.hibernate.annotations.BatchSize
 @Table(
     name = "guild",
     indexes = [
-        Index(name = "guild_idx_title", unique = true, columnList = "title")
+        Index(name = "guild_idx_title", unique = true, columnList = "title"),
+        Index(name = "guild_idx_leader_name", columnList = "name"),
     ]
 )
 class Guild(
@@ -161,8 +158,7 @@ class Guild(
         val beforeContributions = this.getTotalContributions()
         if (leader.name == username) {
             leader.contributions = contributions
-        }
-        else {
+        } else {
             members.firstOrNull { it.name == username }?.setContributions(contributions)
         }
         val afterContributions = this.getTotalContributions()
@@ -236,6 +232,15 @@ class Guild(
         }
 
         members.removeIf { it.userId == userId }
+    }
+
+    fun updateUserName(previousName: String, changeName: String) {
+        if (leader.name == previousName) {
+            leader.name = changeName
+        }
+
+        members.filter { it.name == previousName }.forEach { it.name = changeName }
+        waitMembers.filter { it.name == previousName }.forEach { it.name = changeName }
     }
 
     companion object {
