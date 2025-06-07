@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
+  <style>
+    @keyframes rabbit-head-0-move {
+    0% {
+    transform: translate(0, -1px);
+    }
+    50% {
+    transform: translate(0, -2px);
+    }
+    100% {
+    transform: translate(0, -1px);
+    }
+    }
+
+    @keyframes rabbit-obj-0-move {
+    0% {
+    transform: translate(0px, 0px);
+    }
+    33% {
+    transform: translate(0px, -1.5px);
+    }
+    66% {
+    transform: translate(0px, 1.5px),
+    }
+    100% {
+    transform: translate(0px, 0px);
+    }
+    }
+
+    #rabbit-head-0 {
+    animation-name: rabbit-head-0-move;
+    animation-duration:1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+
+    #rabbit-obj-0 {
+    animation-name: rabbit-obj-0-move;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    }
+  </style>
+
+  <g id="rabbit-0" transform="translate(15, 20)">
+    <g id="id"> 0 </g>
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="rabbit-0-watter-top" transform="translate(-5, 3)">
+        <rect x="-1.52588e-05" y="1.60242" width="15.0094" height="2.25009" fill="#5FC4FF" fill-opacity="0.7"/>
+        <rect x="1.25077" y="0.852417" width="12.5078" height="0.750029" fill="#5FC4FF" fill-opacity="0.7"/>
+        <rect x="2.50153" y="0.102295" width="10.0063" height="0.750029" fill="#5FC4FF" fill-opacity="0.7"/>
+        <rect x="13.1255" y="2.91492" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="0.937536" y="1.97742" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="3.75015" y="1.03992" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="4.68768" y="0.102295" width="2.81261" height="0.937537" fill="#0059FF" fill-opacity="0.1"/>
+      </g>
+      <g id="rabbit-obj-0">
+        <g id="rabbit-body-0" transform="translate(-4, 5)">
+          <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+          <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+          <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+          <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+          <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        </g>
+        <g id="rabbit-head-0" transform="translate(0, -10)">
+          <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+          <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+          <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+          <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+          <rect width="2" height="3" fill="#FFF2F4"/>
+          <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="2" y="4" width="1" height="1" fill="black"/>
+          <rect x="5" y="4" width="1" height="1" fill="black"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+          <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+          <rect x="3" y="6" width="2" height="1" fill="black"/>
+          <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+          <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        </g>
+      </g>
+      <g id="rabbit-0-watter-bottom" transform="translate(-5, 6)">
+        <rect width="15.0094" height="3.37513" transform="matrix(1 0 0 -1 1.52588e-05 4.22754)" fill="#5FC4FF" fill-opacity="0.7"/>
+        <rect width="12.5078" height="1.12504" transform="matrix(1 0 0 -1 1.25077 5.35266)" fill="#5FC4FF" fill-opacity="0.7"/>
+        <rect width="10.0063" height="1.12504" transform="matrix(1 0 0 -1 2.50151 6.47766)" fill="#5FC4FF" fill-opacity="0.7"/>
+        <rect x="9.19688" y="4.71179" width="2.81261" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="3.75015" y="5.54016" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect y="2.72754" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="4.50919" y="4.71179" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="12.188" y="2.72754" width="1.87507" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+        <rect x="8.25934" y="5.59021" width="2.81261" height="0.878425" fill="#0059FF" fill-opacity="0.1"/>
+      </g>
+      <g id="rabbit-0-tube" transform="translate(-5, 0)">
+        <rect x="1.93427" y="4.7196" width="1.06729" height="7.47105" transform="rotate(-38.8527 1.93427 4.7196)" fill="#F8F8F8"/>
+        <rect x="1.77263" y="6.22034" width="3.20188" height="1.06729" transform="rotate(-38.8527 1.77263 6.22034)" fill="#F8F8F8"/>
+        <rect x="1.611" y="7.72107" width="3.20188" height="3.20188" transform="rotate(-38.8527 1.611 7.72107)" fill="#F8F8F8"/>
+        <rect x="1.77263" y="6.22034" width="2.13459" height="4.26917" transform="rotate(-38.8527 1.77263 6.22034)" fill="#F8F8F8"/>
+        <rect x="3.78126" y="8.71387" width="3.20188" height="2.13459" transform="rotate(-38.8527 3.78126 8.71387)" fill="#F8F8F8"/>
+        <rect x="5.2819" y="8.87549" width="3.20188" height="2.13459" transform="rotate(-38.8527 5.2819 8.87549)" fill="#F8F8F8"/>
+        <rect x="6.78261" y="9.03711" width="4.26917" height="2.13459" transform="rotate(-38.8527 6.78261 9.03711)" fill="#F8F8F8"/>
+        <rect x="9.11451" y="8.52917" width="3.20188" height="2.13459" transform="rotate(-38.8527 9.11451 8.52917)" fill="#F8F8F8"/>
+        <rect x="7.45216" y="9.86829" width="6.40376" height="1.06729" transform="rotate(-38.8527 7.45216 9.86829)" fill="#F8F8F8"/>
+        <rect x="1.93427" y="4.7196" width="1.06729" height="1.06729" transform="rotate(-38.8527 1.93427 4.7196)" fill="#FF99E7"/>
+        <rect x="2.95008" y="9.38342" width="4.26917" height="1.06729" transform="rotate(-38.8527 2.95008 9.38342)" fill="#FF99E7"/>
+        <rect x="1.611" y="7.72107" width="3.20188" height="1.06729" transform="rotate(-38.8527 1.611 7.72107)" fill="#FF99E7"/>
+        <rect x="5.95144" y="9.70654" width="5.33647" height="1.06729" transform="rotate(-38.8527 5.95144 9.70654)" fill="#FF99E7"/>
+        <rect x="9.78405" y="9.36035" width="3.20188" height="1.06729" transform="rotate(-38.8527 9.78405 9.36035)" fill="#FF99E7"/>
+        <rect x="3.43499" y="4.88135" width="1.06729" height="1.06729" transform="rotate(-38.8527 3.43499 4.88135)" fill="black" fill-opacity="0.1"/>
+        <rect x="3.27335" y="6.38196" width="1.06729" height="1.06729" transform="rotate(-38.8527 3.27335 6.38196)" fill="black" fill-opacity="0.1"/>
+        <rect x="3.9429" y="7.21313" width="1.06729" height="1.06729" transform="rotate(-38.8527 3.9429 7.21313)" fill="black" fill-opacity="0.1"/>
+        <rect x="5.44353" y="7.37476" width="1.06729" height="1.06729" transform="rotate(-38.8527 5.44353 7.37476)" fill="black" fill-opacity="0.1"/>
+        <rect x="6.94425" y="7.53638" width="1.06729" height="1.06729" transform="rotate(-38.8527 6.94425 7.53638)" fill="black" fill-opacity="0.1"/>
+        <rect x="8.44497" y="7.698" width="2.13459" height="1.06729" transform="rotate(-38.8527 8.44497 7.698)" fill="black" fill-opacity="0.1"/>
+        <rect x="10.7769" y="7.19019" width="2.13459" height="1.06729" transform="rotate(-38.8527 10.7769 7.19019)" fill="black" fill-opacity="0.1"/>
+      </g>
+    </svg>
+  </g>
+</svg>
+</svg>

@@ -1566,6 +1566,27 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
+    RABBIT_TUBE(0.01) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return rabbitTubeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-9 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (6 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String =
+            StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
+                .toString()
+    },
+
     DESSERT_FOX(0.05) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return dessertFoxSvg.replace("*{act}", act(animationId))
