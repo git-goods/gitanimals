@@ -11,7 +11,7 @@ data class Leader(
     @Column(name = "leader_id", nullable = false)
     val userId: Long,
 
-    @Column(name = "name", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "name", nullable = false, columnDefinition = "VARCHAR(255)")
     var name: String,
 
     @Column(name = "persona_id", nullable = false)
