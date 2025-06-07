@@ -1,0 +1,278 @@
+<style>
+  *{act}
+
+  @keyframes little-chick-*{id}-floating {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    33% {
+      transform: translate(1px, -1.5px);
+    }
+    66% {
+      transform: translate(-1px, 1.5px),
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  @keyframes little-chick-move-head {
+  0% {
+  -webkit-transform:translate(6px, -2px) rotate(0deg);
+  -ms-transform:translate(6px, -2px) rotate(0deg);
+  -o-transform:translate(6px, -2px) rotate(0deg);
+  -moz-transform:translate(6px, -2px) rotate(0deg);
+  transform:translate(6px, -2px) rotate(0deg);
+  }
+  50% {
+  -webkit-transform:translate(8px, -2.2px) rotate(21deg);
+  -ms-transform:translate(8px, -2.2px) rotate(21deg);
+  -o-transform:translate(8px, -2.2px) rotate(21deg);
+  -moz-transform:translate(8px, -2.2px) rotate(21deg);
+  transform:translate(8px, -2.2px) rotate(21deg);
+  }
+  100% {
+  -webkit-transform:translate(6px, -2px) rotate(0deg);
+  -ms-transform:translate(6px, -2px) rotate(0deg);
+  -o-transform:translate(6px, -2px) rotate(0deg);
+  -moz-transform:translate(6px, -2px) rotate(0deg);
+  transform:translate(6px, -2px) rotate(0deg);
+  }
+  }
+
+  @keyframes little-chick-move-leg {
+  0% {
+  -webkit-transform:translate(2px, 6px) rotate(0deg);
+  -ms-transform:translate(2px, 6px) rotate(0deg);
+  -o-transform:translate(2px, 6px) rotate(0deg);
+  -moz-transform:translate(2px, 6px) rotate(0deg);
+  transform:translate(2px, 6px) rotate(0deg);
+  }
+  50% {
+  -webkit-transform:translate(2px, 6px) rotate(3deg);
+  -ms-transform:translate(2px, 6px) rotate(3deg);
+  -o-transform:translate(2px, 6px) rotate(3deg);
+  -moz-transform:translate(2px, 6px) rotate(3deg);
+  transform:translate(2px, 6px) rotate(3deg);
+  }
+  100% {
+  -webkit-transform:translate(2px, 6px) rotate(0deg);
+  -ms-transform:translate(2px, 6px) rotate(0deg);
+  -o-transform:translate(2px, 6px) rotate(0deg);
+  -moz-transform:translate(2px, 6px) rotate(0deg);
+  transform:translate(2px, 6px) rotate(0deg);
+  }
+  }
+
+  #little-chick-*{id}-wrap {
+  animation-name:little-chick-*{id}-floating;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #little-chick-head {
+  animation-name:little-chick-move-head;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #little-chick-leg {
+  animation-name:little-chick-move-leg;
+  animation-duration:0.5s;
+  animation-iteration-count:*{leg-iteration-count};
+  animation-timing-function: ease-in;
+  }
+</style>
+
+<g id="little-chick-*{id}" transform="translate(-100, 100)">
+<g id="id">*{id}</g>
+<g id="contributions-wrap-*{id}">
+  <g id="contributions" transform="translate(-20, -35)" style="display:*{contribution-display};">
+    <g id="contribution-tag" transform="translate(-3, -1)">
+      <rect x="3" width="77" height="19" fill="white"/>
+      <rect x="1" y="1.26669" width="81" height="16.4667" fill="white"/>
+      <rect y="2.53333" width="83" height="13.9333" fill="white"/>
+    </g>
+    <path
+      d="M1 2.75H4V3.5H4.75V4.25H3.25V3.5H1.75V7.25H3.25V6.5H4.75V7.25H4V8H1V7.25H0.25V3.5H1V2.75ZM7 2.75H10V3.5H10.75V7.25H10V8H7V7.25H6.25V3.5H7V2.75ZM9.25 7.25V3.5H7.75V7.25H9.25ZM16 3.5H16.75V8H15.25V3.5H13.75V8H12.25V2.75H16V3.5ZM19 1.25H20.5V2.75H22.75V3.5H20.5V7.25H22.75V8H19.75V7.25H19V3.5H18.25V2.75H19V1.25ZM24.25 2.75H25.75V4.25H26.5V5H25.75V8H24.25V2.75ZM28.75 2.75V4.25H26.5V3.5H27.25V2.75H28.75ZM33.25 2H31.75V0.5H33.25V2ZM33.25 7.25H34.75V8H30.25V7.25H31.75V3.5H30.25V2.75H33.25V7.25ZM40 3.5H40.75V7.25H40V8H36.25V1.25H37.75V2.75H40V3.5ZM39.25 7.25V3.5H37.75V7.25H39.25ZM45.25 2.75H46.75V8H43V7.25H42.25V2.75H43.75V7.25H45.25V2.75ZM49 1.25H50.5V2.75H52.75V3.5H50.5V7.25H52.75V8H49.75V7.25H49V3.5H48.25V2.75H49V1.25ZM57.25 2H55.75V0.5H57.25V2ZM57.25 7.25H58.75V8H54.25V7.25H55.75V3.5H54.25V2.75H57.25V7.25ZM61 2.75H64V3.5H64.75V7.25H64V8H61V7.25H60.25V3.5H61V2.75ZM63.25 7.25V3.5H61.75V7.25H63.25ZM70 3.5H70.75V8H69.25V3.5H67.75V8H66.25V2.75H70V3.5ZM73 5H72.25V3.5H73V2.75H76.75V3.5H73.75V5H76V5.75H76.75V7.25H76V8H72.25V7.25H75.25V5.75H73V5Z"
+      fill="black"/>
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
+      xmlns="http://www.w3.org/2000/svg">
+      <g id="contribution" transform="translate(*{contributionx}, 3.5)">
+        *{contribution}
+      </g>
+    </svg>
+  </g>
+</g>
+
+<g id="username-tag-wrap-*{id}">
+  <g id="username-tag" transform="translate(0, -22.5)" style="display:*{username-tag-display};">
+    <rect x="3" width="77" height="9" fill="white"/>
+    <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
+    <rect y="1.20001" width="83" height="6.6" fill="white"/>
+  </g>
+</g>
+
+<g id="username-wrap-*{id}">
+  <g id="username" transform="translate(*{usernamex}, -22)" style="display:*{username-display};">
+    <svg width="600" height="300" viewBox="0 0 2400 1200" fill="none" overflow="visible"
+      xmlns="http://www.w3.org/2000/svg">
+      *{username}
+    </svg>
+  </g>
+</g>
+
+<g id="level-tag-wrap-*{id}">
+  <g id="level-tag" transform="translate(-23, -14)" style="display:*{level-tag-display};">
+    <rect x="3" width="77" height="9" fill="white"/>
+    <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
+    <rect y="1.20001" width="83" height="6.6" fill="white"/>
+  </g>
+</g>
+
+<g id="level-wrap-*{id}" style="display:*{level-display};">
+  <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
+    xmlns="http://www.w3.org/2000/svg">
+    <g id="level" transform="translate(*{levelx}, -4)">
+      <g transform="translate(10, -0.05)">
+        <path
+          d="M0.21875 0.03125H0.65625V1.78125H1.53125V2H0.21875V0.03125ZM2.1875 1.5625H1.96875V0.46875H2.40625V1.5625H2.84375V0.46875H3.28125V1.5625H3.0625V1.78125H2.84375V2H2.40625V1.78125H2.1875V1.5625Z"
+          fill="black"/>
+      </g>
+      *{level}
+    </g>
+  </svg>
+</g>
+
+<svg width="600" height="300" viewBox="0 0 300 150" fill="none" overflow="visible"
+  xmlns="http://www.w3.org/2000/svg">
+  <g id="little-chick-*{id}-water-top" transform="translate(1.1, -2.75)">
+    <rect x="1.82584" y="1.15259" width="16.0094" height="2.4"
+      transform="rotate(43.9119 1.82584 1.15259)" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="3.3417" y="1.50171" width="13.3412" height="0.8"
+      transform="rotate(43.9119 3.3417 1.50171)" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="4.85769" y="1.85059" width="10.6729" height="0.8"
+      transform="rotate(43.9119 4.85769 1.85059)" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="10.9406" y="11.871" width="2" height="0.936949"
+      transform="rotate(43.9119 10.9406 11.871)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="2.26882" y="2.1344" width="2" height="0.936949"
+      transform="rotate(43.9119 2.26882 2.1344)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="5.12359" y="3.49463" width="2" height="0.936949"
+      transform="rotate(43.9119 5.12359 3.49463)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="6.53755" y="3.46777" width="3" height="1" transform="rotate(43.9119 6.53755 3.46777)"
+      fill="#0059FF" fill-opacity="0.1"/>
+  </g>
+  <g id="little-chick-*{id}-wrap">
+    <g id="little-chick-leg" transform="translate(2, 6)">
+      <rect width="2" height="2" fill="#FF6F0F"/>
+      <rect x="1" y="1" width="2" height="1" fill="#FF6F0F"/>
+    </g>
+
+    <g id="little-chick-body">
+      <rect width="6" height="1" transform="matrix(-1 0 0 1 7 4)" fill="#FFD600"/>
+      <rect x="3" y="5" width="5" height="2" fill="white"/>
+      <rect x="3" y="5" width="5" height="2" fill="#FFD600"/>
+      <rect width="9" height="3" transform="matrix(-1 0 0 1 12 4)" fill="#FFD600"/>
+      <rect width="6" height="1" transform="matrix(-1 0 0 1 11 8)" fill="#FFD600"/>
+      <rect width="7" height="1" transform="matrix(-1 0 0 1 11 7)" fill="#FFD600"/>
+      <rect width="4" height="1" transform="matrix(-1 0 0 1 10 9)" fill="#FFD600"/>
+      <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#FFD600"/>
+      <rect width="1" height="1" transform="matrix(-1 0 0 1 3 5)" fill="#FFD600"/>
+      <rect width="3" height="1" transform="matrix(-1 0 0 1 5 0)" fill="#FFD600"/>
+      <rect width="7" height="2" transform="matrix(-1 0 0 1 7 2)" fill="#FFD600"/>
+      <rect x="1" y="2" width="5" height="2" fill="white"/>
+      <rect x="1" y="2" width="5" height="2" fill="#FFD600"/>
+      <rect x="2" y="1" width="3" height="2" fill="white"/>
+      <rect x="2" y="1" width="3" height="2" fill="#FFD600"/>
+      <rect x="2" y="3" width="5" height="2" fill="white"/>
+      <rect x="2" y="3" width="5" height="2" fill="#FFD600"/>
+      <rect x="4" y="2" width="7" height="5" fill="white"/>
+      <rect x="4" y="2" width="7" height="5" fill="#FFD600"/>
+      <rect x="5" y="7" width="5" height="1" fill="white"/>
+      <rect x="5" y="7" width="5" height="1" fill="#FFD600"/>
+      <rect x="6" y="8" width="4" height="1" fill="white"/>
+      <rect x="6" y="8" width="4" height="1" fill="#FFD600"/>
+    </g>
+
+    <g id="little-chick-head" transform="translate(6,-2)">
+      <rect x="1" y="1" width="4" height="6" fill="#FFD600"/>
+      <rect x="2" y="3" width="1" height="1" fill="black"/>
+      <rect x="4" y="2" width="1" height="1" fill="black"/>
+      <rect width="1" height="4" transform="matrix(-1 0 0 1 1 1)" fill="#FFD600"/>
+      <rect width="1" height="1" transform="matrix(-1 0 0 1 5 1)" fill="#FFD600"/>
+      <rect width="1" height="4" transform="matrix(-1 0 0 1 6 2)" fill="#FFD600"/>
+      <rect width="3" height="1" transform="matrix(-1 0 0 1 4 0)" fill="#FFD600"/>
+      <rect x="4" y="4" width="2" height="2" fill="#FF6F0F"/>
+      <rect x="5" y="5" width="2" height="1" fill="#FF6F0F"/>
+    </g>
+  </g>
+  <g id="little-chick-*{id}-water-bottom" transform="translate(-3, -1)">
+    <rect width="16.0094" height="3.6"
+      transform="matrix(0.720407 0.693551 0.693551 -0.720407 1.66452 3.47498)" fill="#5FC4FF"
+      fill-opacity="0.7"/>
+    <rect width="13.3412" height="1.2"
+      transform="matrix(0.720407 0.693551 0.693551 -0.720407 1.79325 5.26489)" fill="#5FC4FF"
+      fill-opacity="0.7"/>
+    <rect width="10.6729" height="1.2"
+      transform="matrix(0.720407 0.693551 0.693551 -0.720407 1.92217 7.05444)" fill="#5FC4FF"
+      fill-opacity="0.7"/>
+    <rect x="8.37325" y="10.6506" width="3" height="0.936949"
+      transform="rotate(43.9119 8.37325 10.6506)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="3.57518" y="7.25781" width="2" height="0.936949"
+      transform="rotate(43.9119 3.57518 7.25781)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="2.7742" y="2.32239" width="2" height="0.936949"
+      transform="rotate(43.9119 2.7742 2.32239)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="4.77122" y="7.18286" width="2" height="0.936949"
+      transform="rotate(43.9119 4.77122 7.18286)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="12.1395" y="11.3386" width="2" height="0.936949"
+      transform="rotate(43.9119 12.1395 11.3386)" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="7.00306" y="10.632" width="3" height="0.936949"
+      transform="rotate(43.9119 7.00306 10.632)" fill="#0059FF" fill-opacity="0.1"/>
+  </g>
+  <g id="little-chick-*{id}-tube" transform="translate(1.1, -1.5)">
+    <rect x="2.33621" y="1.52808" width="1.06729" height="7.47105"
+      transform="rotate(-7.25364 2.33621 1.52808)" fill="#F8F8F8"/>
+    <rect x="1.41222" y="2.72156" width="3.20188" height="1.06729"
+      transform="rotate(-7.25364 1.41222 2.72156)" fill="#F8F8F8"/>
+    <rect x="0.488224" y="3.91516" width="3.20188" height="3.20188"
+      transform="rotate(-7.25364 0.488224 3.91516)" fill="#F8F8F8"/>
+    <rect x="1.41222" y="2.72156" width="2.13459" height="4.26917"
+      transform="rotate(-7.25364 1.41222 2.72156)" fill="#F8F8F8"/>
+    <rect x="1.8165" y="5.89795" width="3.20188" height="2.13459"
+      transform="rotate(-7.25364 1.8165 5.89795)" fill="#F8F8F8"/>
+    <rect x="3.01001" y="6.82178" width="3.20188" height="2.13459"
+      transform="rotate(-7.25364 3.01001 6.82178)" fill="#F8F8F8"/>
+    <rect x="4.20351" y="7.74585" width="4.26917" height="2.13459"
+      transform="rotate(-7.25364 4.20351 7.74585)" fill="#F8F8F8"/>
+    <rect x="6.45578" y="8.53503" width="3.20188" height="2.13459"
+      transform="rotate(-7.25364 6.45578 8.53503)" fill="#F8F8F8"/>
+    <rect x="4.33828" y="8.80457" width="6.40376" height="1.06729"
+      transform="rotate(-7.25364 4.33828 8.80457)" fill="#F8F8F8"/>
+    <rect x="2.33621" y="1.52808" width="1.06729" height="1.06729"
+      transform="rotate(-7.25364 2.33621 1.52808)" fill="#FBB3BE"/>
+    <rect x="0.757748" y="6.03259" width="4.26917" height="1.06729"
+      transform="rotate(-7.25364 0.757748 6.03259)" fill="#FBB3BE"/>
+    <rect x="0.488224" y="3.91516" width="3.20188" height="1.06729"
+      transform="rotate(-7.25364 0.488224 3.91516)" fill="#FBB3BE"/>
+    <rect x="3.14476" y="7.88049" width="5.33647" height="1.06729"
+      transform="rotate(-7.25364 3.14476 7.88049)" fill="#FBB3BE"/>
+    <rect x="6.59054" y="9.59387" width="3.20188" height="1.06729"
+      transform="rotate(-7.25364 6.59054 9.59387)" fill="#FBB3BE"/>
+    <rect x="3.52973" y="2.45215" width="1.06729" height="1.06729"
+      transform="rotate(-7.25364 3.52973 2.45215)" fill="black" fill-opacity="0.1"/>
+    <rect x="2.60574" y="3.64563" width="1.06729" height="1.06729"
+      transform="rotate(-7.25364 2.60574 3.64563)" fill="black" fill-opacity="0.1"/>
+    <rect x="2.7405" y="4.70435" width="1.06729" height="1.06729"
+      transform="rotate(-7.25364 2.7405 4.70435)" fill="black" fill-opacity="0.1"/>
+    <rect x="3.934" y="5.6283" width="1.06729" height="1.06729"
+      transform="rotate(-7.25364 3.934 5.6283)" fill="black" fill-opacity="0.1"/>
+    <rect x="5.12751" y="6.55225" width="1.06729" height="1.06729"
+      transform="rotate(-7.25364 5.12751 6.55225)" fill="black" fill-opacity="0.1"/>
+    <rect x="6.32103" y="7.47632" width="2.13459" height="1.06729"
+      transform="rotate(-7.25364 6.32103 7.47632)" fill="black" fill-opacity="0.1"/>
+    <rect x="8.57329" y="8.26562" width="2.13459" height="1.06729"
+      transform="rotate(-7.25364 8.57329 8.26562)" fill="black" fill-opacity="0.1"/>
+  </g>
+</svg>
+</g>
