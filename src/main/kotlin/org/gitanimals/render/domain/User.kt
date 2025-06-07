@@ -10,6 +10,7 @@ import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.domain.value.Level
 import org.hibernate.annotations.BatchSize
+import org.slf4j.LoggerFactory
 import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -71,6 +72,13 @@ class User(
     init {
         personas.forEach { it.user = this }
     }
+
+    fun getAuthenticationId(): String = authInfo?.authenticationId
+        ?: run {
+            val message = "Cannot find any authenticationId."
+            logger.warn("$message name: \"$name\"")
+            throw IllegalArgumentException("Cannot find any authenticationId from user. name: \"$name\"")
+        }
 
     fun getName(): String = this.name
 
@@ -320,6 +328,8 @@ class User(
         private const val FOR_INIT_PERSONA_COUNT = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
+
+        private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
         fun newUser(
             name: String,

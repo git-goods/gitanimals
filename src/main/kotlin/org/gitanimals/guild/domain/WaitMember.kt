@@ -12,7 +12,8 @@ import org.gitanimals.core.PersonaType
             name = "wait_member_idx_id_user_id",
             columnList = "id, user_id",
             unique = true,
-        )
+        ),
+        Index(name = "wait_member_idx_name", columnList = "user_name"),
     ]
 )
 class WaitMember(
@@ -23,7 +24,7 @@ class WaitMember(
     val userId: Long,
 
     @Column(name = "user_name", nullable = false)
-    val name: String,
+    var name: String,
 
     @Column(name = "persona_id", nullable = false)
     var personaId: Long,

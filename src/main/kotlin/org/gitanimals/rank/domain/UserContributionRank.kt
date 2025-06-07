@@ -14,7 +14,7 @@ class UserContributionRank(
     @Column(name = "user_id", nullable = false, unique = true)
     val userId: Long,
     @Column(name = "username", nullable = false, unique = true)
-    val username: String,
+    var username: String,
     @Column(name = "weekly_contributions", nullable = false)
     var weeklyContributions: Long,
 ) : Rank(id, image) {

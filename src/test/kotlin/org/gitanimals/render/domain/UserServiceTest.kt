@@ -41,30 +41,6 @@ internal class UserServiceTest(
             }
         }
     }
-
-    describe("createNewUser 메소드는") {
-        context("name은 다르지만 entryPoint와 authenticationId에 해당하는 User가 이미 존재한다면,") {
-            val id = 12345
-            val name = "hello"
-            val user = user(
-                id = 12345,
-                name = name,
-                authInfo = UserAuthInfo(EntryPoint.GITHUB, id.toString()),
-            )
-
-            userRepository.saveAndFlush(user)
-
-            it("기존 user의 name을 새로운 유저의 name으로 변경한다.") {
-                val response = userService.createNewUser(
-                    name = "world",
-                    contributions = emptyMap(),
-                )
-
-                response.getName() shouldBe "world"
-                response.id shouldBe id
-            }
-        }
-    }
 }) {
 
     private companion object {

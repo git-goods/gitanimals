@@ -150,6 +150,16 @@ class GuildService(
         }
     }
 
+    @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
+    fun updateUsername(previousName: String, changeName: String, pageable: Pageable) {
+        val users = guildRepository.findAllByNameContains(name = previousName, pageable = pageable)
+
+        users.content.forEach {
+            it.updateUserName(previousName, changeName)
+        }
+    }
+
     fun search(text: String, pageNumber: Int, filter: SearchFilter): Page<Guild> {
         return if (text.isBlank()) {
             when (filter) {
