@@ -9,7 +9,10 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.mockk.every
 import org.gitanimals.core.FieldType
 import org.gitanimals.core.IdGenerator
+import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
+import org.gitanimals.core.filter.MDCFilter.Companion.USER_ENTRY_POINT
+import org.gitanimals.core.filter.MDCFilter.Companion.USER_ID
 import org.gitanimals.guild.app.request.CreateGuildRequest
 import org.gitanimals.guild.domain.GuildIcons
 import org.gitanimals.guild.domain.GuildRepository
@@ -56,6 +59,8 @@ internal class CreateGuildFacadeTest(
         guildSagaCapture.clear()
         guildRepository.deleteAll()
         MDC.put(TRACE_ID, IdGenerator.generate().toString())
+        MDC.put(USER_ID, IdGenerator.generate().toString())
+        MDC.put(USER_ENTRY_POINT, UserEntryPoint.GITHUB.name)
     }
 
     describe("createGuild 메소드는") {

@@ -39,4 +39,6 @@ interface UserRepository : JpaRepository<User, Long> {
     ): User?
 
     fun existsByName(name: String): Boolean
+
+    fun deleteByName(name: String)
 }

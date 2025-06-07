@@ -10,8 +10,8 @@ class UserAuthInfo(
 
     @Enumerated(EnumType.STRING)
     @Column(name = "entry_point", nullable = true)
-    private val entryPoint: EntryPoint,
+    val entryPoint: EntryPoint,
 
     @Column(name = "authentication_id", nullable = true)
-    private val authenticationId: String,
+    val authenticationId: String,
 )

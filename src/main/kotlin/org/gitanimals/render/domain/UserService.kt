@@ -168,6 +168,9 @@ class UserService(
         getUserByName(name).changeField(fieldType)
     }
 
+    @Transactional
+    fun deleteByName(name: String) = userRepository.deleteByName(name)
+
     fun getByNameWithLazyLoading(name: String, vararg lazyLoading: (User) -> Unit): User {
         val user = getUserByName(name)
 
@@ -185,6 +188,26 @@ class UserService(
 
     fun findAllUsersByNameWithContributions(usernames: Set<String>): List<User> {
         return userRepository.findAllByIdsWithContributions(usernames)
+    }
+
+    @Transactional(readOnly = true)
+    fun findUserByEntryPointAndAuthenticationId(
+        entryPoint: EntryPoint,
+        authenticationId: String
+    ): User? {
+        return userRepository.findByEntryPointAndAuthenticationId(entryPoint, authenticationId)
+    }
+
+    @Transactional
+    @Retryable(ObjectOptimisticLockingFailureException::class)
+    fun updateUsernameById(id: Long, username: String) {
+        val user = getUserById(id)
+        user.updateName(username)
+    }
+
+    private fun getUserById(id: Long): User {
+        return userRepository.findByIdOrNull(id)
+            ?: throw IllegalArgumentException("Cannot find user by id : \"$id\"")
     }
 
     companion object {
