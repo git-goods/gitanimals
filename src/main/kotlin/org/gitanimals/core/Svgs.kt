@@ -240,6 +240,9 @@ val moleGrassSvg: String = ClassPathResource("persona/animal/mole-grass.svg")
 val rabbitSvg: String = ClassPathResource("persona/animal/rabbit.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val rabbitTubeSvg: String = ClassPathResource("persona/animal/rabbit-tube.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val pigCollaboratorSvg: String = ClassPathResource("persona/animal/pig-collaborator.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -308,6 +311,9 @@ val hamsterJsSvg: String = ClassPathResource("persona/animal/hamster-js.svg")
 val hamsterCollaboratorSvg: String = ClassPathResource("persona/animal/hamster-collaborator.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val hamsterTubeSvg: String = ClassPathResource("persona/animal/hamster-tube.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val snowmanSvg: String = ClassPathResource("persona/animal/snowman.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -315,6 +321,9 @@ val snowmanMeltSvg: String = ClassPathResource("persona/animal/snowman-melt.svg"
     .getContentAsString(Charset.defaultCharset())
 
 val littleChickSantaSvg: String = ClassPathResource("persona/animal/little-chick-santa.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickTubeSvg: String = ClassPathResource("persona/animal/little-chick-tube.svg")
     .getContentAsString(Charset.defaultCharset())
 
 val hamsterSantaSvg: String = ClassPathResource("persona/animal/hamster-santa.svg")
