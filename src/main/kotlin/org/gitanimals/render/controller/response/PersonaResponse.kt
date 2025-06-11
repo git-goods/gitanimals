@@ -8,6 +8,7 @@ data class PersonaResponse(
     val type: PersonaType,
     val level: String,
     val visible: Boolean,
+    val appVisible: Boolean,
     val dropRate: String,
 ) {
 
@@ -18,6 +19,7 @@ data class PersonaResponse(
                 type = personaResponse.type,
                 level = personaResponse.level,
                 visible = personaResponse.visible,
+                appVisible = personaResponse.appVisible,
                 dropRate = personaResponse.dropRate,
             )
         }

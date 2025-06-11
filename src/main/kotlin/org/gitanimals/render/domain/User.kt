@@ -6,6 +6,7 @@ import org.gitanimals.core.*
 import org.gitanimals.render.domain.event.PersonaDeleted
 import org.gitanimals.render.domain.event.UserContributionUpdated
 import org.gitanimals.render.domain.extension.RenderFieldTypeExtension.isRenderField
+import org.gitanimals.render.domain.request.VisibleChangeType
 import org.gitanimals.render.domain.response.PersonaResponse
 import org.gitanimals.render.domain.value.Contribution
 import org.gitanimals.render.domain.value.Level
@@ -97,7 +98,13 @@ class User(
     }
 
     fun addPersona(id: Long, personaType: PersonaType, level: Int): PersonaResponse {
-        val persona = Persona(id, personaType, Level(level.toLong()), personas.size < 30, this)
+        val persona = Persona(
+            id = id,
+            type = personaType,
+            level = Level(level.toLong()),
+            visible = personas.size < 30,
+            user = this,
+        )
 
         this.personas.add(persona)
 
@@ -148,11 +155,23 @@ class User(
         )
     }
 
-    fun changePersonaVisible(personaId: Long, visible: Boolean): Persona {
+    fun changePersonaVisible(
+        personaId: Long,
+        visible: Boolean,
+        visibleChangeType: VisibleChangeType
+    ): Persona {
         val persona = personas.find { it.id == personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
 
-        persona.visible = visible
+        when (visibleChangeType) {
+            VisibleChangeType.APP -> run {
+                persona.appVisible = visible
+            }
+
+            VisibleChangeType.DEFAULT -> run {
+                persona.visible = visible
+            }
+        }
 
         val visiblePersonas = personas.filter { it.visible }
 

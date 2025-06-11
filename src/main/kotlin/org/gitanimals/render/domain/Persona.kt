@@ -24,6 +24,9 @@ class Persona(
     @Column(name = "visible", nullable = false)
     var visible: Boolean,
 
+    @Column(name = "app_visible", nullable = false, columnDefinition = "bit(1) DEFAULT 0")
+    var appVisible: Boolean = false,
+
     @JsonIgnore
     @JoinColumn(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
