@@ -38,11 +38,12 @@ class InternalPersonaController(
         )
 
         return PersonaResponse(
-            persona.id,
-            persona.type,
-            persona.level,
-            persona.visible,
-            persona.dropRate,
+            id = persona.id,
+            type = persona.type,
+            level = persona.level,
+            visible = persona.visible,
+            appVisible = persona.appVisible,
+            dropRate = persona.dropRate,
         )
     }
 
@@ -62,11 +63,12 @@ class InternalPersonaController(
             )
 
             PersonaResponse(
-                persona.id,
-                persona.type,
-                persona.level,
-                persona.visible,
-                persona.dropRate,
+                id = persona.id,
+                type = persona.type,
+                level = persona.level,
+                visible = persona.visible,
+                appVisible = persona.appVisible,
+                dropRate = persona.dropRate,
             )
         }
     }
@@ -80,11 +82,12 @@ class InternalPersonaController(
         val persona = userFacade.deletePersona(token, personaId)
 
         return PersonaResponse(
-            persona.id,
-            persona.type,
-            persona.level,
-            persona.visible,
-            persona.dropRate,
+            id = persona.id,
+            type = persona.type,
+            level = persona.level,
+            visible = persona.visible,
+            appVisible = persona.appVisible,
+            dropRate = persona.dropRate,
         )
     }
 

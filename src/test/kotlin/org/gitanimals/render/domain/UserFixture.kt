@@ -34,5 +34,6 @@ fun persona(
     type = type,
     level = Level(0),
     visible = false,
+    appVisible = false,
     user = user,
 )

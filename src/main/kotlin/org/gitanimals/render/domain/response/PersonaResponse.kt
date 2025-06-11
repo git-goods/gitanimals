@@ -8,16 +8,18 @@ data class PersonaResponse(
     val type: PersonaType,
     val level: String,
     val visible: Boolean,
+    val appVisible: Boolean,
     val dropRate: String,
 ) {
     companion object {
         fun from(persona: Persona): PersonaResponse {
             return PersonaResponse(
-                persona.id.toString(),
-                persona.type,
-                persona.level.value.toString(),
-                persona.visible,
-                persona.type.getDropRate()
+                id = persona.id.toString(),
+                type = persona.type,
+                level = persona.level.value.toString(),
+                visible = persona.visible,
+                appVisible = persona.appVisible,
+                dropRate = persona.type.getDropRate(),
             )
         }
     }

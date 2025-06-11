@@ -17,11 +17,12 @@ data class UserResponse(
                 user.contributionCount().toString(),
                 user.personas.map {
                     PersonaResponse(
-                        it.id.toString(),
-                        it.type,
-                        it.level().toString(),
-                        it.visible,
-                        it.type.getDropRate()
+                        id = it.id.toString(),
+                        type = it.type,
+                        level = it.level().toString(),
+                        visible = it.visible,
+                        appVisible = it.appVisible,
+                        dropRate = it.type.getDropRate(),
                     )
                 }.toList()
             )
@@ -36,11 +37,12 @@ data class UserResponse(
                     it.id in personaId
                 }.map {
                     PersonaResponse(
-                        it.id.toString(),
-                        it.type,
-                        it.level().toString(),
-                        it.visible,
-                        it.type.getDropRate()
+                        id = it.id.toString(),
+                        type = it.type,
+                        level = it.level().toString(),
+                        visible = it.visible,
+                        appVisible = it.appVisible,
+                        dropRate = it.type.getDropRate(),
                     )
                 }.toList()
             )
@@ -55,11 +57,12 @@ data class UserResponse(
                     .maxBy { it.level() }
                     .let {
                         PersonaResponse(
-                            it.id.toString(),
-                            it.type,
-                            it.level().toString(),
-                            it.visible,
-                            it.type.getDropRate()
+                            id = it.id.toString(),
+                            type = it.type,
+                            level = it.level().toString(),
+                            visible = it.visible,
+                            appVisible = it.appVisible,
+                            dropRate = it.type.getDropRate(),
                         )
                     }
                 )

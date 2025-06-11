@@ -1,12 +1,12 @@
 package org.gitanimals.render.controller
 
-import org.gitanimals.core.PersonaType
 import org.gitanimals.core.AuthorizationException
-import org.gitanimals.render.app.UserFacade
-import org.gitanimals.render.app.request.MergePersonaRequest
 import org.gitanimals.core.ErrorResponse
+import org.gitanimals.core.PersonaType
 import org.gitanimals.core.auth.RequiredUserEntryPoints
 import org.gitanimals.core.auth.UserEntryPoint
+import org.gitanimals.render.app.UserFacade
+import org.gitanimals.render.app.request.MergePersonaRequest
 import org.gitanimals.render.controller.response.PersonaEnumResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
@@ -36,11 +36,12 @@ class PersonaController(
         val persona = userFacade.getPersona(token, personaId)
 
         return PersonaResponse(
-            persona.id,
-            persona.type,
-            persona.level,
-            persona.visible,
-            persona.dropRate
+            id = persona.id,
+            type = persona.type,
+            level = persona.level,
+            visible = persona.visible,
+            appVisible = persona.appVisible,
+            dropRate = persona.dropRate,
         )
     }
 
@@ -54,11 +55,12 @@ class PersonaController(
         val changedPersona = userFacade.changePersona(token, personaChangeRequest)
 
         return PersonaResponse(
-            changedPersona.id,
-            changedPersona.type,
-            changedPersona.level,
-            changedPersona.visible,
-            changedPersona.dropRate,
+            id = changedPersona.id,
+            type = changedPersona.type,
+            level = changedPersona.level,
+            visible = changedPersona.visible,
+            appVisible = changedPersona.appVisible,
+            dropRate = changedPersona.dropRate,
         )
     }
 
