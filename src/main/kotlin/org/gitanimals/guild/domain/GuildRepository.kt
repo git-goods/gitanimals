@@ -110,7 +110,7 @@ interface GuildRepository : JpaRepository<Guild, Long> {
     @Query(
         """
             select g from Guild as g
-            left join fetch g.members as m
+            left join g.members as m
             left join g.waitMembers as wm
             where g.leader.name = :name or m.name = :name or wm.name = :name
         """

@@ -4,6 +4,7 @@ import org.gitanimals.core.HttpClientErrorHandler
 import org.gitanimals.core.auth.InternalAuthRequestInterceptor
 import org.gitanimals.core.filter.MDCFilter
 import org.slf4j.MDC
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -14,6 +15,7 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 @Configuration
 @Profile("!test")
 class SupportsOrchestrateHttpClientConfigurer(
+    @Value("\${internal.secret}") private val internalSecret: String,
     private val internalAuthRequestInterceptor: InternalAuthRequestInterceptor,
 ) {
 
@@ -23,6 +25,9 @@ class SupportsOrchestrateHttpClientConfigurer(
             .builder()
             .requestInterceptor { request, body, execution ->
                 request.headers.add(MDCFilter.TRACE_ID, MDC.get(MDCFilter.TRACE_ID))
+                if (request.uri.path.startsWith("/internals")) {
+                    request.headers.add(INTERNAL_SECRET_KEY, internalSecret)
+                }
                 execution.execute(request, body)
             }
             .requestInterceptor(internalAuthRequestInterceptor)
@@ -40,6 +45,10 @@ class SupportsOrchestrateHttpClientConfigurer(
     @Bean
     fun supportsOrchestrateHttpClientErrorHandler(): HttpClientErrorHandler =
         HttpClientErrorHandler()
+
+    private companion object {
+        private const val INTERNAL_SECRET_KEY = "Internal-Secret"
+    }
 }
 
 @Configuration
