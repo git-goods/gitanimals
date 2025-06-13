@@ -53,10 +53,10 @@ class UserContributionRankService(
     }
 
     @Transactional
-    fun updateUserRankUsername(previousName: String, changeName: String) {
+    fun updateUserRankUsernameIfExists(previousName: String, changeName: String) {
         findUserRankByUsername(previousName)?.let {
             it.username = changeName
-        } ?: throw IllegalArgumentException("Cannot find user by previousName: \"$previousName\"")
+        }
     }
 
     fun findUserRankByUsername(username: String): UserContributionRank? =

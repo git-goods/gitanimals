@@ -42,7 +42,7 @@ class NetxUserOrchestrator(
             }
         ).joinWithContext(
             contextOrchestrate = TraceIdContextOrchestrator { _, request ->
-                userContributionRankService.updateUserRankUsername(
+                userContributionRankService.updateUserRankUsernameIfExists(
                     request.previousName,
                     request.changeName
                 )
@@ -51,7 +51,7 @@ class NetxUserOrchestrator(
             },
             contextRollback = TraceIdContextRollback { _, request ->
                 logger.warn("Fail to update user name. rollback start user-rank id: \"${request.id}\", previous name: \"${request.previousName}\", change name: \"${request.changeName}\"")
-                userContributionRankService.updateUserRankUsername(
+                userContributionRankService.updateUserRankUsernameIfExists(
                     request.changeName,
                     request.previousName
                 )
