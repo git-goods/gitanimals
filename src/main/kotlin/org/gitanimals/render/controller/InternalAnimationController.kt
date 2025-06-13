@@ -26,7 +26,9 @@ class InternalAnimationController(
         @RequestHeader("Image-Secret") renderSecret: String,
         response: HttpServletResponse,
     ): String {
-        require(renderSecret == this.internalImageSecret)
+        require(renderSecret == this.internalImageSecret) {
+            "Authorization Fail"
+        }
         response.cacheControl(3600)
 
         return animationFacade.getLineAnimation(
