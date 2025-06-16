@@ -12,6 +12,7 @@ import org.gitanimals.render.controller.request.UsernameAndPersonaIdRequest
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
 import org.gitanimals.render.domain.UserService
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -21,6 +22,8 @@ class InternalPersonaController(
     private val userFacade: UserFacade,
     private val userService: UserService,
 ) {
+
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     @PostMapping("/internals/personas")
     @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
@@ -99,6 +102,16 @@ class InternalPersonaController(
         val users = userService.findAllUsersByNameWithContributions(
             usernameAndPersonaIdRequests.map { it.username }.toSet()
         )
+
+        require(users.size == usernameAndPersonaIdRequests.size) {
+            val message = "Failed to retrieve all users from the request."
+            val retrievedUsers = users.map { it.getName() }
+            val failedRetrieveUsers = usernameAndPersonaIdRequests.filter { request ->
+                request.username !in retrievedUsers
+            }
+            logger.error("$message request: \"$usernameAndPersonaIdRequests\", failed retrieved users: \"$failedRetrieveUsers\"")
+            message
+        }
 
         return users.map { user ->
             val personaId =
