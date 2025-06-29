@@ -99,23 +99,25 @@ class InternalPersonaController(
     fun getAllPersonasByUserIdsAndPersonaIds(
         @RequestBody usernameAndPersonaIdRequests: List<UsernameAndPersonaIdRequest>
     ): List<UserResponse> {
+        val usernameAndPersonaIdRequestSet = usernameAndPersonaIdRequests.toSet()
+
         val users = userService.findAllUsersByNameWithContributions(
-            usernameAndPersonaIdRequests.map { it.username }.toSet()
+            usernameAndPersonaIdRequestSet.mapTo(mutableSetOf()) { it.username }
         )
 
-        require(users.size == usernameAndPersonaIdRequests.size) {
+        require(users.size == usernameAndPersonaIdRequestSet.size) {
             val message = "Failed to retrieve all users from the request."
             val retrievedUsers = users.map { it.getName() }
-            val failedRetrieveUsers = usernameAndPersonaIdRequests.filter { request ->
+            val failedRetrieveUsers = usernameAndPersonaIdRequestSet.filter { request ->
                 request.username !in retrievedUsers
             }
-            logger.error("$message request: \"$usernameAndPersonaIdRequests\", failed retrieved users: \"$failedRetrieveUsers\"")
+            logger.error("$message request: \"$usernameAndPersonaIdRequestSet\", failed retrieved users: \"$failedRetrieveUsers\"")
             message
         }
 
         return users.map { user ->
             val personaId =
-                usernameAndPersonaIdRequests.first { it.username == user.getName() }.personaId
+                usernameAndPersonaIdRequestSet.first { it.username == user.getName() }.personaId
             UserResponse.fromWithSpecificPersona(user, listOf(personaId))
         }
     }
