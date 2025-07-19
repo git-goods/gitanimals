@@ -25,7 +25,6 @@ abstract class TraceableMessageListener(
                 object : TypeReference<Map<String, String>>() {},
             )
 
-            logger.info("[$listenerName] request: $request")
 
             runCatching {
                 request["traceId"] as String
@@ -38,6 +37,7 @@ abstract class TraceableMessageListener(
                 MDC.put(MDCFilter.USER_ID, it)
             }
 
+            logger.info("[$listenerName] request: $request")
             onMessage(message)
         }.onFailure {
             logger.error("Fail to listen message: $message, error: $it", it)
