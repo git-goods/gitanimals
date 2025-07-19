@@ -11,6 +11,7 @@ import org.springframework.data.redis.connection.MessageListener
 import org.springframework.data.redis.core.StringRedisTemplate
 
 abstract class TraceableMessageListener(
+    private val listenerName: String,
     private val redisTemplate: StringRedisTemplate,
     private val objectMapper: ObjectMapper,
 ) : MessageListener {
@@ -23,6 +24,8 @@ abstract class TraceableMessageListener(
                 redisTemplate.stringSerializer.deserialize(message.body),
                 object : TypeReference<Map<String, String>>() {},
             )
+
+            logger.info("[$listenerName] request: $request")
 
             runCatching {
                 request["traceId"] as String

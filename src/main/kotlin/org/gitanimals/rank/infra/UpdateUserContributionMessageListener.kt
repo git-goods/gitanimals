@@ -18,7 +18,11 @@ class UpdateUserContributionMessageListener(
     private val objectMapper: ObjectMapper,
     private val userContributionRankService: UserContributionRankService,
     @Qualifier("gitanimalsRedisTemplate") private val redisTemplate: StringRedisTemplate,
-) : TraceableMessageListener(objectMapper = objectMapper, redisTemplate = redisTemplate) {
+) : TraceableMessageListener(
+    listenerName = "UpdateUserContributionMessageListener",
+    objectMapper = objectMapper,
+    redisTemplate = redisTemplate,
+) {
 
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
 

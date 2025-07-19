@@ -62,6 +62,7 @@ class UserContributionRankService(
     fun findUserRankByUsername(username: String): UserContributionRank? =
         userContributionRankRepository.findByUsername(username)
 
+    @Transactional
     fun initialWeeklyRanks() {
         userContributionRankRepository.initialWeeklyRanks()
     }
