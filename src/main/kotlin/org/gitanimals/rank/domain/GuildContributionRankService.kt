@@ -49,6 +49,7 @@ class GuildContributionRankService(
         }.sortedBy { it.rank }
     }
 
+    @Transactional
     fun initialWeeklyRanks() {
         guildContributionRankRepository.initialWeeklyRanks()
     }
