@@ -61,6 +61,8 @@ class GivePointToGuildFacade(
             )
             guildContributionRankService.initialWeeklyRanks()
             rankQueryRepository.initialRank(WEEKLY_GUILD_CONTRIBUTIONS)
+        }.onFailure {
+            logger.info("[GivePointToGuildFacade] Fail to awarded point. ${it.message}", it)
         }.also {
             MDC.remove(TRACE_ID)
         }

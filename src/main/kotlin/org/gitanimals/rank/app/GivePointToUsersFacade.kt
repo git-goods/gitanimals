@@ -62,6 +62,8 @@ class GivePointToUsersFacade(
             )
             userContributionRankService.initialWeeklyRanks()
             rankQueryRepository.initialRank(WEEKLY_USER_CONTRIBUTIONS)
+        }.onFailure {
+            logger.info("[GivePointToUsersFacade] Fail to awarded point. ${it.message}", it)
         }.also {
             MDC.remove(TRACE_ID)
         }
