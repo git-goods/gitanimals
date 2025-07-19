@@ -21,7 +21,11 @@ class DeadLetterRelayEventListener(
     private val applicationEventPublisher: ApplicationEventPublisher,
     @Value("\${relay.approve.token}") private val approveToken: String,
     @Value("\${netx.node-name}") private val nodeName: String,
-) : TraceableMessageListener(redisTemplate, objectMapper) {
+) : TraceableMessageListener(
+    listenerName = "DeadLetterRelayEventListener",
+    redisTemplate = redisTemplate,
+    objectMapper = objectMapper,
+) {
 
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
@@ -59,7 +63,10 @@ class DeadLetterRelayEventListener(
                 )
             )
         }.onFailure {
-            logger.error("Fail to relay dead letter. message: \"$message\", cause: \"${it.message}\"", it)
+            logger.error(
+                "Fail to relay dead letter. message: \"$message\", cause: \"${it.message}\"",
+                it
+            )
         }
     }
 
