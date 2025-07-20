@@ -143,6 +143,8 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率    | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
+| CAPYBARA_CARROT <br> <img src = "docs/capybara-carrot.svg" width="70px" height="70px"/>                 | 0.6   |                                                                                                                    |
+| CAPYBARA <br> <img src = "docs/capybara.svg" width="70px" height="70px"/>                               | 0.8   |                                                                                                                    |
 | LITTLE_CHICK_TUBE <br> <img src = "docs/little-chick-tube.svg" width="45px" height="40px"/>             | 0.01  | 🏖️2025 Summer pet 🏖                                                                                              |
 | RABBIT_TUBE <br> <img src = "docs/rabbit-tube.svg" width="60px" height="60px"/>                         | 0.01  | 🏖️2025 Summer pet 🏖                                                                                              |
 | HAMSTER_TUBE <br> <img src = "docs/hamster-tube.svg" width="100px" height="60px"/>                      | 0.01  | 🏖️2025 Summer pet 🏖                                                                                              |
