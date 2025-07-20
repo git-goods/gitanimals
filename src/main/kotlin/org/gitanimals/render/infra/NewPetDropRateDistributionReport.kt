@@ -1,6 +1,5 @@
 package org.gitanimals.render.infra
 
-import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.core.instant
 import org.gitanimals.render.domain.PersonaStatisticService
@@ -49,8 +48,6 @@ class NewPetDropRateDistributionReport(
     }
 
     private fun publishDropRateDistribution(days: Long, type: Type) {
-        MDC.put(TRACE_ID, IdGenerator.generate().toString())
-
         logger.info("[NewPetDropRateDistributionReport] Aggregate yesterday days pet distribution drop rate...")
 
         val createdAt = instant().minus(days, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS)
