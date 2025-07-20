@@ -1,0 +1,193 @@
+<style>
+  *{act}
+
+  @keyframes capybara-*{id}-floating {
+  0% {
+  transform: translate(0px, 0px);
+  }
+  33% {
+  transform: translate(0px, -1.5px);
+  }
+  66% {
+  transform: translate(0px, 1.5px),
+  }
+  100% {
+  transform: translate(0px, 0px);
+  }
+  }
+
+  @keyframes capybara-*{id}-head-move {
+  0% {
+  transform: translate(0px, 0px);
+  }
+  50% {
+  transform: translate(0.5px, 0px);
+  }
+  100% {
+  transform: translate(0px, 0px);
+  }
+  }
+
+  @keyframes capybara-*{id}-leg-front-move {
+  0% {
+  transform: translate(3.8px, 15px);
+  }
+  50% {
+  transform: translate(3.8px, 15.5px);
+  }
+  100% {
+  transform: translate(3.8px, 15px);
+  }
+  }
+
+  @keyframes capybara-*{id}-leg-back-move {
+  0% {
+  transform: translate(-2px, 14px);
+  }
+  50% {
+  transform: translate(-2px, 14.5px);
+  }
+  100% {
+  transform: translate(-2px, 14px);
+  }
+  }
+
+  #capybara-*{id}-wrap {
+  animation-name:capybara-*{id}-floating;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+
+  #capybara-*{id}-head {
+  animation-name: capybara-*{id}-head-move;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #capybara-*{id}-leg-front {
+  animation-name:capybara-*{id}-leg-front-move;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+  #capybara-*{id}-leg-back {
+  animation-name:capybara-*{id}-leg-back-move;
+  animation-duration:1s;
+  animation-delay: 0.5s;
+  animation-iteration-count:infinite;
+  animation-timing-function: ease-in-out;
+  }
+
+</style>
+<g id="capybara-*{id}" transform="translate(100, 100)">
+<g id="id">*{id}</g>
+<g id="contributions-wrap-*{id}">
+  <g id="contributions" transform="translate(-17, -35)" style="display:*{contribution-display};">
+    <g id="contribution-tag" transform="translate(-3, -1)">
+      <rect x="3" width="77" height="19" fill="white"/>
+      <rect x="1" y="1.26669" width="81" height="16.4667" fill="white"/>
+      <rect y="2.53333" width="83" height="13.9333" fill="white"/>
+    </g>
+    <path
+      d="M1 2.75H4V3.5H4.75V4.25H3.25V3.5H1.75V7.25H3.25V6.5H4.75V7.25H4V8H1V7.25H0.25V3.5H1V2.75ZM7 2.75H10V3.5H10.75V7.25H10V8H7V7.25H6.25V3.5H7V2.75ZM9.25 7.25V3.5H7.75V7.25H9.25ZM16 3.5H16.75V8H15.25V3.5H13.75V8H12.25V2.75H16V3.5ZM19 1.25H20.5V2.75H22.75V3.5H20.5V7.25H22.75V8H19.75V7.25H19V3.5H18.25V2.75H19V1.25ZM24.25 2.75H25.75V4.25H26.5V5H25.75V8H24.25V2.75ZM28.75 2.75V4.25H26.5V3.5H27.25V2.75H28.75ZM33.25 2H31.75V0.5H33.25V2ZM33.25 7.25H34.75V8H30.25V7.25H31.75V3.5H30.25V2.75H33.25V7.25ZM40 3.5H40.75V7.25H40V8H36.25V1.25H37.75V2.75H40V3.5ZM39.25 7.25V3.5H37.75V7.25H39.25ZM45.25 2.75H46.75V8H43V7.25H42.25V2.75H43.75V7.25H45.25V2.75ZM49 1.25H50.5V2.75H52.75V3.5H50.5V7.25H52.75V8H49.75V7.25H49V3.5H48.25V2.75H49V1.25ZM57.25 2H55.75V0.5H57.25V2ZM57.25 7.25H58.75V8H54.25V7.25H55.75V3.5H54.25V2.75H57.25V7.25ZM61 2.75H64V3.5H64.75V7.25H64V8H61V7.25H60.25V3.5H61V2.75ZM63.25 7.25V3.5H61.75V7.25H63.25ZM70 3.5H70.75V8H69.25V3.5H67.75V8H66.25V2.75H70V3.5ZM73 5H72.25V3.5H73V2.75H76.75V3.5H73.75V5H76V5.75H76.75V7.25H76V8H72.25V7.25H75.25V5.75H73V5Z"
+      fill="black"/>
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
+      xmlns="http://www.w3.org/2000/svg">
+      <g id="contribution" transform="translate(*{contributionx}, 3.5)">
+        *{contribution}
+      </g>
+    </svg>
+  </g>
+</g>
+
+<g id="username-tag-wrap-*{id}">
+  <g id="username-tag" transform="translate(-17, -22.5)" style="display:*{username-tag-display};">
+    <rect x="3" width="77" height="9" fill="white"/>
+    <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
+    <rect y="1.20001" width="83" height="6.6" fill="white"/>
+  </g>
+</g>
+
+<g id="username-wrap-*{id}">
+  <g id="username" transform="translate(*{usernamex}, -22)" style="display:*{username-display};">
+    <svg width="600" height="300" viewBox="0 0 2400 1200" fill="none" overflow="visible"
+      xmlns="http://www.w3.org/2000/svg">
+      *{username}
+    </svg>
+  </g>
+</g>
+
+<g id="level-tag-wrap-*{id}">
+  <g id="level-tag" transform="translate(-20, -14)" style="display:*{level-tag-display};">
+    <rect x="3" width="77" height="9" fill="white"/>
+    <rect x="1" y="0.600006" width="81" height="7.8" fill="white"/>
+    <rect y="1.20001" width="83" height="6.6" fill="white"/>
+  </g>
+</g>
+
+<g id="level-wrap-*{id}" style="display:*{level-display};">
+  <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible"
+    xmlns="http://www.w3.org/2000/svg">
+    <g id="level" transform="translate(*{levelx}, -4)">
+      <g transform="translate(10, -0.05)">
+        <path
+          d="M0.21875 0.03125H0.65625V1.78125H1.53125V2H0.21875V0.03125ZM2.1875 1.5625H1.96875V0.46875H2.40625V1.5625H2.84375V0.46875H3.28125V1.5625H3.0625V1.78125H2.84375V2H2.40625V1.78125H2.1875V1.5625Z"
+          fill="black"/>
+      </g>
+      *{level}
+    </g>
+  </svg>
+</g>
+
+<svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+  <g id = "capybara-*{id}-swim-top" transform="translate(-8.2, 1)">
+    <rect y="2.92908" width="28" height="4.19753" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="2.33331" y="1.53003" width="23.3333" height="1.39918" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="4.66656" y="0.130859" width="18.6667" height="1.39918" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="24.4856" y="5.37769" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="1.74896" y="3.62878" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="6.99588" y="1.87976" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="8.74487" y="0.130859" width="5.24692" height="1.74897" fill="#0059FF" fill-opacity="0.1"/>
+  </g>
+  <g id = "capybara-*{id}-wrap">
+    <g id="capybara-*{id}-leg-front" transform="translate(3.8, 15)">
+      <path d="M8.08245 0.0825195H6.12369V2.62891H8.08245V0.0825195Z" fill="#C17B46"/>
+      <path d="M2.20617 0.0825195H0.247406V2.62891H2.20617V0.0825195Z" fill="#C17B46"/>
+    </g>
+    <g id="capybara-*{id}-leg-back" transform="translate(-2, 14)">
+      <path d="M4.28865 0.886719H0.371124V3.62898H4.28865V0.886719Z" fill="#C17B46"/>
+    </g>
+    <g id="capybara-*{id}-body" transform="translate(-3.2, 6.1)">
+      <path d="M9.98971 0.876343H3.32993V4.59799H9.98971V0.876343Z" fill="#C17B46"/>
+      <path d="M15.0825 2.83508H0V10.6701H15.0825V2.83508Z" fill="#C17B46"/>
+      <path d="M15.0824 6.75256H7.24741V8.71132H15.0824V6.75256Z" fill="#A56235"/>
+      <path d="M13.1237 8.5155H9.20615V10.6701H13.1237V8.5155Z" fill="#A56235"/>
+      <path d="M7.24743 4.79382H5.28867V6.75258H7.24743V4.79382Z" fill="#A56235"/>
+    </g>
+    <g id="capybara-*{id}-head" transform="translate(0, 0)">
+      <path d="M14.0412 0H11.299V2.54639H14.0412V0Z" fill="#8E654A"/>
+      <path d="M16 1.95886H2.28867V9.79391H16V1.95886Z" fill="#C17B46"/>
+      <path d="M16 9.01038H4.24741V11.7526H16V9.01038Z" fill="#C17B46"/>
+      <path d="M16 7.83508H8.16495V11.7526H16V7.83508Z" fill="#7C4B32"/>
+      <path d="M16 5.87634H10.1237V8.22686H16V5.87634Z" fill="#7C4B32"/>
+      <path d="M4.24745 0H0.329926V3.91752H4.24745V0Z" fill="#8E654A"/>
+      <path d="M7.38144 4.70105H4.4433V5.87631H7.38144V4.70105Z" fill="black"/>
+    </g>
+  </g>
+  <g id = "capybara-*{id}-swim-bottom" transform="translate(-8.2, 8)">
+    <rect width="28" height="6.2963" transform="matrix(1 0 0 -1 0 6.4231)" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect width="23.3333" height="2.09877" transform="matrix(1 0 0 -1 2.33331 8.52222)" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect width="18.6667" height="2.09877" transform="matrix(1 0 0 -1 4.66656 10.6206)" fill="#5FC4FF" fill-opacity="0.7"/>
+    <rect x="17.1568" y="7.32629" width="5.24692" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="6.99588" y="8.87158" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect y="3.62476" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="8.41193" y="7.32629" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="22.7366" y="3.62476" width="3.49794" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+    <rect x="15.4078" y="8.96497" width="5.24692" height="1.6387" fill="#0059FF" fill-opacity="0.1"/>
+  </g>
+</svg>
+</g>
