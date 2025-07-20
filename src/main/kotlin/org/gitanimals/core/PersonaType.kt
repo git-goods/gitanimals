@@ -2235,6 +2235,28 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .moveRandomly("capybara", id, 20, "180s", 7, 21.0)
             .toString()
     },
+
+    CAPYBARA_SWIM(0.4) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return capybaraSwimSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-5 + -1 * (level.toString().length)).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String = StringBuilder()
+            .moveRandomly("capybara", id, 20, "180s", 7, 21.0)
+            .toString()
+    },
     ;
 
     init {
