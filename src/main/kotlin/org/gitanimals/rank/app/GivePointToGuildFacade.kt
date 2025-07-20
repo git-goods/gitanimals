@@ -1,7 +1,6 @@
 package org.gitanimals.rank.app
 
 import org.gitanimals.core.IdGenerator
-import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.rank.domain.GuildContributionRankService
 import org.gitanimals.rank.domain.RankQueryRepository
 import org.gitanimals.rank.domain.RankQueryRepository.RankType.WEEKLY_GUILD_CONTRIBUTIONS
@@ -9,7 +8,6 @@ import org.gitanimals.rank.domain.history.RankHistoryService
 import org.gitanimals.rank.domain.history.request.InitRankHistoryRequest
 import org.gitanimals.rank.domain.response.RankResponse
 import org.slf4j.LoggerFactory
-import org.slf4j.MDC
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
@@ -27,7 +25,6 @@ class GivePointToGuildFacade(
     @Scheduled(cron = "0 0 23 * * SUN")
     fun givePointsToGuildUsers() {
         runCatching {
-            MDC.put(TRACE_ID, IdGenerator.generate().toString())
             val guildRankWithIds = rankQueryRepository.findAllRank(
                 rankStartedAt = 0,
                 limit = 2,
@@ -63,8 +60,6 @@ class GivePointToGuildFacade(
             rankQueryRepository.initialRank(WEEKLY_GUILD_CONTRIBUTIONS)
         }.onFailure {
             logger.info("[GivePointToGuildFacade] Fail to awarded point. ${it.message}", it)
-        }.also {
-            MDC.remove(TRACE_ID)
         }
     }
 
