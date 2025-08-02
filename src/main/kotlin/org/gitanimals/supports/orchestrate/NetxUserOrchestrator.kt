@@ -78,11 +78,18 @@ class NetxUserOrchestrator(
             }
         ).commitWithContext(
             contextOrchestrate = TraceIdContextOrchestrator { _, request ->
-                identityApi.updateUserByAuthInfo(
-                    entryPoint = request.entryPoint,
-                    authenticationId = request.authenticationId,
-                    request = UsernameUpdateRequest(changedName = request.changeName),
-                )
+                runCatching {
+                    identityApi.updateUserByAuthInfo(
+                        entryPoint = request.entryPoint,
+                        authenticationId = request.authenticationId,
+                        request = UsernameUpdateRequest(changedName = request.changeName),
+                    )
+                }.getOrElse {
+                    if (it is IllegalArgumentException) {
+                        return@getOrElse
+                    }
+                    throw it
+                }
             }
         )
 
