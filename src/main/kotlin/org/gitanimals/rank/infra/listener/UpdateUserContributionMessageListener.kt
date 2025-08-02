@@ -1,4 +1,4 @@
-package org.gitanimals.rank.infra
+package org.gitanimals.rank.infra.listener
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.gitanimals.core.redis.TraceableMessageListener
