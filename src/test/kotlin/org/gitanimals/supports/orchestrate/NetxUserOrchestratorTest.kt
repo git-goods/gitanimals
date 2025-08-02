@@ -143,7 +143,7 @@ internal class NetxUserOrchestratorTest(
             }
         }
 
-        context("identityApi 서버의 유저 정보 업데이트 중에 에러가 발생하면") {
+        context("identityApi 서버의 유저 정보 업데이트 중에 IllegalArgumentException이 아닌 에러가 발생하면") {
             val beforeName = "xb"
             val (user, rank) = setUpTestDataWithUsername(beforeName)
             val afterName = "after-xb"
@@ -151,9 +151,9 @@ internal class NetxUserOrchestratorTest(
             it("모든 변경을 이전 이름으로 롤백한다") {
                 every {
                     identityApi.updateUserByAuthInfo(any(), any(), any())
-                } throws IllegalArgumentException("Some error")
+                } throws IllegalStateException("Some error")
 
-                shouldThrowExactly<IllegalArgumentException> {
+                shouldThrowExactly<IllegalStateException> {
                     animationFacade.getFarmAnimation(afterName)
                 }
 
@@ -161,6 +161,26 @@ internal class NetxUserOrchestratorTest(
                     userRepository.findByIdOrNull(user.id)?.getName() shouldBe beforeName
                     userContributionRankRepository.findByIdOrNull(rank.id)?.username shouldBe beforeName
                     guildRepository.findAllGuildByUsernameWithMembers(beforeName).count() shouldBe 2
+                }
+            }
+        }
+
+        context("identityApi 서버의 유저 정보 업데이트 중에 IllegalArgumentException 에러가 발생하면") {
+            val beforeName = "xb"
+            val (user, rank) = setUpTestDataWithUsername(beforeName)
+            val afterName = "after-xb"
+
+            it("무시한다") {
+                every {
+                    identityApi.updateUserByAuthInfo(any(), any(), any())
+                } throws IllegalArgumentException("Some error")
+
+                animationFacade.getFarmAnimation(afterName)
+
+                eventually(5.seconds) {
+                    userRepository.findByIdOrNull(user.id)?.getName() shouldBe afterName
+                    userContributionRankRepository.findByIdOrNull(rank.id)?.username shouldBe afterName
+                    guildRepository.findAllGuildByUsernameWithMembers(afterName).count() shouldBe 2
                 }
             }
         }
