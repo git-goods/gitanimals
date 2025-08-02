@@ -1,10 +1,8 @@
-package org.gitanimals.rank.infra
+package org.gitanimals.rank.infra.listener
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.gitanimals.core.redis.TraceableMessageListener
-import org.gitanimals.rank.app.IdentityApi
-import org.gitanimals.rank.domain.UserContributionRank
-import org.gitanimals.rank.domain.UserContributionRankService
+import org.gitanimals.rank.app.UpdateUserContributionFacade
 import org.gitanimals.rank.infra.event.UserContributionUpdated
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
@@ -14,10 +12,9 @@ import org.springframework.stereotype.Component
 
 @Component
 class UpdateUserContributionMessageListener(
-    private val identityApi: IdentityApi,
     private val objectMapper: ObjectMapper,
-    private val userContributionRankService: UserContributionRankService,
     @Qualifier("gitanimalsRedisTemplate") private val redisTemplate: StringRedisTemplate,
+    private val updateUserContributionFacade: UpdateUserContributionFacade,
 ) : TraceableMessageListener(
     listenerName = "UpdateUserContributionMessageListener",
     objectMapper = objectMapper,
@@ -33,18 +30,11 @@ class UpdateUserContributionMessageListener(
                 UserContributionUpdated::class.java,
             )
 
-            val updatedUserContributionRank = runCatching {
-                val user = identityApi.getUserByName(userContributionUpdated.username)
+            if (userContributionUpdated.updatedContributions == 0L) {
+                return
+            }
 
-                UserContributionRank.create(
-                    image = user.profileImage,
-                    userId = user.id.toLong(),
-                    username = user.username,
-                    weeklyContributions = userContributionUpdated.updatedContributions,
-                )
-            }.getOrElse { return }
-
-            userContributionRankService.updateContribution(updatedUserContributionRank)
+            updateUserContributionFacade.updateUserWeeklyContributions(userContributionUpdated.username)
         }.onFailure {
             logger.error("Cannot update user contributions rank by message: $message", it)
             throw it

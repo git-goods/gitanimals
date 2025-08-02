@@ -1,0 +1,9 @@
+query {
+    user(login: "*{name}") {
+        contributionsCollection(from: "*{yyyy-mm-dd-start}T00:00:00Z", to: "*{yyyy-mm-dd-end}T23:59:59Z") {
+            contributionCalendar {
+                totalContributions
+            }
+        }
+    }
+}

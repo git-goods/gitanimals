@@ -1,4 +1,4 @@
-package org.gitanimals.rank.infra
+package org.gitanimals.rank.infra.listener
 
 import org.gitanimals.core.redis.RedisPubSubChannel
 import org.springframework.context.annotation.Bean

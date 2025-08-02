@@ -19,7 +19,7 @@ class UserContributionRankService(
     fun updateContribution(updateUserContributionRank: UserContributionRank) {
         val userRank = runCatching {
             userContributionRankRepository.findByUserId(updateUserContributionRank.userId)?.also {
-                it.weeklyContributions += updateUserContributionRank.weeklyContributions
+                it.weeklyContributions = updateUserContributionRank.weeklyContributions
             }
                 ?: throw IllegalArgumentException("Cannot find UserContributionRank by userId: \"${updateUserContributionRank.userId}\"")
         }.getOrElse {
