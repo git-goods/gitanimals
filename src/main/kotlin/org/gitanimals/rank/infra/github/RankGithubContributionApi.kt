@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
 import java.nio.charset.Charset
 import java.time.LocalDate
-import java.util.concurrent.Executors
 
 @Component
 class RankGithubContributionApi(
@@ -16,9 +15,12 @@ class RankGithubContributionApi(
 ) : RankContributionApi {
 
     private val restClient = RestClient.create("https://api.github.com/graphql")
-    private val executors = Executors.newFixedThreadPool(50)
 
-    override fun getContributionsBySpecificDays(username: String, from: LocalDate, to: LocalDate): Int {
+    override fun getContributionsBySpecificDays(
+        username: String,
+        from: LocalDate,
+        to: LocalDate
+    ): Int {
         val fromString = from.toString()
         val toString = from.toString()
 
