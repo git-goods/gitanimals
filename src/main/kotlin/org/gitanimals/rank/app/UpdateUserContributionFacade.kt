@@ -18,7 +18,15 @@ class UpdateUserContributionFacade(
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     fun updateUserWeeklyContributions(username: String) {
-        val user = identityApi.getUserByName(username)
+        val user = runCatching {
+            identityApi.getUserByName(username)
+        }.getOrElse {
+            if (it is IllegalArgumentException) {
+                logger.info("[UpdateUserContributionFacade] ignore updateUserWeeklyContributions cause its not identity user. username: $username")
+                return
+            }
+            throw it
+        }
 
         val from = LocalDate.now().with(WeekFields.of(Locale.getDefault()).dayOfWeek(), 1)
         val to = LocalDate.now().with(WeekFields.of(Locale.getDefault()).dayOfWeek(), 7)
@@ -28,6 +36,7 @@ class UpdateUserContributionFacade(
             from = from,
             to = to,
         )
+        logger.info("[UpdateUserContributionFacade] weeklyContributions: $weeklyContributions")
 
         val updatedUserContributionRank = UserContributionRank.create(
             image = user.profileImage,
