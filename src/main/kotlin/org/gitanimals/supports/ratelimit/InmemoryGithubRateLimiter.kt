@@ -28,7 +28,7 @@ class InmemoryGithubRateLimiter(
             rateLimit.getRemainPercentage() >= 80.0 -> null // Do not limit
             rateLimit.getRemainPercentage() >= 50.0 -> semaphore50
             rateLimit.getRemainPercentage() >= 20.0 -> semaphore30
-            rateLimit.getRemainPercentage() >= 0.0 -> semaphoreForNewUser
+            rateLimit.getRemainPercentage() >= 0.0 -> semaphore20
             else -> {
                 logger.warn("[InmemoryGithubRateLimiter] Cannot find any semaphore rules.")
                 null
@@ -38,7 +38,7 @@ class InmemoryGithubRateLimiter(
 
     private val semaphore50 = Semaphore(50)
     private val semaphore30 = Semaphore(30)
-    private val semaphoreForNewUser = Semaphore(1) // Limit new request for new user
+    private val semaphore20 = Semaphore(20)
     private val lock = Any()
 
     private val githubTokenChannel = "C099RAJA1ML"
