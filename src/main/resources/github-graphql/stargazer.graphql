@@ -1,4 +1,11 @@
 query {
+    rateLimit {
+        limit
+        cost
+        remaining
+        resetAt
+        used
+    }
     repository(owner: "git-goods", name: "gitanimals") {
         stargazers(first: 100, after: "*{endCursor}") {
             edges {

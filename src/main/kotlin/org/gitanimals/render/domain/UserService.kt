@@ -45,8 +45,8 @@ class UserService(
         return increasedContributionCount
     }
 
-    fun isContributionUpdatedBeforeOneHour(name: String): Boolean =
-        getUserByName(name).isContributionUpdatedBeforeOneHour()
+    fun isContributionUpdatedLongAgo(name: String): Boolean =
+        getUserByName(name).isContributionUpdatedLongAgo()
 
     fun getUserByName(name: String): User = userRepository.findByName(name)
         ?: throw IllegalArgumentException("Cannot find exists user by name \"$name\"")

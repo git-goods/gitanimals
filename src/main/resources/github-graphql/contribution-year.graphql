@@ -1,4 +1,11 @@
 query {
+    rateLimit {
+        limit
+        cost
+        remaining
+        resetAt
+        used
+    }
     user(login: "*{name}") {
         contributionsCollection {
             contributionYears

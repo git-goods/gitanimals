@@ -29,7 +29,7 @@ class SlackAppender : AppenderBase<ILoggingEvent>() {
             val request: ChatPostMessageRequest = ChatPostMessageRequest.builder()
                 .channel(channel)
                 .text(eventObject.formattedMessage)
-                .build();
+                .build()
             slack.chatPostMessage(request)
         }
     }

@@ -145,13 +145,13 @@ class User(
     }
 
     @JsonIgnore
-    fun isContributionUpdatedBeforeOneHour(): Boolean {
+    fun isContributionUpdatedLongAgo(): Boolean {
         val currentYear = instant().toZonedDateTime(ZoneId.of("UTC")).year
         val currentYearContribution =
             contributions.firstOrNull { it.year == currentYear } ?: return true
 
         return currentYearContribution.lastUpdatedContribution.isBefore(
-            Instant.now().minus(1, ChronoUnit.HOURS)
+            Instant.now().minus(10, ChronoUnit.MINUTES)
         )
     }
 

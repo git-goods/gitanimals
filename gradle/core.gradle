@@ -3,4 +3,5 @@ dependencies {
     implementation "com.github.ben-manes.caffeine:caffeine:${caffeineCacheVersion}"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonVersion}"
     implementation "org.redisson:redisson-spring-boot-starter:${redissonVersion}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:${slf4jKotlinxVersion}"
 }

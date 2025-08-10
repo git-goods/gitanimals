@@ -1,6 +1,8 @@
 package org.gitanimals.star.infra
 
 import com.fasterxml.jackson.annotation.JsonCreator
+import org.gitanimals.core.ratelimit.RateLimitable
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Profile
 import org.springframework.core.io.ClassPathResource
@@ -8,11 +10,13 @@ import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
 import java.nio.charset.Charset
+import java.time.LocalDateTime
 
 @Component
 @Profile("!test")
 class GithubStargazerApi(
     @Value("\${github.token}") private val token: String,
+    @Qualifier("inmemoryGithubRateLimiter") private val rateLimiter: RateLimitable,
 ) {
 
     private val restClient = RestClient.create("https://api.github.com/graphql")
@@ -28,8 +32,8 @@ class GithubStargazerApi(
         return stargazers
     }
 
-    private fun getStargazer(endCursor: String): StargazersResponse {
-        return restClient.post()
+    private fun getStargazer(endCursor: String): StargazersResponse = rateLimiter.acquire {
+        return@acquire restClient.post()
             .header(HttpHeaders.AUTHORIZATION, "Bearer $token")
             .body(
                 mapOf(
@@ -38,10 +42,19 @@ class GithubStargazerApi(
             ).exchange { _, response ->
                 assertIsSuccess(response)
 
-                response.bodyTo(GithubStargazerGraphqlResponse::class.java)!!
+                val data = response.bodyTo(GithubStargazerGraphqlResponse::class.java)!!
                     .data
-                    .repository
-                    .stargazers
+
+                rateLimiter.update(
+                    RateLimitable.RateLimit(
+                        limit = data.rateLimit.limit,
+                        remaining = data.rateLimit.remaining,
+                        resetAt = data.rateLimit.resetAt,
+                        used = data.rateLimit.used,
+                    )
+                )
+
+                return@exchange data.repository.stargazers
             }
     }
 
@@ -66,6 +79,7 @@ data class GithubStargazerGraphqlResponse @JsonCreator constructor(
     val data: Data,
 ) {
     data class Data @JsonCreator constructor(
+        val rateLimit: RateLimit,
         val repository: Repository,
     ) {
         data class Repository @JsonCreator constructor(
@@ -93,3 +107,11 @@ data class StargazersResponse @JsonCreator constructor(
         val hasNextPage: Boolean,
     )
 }
+
+data class RateLimit(
+    val limit: Int,
+    val cost: Int,
+    val remaining: Int,
+    val resetAt: LocalDateTime,
+    val used: Int,
+)

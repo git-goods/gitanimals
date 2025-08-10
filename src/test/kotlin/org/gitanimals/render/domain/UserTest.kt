@@ -74,14 +74,14 @@ internal class UserTest(
             )
 
             it("true를 반환한다.") {
-                user.isContributionUpdatedBeforeOneHour() shouldBeEqual true
+                user.isContributionUpdatedLongAgo() shouldBeEqual true
             }
         }
 
         context("user의 현재년도에 해당하는 contribution을 찾을 수 없는 경우,") {
             val user = user()
             it("true를 반환한다.") {
-                user.isContributionUpdatedBeforeOneHour() shouldBeEqual true
+                user.isContributionUpdatedLongAgo() shouldBeEqual true
             }
         }
 
@@ -96,7 +96,7 @@ internal class UserTest(
                 )
             )
             it("false를 반환한다.") {
-                user.isContributionUpdatedBeforeOneHour() shouldBeEqual false
+                user.isContributionUpdatedLongAgo() shouldBeEqual false
             }
         }
     }

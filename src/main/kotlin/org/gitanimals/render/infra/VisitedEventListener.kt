@@ -11,6 +11,7 @@ import org.rooftop.netx.meta.SagaHandler
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
 import org.springframework.context.event.EventListener
+import org.springframework.dao.CannotAcquireLockException
 import org.springframework.scheduling.annotation.Async
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -32,9 +33,9 @@ class VisitedEventListener(
             val username = visited.username
             userService.increaseVisit(username)
 
-            logger.info("Increase visit to user. username: \"$username\"")
+            logger.info("[VisitedEventListener] Increase visit to user. username: \"$username\"")
 
-            if (!userService.isContributionUpdatedBeforeOneHour(username)) {
+            if (userService.isContributionUpdatedLongAgo(username).not()) {
                 return
             }
 
@@ -49,12 +50,15 @@ class VisitedEventListener(
                 point = increaseContributionCount * 100,
                 idempotencyKey = IdGenerator.generate().toString(),
             )
-            logger.info("Increase point to user. username: \"$username\", point:\"${increaseContributionCount * 100}\"")
+            logger.info("[VisitedEventListener] Increase point to user. username: \"$username\", point:\"${increaseContributionCount * 100}\"")
         }.onFailure {
             if (it !is IllegalArgumentException) {
                 logger.error(
-                    "Cannot increase visit or point to user. username: \"${visited.username}\"", it
+                    "[VisitedEventListener] Cannot increase visit or point to user. username: \"${visited.username}\"", it
                 )
+            }
+            if (it !is CannotAcquireLockException) {
+                logger.warn("[VisitedEventListener] Deadlock found.", it)
             }
         }.also {
             MDC.remove(TRACE_ID)
