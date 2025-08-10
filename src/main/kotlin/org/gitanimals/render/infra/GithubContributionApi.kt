@@ -1,6 +1,7 @@
 package org.gitanimals.render.infra
 
 import org.gitanimals.render.app.ContributionApi
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ClassPathResource
 import org.springframework.http.HttpHeaders
@@ -18,8 +19,15 @@ class GithubContributionApi(
     private val restClient = RestClient.create("https://api.github.com/graphql")
     private val executors = Executors.newFixedThreadPool(50)
 
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
+
     override fun getContributionCount(username: String, years: List<Int>): Map<Int, Int> {
-        val contributionCountResponses = callGetContributionCountApis(years, username)
+        val contributionCountResponses = runCatching {
+            callGetContributionCountApis(years, username)
+        }.getOrElse {
+            logger.warn("[GithubContributionApi] Fail to retrieve user info from github. cause: ${it.message}", it)
+            throw it
+        }
 
         val ans = mutableMapOf<Int, Int>()
         years.withIndex().forEach {
