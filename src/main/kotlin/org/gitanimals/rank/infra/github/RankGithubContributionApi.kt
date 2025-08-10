@@ -1,6 +1,8 @@
 package org.gitanimals.rank.infra.github
 
+import org.gitanimals.core.ratelimit.RateLimitable
 import org.gitanimals.rank.app.RankContributionApi
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ClassPathResource
 import org.springframework.http.HttpHeaders
@@ -8,10 +10,12 @@ import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
 import java.nio.charset.Charset
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 @Component
 class RankGithubContributionApi(
-    @Value("\${github.token}") private val token: String
+    @Value("\${github.token}") private val token: String,
+    @Qualifier("inmemoryGithubRateLimiter") private val rateLimiter: RateLimitable,
 ) : RankContributionApi {
 
     private val restClient = RestClient.create("https://api.github.com/graphql")
@@ -20,11 +24,11 @@ class RankGithubContributionApi(
         username: String,
         from: LocalDate,
         to: LocalDate
-    ): Int {
+    ): Int = rateLimiter.acquire {
         val fromString = from.toString()
         val toString = from.toString()
 
-        return restClient.post()
+        return@acquire restClient.post()
             .header(HttpHeaders.AUTHORIZATION, "Bearer $token")
             .body(
                 mapOf(
@@ -36,9 +40,19 @@ class RankGithubContributionApi(
             ).exchange { _, response ->
                 assertIsSuccess(response)
 
-                response.bodyTo(ContributionCountByYearAndWeekQueryResponse::class.java)!!
-                    .data
-                    .user
+                val data =
+                    response.bodyTo(ContributionCountByYearAndWeekQueryResponse::class.java)!!.data
+
+                rateLimiter.update(
+                    RateLimitable.RateLimit(
+                        limit = data.rateLimit.limit,
+                        remaining = data.rateLimit.remaining,
+                        resetAt = data.rateLimit.resetAt,
+                        used = data.rateLimit.used,
+                    )
+                )
+
+                return@exchange data.user
                     .contributionsCollection
                     .contributionCalendar
                     .totalContributions
@@ -56,7 +70,10 @@ class RankGithubContributionApi(
     }
 
     private data class ContributionCountByYearAndWeekQueryResponse(val data: Data) {
-        class Data(val user: User) {
+        class Data(
+            val rateLimit: RateLimit,
+            val user: User,
+        ) {
             class User(val contributionsCollection: ContributionsCollection) {
                 class ContributionsCollection(
                     val contributionCalendar: ContributionCalendar,
@@ -69,6 +86,14 @@ class RankGithubContributionApi(
 
         }
     }
+
+    class RateLimit(
+        val limit: Int,
+        val cost: Int,
+        val remaining: Int,
+        val resetAt: LocalDateTime,
+        val used: Int,
+    )
 
     companion object {
         private const val NAME_FIX = "*{name}"
