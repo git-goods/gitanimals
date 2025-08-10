@@ -35,7 +35,7 @@ class VisitedEventListener(
 
             logger.info("[VisitedEventListener] Increase visit to user. username: \"$username\"")
 
-            if (!userService.isContributionUpdatedBeforeOneHour(username)) {
+            if (userService.isContributionUpdatedLongAgo(username).not()) {
                 return
             }
 
