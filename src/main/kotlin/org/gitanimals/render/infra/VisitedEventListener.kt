@@ -52,13 +52,13 @@ class VisitedEventListener(
             )
             logger.info("[VisitedEventListener] Increase point to user. username: \"$username\", point:\"${increaseContributionCount * 100}\"")
         }.onFailure {
+            if (it is CannotAcquireLockException) {
+                logger.warn("[VisitedEventListener] Deadlock found.", it)
+            }
             if (it !is IllegalArgumentException) {
                 logger.error(
                     "[VisitedEventListener] Cannot increase visit or point to user. username: \"${visited.username}\"", it
                 )
-            }
-            if (it !is CannotAcquireLockException) {
-                logger.warn("[VisitedEventListener] Deadlock found.", it)
             }
         }.also {
             MDC.remove(TRACE_ID)
