@@ -8,6 +8,8 @@ interface RateLimitable {
 
     fun <T> acquire(limitPercent: Double = 0.0, action: suspend (RateLimit?) -> T): T
 
+    fun findRateLimit(): RateLimit?
+
     fun update(rateLimit: RateLimit)
 
     data class RateLimit(

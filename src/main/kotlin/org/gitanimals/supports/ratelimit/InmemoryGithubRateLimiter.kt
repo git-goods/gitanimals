@@ -70,21 +70,23 @@ class InmemoryGithubRateLimiter(
         }
     }
 
-    override fun update(rateLimitable: RateLimitable.RateLimit) {
+    override fun findRateLimit(): RateLimitable.RateLimit? = rateLimit
+
+    override fun update(rateLimit: RateLimitable.RateLimit) {
         synchronized(lock) {
             this.rateLimit?.let {
-                if (it.requestedAt <= rateLimitable.requestedAt) {
-                    this.rateLimit = rateLimitable
+                if (it.requestedAt <= rateLimit.requestedAt) {
+                    this.rateLimit = rateLimit
                 }
             } ?: run {
-                this.rateLimit = rateLimitable
+                this.rateLimit = rateLimit
             }
-            if (rateLimitable.getRemainPercentage() < 20.0) {
+            if (rateLimit.getRemainPercentage() < 20.0) {
                 val message = """
                     :warning: Warning! 
                     Remaining token quota is below 20%.
                     ---
-                    $rateLimitable
+                    $rateLimit
                 """.trimIndent()
 
                 slackSender.send(githubTokenChannel, message)

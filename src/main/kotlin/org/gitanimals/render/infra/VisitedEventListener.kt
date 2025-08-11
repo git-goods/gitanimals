@@ -2,6 +2,7 @@ package org.gitanimals.render.infra
 
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
+import org.gitanimals.core.ratelimit.RateLimitable
 import org.gitanimals.render.app.ContributionApi
 import org.gitanimals.render.app.IdentityApi
 import org.gitanimals.render.domain.UserService
@@ -10,6 +11,7 @@ import org.rooftop.netx.api.*
 import org.rooftop.netx.meta.SagaHandler
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.event.EventListener
 import org.springframework.dao.CannotAcquireLockException
 import org.springframework.scheduling.annotation.Async
@@ -21,6 +23,7 @@ class VisitedEventListener(
     private val userService: UserService,
     private val contributionApi: ContributionApi,
     private val identityApi: IdentityApi,
+    @Qualifier("inmemoryGithubRateLimiter") private val rateLimiter: RateLimitable,
 ) {
 
     private val logger = LoggerFactory.getLogger(this::class.simpleName)
@@ -35,8 +38,10 @@ class VisitedEventListener(
 
             logger.info("[VisitedEventListener] Increase visit to user. username: \"$username\"")
 
-            if (userService.isContributionUpdatedLongAgo(username).not()) {
-                return
+            rateLimiter.findRateLimit()?.let { rateLimit ->
+                if (rateLimit.getRemainPercentage() <= 50.0 && userService.isContributionUpdatedLongAgo(username).not()) {
+                    return
+                }
             }
 
             val currentYear = ZonedDateTime.now(ZoneId.of("UTC")).year
