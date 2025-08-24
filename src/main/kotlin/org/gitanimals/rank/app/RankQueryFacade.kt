@@ -27,7 +27,7 @@ class RankQueryFacade(
     ): List<RankResponse> {
         require(size > 1) { "Size must be lager than 1. size: $size" }
         require(size <= 20) { "Maximum request size is 20. size: $size" }
-        require(rank > 0) { "Rank must be larger than 0. rank: $rank" }
+        require(rank >= 0) { "Rank must be larger than 0. rank: $rank" }
 
         val rankWithIds = rankQueryRepository.findAllRank(
             rankStartedAt = rank,
@@ -38,7 +38,7 @@ class RankQueryFacade(
         return when (rankType) {
             WEEKLY_GUILD_CONTRIBUTIONS -> guildContributionRankService.findAllByRankIds(rankWithIds)
             WEEKLY_USER_CONTRIBUTIONS -> userContributionRankService.findAllByRankIds(rankWithIds)
-        }.map { it.copy(contributions = max(0, it.contributions)) }
+        }.map { it.copy(rank = it.rank + 1, contributions = max(0, it.contributions)) }
     }
 
     @Cacheable(cacheNames = ["rankTotalCountCacheManager"], key = "#rankType")
