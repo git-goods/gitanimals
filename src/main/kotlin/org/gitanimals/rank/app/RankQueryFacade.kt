@@ -30,7 +30,7 @@ class RankQueryFacade(
         require(rank >= 0) { "Rank must be larger than 0. rank: $rank" }
 
         val rankWithIds = rankQueryRepository.findAllRank(
-            rankStartedAt = rank,
+            rankStartedAt = rank - 1,
             limit = rank + size - 1,
             rankType = rankType
         ).associate { it.rank to it.id }
