@@ -5,7 +5,6 @@ import org.gitanimals.core.UpdateUserOrchestrator
 import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.core.lock.DistributedLock
-import org.gitanimals.core.lock.LOCK_KEY_PREFIX
 import org.gitanimals.core.lock.LOCK_KEY_PREFIX.CREATE_NEW_USER
 import org.gitanimals.render.domain.EntryPoint
 import org.gitanimals.render.domain.User
@@ -34,9 +33,7 @@ class AnimationFacade(
     fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
             true -> {
-                DistributedLock.withLock(key = "${LOCK_KEY_PREFIX.SET_AUTH}:$username") {
-                    setUserAuthInfoIfNotSet(username)
-                }
+                setUserAuthInfoIfNotSet(username)
 
                 val svgAnimation = userService.getFarmAnimationByUsername(username)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
@@ -53,9 +50,7 @@ class AnimationFacade(
     fun getLineAnimation(username: String, personaId: Long, mode: Mode): String {
         return when (userService.existsByName(username)) {
             true -> {
-                DistributedLock.withLock(key = "${LOCK_KEY_PREFIX.SET_AUTH}:$username") {
-                    setUserAuthInfoIfNotSet(username)
-                }
+                setUserAuthInfoIfNotSet(username)
 
                 val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))

@@ -23,8 +23,8 @@ object DistributedLock {
             key = key,
             leaseMillis = leaseMillis,
             waitMillis = waitMillis,
-            action = action,
             whenAcquireFail = whenAcquireFailed,
+            action = action,
         )
     }
 
