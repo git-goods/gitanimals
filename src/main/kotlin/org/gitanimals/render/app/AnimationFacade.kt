@@ -5,8 +5,8 @@ import org.gitanimals.core.UpdateUserOrchestrator
 import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.core.lock.DistributedLock
+import org.gitanimals.core.lock.LOCK_KEY_PREFIX
 import org.gitanimals.core.lock.LOCK_KEY_PREFIX.CREATE_NEW_USER
-import org.gitanimals.core.lock.LOCK_KEY_PREFIX.SET_AUTH
 import org.gitanimals.render.domain.EntryPoint
 import org.gitanimals.render.domain.User
 import org.gitanimals.render.domain.UserService
@@ -34,7 +34,9 @@ class AnimationFacade(
     fun getFarmAnimation(username: String): String {
         return when (userService.existsByName(username)) {
             true -> {
-                setUserAuthInfoIfNotSet(username)
+                DistributedLock.withLock(key = "${LOCK_KEY_PREFIX.SET_AUTH}:$username") {
+                    setUserAuthInfoIfNotSet(username)
+                }
 
                 val svgAnimation = userService.getFarmAnimationByUsername(username)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
@@ -51,7 +53,9 @@ class AnimationFacade(
     fun getLineAnimation(username: String, personaId: Long, mode: Mode): String {
         return when (userService.existsByName(username)) {
             true -> {
-                setUserAuthInfoIfNotSet(username)
+                DistributedLock.withLock(key = "${LOCK_KEY_PREFIX.SET_AUTH}:$username") {
+                    setUserAuthInfoIfNotSet(username)
+                }
 
                 val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
@@ -89,7 +93,10 @@ class AnimationFacade(
     }
 
     private fun createNewUser(username: String): User {
-        return DistributedLock.withLock(key = "$CREATE_NEW_USER:$username") {
+        return DistributedLock.withLock(
+            key = "$CREATE_NEW_USER:$username",
+            whenAcquireFailed = { userService.getUserByName(username) }
+        ) {
             runCatching {
                 val contributionYears = contributionApi.getAllContributionYears(username)
                 val contributionCountPerYear =
@@ -110,21 +117,19 @@ class AnimationFacade(
     }
 
     private fun setUserAuthInfoIfNotSet(username: String) {
-        DistributedLock.withLock(key = "$SET_AUTH:$username") {
-            runCatching {
-                val user = userService.getUserByName(username)
+        runCatching {
+            val user = userService.getUserByName(username)
 
-                if (user.isAuthInfoSet().not()) {
-                    val githubUserAuthInfo = githubRestApi.getGithubUser(user.getName())
-                    userService.setAuthInfo(
-                        name = user.getName(),
-                        entryPoint = EntryPoint.GITHUB,
-                        authenticationId = githubUserAuthInfo.id,
-                    )
-                }
-            }.onFailure {
-                logger.info("Fail to update userAuthInfo cause: ${it.message}", it)
+            if (user.isAuthInfoSet().not()) {
+                val githubUserAuthInfo = githubRestApi.getGithubUser(user.getName())
+                userService.setAuthInfo(
+                    name = user.getName(),
+                    entryPoint = EntryPoint.GITHUB,
+                    authenticationId = githubUserAuthInfo.id,
+                )
             }
+        }.onFailure {
+            logger.info("Fail to update userAuthInfo cause: ${it.message}", it)
         }
     }
 }
