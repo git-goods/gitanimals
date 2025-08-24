@@ -18,7 +18,8 @@ class RedisDistributedLockService(
         key: String,
         leaseMillis: Long,
         waitMillis: Long,
-        action: () -> T
+        whenAcquireFail : () -> T,
+        action: () -> T,
     ): T {
         val lock = redissonClient.getLock(key)
         val acquired = lock.tryLock(waitMillis, leaseMillis, TimeUnit.MILLISECONDS)
@@ -26,13 +27,13 @@ class RedisDistributedLockService(
         return if (acquired) {
             runCatching {
                 action.invoke()
-            }.getOrElse {
-                throw it
             }.also {
                 lock.unlock()
+            }.getOrElse {
+                throw it
             }
         } else {
-            throw LockAcquireFailException(message = "Cannot acquire lock")
+            whenAcquireFail()
         }
     }
 }

@@ -16,6 +16,7 @@ object DistributedLock {
         key: String,
         leaseMillis: Long = 10.seconds.inWholeMilliseconds,
         waitMillis: Long = 3.seconds.inWholeMilliseconds,
+        whenAcquireFailed : () -> T = throw LockAcquireFailException(message = "Cannot acquire lock"),
         action: () -> T,
     ): T {
         return lockService.withLock(
@@ -23,6 +24,7 @@ object DistributedLock {
             leaseMillis = leaseMillis,
             waitMillis = waitMillis,
             action = action,
+            whenAcquireFail = whenAcquireFailed,
         )
     }
 
@@ -32,6 +34,7 @@ object DistributedLock {
             key: String,
             leaseMillis: Long = 10.seconds.inWholeMilliseconds,
             waitMillis: Long = 3.seconds.inWholeMilliseconds,
+            whenAcquireFail : () -> T = throw LockAcquireFailException(message = "Cannot acquire lock"),
             action: () -> T,
         ): T
     }
