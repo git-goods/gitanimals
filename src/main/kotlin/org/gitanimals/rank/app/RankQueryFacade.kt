@@ -25,13 +25,14 @@ class RankQueryFacade(
         size: Int,
         rankType: RankQueryRepository.RankType,
     ): List<RankResponse> {
+        val calibratedRank = rank - 1
         require(size > 1) { "Size must be lager than 1. size: $size" }
         require(size <= 20) { "Maximum request size is 20. size: $size" }
-        require(rank >= 0) { "Rank must be larger than 0. rank: $rank" }
+        require(calibratedRank >= 0) { "Rank must be larger than 0. rank: $rank" }
 
         val rankWithIds = rankQueryRepository.findAllRank(
-            rankStartedAt = rank - 1,
-            limit = rank + size - 1,
+            rankStartedAt = calibratedRank,
+            limit = calibratedRank + size - 1,
             rankType = rankType
         ).associate { it.rank to it.id }
 
