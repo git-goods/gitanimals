@@ -5,6 +5,7 @@ import org.gitanimals.core.TraceIdContextRollback
 import org.gitanimals.core.UpdateUserOrchestrator
 import org.gitanimals.core.filter.MDCFilter.Companion.TRACE_ID
 import org.gitanimals.core.lock.DistributedLock
+import org.gitanimals.core.lock.LockAcquireFailException
 import org.gitanimals.guild.domain.GuildService
 import org.gitanimals.rank.domain.UserContributionRankService
 import org.gitanimals.render.domain.UserService
@@ -98,7 +99,10 @@ class NetxUserOrchestrator(
         DistributedLock.withLock(
             key = "UPDATE_USER_NAME:${request.id}",
             leaseMillis = timeoutMillis + 5.seconds.inWholeMilliseconds,
-            waitMillis = 0,
+            waitMillis = 4.seconds.inWholeMilliseconds,
+            whenAcquireFailed = {
+                throw LockAcquireFailException("Cannot update username cause. lock acquire fail by key \"UPDATE_USER_NAME:${request.id}\"")
+            },
         ) {
             val result = orchestrator.sagaSync(
                 request = request,
