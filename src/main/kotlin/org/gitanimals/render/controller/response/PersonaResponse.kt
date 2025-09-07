@@ -1,5 +1,6 @@
 package org.gitanimals.render.controller.response
 
+import org.gitanimals.core.PersonaGrade
 import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.response.PersonaResponse
 
@@ -10,6 +11,7 @@ data class PersonaResponse(
     val visible: Boolean,
     val appVisible: Boolean,
     val dropRate: String,
+    val grade: PersonaGrade,
 ) {
 
     companion object {
@@ -21,6 +23,7 @@ data class PersonaResponse(
                 visible = personaResponse.visible,
                 appVisible = personaResponse.appVisible,
                 dropRate = personaResponse.dropRate,
+                grade = personaResponse.grade,
             )
         }
     }

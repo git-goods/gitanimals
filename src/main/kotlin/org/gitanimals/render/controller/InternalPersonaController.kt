@@ -47,6 +47,7 @@ class InternalPersonaController(
             visible = persona.visible,
             appVisible = persona.appVisible,
             dropRate = persona.dropRate,
+            grade = persona.grade,
         )
     }
 
@@ -72,6 +73,7 @@ class InternalPersonaController(
                 visible = persona.visible,
                 appVisible = persona.appVisible,
                 dropRate = persona.dropRate,
+                grade = persona.grade,
             )
         }
     }
@@ -91,6 +93,7 @@ class InternalPersonaController(
             visible = persona.visible,
             appVisible = persona.appVisible,
             dropRate = persona.dropRate,
+            grade = persona.grade,
         )
     }
 

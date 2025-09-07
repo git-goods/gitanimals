@@ -6,7 +6,11 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-enum class PersonaType(val weight: Double, private var dropRate: String? = null) {
+enum class PersonaType(
+    val weight: Double,
+    val grade: PersonaGrade = PersonaGrade.DEFAULT,
+    private var dropRate: String? = null,
+) {
     GOOSE(1.0) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val goose = gooseSvg.replace("*{act}", act(animationId))
@@ -916,7 +920,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
-    PIG_COLLABORATOR(0.0) {
+    PIG_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1282,7 +1286,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
-    CHEESE_CAT_COLLABORATOR(0.0) {
+    CHEESE_CAT_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return cheeseCatCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1345,7 +1349,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
-    WHITE_CAT_COLLABORATOR(0.00) {
+    WHITE_CAT_COLLABORATOR(0.00, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return whiteCatCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1546,7 +1550,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
-    RABBIT_COLLABORATOR(0.0) {
+    RABBIT_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1607,7 +1611,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("dessert-fox", id, 40, "180s", 5, 26.0)
                 .toString()
     },
-    DESSERT_FOX_COLLABORATOR(0.0) {
+    DESSERT_FOX_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return dessertFoxCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1767,7 +1771,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             .moveRandomly("ghost", id, 20, "180s", 7, 26.0)
             .toString()
     },
-    GHOST_COLLABORATOR(0.0) {
+    GHOST_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return ghostCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -2067,7 +2071,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
             StringBuilder().moveRandomly("maltese", id, 40, "180s", 5, 12.0)
                 .toString()
     },
-    HAMSTER_COLLABORATOR(0.0) {
+    HAMSTER_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return hamsterCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -2108,7 +2112,7 @@ enum class PersonaType(val weight: Double, private var dropRate: String? = null)
                 .toString()
     },
 
-    MALTESE_COLLABORATOR(0.0) {
+    MALTESE_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return malteseCollaboratorSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
