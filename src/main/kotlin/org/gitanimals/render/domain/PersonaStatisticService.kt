@@ -25,16 +25,16 @@ class PersonaStatisticService(
             }
 
         personas.content.forEach {
-            newPetDropRateDistributionMap.getOrPut(it.type.weight) { 0 }
-            newPetDropRateDistributionMap[it.type.weight] = (newPetDropRateDistributionMap[it.type.weight] ?: 0) + 1
+            newPetDropRateDistributionMap.getOrPut(it.getType().weight) { 0 }
+            newPetDropRateDistributionMap[it.getType().weight] = (newPetDropRateDistributionMap[it.getType().weight] ?: 0) + 1
         }
 
         while (personas.hasNext()) {
             pageable = pageable.next()
             personas = personaStatisticRepository.findAllPersonaByCreatedAtAfter(createdAt, pageable)
             personas.content.forEach {
-                newPetDropRateDistributionMap.getOrPut(it.type.weight) { 0 }
-                newPetDropRateDistributionMap[it.type.weight] = (newPetDropRateDistributionMap[it.type.weight] ?: 0) + 1
+                newPetDropRateDistributionMap.getOrPut(it.getType().weight) { 0 }
+                newPetDropRateDistributionMap[it.getType().weight] = (newPetDropRateDistributionMap[it.getType().weight] ?: 0) + 1
             }
         }
 

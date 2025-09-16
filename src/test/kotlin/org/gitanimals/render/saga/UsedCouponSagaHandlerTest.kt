@@ -68,7 +68,7 @@ internal class UsedCouponSagaHandlerTest(
 
                     user.personas.shouldHaveSize(1)
                         .should {
-                            it.first().type shouldBeEqual PersonaType.GOOSE
+                            it.first().getType() shouldBeEqual PersonaType.GOOSE
                         }
                 }
             }

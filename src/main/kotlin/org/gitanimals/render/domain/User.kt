@@ -340,6 +340,15 @@ class User(
         .append("</svg>")
         .toString()
 
+    fun evolution(personaId: Long): Persona {
+        val persona = personas.firstOrNull {
+            it.id == personaId
+        } ?: throw IllegalArgumentException("Cannot evolution persona cause cannot find matched persona by id: \"$personaId\"")
+
+        persona.evolution()
+        return persona
+    }
+
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
         private const val MAX_INIT_PERSONA_COUNT = 10L

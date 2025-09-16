@@ -17,12 +17,12 @@ data class PersonaResponse(
         fun from(persona: Persona): PersonaResponse {
             return PersonaResponse(
                 id = persona.id.toString(),
-                type = persona.type,
+                type = persona.getType(),
                 level = persona.level.value.toString(),
                 visible = persona.visible,
                 appVisible = persona.appVisible,
-                dropRate = persona.type.getDropRate(),
-                grade = persona.type.grade,
+                dropRate = persona.getType().getDropRate(),
+                grade = persona.getType().grade,
             )
         }
     }

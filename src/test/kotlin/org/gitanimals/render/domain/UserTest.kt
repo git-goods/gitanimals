@@ -124,7 +124,7 @@ internal class UserTest(
             it("새로운 펫을 지급한다.") {
                 user.giveNewPersonaByType(persona)
 
-                user.personas.find { it.type == PersonaType.PENGUIN }.shouldNotBeNull()
+                user.personas.find { it.getType() == PersonaType.PENGUIN }.shouldNotBeNull()
             }
         }
     }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import org.gitanimals.core.IdGenerator
 import org.gitanimals.core.Mode
+import org.gitanimals.core.PersonaEvolution
 import org.gitanimals.core.PersonaType
 import org.gitanimals.render.domain.value.Level
 
@@ -16,7 +17,7 @@ class Persona(
 
     @Column(name = "type", nullable = false, columnDefinition = "TEXT")
     @Enumerated(EnumType.STRING)
-    val type: PersonaType,
+    private var type: PersonaType,
 
     @Embedded
     val level: Level,
@@ -56,6 +57,7 @@ class Persona(
         user = user
     )
 
+    fun getType() = this.type
 
     fun toSvgForce(mode: Mode): String = type.load(
         name = user!!.getName(),
@@ -80,4 +82,14 @@ class Persona(
     }
 
     fun level(): Long = level.value
+
+    fun evolution() {
+        require (type.personaEvolution != PersonaEvolution.nothing) {
+            "Evolution fail cause, not support evolution type :${type.name}"
+        }
+
+        val evolutionedPersonaType = this.type.randomEvolution()
+        this.type = evolutionedPersonaType
+        this.level.value = 0
+    }
 }
