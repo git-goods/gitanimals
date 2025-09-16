@@ -42,6 +42,7 @@ class PersonaController(
             visible = persona.visible,
             appVisible = persona.appVisible,
             dropRate = persona.dropRate,
+            grade = persona.grade,
         )
     }
 
@@ -61,6 +62,7 @@ class PersonaController(
             visible = changedPersona.visible,
             appVisible = changedPersona.appVisible,
             dropRate = changedPersona.dropRate,
+            grade = changedPersona.grade,
         )
     }
 

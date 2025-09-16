@@ -23,6 +23,7 @@ data class UserResponse(
                         visible = it.visible,
                         appVisible = it.appVisible,
                         dropRate = it.type.getDropRate(),
+                        grade = it.type.grade,
                     )
                 }.toList()
             )
@@ -43,6 +44,7 @@ data class UserResponse(
                         visible = it.visible,
                         appVisible = it.appVisible,
                         dropRate = it.type.getDropRate(),
+                        grade = it.type.grade,
                     )
                 }.toList()
             )
@@ -63,6 +65,7 @@ data class UserResponse(
                             visible = it.visible,
                             appVisible = it.appVisible,
                             dropRate = it.type.getDropRate(),
+                            grade = it.type.grade,
                         )
                     }
                 )
