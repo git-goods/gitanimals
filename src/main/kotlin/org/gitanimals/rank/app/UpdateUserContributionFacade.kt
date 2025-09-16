@@ -36,7 +36,7 @@ class UpdateUserContributionFacade(
             from = from,
             to = to,
         )
-        logger.info("[UpdateUserContributionFacade] weeklyContributions: $weeklyContributions")
+        logger.info("[UpdateUserContributionFacade] from: $from, to: $to, weeklyContributions: $weeklyContributions")
 
         val updatedUserContributionRank = UserContributionRank.create(
             image = user.profileImage,
