@@ -340,11 +340,34 @@ class User(
         .append("</svg>")
         .toString()
 
+    fun evolution(personaId: Long): Persona {
+        val persona = personas.firstOrNull {
+            it.id == personaId
+        } ?: throw IllegalArgumentException("Cannot evolution persona cause cannot find matched persona by id: \"$personaId\"")
+
+        require(persona.level() >= EVOLUTION_REQUIRED_LEVEL) {
+            "Cannot evolution persona cause, ${persona.level()} is not enough level for evolution."
+        }
+
+        persona.evolution()
+        return persona
+    }
+
+    fun isEvolutionable(personaId: Long): Boolean {
+        val persona = personas.firstOrNull {
+            it.id == personaId
+        } ?: throw IllegalArgumentException("Cannot evolution persona cause cannot find matched persona by id: \"$personaId\"")
+
+        return persona.level() >= EVOLUTION_REQUIRED_LEVEL && persona.getType().personaEvolution != PersonaEvolution.nothing
+    }
+
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
         private const val MAX_INIT_PERSONA_COUNT = 10L
         private const val FOR_NEW_PERSONA_COUNT = 30L
         private const val FOR_INIT_PERSONA_COUNT = 100L
+
+        private const val EVOLUTION_REQUIRED_LEVEL = 100L
 
         private val nameConvention = Regex("[^a-zA-Z0-9-]")
 

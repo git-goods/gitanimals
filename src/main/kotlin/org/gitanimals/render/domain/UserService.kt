@@ -206,6 +206,23 @@ class UserService(
         user.updateName(username)
     }
 
+    @Transactional
+    fun evolutionPersona(name: String, personaId: Long): PersonaResponse {
+        val user = getUserByName(name)
+        val evolutionedPersona = user.evolution(personaId)
+
+        return PersonaResponse.from(persona = evolutionedPersona)
+    }
+
+    @Transactional(readOnly = true)
+    fun isEvoluationable(name: String, personaId: Long): Boolean {
+        val user = getUserByName(name)
+
+        return user.isEvolutionable(
+            personaId = personaId
+        )
+    }
+
     private fun getUserById(id: Long): User {
         return userRepository.findByIdOrNull(id)
             ?: throw IllegalArgumentException("Cannot find user by id : \"$id\"")

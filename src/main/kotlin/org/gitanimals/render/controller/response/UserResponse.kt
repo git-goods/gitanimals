@@ -18,12 +18,12 @@ data class UserResponse(
                 user.personas.map {
                     PersonaResponse(
                         id = it.id.toString(),
-                        type = it.type,
+                        type = it.getType(),
                         level = it.level().toString(),
                         visible = it.visible,
                         appVisible = it.appVisible,
-                        dropRate = it.type.getDropRate(),
-                        grade = it.type.grade,
+                        dropRate = it.getType().getDropRate(),
+                        grade = it.getType().grade,
                     )
                 }.toList()
             )
@@ -39,12 +39,12 @@ data class UserResponse(
                 }.map {
                     PersonaResponse(
                         id = it.id.toString(),
-                        type = it.type,
+                        type = it.getType(),
                         level = it.level().toString(),
                         visible = it.visible,
                         appVisible = it.appVisible,
-                        dropRate = it.type.getDropRate(),
-                        grade = it.type.grade,
+                        dropRate = it.getType().getDropRate(),
+                        grade = it.getType().grade,
                     )
                 }.toList()
             )
@@ -60,12 +60,12 @@ data class UserResponse(
                     .let {
                         PersonaResponse(
                             id = it.id.toString(),
-                            type = it.type,
+                            type = it.getType(),
                             level = it.level().toString(),
                             visible = it.visible,
                             appVisible = it.appVisible,
-                            dropRate = it.type.getDropRate(),
-                            grade = it.type.grade,
+                            dropRate = it.getType().getDropRate(),
+                            grade = it.getType().grade,
                         )
                     }
                 )

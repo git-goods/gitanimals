@@ -19,6 +19,11 @@ interface IdentityApi {
         @RequestParam("idempotency-key") idempotencyKey: String,
     )
 
+    @GetExchange("/internals/users/{user-id}")
+    fun getUserById(
+        @PathVariable("user-id") userId: Long
+    ): UserResponse
+
     data class UserResponse(
         val id: String,
         val username: String,

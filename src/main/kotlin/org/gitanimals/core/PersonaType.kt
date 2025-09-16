@@ -9,6 +9,7 @@ import kotlin.random.Random
 enum class PersonaType(
     val weight: Double,
     val grade: PersonaGrade = PersonaGrade.DEFAULT,
+    val personaEvolution: PersonaEvolution = PersonaEvolution.nothing,
     private var dropRate: String? = null,
 ) {
     GOOSE(1.0) {
@@ -1510,7 +1511,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
     },
-    RABBIT(0.9) {
+    RABBIT(weight =0.9, personaEvolution = PersonaEvolution(weight = 0.001, PersonaEvolutionType.RABBIT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1530,7 +1531,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
-    RABBIT_BROWN_RUDOLPH(0.007) {
+    RABBIT_BROWN_RUDOLPH(weight = 0.007, personaEvolution = PersonaEvolution(weight = 0.01, PersonaEvolutionType.RABBIT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitBrownRudolphSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1570,7 +1571,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
-    RABBIT_TUBE(0.01) {
+    RABBIT_TUBE(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.02, PersonaEvolutionType.RABBIT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitTubeSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -2352,6 +2353,14 @@ enum class PersonaType(
         }
     }
 
+    fun randomEvolution(): PersonaType {
+        val evolutionCandidates = personasPerEvolutionType[personaEvolution.type]
+        require(evolutionCandidates.isNullOrEmpty().not()) {
+            "Cannot find evolution candidates. personaType: ${this.name}, evolutionType: ${this.personaEvolution.type}"
+        }
+        return evolutionCandidates!!.random()
+    }
+
     companion object {
         private val dropRateFormat = DecimalFormat("#.##")
 
@@ -2371,6 +2380,30 @@ enum class PersonaType(
                 }
             }
             weightedPersonas.shuffled()
+        }.value
+
+        private val personasPerEvolutionType: Map<PersonaEvolutionType, List<PersonaType>> = lazy {
+            val weightedEvolutionPersonas = PersonaEvolutionType.entries.filterNot {
+                it == PersonaEvolutionType.NOTHING
+            }.associateWith { mutableListOf<PersonaType>() }
+
+            entries.filterNot {
+                it.personaEvolution == PersonaEvolution.nothing
+            }.forEach { personaType ->
+                val personaTypes = weightedEvolutionPersonas.getOrElse(personaType.personaEvolution.type) {
+                    mutableListOf()
+                }
+
+                repeat((personaType.personaEvolution.weight * 1000).toInt()) {
+                    personaTypes.add(personaType)
+                }
+            }
+
+            weightedEvolutionPersonas.forEach { (_, value) ->
+                value.shuffle()
+            }
+
+            weightedEvolutionPersonas
         }.value
 
         fun random(): PersonaType = personas[Random.nextInt(0, maxWeight)]
