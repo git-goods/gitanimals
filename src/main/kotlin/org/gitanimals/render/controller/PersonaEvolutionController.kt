@@ -3,6 +3,7 @@ package org.gitanimals.render.controller
 import org.gitanimals.core.auth.RequiredUserEntryPoints
 import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.render.app.PersonaEvolutionFacade
+import org.gitanimals.render.controller.response.PersonaEvolutionableResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -22,6 +23,21 @@ class PersonaEvolutionController(
     ): PersonaResponse {
         return PersonaResponse.from(
             personaEvolutionFacade.evolutionPersona(
+                token = token,
+                personaId = personaId,
+            )
+        )
+    }
+
+    @GetMapping("/personas/{personaId}/evolution")
+    @ResponseStatus(HttpStatus.OK)
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
+    fun isEvolutionablePersona(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @PathVariable personaId: Long,
+    ): PersonaEvolutionableResponse {
+        return PersonaEvolutionableResponse(
+            evolutionAble = personaEvolutionFacade.isEvoluationable(
                 token = token,
                 personaId = personaId,
             )

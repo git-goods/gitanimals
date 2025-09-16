@@ -18,4 +18,13 @@ class PersonaEvolutionFacade(
             personaId = personaId,
         )
     }
+
+    fun isEvoluationable(token: String, personaId: Long): Boolean {
+        val user = identityApi.getUserByToken(token)
+
+        return userService.isEvoluationable(
+            name = user.username,
+            personaId = personaId,
+        )
+    }
 }

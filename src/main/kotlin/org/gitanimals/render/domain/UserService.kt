@@ -214,6 +214,15 @@ class UserService(
         return PersonaResponse.from(persona = evolutionedPersona)
     }
 
+    @Transactional(readOnly = true)
+    fun isEvoluationable(name: String, personaId: Long): Boolean {
+        val user = getUserByName(name)
+
+        return user.isEvolutionable(
+            personaId = personaId
+        )
+    }
+
     private fun getUserById(id: Long): User {
         return userRepository.findByIdOrNull(id)
             ?: throw IllegalArgumentException("Cannot find user by id : \"$id\"")

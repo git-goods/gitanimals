@@ -52,7 +52,7 @@ internal class UserServiceTest(
                 id = personaId,
                 idempotencyKey = IdGenerator.generate().toString(),
                 personaType = PersonaType.RABBIT.name,
-                level = 0,
+                level = 100,
             )
 
             it("진화를 성공한다.") {
@@ -73,7 +73,7 @@ internal class UserServiceTest(
                 id = personaId,
                 idempotencyKey = IdGenerator.generate().toString(),
                 personaType = PersonaType.CAT.name,
-                level = 0,
+                level = 100,
             )
 
             it("진화를 실패한다.") {
@@ -85,6 +85,29 @@ internal class UserServiceTest(
                 }
 
                 result.message!!.contains("Evolution fail cause, not support evolution type") shouldBe true
+            }
+        }
+
+        context("name과, 진화타입이 nothing이 아니지만, 레벨이 부족한 펫의 personaId를 받으면,") {
+            val user = userRepository.save(user)
+            val personaId = IdGenerator.generate()
+            userService.addPersona(
+                name = user.getName(),
+                id = personaId,
+                idempotencyKey = IdGenerator.generate().toString(),
+                personaType = PersonaType.CAT.name,
+                level = 99,
+            )
+
+            it("진화를 실패한다.") {
+                val result = shouldThrowExactly<IllegalArgumentException> {
+                    userService.evolutionPersona(
+                        name = user.getName(),
+                        personaId = personaId,
+                    )
+                }
+
+                result.message!!.contains("Cannot evolution persona cause") shouldBe true
             }
         }
     }
