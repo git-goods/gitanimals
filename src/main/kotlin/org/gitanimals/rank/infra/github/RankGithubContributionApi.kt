@@ -2,6 +2,7 @@ package org.gitanimals.rank.infra.github
 
 import org.gitanimals.core.ratelimit.RateLimitable
 import org.gitanimals.rank.app.RankContributionApi
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ClassPathResource
@@ -19,6 +20,7 @@ class RankGithubContributionApi(
 ) : RankContributionApi {
 
     private val restClient = RestClient.create("https://api.github.com/graphql")
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     override fun getContributionsBySpecificDays(
         username: String,
@@ -26,7 +28,7 @@ class RankGithubContributionApi(
         to: LocalDate
     ): Int = rateLimiter.acquire {
         val fromString = from.toString()
-        val toString = from.toString()
+        val toString = to.toString()
 
         return@acquire restClient.post()
             .header(HttpHeaders.AUTHORIZATION, "Bearer $token")
@@ -70,15 +72,15 @@ class RankGithubContributionApi(
     }
 
     private data class ContributionCountByYearAndWeekQueryResponse(val data: Data) {
-        class Data(
+        data class Data(
             val rateLimit: RateLimit,
             val user: User,
         ) {
-            class User(val contributionsCollection: ContributionsCollection) {
-                class ContributionsCollection(
+            data class User(val contributionsCollection: ContributionsCollection) {
+                data class ContributionsCollection(
                     val contributionCalendar: ContributionCalendar,
                 ) {
-                    class ContributionCalendar(
+                    data class ContributionCalendar(
                         val totalContributions: Int,
                     )
                 }
