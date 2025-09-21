@@ -94,16 +94,6 @@ class InmemoryGithubRateLimiter(
         }
     }
 
-    @Scheduled(cron = "0 0 * * * *", zone = "Asia/Seoul")
-    fun sendRateLimitAlert() {
-        val message = """
-            :pirate_flag: Current github rate limit
-            
-            $rateLimit
-        """.trimIndent()
-        slackSender.send(githubTokenChannel, message)
-    }
-
     object CoroutineDispatcher {
 
         private val executorService = Executors.newCachedThreadPool { runnable ->
