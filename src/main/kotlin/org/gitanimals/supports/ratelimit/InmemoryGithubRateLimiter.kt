@@ -10,7 +10,6 @@ import org.gitanimals.core.ratelimit.RateLimitable
 import org.gitanimals.core.slack.SlackSender
 import org.gitanimals.supports.ratelimit.InmemoryGithubRateLimiter.CoroutineDispatcher.coroutineContext
 import org.slf4j.LoggerFactory
-import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit

@@ -8,6 +8,7 @@ import org.gitanimals.rank.controller.response.RankTotalCountResponse
 import org.gitanimals.rank.domain.RankQueryRepository
 import org.gitanimals.rank.domain.history.RankHistoryService
 import org.gitanimals.rank.domain.response.RankResponse
+import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -20,6 +21,8 @@ class RankController(
     private val getRankByUsernameFacade: GetRankByUsernameFacade,
     private val rankHistoryService: RankHistoryService,
 ) {
+
+    private val logger = LoggerFactory.getLogger(this::class.simpleName)
 
     @GetMapping("/ranks")
     fun findAllRanks(
@@ -35,12 +38,12 @@ class RankController(
     ): ResponseEntity<out Any> {
         return runCatching {
             ResponseEntity.ok(getRankByUsernameFacade.invoke(username))
-        }.getOrElse {
+        }.getOrElse { exception ->
+            logger.info(exception.message, exception)
+
             ResponseEntity
                 .badRequest()
-                .body(
-                    ErrorResponse("Cannot find rank by username: \"$username\"")
-                )
+                .body(ErrorResponse("Cannot find rank by username: \"$username\""))
         }
     }
 
