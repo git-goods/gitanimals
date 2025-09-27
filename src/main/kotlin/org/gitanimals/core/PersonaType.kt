@@ -241,7 +241,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK(0.9) {
+    LITTLE_CHICK(weight = 0.9, personaEvolution = PersonaEvolution(weight = 0.3, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -267,7 +267,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_SUNGLASSES(0.4) {
+    LITTLE_CHICK_SUNGLASSES(weight = 0.4, personaEvolution = PersonaEvolution(weight = 0.4, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickSunglassesSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -293,7 +293,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_KOTLIN(0.01) {
+    LITTLE_CHICK_KOTLIN(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickKotlinSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -319,7 +319,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_JAVA(0.01) {
+    LITTLE_CHICK_JAVA(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickJavaSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -345,7 +345,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_JS(0.01) {
+    LITTLE_CHICK_JS(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickJsSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -371,7 +371,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_NODE(0.01) {
+    LITTLE_CHICK_NODE(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickNodeSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -397,7 +397,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_SWIFT(0.01) {
+    LITTLE_CHICK_SWIFT(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickSwiftSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -423,7 +423,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_LINUX(0.01) {
+    LITTLE_CHICK_LINUX(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickLinuxSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -449,7 +449,7 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_SPRING(0.01) {
+    LITTLE_CHICK_SPRING(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickSpringSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -474,7 +474,7 @@ enum class PersonaType(
             .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
             .toString()
     },
-    LITTLE_CHICK_SANTA(0.01) {
+    LITTLE_CHICK_SANTA(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickSantaSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -499,9 +499,34 @@ enum class PersonaType(
             .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
             .toString()
     },
-    LITTLE_CHICK_TUBE(0.01) {
+    LITTLE_CHICK_TUBE(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.01, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickTubeSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * name.length)).toString()
+                )
+
+            return StringBuilder()
+                .append(littleChick)
+                .toString()
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String = StringBuilder()
+            .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
+            .toString()
+    },
+    LITTLE_CHICK_EGG_ON_HAT(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.2, type = PersonaEvolutionType.LITTLE_CHICK)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickEggOnHatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
                 .replace("*{level}", level.toSvg(14.0, 2.0))
