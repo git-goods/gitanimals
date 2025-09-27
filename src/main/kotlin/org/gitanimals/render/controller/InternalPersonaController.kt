@@ -40,15 +40,7 @@ class InternalPersonaController(
             addPersonaRequest.level,
         )
 
-        return PersonaResponse(
-            id = persona.id,
-            type = persona.type,
-            level = persona.level,
-            visible = persona.visible,
-            appVisible = persona.appVisible,
-            dropRate = persona.dropRate,
-            grade = persona.grade,
-        )
+        return PersonaResponse.from(persona)
     }
 
     @PostMapping("/internals/personas/multiply")
@@ -66,15 +58,7 @@ class InternalPersonaController(
                 0,
             )
 
-            PersonaResponse(
-                id = persona.id,
-                type = persona.type,
-                level = persona.level,
-                visible = persona.visible,
-                appVisible = persona.appVisible,
-                dropRate = persona.dropRate,
-                grade = persona.grade,
-            )
+            PersonaResponse.from(persona)
         }
     }
 
@@ -86,15 +70,7 @@ class InternalPersonaController(
     ): PersonaResponse {
         val persona = userFacade.deletePersona(token, personaId)
 
-        return PersonaResponse(
-            id = persona.id,
-            type = persona.type,
-            level = persona.level,
-            visible = persona.visible,
-            appVisible = persona.appVisible,
-            dropRate = persona.dropRate,
-            grade = persona.grade,
-        )
+        return PersonaResponse.from(persona)
     }
 
     @GetMapping("/internals/personas/all")

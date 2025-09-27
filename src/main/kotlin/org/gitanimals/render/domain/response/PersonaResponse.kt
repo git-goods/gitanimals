@@ -12,6 +12,7 @@ data class PersonaResponse(
     val appVisible: Boolean,
     val dropRate: String,
     val grade: PersonaGrade,
+    val isEvolutionable: Boolean,
 ) {
     companion object {
         fun from(persona: Persona): PersonaResponse {
@@ -23,6 +24,7 @@ data class PersonaResponse(
                 appVisible = persona.appVisible,
                 dropRate = persona.getType().getDropRate(),
                 grade = persona.getType().grade,
+                isEvolutionable = persona.isEvolutionable(),
             )
         }
     }

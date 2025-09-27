@@ -95,7 +95,7 @@ internal class UserServiceTest(
                 name = user.getName(),
                 id = personaId,
                 idempotencyKey = IdGenerator.generate().toString(),
-                personaType = PersonaType.CAT.name,
+                personaType = PersonaType.LITTLE_CHICK.name,
                 level = 99,
             )
 
