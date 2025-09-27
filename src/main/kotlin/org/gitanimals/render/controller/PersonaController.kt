@@ -35,15 +35,7 @@ class PersonaController(
     ): PersonaResponse {
         val persona = userFacade.getPersona(token, personaId)
 
-        return PersonaResponse(
-            id = persona.id,
-            type = persona.type,
-            level = persona.level,
-            visible = persona.visible,
-            appVisible = persona.appVisible,
-            dropRate = persona.dropRate,
-            grade = persona.grade,
-        )
+        return PersonaResponse.from(persona)
     }
 
     @PatchMapping("/personas")
@@ -55,15 +47,7 @@ class PersonaController(
     ): PersonaResponse {
         val changedPersona = userFacade.changePersona(token, personaChangeRequest)
 
-        return PersonaResponse(
-            id = changedPersona.id,
-            type = changedPersona.type,
-            level = changedPersona.level,
-            visible = changedPersona.visible,
-            appVisible = changedPersona.appVisible,
-            dropRate = changedPersona.dropRate,
-            grade = changedPersona.grade,
-        )
+        return PersonaResponse.from(changedPersona)
     }
 
     @GetMapping("/personas/infos")

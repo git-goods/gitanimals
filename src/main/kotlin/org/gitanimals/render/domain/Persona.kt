@@ -83,13 +83,24 @@ class Persona(
 
     fun level(): Long = level.value
 
+    fun isEvolutionable(): Boolean {
+        return level() >= EVOLUTION_REQUIRED_LEVEL && getType().personaEvolution != PersonaEvolution.nothing
+    }
+
     fun evolution() {
         require (type.personaEvolution != PersonaEvolution.nothing) {
             "Evolution fail cause, not support evolution type :${type.name}"
+        }
+        require(level() >= EVOLUTION_REQUIRED_LEVEL) {
+            "Cannot evolution persona cause, ${level()} is not enough level for evolution."
         }
 
         val evolutionedPersonaType = this.type.randomEvolution()
         this.type = evolutionedPersonaType
         this.level.value = 0
+    }
+
+    companion object {
+        private const val EVOLUTION_REQUIRED_LEVEL = 100L
     }
 }

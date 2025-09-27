@@ -16,15 +16,7 @@ data class UserResponse(
                 user.getName(),
                 user.contributionCount().toString(),
                 user.personas.map {
-                    PersonaResponse(
-                        id = it.id.toString(),
-                        type = it.getType(),
-                        level = it.level().toString(),
-                        visible = it.visible,
-                        appVisible = it.appVisible,
-                        dropRate = it.getType().getDropRate(),
-                        grade = it.getType().grade,
-                    )
+                    PersonaResponse.from(it)
                 }.toList()
             )
         }
@@ -36,17 +28,7 @@ data class UserResponse(
                 user.contributionCount().toString(),
                 user.personas.filter {
                     it.id in personaId
-                }.map {
-                    PersonaResponse(
-                        id = it.id.toString(),
-                        type = it.getType(),
-                        level = it.level().toString(),
-                        visible = it.visible,
-                        appVisible = it.appVisible,
-                        dropRate = it.getType().getDropRate(),
-                        grade = it.getType().grade,
-                    )
-                }.toList()
+                }.map { PersonaResponse.from(it) }.toList()
             )
         }
 
@@ -57,17 +39,7 @@ data class UserResponse(
                 totalContributions = user.contributionCount().toString(),
                 personas = listOf(user.personas
                     .maxBy { it.level() }
-                    .let {
-                        PersonaResponse(
-                            id = it.id.toString(),
-                            type = it.getType(),
-                            level = it.level().toString(),
-                            visible = it.visible,
-                            appVisible = it.appVisible,
-                            dropRate = it.getType().getDropRate(),
-                            grade = it.getType().grade,
-                        )
-                    }
+                    .let { PersonaResponse.from(it) }
                 )
             )
         }
