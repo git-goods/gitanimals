@@ -550,6 +550,32 @@ enum class PersonaType(
             .toString()
     },
 
+    LITTLE_CHICK_ANGEL(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.05, type = PersonaEvolutionType.LITTLE_CHICK)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val littleChick = littleChickAngelSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * name.length)).toString()
+                )
+
+            return StringBuilder()
+                .append(littleChick)
+                .toString()
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String = StringBuilder()
+            .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
+            .toString()
+    },
+
     PENGUIN(0.5) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return penguinSvg.replace("*{act}", act(animationId))
