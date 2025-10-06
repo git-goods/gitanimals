@@ -1188,9 +1188,33 @@ enum class PersonaType(
                 .toString()
     },
 
-    FLAMINGO(0.05) {
+    FLAMINGO(0.05, personaEvolution = PersonaEvolution(weight = 0.9, type = PersonaEvolutionType.FLAMINGO)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return flamingoSvg.replace("*{position}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1 * (level.toString().length)).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String {
+            val x = Random.nextInt(25, 75)
+            val y = Random.nextInt(0, 50)
+            val scale = 1
+            return "translate(${x}%, ${y}%) scaleX($scale)"
+        }
+    },
+
+    FLAMINGO_WHITE(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.1, type = PersonaEvolutionType.FLAMINGO)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return flamingoWhiteSvg.replace("*{position}", act(animationId))
                 .replace("*{id}", animationId.toString())
                 .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(

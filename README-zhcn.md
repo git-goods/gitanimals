@@ -143,6 +143,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率        | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------|
+| FLAMINGO_WHITE <br> <img src = "docs/flamingo-white.svg" width="50px" height="110px"/>                  | Evolution | Only for evolution                                                                                                 |
 | LITTLE_CHICK_ANGEL <br> <img src = "docs/little-chick-angel.svg" width="45px" height="40px"/>           | Evolution | Only for evolution                                                                                                 |
 | LITTLE_CHICK_EGG_ON_HAT <br> <img src = "docs/little-chick-egg-on-hat.svg" width="45px" height="40px"/> | Evolution | Only for evolution                                                                                                 |
 | CAPYBARA_SWIM <br> <img src = "docs/capybara-swim.svg" width="100px" height="70px"/>                    | 0.4       | Designed by [@Choi_sunwoo](https://www.behance.net/6a39a177)                                                       |

@@ -20,5 +20,6 @@ enum class PersonaEvolutionType {
     NOTHING,
     RABBIT,
     LITTLE_CHICK,
+    FLAMINGO,
     ;
 }
