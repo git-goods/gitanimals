@@ -994,7 +994,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED(0.1) {
+    SLIME_RED(0.1, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.3)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1015,7 +1015,28 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED_KOTLIN(0.001) {
+    SLIME_ANGEL(0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.1)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return slimeAngelSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String =
+            StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
+                .toString()
+    },
+
+    SLIME_RED_KOTLIN(0.001, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.005)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedKotlinSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1036,7 +1057,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED_JAVA(0.001) {
+    SLIME_RED_JAVA(0.001, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.005)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedJavaSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1057,7 +1078,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED_JS(0.001) {
+    SLIME_RED_JS(0.001, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.005)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedJsSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1078,7 +1099,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED_NODE(0.001) {
+    SLIME_RED_NODE(0.001, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.005)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedNodeSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1099,7 +1120,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED_SWIFT(0.001) {
+    SLIME_RED_SWIFT(0.001, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.005)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedSwiftSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1120,7 +1141,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_RED_LINUX(0.001) {
+    SLIME_RED_LINUX(0.001, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.005)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeRedLinuxSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1141,7 +1162,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_BLUE(0.1) {
+    SLIME_BLUE(0.1, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.3)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeBlueSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1167,7 +1188,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    SLIME_GREEN(0.1) {
+    SLIME_GREEN(0.1, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.3)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimeGreenSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1188,9 +1209,33 @@ enum class PersonaType(
                 .toString()
     },
 
-    FLAMINGO(0.05) {
+    FLAMINGO(0.05, personaEvolution = PersonaEvolution(weight = 0.9, type = PersonaEvolutionType.FLAMINGO)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return flamingoSvg.replace("*{position}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-1 * (level.toString().length)).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (32 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String {
+            val x = Random.nextInt(25, 75)
+            val y = Random.nextInt(0, 50)
+            val scale = 1
+            return "translate(${x}%, ${y}%) scaleX($scale)"
+        }
+    },
+
+    FLAMINGO_WHITE(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.1, type = PersonaEvolutionType.FLAMINGO)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return flamingoWhiteSvg.replace("*{position}", act(animationId))
                 .replace("*{id}", animationId.toString())
                 .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
@@ -1296,7 +1341,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    CAT(0.1) {
+    CAT(0.1, personaEvolution = PersonaEvolution(0.5, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return catSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1317,7 +1362,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    CHEESE_CAT(0.04) {
+    CHEESE_CAT(0.09, personaEvolution = PersonaEvolution(0.2, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return cheeseCatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1359,7 +1404,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    GALCHI_CAT(0.06) {
+    GALCHI_CAT(0.1, personaEvolution = PersonaEvolution(0.5, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return galchiCatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1380,7 +1425,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    WHITE_CAT(0.04) {
+    WHITE_CAT(0.09, personaEvolution = PersonaEvolution(0.5, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return whiteCatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1404,6 +1449,27 @@ enum class PersonaType(
     WHITE_CAT_COLLABORATOR(0.00, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return whiteCatCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String =
+            StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
+                .toString()
+    },
+
+    CAT_WINDOW(0.00, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.CAT, weight = 0.4)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return catWindowSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
                 .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
@@ -1883,7 +1949,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("scream", id, 10, "180s", 5, 17.5)
                 .toString()
     },
-    SLIME_PUMPKIN_1(0.08) {
+    SLIME_PUMPKIN_1(0.08, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.1)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimePumpkin1Svg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1903,7 +1969,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("slime", id, 15, "180s", 5, 21.0)
                 .toString()
     },
-    SLIME_PUMPKIN_2(0.08) {
+    SLIME_PUMPKIN_2(0.08, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.1)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return slimePumpkin2Svg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
