@@ -22,5 +22,6 @@ enum class PersonaEvolutionType {
     LITTLE_CHICK,
     FLAMINGO,
     SLIME,
+    CAT,
     ;
 }

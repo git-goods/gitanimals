@@ -1341,7 +1341,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    CAT(0.1) {
+    CAT(0.1, personaEvolution = PersonaEvolution(0.5, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return catSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1362,7 +1362,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    CHEESE_CAT(0.04) {
+    CHEESE_CAT(0.09, personaEvolution = PersonaEvolution(0.2, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return cheeseCatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1404,7 +1404,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    GALCHI_CAT(0.06) {
+    GALCHI_CAT(0.1, personaEvolution = PersonaEvolution(0.5, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return galchiCatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1425,7 +1425,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    WHITE_CAT(0.04) {
+    WHITE_CAT(0.09, personaEvolution = PersonaEvolution(0.5, PersonaEvolutionType.CAT)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return whiteCatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1449,6 +1449,27 @@ enum class PersonaType(
     WHITE_CAT_COLLABORATOR(0.00, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return whiteCatCollaboratorSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-6 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (15 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String =
+            StringBuilder().moveRandomly("cat", id, 15, "180s", 5, 17.5)
+                .toString()
+    },
+
+    CAT_WINDOW(0.00, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.CAT, weight = 0.4)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return catWindowSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
                 .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
