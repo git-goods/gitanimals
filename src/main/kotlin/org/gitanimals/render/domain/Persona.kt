@@ -97,7 +97,7 @@ class Persona(
 
         val evolutionedPersonaType = this.type.randomEvolution()
         this.type = evolutionedPersonaType
-        this.level.value = 0
+        this.level.value -= 100
     }
 
     companion object {

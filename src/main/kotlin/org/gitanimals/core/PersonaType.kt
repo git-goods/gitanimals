@@ -1628,7 +1628,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
     },
-    RABBIT(weight =0.9, personaEvolution = PersonaEvolution(weight = 0.001, PersonaEvolutionType.RABBIT)) {
+    RABBIT(weight =0.9) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1648,7 +1648,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
-    RABBIT_BROWN_RUDOLPH(weight = 0.007, personaEvolution = PersonaEvolution(weight = 0.01, PersonaEvolutionType.RABBIT)) {
+    RABBIT_BROWN_RUDOLPH(weight = 0.007) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitBrownRudolphSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1688,7 +1688,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("rabbit", id, 40, "180s", 5, 10.0)
                 .toString()
     },
-    RABBIT_TUBE(weight = 0.01, personaEvolution = PersonaEvolution(weight = 0.02, PersonaEvolutionType.RABBIT)) {
+    RABBIT_TUBE(weight = 0.01) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitTubeSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())

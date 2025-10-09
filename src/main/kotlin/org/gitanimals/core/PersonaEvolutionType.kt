@@ -18,7 +18,6 @@ data class PersonaEvolution(
 enum class PersonaEvolutionType {
 
     NOTHING,
-    RABBIT,
     LITTLE_CHICK,
     FLAMINGO,
     SLIME,
