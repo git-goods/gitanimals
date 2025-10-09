@@ -153,6 +153,19 @@ class UserService(
 
     @Transactional
     @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
+    fun mergePersonaV2(
+        name: String,
+        increasePersonaId: Long,
+        deletePersonaIds: List<Long>,
+    ): PersonaResponse {
+        val user = userRepository.findByName(name)
+            ?: throw IllegalArgumentException("Cannot find user by name \"$name\"")
+
+        return PersonaResponse.from(user.mergePersonaV2(increasePersonaId, deletePersonaIds))
+    }
+
+    @Transactional
+    @Retryable(retryFor = [ObjectOptimisticLockingFailureException::class], maxAttempts = 10)
     fun addField(name: String, fieldType: FieldType) {
         getUserByName(name).addField(fieldType)
     }
