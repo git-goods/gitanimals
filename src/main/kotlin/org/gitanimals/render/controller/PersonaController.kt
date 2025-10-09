@@ -7,6 +7,7 @@ import org.gitanimals.core.auth.RequiredUserEntryPoints
 import org.gitanimals.core.auth.UserEntryPoint
 import org.gitanimals.render.app.UserFacade
 import org.gitanimals.render.app.request.MergePersonaRequest
+import org.gitanimals.render.app.request.MergePersonaV2Request
 import org.gitanimals.render.controller.response.PersonaEnumResponse
 import org.gitanimals.render.controller.response.PersonaResponse
 import org.gitanimals.render.controller.response.UserResponse
@@ -69,6 +70,14 @@ class PersonaController(
         @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
         @RequestBody meregPersonaRequest: MergePersonaRequest,
     ) = userFacade.mergePersona(token, meregPersonaRequest)
+
+    @PutMapping(path = ["/personas/merges"], headers = ["Api-Version=2"])
+    @ResponseStatus(HttpStatus.OK)
+    @RequiredUserEntryPoints([UserEntryPoint.GITHUB])
+    fun mergePersonaV2(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @RequestBody mergePersonaRequest: MergePersonaV2Request,
+    ) = userFacade.mergePersonaV2(token, mergePersonaRequest)
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

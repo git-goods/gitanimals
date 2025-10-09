@@ -126,6 +126,25 @@ class User(
         return increasePersona
     }
 
+    fun mergePersonaV2(increasePersonaId: Long, deletePersonaIds: List<Long>): Persona {
+        require(deletePersonaIds.contains(increasePersonaId).not()) {
+            "increasePersonaId \"$increasePersonaId\", deletePersonaId \"$deletePersonaIds\" must be different"
+        }
+
+        val increasePersona = personas.first { it.id == increasePersonaId }
+        val deletePersonas = personas.filter { it.id in deletePersonaIds }
+
+        val increaseLevel = deletePersonas.sumOf { deletePersona ->
+            max(deletePersona.level() / 2, 1)
+        }
+
+        increasePersona.level.value += increaseLevel
+
+        deletePersonas.forEach { deletePersona(it.id) }
+
+        return increasePersona
+    }
+
     fun deletePersona(personaId: Long): PersonaResponse {
         val persona = this.personas.find { it.id == personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
