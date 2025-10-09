@@ -6,7 +6,7 @@ internal class CalculatePersonaDropRate : StringSpec({
 
     "특정 진화 펫 등장확률 테스트" {
         val dropCount = 10000
-        val expectedPersona = PersonaType.CAT_WINDOW
+        val expectedPersona = PersonaType.FLAMINGO_WHITE
 
         val results = mutableMapOf<PersonaType, Int>()
         repeat(dropCount) {
