@@ -417,6 +417,10 @@ val largetTextAcceptableChars = lazy {
     acceptableTitles.toList()
 }.value
 
+val forbiddenWordsList = lazy {
+    listOf("fuck", "shit", "hate", "bitch")
+}.value
+
 val mediumNumberSvgs = lazy {
     val list = mutableListOf<String>()
     for (i in 0..9) {
