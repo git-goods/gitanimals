@@ -1,4 +1,4 @@
-name: 🤖 Auto Reply to Issues & PRs
+name: "🤖 Auto Reply to Issues & PRs"
 
 on:
   issues:
@@ -14,7 +14,7 @@ jobs:
   auto-comment:
     runs-on: ubuntu-latest
     steps:
-      - name: 🧠 Auto Comment
+      - name: "🧠 Auto Comment"
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
             if (context.payload.pull_request) {
               const pr = context.payload.pull_request;
               const prNumber = pr.number;
-              const user = pr.user?.login || 'contributor';
+              const user = pr.user?.login || "contributor";
               const eventType = context.payload.action;
 
               // ✅ Only run on "opened" event — skip reopened/synchronize
@@ -69,12 +69,14 @@ jobs:
                 return;
               }
 
-              const message = `🚀 Hi @${user}!
-
-Thank you for contributing to **gitanimals** under the **git-goods** organization. A maintainer will review your PR shortly. 🎉
-
-### Please ensure:
-- You’ve read the README.md, CONTRIBUTING.md, and CODE_OF_CONDUCT.md.😊`;
+              const message = [
+                `🚀 Hi @${user}!`,
+                ``,
+                `Thank you for contributing to **gitanimals** under the **git-goods** organization. A maintainer will review your PR shortly. 🎉`,
+                ``,
+                `### Please ensure:`,
+                `- You’ve read the README.md, CONTRIBUTING.md, and CODE_OF_CONDUCT.md.`,
+              ].join("\n");
 
               const gif = "![TrustTheProcess](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWtoOWpsMnozdXd0MmJxejhiNGwwdjltY3dyNW80NHg2Ym01YTdlMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mPKa6OI5oRsmextwBq/giphy.gif)";
 
@@ -90,7 +92,7 @@ Thank you for contributing to **gitanimals** under the **git-goods** organizatio
                 core.info(`Comment already exists for PR #${prNumber}, skipping.`);
               }
 
-              const headRepoFull = pr.head?.repo?.full_name || '';
+              const headRepoFull = pr.head?.repo?.full_name || "";
               const baseFull = `${repo.owner}/${repo.repo}`;
               const isFork = headRepoFull.toLowerCase() !== baseFull.toLowerCase();
               const labels = ["needs-review"];
@@ -104,11 +106,14 @@ Thank you for contributing to **gitanimals** under the **git-goods** organizatio
             if (context.payload.issue) {
               const issue = context.payload.issue;
               const issueNumber = issue.number;
-              const user = issue.user?.login || 'contributor';
+              const user = issue.user?.login || "contributor";
 
-              const message = `👋 Hi @${user}!
-
-Thanks for opening an issue in **gitanimals** (git-goods org). We’ll review it soon — please ensure reproduction steps and logs are included.`;
+              const message = [
+                `👋 Hi @${user}!`,
+                ``,
+                `Thanks for opening an issue in **gitanimals** (git-goods org).`,
+                `We’ll review it soon — please ensure that the PR is meaningful.`
+              ].join("\n");
 
               if (!(await commentExists(issueNumber, "Thanks for opening an issue in **gitanimals**"))) {
                 await github.rest.issues.createComment({
