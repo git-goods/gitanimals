@@ -1,0 +1,129 @@
+name: 🤖 Auto Reply to Issues & PRs
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  auto-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧠 Auto Comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const repo = { owner: "git-goods", repo: "gitanimals" };
+
+            async function commentExists(issue_number, messageSnippet) {
+              const comments = await github.rest.issues.listComments({
+                owner: repo.owner,
+                repo: repo.repo,
+                issue_number
+              });
+              return comments.data.some(c => c.body.includes(messageSnippet));
+            }
+
+            async function addReaction(issue_number, reaction) {
+              try {
+                await github.rest.reactions.createForIssue({
+                  owner: repo.owner,
+                  repo: repo.repo,
+                  issue_number,
+                  content: reaction
+                });
+              } catch (err) {
+                core.info("Could not add reaction: " + err.message);
+              }
+            }
+
+            async function addLabels(issue_number, labels) {
+              try {
+                await github.rest.issues.addLabels({
+                  owner: repo.owner,
+                  repo: repo.repo,
+                  issue_number,
+                  labels
+                });
+              } catch (err) {
+                core.info("Could not add labels: " + err.message);
+              }
+            }
+
+            // === Handle Pull Requests ===
+            if (context.payload.pull_request) {
+              const pr = context.payload.pull_request;
+              const prNumber = pr.number;
+              const user = pr.user?.login || 'contributor';
+              const eventType = context.payload.action;
+
+              // ✅ Only run on "opened" event — skip reopened/synchronize
+              if (eventType !== "opened") {
+                core.info(`Skipping PR #${prNumber} since event is '${eventType}'`);
+                return;
+              }
+
+              const message = `🚀 Hi @${user}!
+
+Thank you for contributing to **gitanimals** under the **git-goods** organization. A maintainer will review your PR shortly. 🎉
+
+### Please ensure:
+- You’ve read the README.md, CONTRIBUTING.md, and CODE_OF_CONDUCT.md.😊`;
+
+              const gif = "![TrustTheProcess](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWtoOWpsMnozdXd0MmJxejhiNGwwdjltY3dyNW80NHg2Ym01YTdlMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mPKa6OI5oRsmextwBq/giphy.gif)";
+
+              if (!(await commentExists(prNumber, "Thank you for contributing to **gitanimals**"))) {
+                await github.rest.issues.createComment({
+                  owner: repo.owner,
+                  repo: repo.repo,
+                  issue_number: prNumber,
+                  body: message + "\n\n" + gif
+                });
+                await addReaction(prNumber, "rocket");
+              } else {
+                core.info(`Comment already exists for PR #${prNumber}, skipping.`);
+              }
+
+              const headRepoFull = pr.head?.repo?.full_name || '';
+              const baseFull = `${repo.owner}/${repo.repo}`;
+              const isFork = headRepoFull.toLowerCase() !== baseFull.toLowerCase();
+              const labels = ["needs-review"];
+              if (isFork) labels.push("from-fork");
+
+              await addLabels(prNumber, labels);
+              return;
+            }
+
+            // === Handle Issues ===
+            if (context.payload.issue) {
+              const issue = context.payload.issue;
+              const issueNumber = issue.number;
+              const user = issue.user?.login || 'contributor';
+
+              const message = `👋 Hi @${user}!
+
+Thanks for opening an issue in **gitanimals** (git-goods org). We’ll review it soon — please ensure reproduction steps and logs are included.`;
+
+              if (!(await commentExists(issueNumber, "Thanks for opening an issue in **gitanimals**"))) {
+                await github.rest.issues.createComment({
+                  owner: repo.owner,
+                  repo: repo.repo,
+                  issue_number: issueNumber,
+                  body: message
+                });
+                await addReaction(issueNumber, "tada");
+              } else {
+                core.info(`Comment already exists for Issue #${issueNumber}, skipping.`);
+              }
+
+              await addLabels(issueNumber, ["triage", "needs-info"]);
+              return;
+            }
+
+            core.info("No issue or pull_request payload found. Nothing to do.");
