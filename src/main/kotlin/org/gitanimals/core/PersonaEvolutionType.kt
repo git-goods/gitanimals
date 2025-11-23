@@ -22,5 +22,7 @@ enum class PersonaEvolutionType {
     FLAMINGO,
     SLIME,
     CAT,
+    GOOSE,
+    PIG,
     ;
 }

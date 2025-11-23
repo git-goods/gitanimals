@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible"><script xmlns=""/><style>
+  @keyframes move-head-0 {
+  0% {
+  transform:translate(7px, -3.5px);
+  }
+  50% {
+  transform:translate(7px, -4px);
+  }
+  100% {
+  transform:translate(7px, -3.5px);
+  }
+  }
+
+  @keyframes move-leg-0 {
+  0% {
+  transform:rotate(0deg);
+  }
+  50% {
+  transform:rotate(1deg);
+  }
+  100% {
+  transform:rotate(0deg);
+  }
+  }
+
+  #head-0 {
+  animation-name:move-head-0;
+  animation-duration:1s;
+  animation-iteration-count:infinite;
+  }
+
+  #leg-0 {
+  animation-name:move-leg-0;
+  animation-duration:0.5s;
+  animation-iteration-count:360;
+  animation-timing-function: ease-in;
+  }
+</style>
+
+  <g id="goose-0" transform="translate(10, 15)">
+    <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="shadow" transform="translate(-4, -1)">
+        <rect width="7.55862" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 3.95308 10.8252)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="7.55862" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 10.5548 4.70828)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="17.6368" height="4" transform="matrix(0.679659 0.733528 0.733528 -0.679659 2.72881 5.08992)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="15.1172" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 2.85149 6.69365)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="12.5977" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 2.97418 8.29739)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="15.1172" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 6.51913 3.29536)" fill="#6F6F6F" fill-opacity="0.1"/>
+        <rect width="12.5977" height="1" transform="matrix(0.679659 0.733528 0.733528 -0.679659 8.10888 3.53978)" fill="#6F6F6F" fill-opacity="0.1"/>
+      </g>
+      <g id="head-0" transform="translate(7)">
+        <rect x="1" y="4.66748" width="6" height="11" fill="#BCCED4"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 8 7.66748)" fill="#FFD184"/>
+        <rect width="3" height="2" transform="matrix(-1 0 0 1 9 8.66748)" fill="#FFD184"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 9 10.6675)" fill="#FFD184"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 7 6.66748)" fill="#FFD184"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 10 9.66748)" fill="#FFD184"/>
+        <rect x="3" y="6.66748" width="1" height="1" fill="#00A5FF"/>
+        <rect x="6" y="5.66748" width="1" height="1" fill="#00A5FF"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 2 4.66748)" fill="#D9D9D9"/>
+        <rect width="1" height="10" transform="matrix(-1 0 0 1 1 5.66748)" fill="#D9D9D9"/>
+        <rect width="1" height="3" transform="matrix(-1 0 0 1 8 11.6675)" fill="#D9D9D9"/>
+        <rect width="1" height="1" transform="matrix(-1 0 0 1 7 4.66748)" fill="#D9D9D9"/>
+        <rect width="1" height="2" transform="matrix(-1 0 0 1 8 5.66748)" fill="#D9D9D9"/>
+        <rect width="4" height="1" transform="matrix(-1 0 0 1 6 3.66748)" fill="#D9D9D9"/>
+        <rect x="3.52832" y="2" width="1" height="2" fill="#2D2D2D"/>
+        <rect x="4.52832" y="1" width="1" height="1" fill="#2D2D2D"/>
+        <rect x="3.52832" width="1" height="1" fill="#2D2D2D"/>
+        <rect x="3.52832" width="1" height="0.5" fill="#E2141F"/>
+      </g>
+      <g id="leg-0">
+        <g id="leg-in" transform="translate(5,8)">
+          <rect width="2" height="4" transform="matrix(-1 0 0 1 2 0)" fill="#FFD184"/>
+        </g>
+      </g>
+      <g id="body-0">
+        <rect width="4" height="1" transform="matrix(-1 0 0 1 6 0)" fill="#D9D9D9"/>
+        <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 2)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 8 3)" fill="#D9D9D9"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 9 4)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 9 5)" fill="#D9D9D9"/>
+        <rect width="8" height="1" transform="matrix(-1 0 0 1 10 6)" fill="#D9D9D9"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 12 7)" fill="#D9D9D9"/>
+        <rect width="11" height="1" transform="matrix(-1 0 0 1 15 8)" fill="#D9D9D9"/>
+        <rect width="10" height="1" transform="matrix(-1 0 0 1 15 9)" fill="#D9D9D9"/>
+        <rect width="9" height="1" transform="matrix(-1 0 0 1 15 10)" fill="#D9D9D9"/>
+        <rect width="7" height="1" transform="matrix(-1 0 0 1 14 11)" fill="#D9D9D9"/>
+        <rect width="5" height="1" transform="matrix(-1 0 0 1 13 12)" fill="#D9D9D9"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 12 13)" fill="#D9D9D9"/>
+        <rect x="1" y="2" width="6" height="3" fill="#BCCED4"/>
+        <rect x="1" y="2" width="6" height="3" fill="#BCCED4"/>
+        <rect x="2" y="1" width="4" height="1" fill="#BCCED4"/>
+        <rect x="2" y="1" width="4" height="1" fill="#BCCED4"/>
+        <rect x="2" y="3" width="6" height="3" fill="#BCCED4"/>
+        <rect x="2" y="3" width="6" height="3" fill="#BCCED4"/>
+        <rect x="3" y="4" width="6" height="3" fill="#BCCED4"/>
+        <rect x="3" y="4" width="6" height="3" fill="#BCCED4"/>
+        <rect x="4" y="5" width="6" height="3" fill="#BCCED4"/>
+        <rect x="4" y="5" width="6" height="3" fill="#BCCED4"/>
+        <rect x="5" y="6" width="6" height="3" fill="#BCCED4"/>
+        <rect x="5" y="6" width="6" height="3" fill="#BCCED4"/>
+        <rect x="6" y="7" width="6" height="3" fill="#BCCED4"/>
+        <rect x="6" y="7" width="6" height="3" fill="#BCCED4"/>
+        <rect x="7" y="8" width="7" height="3" fill="#BCCED4"/>
+        <rect x="7" y="8" width="7" height="3" fill="#BCCED4"/>
+        <rect x="8" y="9" width="5" height="3" fill="#BCCED4"/>
+        <rect x="8" y="9" width="5" height="3" fill="#BCCED4"/>
+        <rect x="10" y="12" width="2" height="1" fill="#BCCED4"/>
+        <rect x="10" y="12" width="2" height="1" fill="#BCCED4"/>
+      </g>
+    </svg>
+  </g>
+</svg>
