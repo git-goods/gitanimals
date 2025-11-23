@@ -23,5 +23,6 @@ enum class PersonaEvolutionType {
     SLIME,
     CAT,
     GOOSE,
+    PIG,
     ;
 }

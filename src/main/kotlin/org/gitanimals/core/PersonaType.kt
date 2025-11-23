@@ -799,7 +799,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG(0.2) {
+    PIG(0.2, personaEvolution = PersonaEvolution(0.8, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -821,7 +821,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_SUNGLASSES(0.08) {
+    PIG_SUNGLASSES(0.08, personaEvolution = PersonaEvolution(0.1, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigSunglassesSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -843,7 +843,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_KOTLIN(0.01) {
+    PIG_KOTLIN(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigKotlinSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -865,7 +865,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_JAVA(0.01) {
+    PIG_JAVA(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigJavaSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -887,7 +887,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_JS(0.01) {
+    PIG_JS(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigJsSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -909,7 +909,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_NODE(0.01) {
+    PIG_NODE(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigNodeSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -931,7 +931,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_SWIFT(0.01) {
+    PIG_SWIFT(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigSwiftSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -953,7 +953,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_LINUX(0.01) {
+    PIG_LINUX(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigLinuxSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -975,7 +975,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    PIG_SPRING(0.01) {
+    PIG_SPRING(0.01, personaEvolution = PersonaEvolution(0.01, PersonaEvolutionType.PIG)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return pigSpringSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -996,6 +996,29 @@ enum class PersonaType(
             StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
                 .toString()
     },
+
+    PIG_ROBOT(0.00, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(0.3, PersonaEvolutionType.PIG)) {
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return pigRobotSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (8 + (-1 * (level.toString().length))).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (56 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String =
+            StringBuilder().moveRandomly("pig", id, 5, "180s", 10, 60.5)
+                .toString()
+    },
+
 
     PIG_COLLABORATOR(0.0, grade = PersonaGrade.COLLABORATOR) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
@@ -1018,6 +1041,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("fig", id, 5, "180s", 10, 60.5)
                 .toString()
     },
+
 
     SLIME_RED(0.1, personaEvolution = PersonaEvolution(type = PersonaEvolutionType.SLIME, weight = 0.3)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
