@@ -143,6 +143,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                      | 概率        | 描述                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------|
+| GOOSE_ROBOT <br> <img src = "docs/goose-robot.svg" width="100px" height="60px"/>                        | Evolution | Only for evolution                                                                                                 |
 | FLAMINGO_WHITE <br> <img src = "docs/flamingo-white.svg" width="50px" height="110px"/>                  | Evolution | Only for evolution                                                                                                 |
 | SLIME_ANGEL <br> <img src = "docs/slime-angel.svg" width="70px" height="60px"/>                         | Evolution | Only for evolution                                                                                                 |
 | CAT_WINDOW <br> <img src = "docs/cat-window.svg" width="100px" height="70px"/>                          | Evolution | Only for evolution                                                                                                 |
