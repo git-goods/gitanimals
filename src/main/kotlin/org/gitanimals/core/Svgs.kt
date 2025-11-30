@@ -299,6 +299,9 @@ val hamsterSvg: String = ClassPathResource("persona/animal/hamster.svg")
 val hamsterSnowSvg: String = ClassPathResource("persona/animal/hamster-snow.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val hamsterSnowSweetPotatoSvg: String = ClassPathResource("persona/animal/hamster-snow-sweet-potato.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val hamsterSpringSvg: String = ClassPathResource("persona/animal/hamster-spring.svg")
     .getContentAsString(Charset.defaultCharset())
 
