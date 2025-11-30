@@ -2215,7 +2215,7 @@ enum class PersonaType(
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
-            StringBuilder().moveRandomly("hamster", id, 1, "1000s", 5, 21.0)
+            StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
                 .toString()
     },
     HAMSTER_SNOW_SWEET_POTATO(0.009) {
@@ -2235,7 +2235,7 @@ enum class PersonaType(
         }
 
         override fun act(id: Long, flippedWidth: Double): String =
-            StringBuilder().moveRandomly("hamster", id, 1, "1000s", 5, 21.0)
+            StringBuilder().moveRandomly("hamster", id, 5, "1000s", 5, 21.0)
                 .toString()
     },
     MALTESE(0.02) {
