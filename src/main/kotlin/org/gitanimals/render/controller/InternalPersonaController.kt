@@ -95,8 +95,10 @@ class InternalPersonaController(
         }
 
         return users.map { user ->
-            val personaId =
-                usernameAndPersonaIdRequestSet.first { it.username == user.getName() }.personaId
+            val personaId = usernameAndPersonaIdRequestSet.firstOrNull {
+                it.username.lowercase() == user.getName().lowercase()
+            }?.personaId ?: error("${user.getName()} 에 매칭되는 user를 찾을 수 없습니다. usernameAndPersonaIdRequestSet: $usernameAndPersonaIdRequestSet")
+
             UserResponse.fromWithSpecificPersona(user, listOf(personaId))
         }
     }
