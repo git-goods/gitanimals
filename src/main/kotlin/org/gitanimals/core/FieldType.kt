@@ -416,6 +416,21 @@ enum class FieldType {
         override fun drawBorder(): String =
             "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#000000\" fill=\"none\"/>"
     },
+    BRICK_CHRISTMAS {
+        override fun loadComponent(name: String, commit: Long): String {
+            return whiteFieldSvg.replace(NAME_FIX, name.toSvg(0.0, 3.0))
+                .replace(COMMIT_FIX, commit.toSvg("commit", 260.0, 4.0))
+        }
+
+        override fun fillBackground(): String =
+            """
+                <rect x="0.5" y="0.5" width="599" height="299" rx="4.5" fill="#C4F2F7"/>
+                $brickChristmasFieldSvg
+            """
+
+        override fun drawBorder(): String =
+            "<rect x=\"0.5\" y=\"0.5\" width=\"599\" height=\"299\" rx=\"4.5\" stroke=\"#000000\" fill=\"none\"/>"
+    },
     ;
 
     abstract fun loadComponent(name: String, commit: Long): String
