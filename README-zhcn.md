@@ -143,6 +143,7 @@ _新的贡献可能需要1个小时才能显示_
 
 | 名字                                                                                                          | 概率        | 描述                                                                                                                 |
 |-------------------------------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------|
+| RUDOLPH <br> <img src = "docs/rudolph.svg" width="60px" height="70px"/>                                     | 0.001     | 2025 Christmas pet Designed by [@sumi-0011](https://github.com/sumi-0011)                                          |
 | HAMSTER_SNOW_SWEET_POTATO <br> <img src = "docs/hamster-snow-sweet-potato.svg" width="60px" height="60px"/> | 0.009     | ❄️2025 Winter pet ❄️                                                                                               |
 | HAMSTER_SNOW <br> <img src = "docs/hamster-snow.svg" width="60px" height="60px"/>                           | 0.01      | ❄️2025 Winter pet ❄️                                                                                               |
 | PIG_ROBOT <br> <img src = "docs/pig-robot.svg" width="120px" height="100px"/>                               | Evolution | Only for evolution                                                                                                 |
