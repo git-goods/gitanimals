@@ -2468,6 +2468,28 @@ enum class PersonaType(
             .moveRandomly("capybara", id, 20, "180s", 7, 21.0)
             .toString()
     },
+
+    RUDOLPH(0.001 * 5) { // 이벤트 기간 5배 이벤트
+        override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            return rudolphSvg.replace("*{act}", act(animationId))
+                .replace("*{id}", animationId.toString())
+                .replace("*{leg-iteration-count}", "360")
+                .replace("*{level}", level.toSvg(14.0, 2.0))
+                .replace(
+                    "*{levelx}",
+                    (-5 + -1 * (level.toString().length)).toString()
+                )
+                .replace("*{username}", name.toSvg(14.0, 25.0))
+                .replace(
+                    "*{usernamex}",
+                    (20 + (-3 * name.length)).toString()
+                )
+        }
+
+        override fun act(id: Long, flippedWidth: Double): String = StringBuilder()
+            .moveRandomly("rudolph", id, 20, "180s", 7, 21.0)
+            .toString()
+    },
     ;
 
     private var dropRate: String? = null
