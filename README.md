@@ -2,6 +2,10 @@
 
 ##
 
+<a href="https://github.com/devxb/gitanimals">
+  <img src="https://render.gitanimals.org/lines/indylee?pet-id=1" width="1000" height="120"/>
+</a>
+
 <div align="center">
 
 [English](README-en.md) | **한국어** | [简体中文](README-zhcn.md) | [日本語](README-ja.md)
