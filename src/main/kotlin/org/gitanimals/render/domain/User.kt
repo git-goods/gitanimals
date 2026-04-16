@@ -376,6 +376,10 @@ class User(
         return persona.isEvolutionable()
     }
 
+    fun havePersona(personaType: PersonaType): Boolean {
+        return personas.any { it.getType() == personaType }
+    }
+
     companion object {
         private const val MAX_PERSONA_COUNT = 30L
         private const val MAX_INIT_PERSONA_COUNT = 10L

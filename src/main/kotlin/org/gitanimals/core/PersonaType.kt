@@ -1,6 +1,5 @@
 package org.gitanimals.core
 
-import org.gitanimals.core.PersonaEmotionType.*
 import java.text.DecimalFormat
 import kotlin.math.atan2
 import kotlin.math.max

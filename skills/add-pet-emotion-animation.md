@@ -227,6 +227,9 @@ emotion이 base 펫과 동일한 위치에 나타나도록 `emotionYOffsets` 값
 - 디버깅 시 `minGap`과 `maxGap`을 `1.0`으로 설정하면 1초마다 emotion이 나타나서 위치 확인이 쉬움
 - standing 포즈와 sitting 포즈는 보정값이 다를 수 있음 (DESSERT_FOX 기준: standing `5.0`, sitting `2.5`)
 
+### 6. PersonaEmotionType 구현하기
+org.gitanimals.render.app.PersonaEmotionAssets에 PersonaEmotionAssets.dessertFox를 참고하여 새롭게 추가한 emotion의 PersonaEmotionAssets을 추가하세요. 
+
 ## buildEmotionAnimation 파라미터
 
 | 파라미터 | 타입 | 설명 |
