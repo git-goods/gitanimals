@@ -227,8 +227,100 @@ emotion이 base 펫과 동일한 위치에 나타나도록 `emotionYOffsets` 값
 - 디버깅 시 `minGap`과 `maxGap`을 `1.0`으로 설정하면 1초마다 emotion이 나타나서 위치 확인이 쉬움
 - standing 포즈와 sitting 포즈는 보정값이 다를 수 있음 (DESSERT_FOX 기준: standing `5.0`, sitting `2.5`)
 
-### 6. PersonaEmotionType 구현하기
-org.gitanimals.render.app.PersonaEmotionAssets에 PersonaEmotionAssets.dessertFox를 참고하여 새롭게 추가한 emotion의 PersonaEmotionAssets을 추가하세요. 
+### 6. PersonaEmotionAssets 구현하기
+
+`src/main/kotlin/org/gitanimals/render/app/PersonaEmotionAssets.kt` 파일의 `PersonaEmotionAssets` sealed interface에 새로운 펫의 구현체를 추가해야 합니다. 이 인터페이스는 펫의 메타데이터와 애니메이션 다운로드 URL 정보를 포함합니다.
+
+**구현 예시 (DESSERT_FOX 참고):**
+
+```kotlin
+data object {PetClassName} : PersonaEmotionAssets {
+    override val personaType: PersonaType = PersonaType.{PET_ENUM_NAME}
+    override val name: String = "{Display Name}"
+    override val author: String = "{Author Name}"
+    override val description: String = "{Detailed Description}"
+    
+    // SVG 좌표계 설정 (보통 -15 -25 45 45 사용)
+    override val viewBox = ViewBox(x = -15, y = -25, width = 45, height = 45)
+    
+    // 레이아웃 설정
+    override val layout = Layout(
+        contentBox = Box(x = -2, y = -2, width = 20, height = 18),
+        centerX = 7.5,
+        baselineY = 15.0,
+        visibleHeightRatio = 0.58,
+        baselineBottomRatio = 0.05
+    )
+    
+    // 눈 추적(Eye Tracking) 설정 (미지원 시 enabled = false)
+    override val eyeTracking = EyeTracking(
+        enabled = false,
+        states = listOf("idle"),
+        eyeRatioX = 0.52,
+        eyeRatioY = 0.45,
+        maxOffset = 1.5,
+        bodyScale = 0.25,
+        shadowStretch = 0.15,
+        shadowShift = 0.3,
+        ids = EyeTrackingIds(eyes = "eyes-js", body = "body-js", shadow = "shadow-js"),
+        shadowOrigin = "7.5px 14px"
+    )
+    
+    // 애니메이션 타이밍 설정 (ms 단위)
+    override val timings = Timings(
+        minDisplay = mapOf(
+            "attention" to 4000,
+            "error" to 5000,
+            "notification" to 2500,
+            "working" to 1000,
+            "thinking" to 1000
+        ),
+        autoReturn = mapOf(
+            "attention" to 4000,
+            "error" to 5000,
+            "notification" to 2500
+        ),
+        mouseIdleTimeout = 20000,
+        mouseSleepTimeout = 60000,
+        wakeDuration = 5000
+    )
+    
+    // 히트박스 설정
+    override val hitBoxes = HitBoxes(
+        default = Box(x = -3, y = -8, width = 22, height = 20),
+        sleeping = Box(x = -3, y = -5, width = 22, height = 18)
+    )
+    
+    override val sleepingHitboxFiles = listOf("sleeping.svg")
+    override val miniMode = MiniMode(supported = false)
+    
+    // 오브젝트 스케일 보정
+    override val objectScale = ObjectScale(
+        widthRatio = 1.9,
+        heightRatio = 1.3,
+        offsetX = -0.45,
+        offsetY = -0.25
+    )
+
+    // 실제 SVG 컨텐츠 반환 로직 구현
+    override fun getAsset(emotion: String): String {
+        return when (emotion) {
+            "error" -> {petName}ErrorEmotionSvg
+            "happy" -> {petName}HappyEmotionSvg
+            "idleFollow" -> {petName}IdleFollowEmotionSvg
+            "notification" -> {petName}NotificationEmotionSvg
+            "thinking" -> {petName}ThinkingEmotionSvg
+            "typing" -> {petName}TypingEmotionSvg
+            else -> throw IllegalArgumentException("Invalid emotion: $emotion")
+        }
+    }
+}
+```
+
+**참고 사항:**
+- `error`, `happy`, `idleFollow` 등의 프로퍼티는 인터페이스의 기본 구현(`get()` 접근자)을 통해 자동으로 다운로드 URL (`/assets/images?...`)을 반환합니다.
+- `getAsset` 메서드는 `AnimationController`의 `/assets/images` API에서 실제 SVG 파일을 응답할 때 사용됩니다.
+- 새로운 펫 구현체를 추가한 후 `companion object`의 `from` 메서드에서 해당 펫이 올바르게 조회되는지 확인하세요 (Sealed interface의 `sealedSubclasses`를 사용하므로 자동으로 포함됩니다).
 
 ## buildEmotionAnimation 파라미터
 

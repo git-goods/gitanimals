@@ -8,6 +8,7 @@ import kotlin.random.Random
 
 enum class PersonaType(
     val weight: Double,
+    val haveAnimation: Boolean = false,
     val grade: PersonaGrade = PersonaGrade.DEFAULT,
     val personaEvolution: PersonaEvolution = PersonaEvolution.nothing,
 ) {
@@ -1770,7 +1771,7 @@ enum class PersonaType(
                 .toString()
     },
 
-    DESSERT_FOX(0.05) {
+    DESSERT_FOX(0.05, haveAnimation = true) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val emotion = buildEmotionAnimation(
                 idPrefix = "dessert-fox",

@@ -37,4 +37,21 @@ class AssetsFacade(
             AssetsResponse.createSvg(PersonaEmotionAssets.from(personaType))
         }
     }
+
+    fun findAssetSvg(
+        token: String,
+        personaType: PersonaType,
+        emotion: String,
+    ): String {
+        if (!ProfileIdentifier.isLocal()) {
+            val identityUser = identityApi.getUserByToken(token)
+            val renderUser = userService.getUserByName(name = identityUser.username)
+
+            require(renderUser.havePersona(personaType)) {
+                "personaType에 해당하는 Persona가 존재하지 않습니다."
+            }
+        }
+
+        return PersonaEmotionAssets.from(personaType).getAsset(emotion)
+    }
 }

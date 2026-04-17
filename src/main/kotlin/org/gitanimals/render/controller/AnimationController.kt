@@ -55,4 +55,13 @@ class AnimationController(
     ): AssetsResponse {
         return assetsFacade.findAllAssets(token, personaType)
     }
+
+    @GetMapping(value = ["/assets/images"], produces = ["image/svg+xml"])
+    fun getAssetImage(
+        @RequestHeader(HttpHeaders.AUTHORIZATION) token: String,
+        @RequestParam("personaType") personaType: PersonaType,
+        @RequestParam("emotion") emotion: String,
+    ): String {
+        return assetsFacade.findAssetSvg(token, personaType, emotion)
+    }
 }

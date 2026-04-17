@@ -6,15 +6,14 @@ import io.kotest.matchers.shouldBe
 import org.gitanimals.core.PersonaType
 
 class PersonaEmotionTypeTest : DescribeSpec({
-    describe("DessertFox.findAllAssets") {
-        it("should return all string fields as AssetsResponse") {
-            val assets = PersonaEmotionAssets.DessertFox.findAllAssets()
-            
-            // error, happy, idleFollow, notification, thinking, typing = 6 fields
-            assets.shouldHaveAtLeastSize(6)
-            assets.forEach {
-                it.animationType shouldBe PersonaEmotionAssets.DessertFox
-            }
+    describe("DessertFox") {
+        it("should return all download URLs") {
+            PersonaEmotionAssets.DessertFox.error shouldBe "/assets/images?personaType=DESSERT_FOX&emotion=error"
+            PersonaEmotionAssets.DessertFox.happy shouldBe "/assets/images?personaType=DESSERT_FOX&emotion=happy"
+        }
+
+        it("should return SVG content by emotion") {
+            (PersonaEmotionAssets.DessertFox.getAsset("error").length > 10) shouldBe true
         }
     }
 

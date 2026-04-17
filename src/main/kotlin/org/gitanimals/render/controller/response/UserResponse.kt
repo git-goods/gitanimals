@@ -10,12 +10,15 @@ data class UserResponse(
 ) {
 
     companion object {
-        fun from(user: User): UserResponse {
+        fun of(user: User, filterAnimation: Boolean): UserResponse {
             return UserResponse(
                 user.id.toString(),
                 user.getName(),
                 user.contributionCount().toString(),
-                user.personas.map {
+                user.personas.mapNotNull {
+                    if (filterAnimation && it.getType().haveAnimation.not()) {
+                        return@mapNotNull null
+                    }
                     PersonaResponse.from(it)
                 }.toList()
             )
