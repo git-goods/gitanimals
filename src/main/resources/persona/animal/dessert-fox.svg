@@ -1,5 +1,6 @@
 <style>
   *{act}
+  *{emotion-style}
 
   @keyframes dessert-fox-*{id}-leg-left-move {
   0% {
@@ -163,6 +164,7 @@
   </svg>
 </g>
 <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+  <g id="dessert-fox-*{id}-base">
   <g id="dessert-fox-*{id}-shadow" transform="translate(3, 12)">
     <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447"
       fill-opacity="0.1"/>
@@ -237,5 +239,7 @@
       <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
     </g>
   </g>
+  </g>
+  *{emotions}
 </svg>
 </g>

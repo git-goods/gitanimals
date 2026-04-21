@@ -8,6 +8,7 @@ import kotlin.random.Random
 
 enum class PersonaType(
     val weight: Double,
+    val haveAnimation: Boolean = false,
     val grade: PersonaGrade = PersonaGrade.DEFAULT,
     val personaEvolution: PersonaEvolution = PersonaEvolution.nothing,
 ) {
@@ -549,7 +550,11 @@ enum class PersonaType(
             .moveRandomly("little-chick", id, 40, "180s", 2, 16.0)
             .toString()
     },
-    LITTLE_CHICK_EGG_ON_HAT(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.2, type = PersonaEvolutionType.LITTLE_CHICK)) {
+    LITTLE_CHICK_EGG_ON_HAT(
+        weight = 0.0,
+        grade = PersonaGrade.EVOLUTION,
+        personaEvolution = PersonaEvolution(weight = 0.2, type = PersonaEvolutionType.LITTLE_CHICK)
+    ) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickEggOnHatSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -575,7 +580,11 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_ANGEL(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.05, type = PersonaEvolutionType.LITTLE_CHICK)) {
+    LITTLE_CHICK_ANGEL(
+        weight = 0.0,
+        grade = PersonaGrade.EVOLUTION,
+        personaEvolution = PersonaEvolution(weight = 0.05, type = PersonaEvolutionType.LITTLE_CHICK)
+    ) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             val littleChick = littleChickAngelSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1282,7 +1291,11 @@ enum class PersonaType(
         }
     },
 
-    FLAMINGO_WHITE(weight = 0.0, grade = PersonaGrade.EVOLUTION, personaEvolution = PersonaEvolution(weight = 0.1, type = PersonaEvolutionType.FLAMINGO)) {
+    FLAMINGO_WHITE(
+        weight = 0.0,
+        grade = PersonaGrade.EVOLUTION,
+        personaEvolution = PersonaEvolution(weight = 0.1, type = PersonaEvolutionType.FLAMINGO)
+    ) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return flamingoWhiteSvg.replace("*{position}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1677,7 +1690,7 @@ enum class PersonaType(
             StringBuilder().moveRandomly("mole", id, 40, "180s", 5, 14.0)
                 .toString()
     },
-    RABBIT(weight =0.9) {
+    RABBIT(weight = 0.9) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
             return rabbitSvg.replace("*{act}", act(animationId))
                 .replace("*{id}", animationId.toString())
@@ -1758,9 +1771,30 @@ enum class PersonaType(
                 .toString()
     },
 
-    DESSERT_FOX(0.05) {
+    DESSERT_FOX(0.05, haveAnimation = true) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
-            return dessertFoxSvg.replace("*{act}", act(animationId))
+            val emotion = buildEmotionAnimation(
+                idPrefix = "dessert-fox",
+                animationId = animationId,
+                totalDuration = 180.0,
+                emotionDuration = 3.0,
+                emotionSvgs = listOf(
+                    dessertFoxErrorEmotionSvg,
+                    dessertFoxHappyEmotionSvg,
+                    dessertFoxIdleFollowEmotionSvg,
+                    dessertFoxNotificationEmotionSvg,
+                    dessertFoxThinkingEmotionSvg,
+                    dessertFoxTypingEmotionSvg,
+                ),
+                emotionYOffsets = listOf(3.0, 3.0, 3.0, 3.0, 3.0, 2.0),
+                minGap = 1.0,
+                maxGap = 1.0,
+            )
+
+            return dessertFoxSvg
+                .replace("*{act}", act(animationId))
+                .replace("*{emotion-style}", emotion.css)
+                .replace("*{emotions}", emotion.content)
                 .replace("*{id}", animationId.toString())
                 .replace("*{level}", level.toSvg(14.0, 2.0))
                 .replace(
@@ -2592,6 +2626,80 @@ enum class PersonaType(
     }
 
     companion object {
+        data class EmotionAnimation(val css: String, val content: String)
+
+        fun buildEmotionAnimation(
+            idPrefix: String,
+            animationId: Long,
+            totalDuration: Double,
+            emotionDuration: Double,
+            emotionSvgs: List<String>,
+            emotionYOffsets: List<Double>,
+            minGap: Double = 5.0,
+            maxGap: Double = 30.0,
+        ): EmotionAnimation {
+            val random = Random(animationId)
+            val df = DecimalFormat("#.##")
+
+            val schedule = mutableListOf<Pair<Double, Int>>()
+            var currentTime = if (minGap >= maxGap) minGap else random.nextDouble(minGap, maxGap)
+            while (currentTime + emotionDuration < totalDuration) {
+                schedule.add(currentTime to random.nextInt(emotionSvgs.size))
+                currentTime += emotionDuration + if (minGap >= maxGap) minGap else random.nextDouble(minGap, maxGap)
+            }
+
+            val usedEmotions = schedule.map { it.second }.toSet()
+
+            val css = StringBuilder()
+            if (schedule.isNotEmpty()) {
+                css.append("@keyframes $idPrefix-$animationId-base-toggle{")
+                css.append("0%{opacity:1;}")
+                for ((startTime, _) in schedule) {
+                    css.append("${df.format(startTime / totalDuration * 100)}%{opacity:0;}")
+                    css.append("${df.format((startTime + emotionDuration) / totalDuration * 100)}%{opacity:1;}")
+                }
+                css.append("100%{opacity:1;}}")
+                css.append("#$idPrefix-$animationId-base{")
+                css.append("animation-name:$idPrefix-$animationId-base-toggle;")
+                css.append("animation-duration:${totalDuration.toInt()}s;")
+                css.append("animation-timing-function:steps(1, end);")
+                css.append("animation-iteration-count:1;")
+                css.append("animation-fill-mode:forwards;")
+                css.append("}")
+
+                for (emotionIdx in usedEmotions) {
+                    val entries = schedule.filter { it.second == emotionIdx }
+                    css.append("@keyframes $idPrefix-$animationId-emo-$emotionIdx-toggle{")
+                    css.append("0%{opacity:0;}")
+                    for ((startTime, _) in entries) {
+                        css.append("${df.format(startTime / totalDuration * 100)}%{opacity:1;}")
+                        css.append("${df.format((startTime + emotionDuration) / totalDuration * 100)}%{opacity:0;}")
+                    }
+                    css.append("100%{opacity:0;}}")
+                    css.append("#$idPrefix-$animationId-emo-$emotionIdx{")
+                    css.append("animation-name:$idPrefix-$animationId-emo-$emotionIdx-toggle;")
+                    css.append("animation-duration:${totalDuration.toInt()}s;")
+                    css.append("animation-timing-function:steps(1, end);")
+                    css.append("animation-iteration-count:1;")
+                    css.append("animation-fill-mode:forwards;")
+                    css.append("}")
+                }
+            }
+
+            val content = StringBuilder()
+            for (emotionIdx in usedEmotions) {
+                val yOffset = emotionYOffsets[emotionIdx]
+                val innerContent = emotionSvgs[emotionIdx]
+                    .substringAfter(">")
+                    .substringBeforeLast("</svg>")
+                content.append("<g id=\"$idPrefix-$animationId-emo-$emotionIdx\" transform=\"translate(0, $yOffset)\">")
+                content.append(innerContent)
+                content.append("</g>")
+            }
+
+            return EmotionAnimation(css.toString(), content.toString())
+        }
+
         private val dropRateFormat = DecimalFormat("#.##")
 
         private val maxWeight = lazy {

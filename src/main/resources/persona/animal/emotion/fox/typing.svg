@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <!--
+    Dessert Fox — typing/working state (notebook pose)
+    Derived from dessert-fox-collaborator.svg reference
+    CSS 0% positions (collaborator sitting layout):
+      Shadow: (3, 9.5), Legs: (5, 7.5)/(8, 7.5), Body attr: (-2, 4.5), Head: (0, -2.5)
+    Notebook: translate(8, 4.5) — outside obj, stays fixed while fox bobs
+  -->
+  <style>
+    @keyframes dessert-fox-*{id}-typing-shadow {
+      0%   { transform: translate(3px, 9.5px) scaleX(1); }
+      15%  { transform: translate(3px, 9.5px) scaleX(1.2); }
+      30%  { transform: translate(3px, 9.5px) scaleX(1); }
+      100% { transform: translate(3px, 9.5px) scaleX(1); }
+    }
+    @keyframes dessert-fox-*{id}-typing-obj {
+      0%   { transform: translate(0, 0); }
+      15%  { transform: translate(0, -1px); }
+      30%  { transform: translate(0, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes dessert-fox-*{id}-typing-head-nod {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(2px, -1px) rotate(10deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    @keyframes dessert-fox-*{id}-typing-notebook {
+      0%   { transform: translate(8px, 4.5px); }
+      50%  { transform: translate(8px, 4.7px); }
+      100% { transform: translate(8px, 4.5px); }
+    }
+
+    #dessert-fox-*{id}-typing-shadow {
+      animation: dessert-fox-*{id}-typing-shadow 2s ease-in-out infinite;
+    }
+    #dessert-fox-*{id}-typing-obj {
+      animation: dessert-fox-*{id}-typing-obj 2s ease-in-out infinite;
+    }
+    #dessert-fox-*{id}-typing-head-nod {
+      animation: dessert-fox-*{id}-typing-head-nod 1s ease-in-out infinite;
+    }
+    #dessert-fox-*{id}-typing-notebook {
+      animation: dessert-fox-*{id}-typing-notebook 0.3s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Shadow -->
+  <g id="dessert-fox-*{id}-typing-shadow" transform="translate(3, 9.5)">
+    <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+  </g>
+
+  <!-- obj: legs + body + head (subtle bob) -->
+  <g id="dessert-fox-*{id}-typing-obj">
+    <!-- Legs (sitting, no animation) -->
+    <g transform="translate(5, 7.5)">
+      <rect width="2" height="3" fill="#DDD7B5"/>
+    </g>
+    <g transform="translate(8, 7.5)">
+      <rect width="2" height="3" fill="#DDD7B5"/>
+    </g>
+
+    <!-- Body (sitting pose: translate(-2, 4.5)) -->
+    <g transform="translate(-2, 4.5)">
+      <rect x="2" y="2" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="3" y="3" width="3" height="1" fill="#F5F5F7"/>
+      <rect y="3" width="2" height="1" fill="#F5F5F7"/>
+      <rect x="3" y="2" width="8" height="1" fill="#DDD7B5"/>
+      <rect x="7" width="6" height="4" fill="#DDD7B5"/>
+      <rect x="7" y="2" width="6" height="2" fill="#DDD7B5"/>
+      <rect x="4" y="2" width="8" height="2" fill="#DDD7B5"/>
+      <rect x="6" y="1" width="7" height="3" fill="#DDD7B5"/>
+      <rect x="6" y="3" width="7" height="2" fill="#DDD7B5"/>
+      <rect x="9" y="2" width="3" height="3" fill="#F5F5F7"/>
+      <rect x="8" y="3" width="3" height="2" fill="#F5F5F7"/>
+      <rect x="7" y="4" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="2" y="1" width="2" height="1" fill="#DDD7B5"/>
+      <rect x="1" y="2" width="1" height="1" fill="#DDD7B5"/>
+      <rect y="3" width="1" height="1" fill="#DDD7B5"/>
+      <rect x="4" y="3" width="2" height="1" fill="black" fill-opacity="0.1"/>
+      <rect x="6" y="4" width="2" height="1" fill="black" fill-opacity="0.1"/>
+      <rect x="3" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+    </g>
+
+    <!-- Head: outer = static position, inner = animation (no gap with body) -->
+    <g transform="translate(0, -2.5)">
+    <g id="dessert-fox-*{id}-typing-head-nod">
+      <rect x="7" y="2" width="4" height="5" fill="#DDD7B5"/>
+      <rect x="9" y="5" width="2" height="2" fill="#F5F5F7"/>
+      <rect x="6" y="3" width="6" height="4" fill="#DDD7B5"/>
+      <rect x="8" y="6" width="4" height="1" fill="#F5F5F7"/>
+      <rect x="8" y="6" width="3" height="2" fill="#F5F5F7"/>
+      <rect x="6" y="3" width="6" height="1" fill="#DDD7B5"/>
+      <rect x="3" y="4" width="12" height="1" fill="#DDD7B5"/>
+      <rect x="5" y="3" width="8" height="3" fill="#DDD7B5"/>
+      <rect x="7" y="7" width="4" height="1" fill="#DDD7B5"/>
+      <!-- Left ear -->
+      <rect x="1" y="2" width="4" height="1" fill="#DDD7B5"/>
+      <rect y="1" width="4" height="1" fill="#DDD7B5"/>
+      <rect x="1" width="2" height="3" fill="#DDD7B5"/>
+      <rect x="1" y="1" width="2" height="1" fill="#FBB3BE"/>
+      <rect x="2" y="1" width="1" height="2" fill="#FBB3BE"/>
+      <rect x="2" y="2" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="3" y="3" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="3" y="4" width="3" height="1" fill="#FBB3BE"/>
+      <!-- Right ear -->
+      <rect x="13" y="2" width="4" height="1" fill="#DDD7B5"/>
+      <rect x="14" y="1" width="4" height="1" fill="#DDD7B5"/>
+      <rect x="15" width="2" height="3" fill="#DDD7B5"/>
+      <rect x="15" y="1" width="2" height="1" fill="#FBB3BE"/>
+      <rect x="15" y="1" width="1" height="2" fill="#FBB3BE"/>
+      <rect x="14" y="2" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="13" y="3" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="12" y="4" width="3" height="1" fill="#FBB3BE"/>
+      <!-- Nose -->
+      <rect x="10" y="6" width="1" height="1" fill="black"/>
+      <!-- Muzzle highlight -->
+      <rect x="7" y="7" width="4" height="1" fill="#F5F5F7"/>
+      <rect x="9" y="5" width="3" height="1" fill="#F5F5F7"/>
+      <!-- Shadow under muzzle -->
+      <rect x="7" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+      <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+      <!-- Eyes (last = highest z) -->
+      <rect x="8" y="4" width="1" height="2" fill="black"/>
+      <rect x="11" y="4" width="1" height="2" fill="black"/>
+    </g><!-- /dessert-fox-*{id}-typing-head-nod -->
+    </g><!-- /head position -->
+  </g>
+
+  <!-- Notebook: outside obj so it stays fixed while fox bobs -->
+  <g id="dessert-fox-*{id}-typing-notebook" transform="translate(8, 4.5)">
+    <rect width="4.66667" height="3.33333" transform="matrix(-1 0 0 1 6.6665 0)" fill="#E4E4E4"/>
+    <rect width="6" height="3.33333" transform="matrix(-1 0 0 1 7.33325 0.666687)" fill="#E4E4E4"/>
+    <rect width="6" height="1.33333" transform="matrix(-1 0 0 1 6.6665 2.66669)" fill="#E4E4E4"/>
+    <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 6 3.33331)" fill="#E4E4E4"/>
+    <rect width="0.666667" height="1.33333" transform="matrix(-1 0 0 1 1.33325 2.66669)" fill="black" fill-opacity="0.1"/>
+    <rect width="0.666667" height="0.666667" transform="matrix(-1 0 0 1 0.666504 3.33331)" fill="black" fill-opacity="0.1"/>
+    <rect width="6" height="0.666667" transform="matrix(-1 0 0 1 7.33325 3.33331)" fill="black" fill-opacity="0.1"/>
+    <rect x="5.33325" y="2.33331" width="0.666667" height="0.333333" transform="rotate(180 5.33325 2.33331)" fill="#242427"/>
+    <rect width="0.666667" height="0.333333" transform="matrix(-1 0 0 1 5 1.66669)" fill="#242427"/>
+    <rect width="0.333333" height="1.33333" transform="matrix(-1 0 0 1 5.33325 1.33331)" fill="#242427"/>
+    <rect width="1" height="0.333333" transform="matrix(-1 0 0 1 5.33325 2.33331)" fill="#242427"/>
+  </g>
+</svg>

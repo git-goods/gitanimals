@@ -401,6 +401,24 @@ val pigRobotSvg: String = ClassPathResource("persona/animal/evolution/pig-robot.
 val rudolphSvg: String = ClassPathResource("persona/animal/rudolph.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val dessertFoxErrorEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/error.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val dessertFoxHappyEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/happy.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val dessertFoxIdleFollowEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/idle-follow.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val dessertFoxNotificationEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/notification.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val dessertFoxThinkingEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/thinking.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val dessertFoxTypingEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/typing.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val largeTextSvgs = lazy {
     val map = mutableMapOf<String, String>()
     for (i in 'A'..'Z') {

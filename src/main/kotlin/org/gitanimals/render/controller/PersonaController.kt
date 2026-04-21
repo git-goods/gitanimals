@@ -24,8 +24,14 @@ class PersonaController(
 ) {
 
     @GetMapping("/users/{username}")
-    fun getUserByName(@PathVariable("username") username: String): UserResponse {
-        return UserResponse.from(userService.getUserByNameWithAllContributions(username))
+    fun getUserByName(
+        @PathVariable("username") username: String,
+        @RequestParam("filter-animation", defaultValue = "false") filterAnimation: Boolean,
+    ): UserResponse {
+        return UserResponse.of(
+            user = userService.getUserByNameWithAllContributions(username),
+            filterAnimation = filterAnimation,
+        )
     }
 
     @GetMapping("/personas/{persona-id}")

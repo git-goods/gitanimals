@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <!--
+    Dessert Fox — attention/happy state
+    Base: idle-follow.svg (standing)
+    Changes:
+      - Eyes: ^^ (horizontal 2x1 rects)
+      - Big bounce jump with squash (1.5s cycle)
+      - Shadow shrinks in air, expands on landing
+      - Legs: 0.8s (slightly faster, happy energy)
+      - Head: nested group (no neck gap), gentle nod
+      - 5 pixel-art sparkles with staggered delays
+    Keyframe prefix: dessert-fox-*{id}-happy-*
+  -->
+  <defs>
+    <style>
+      @keyframes dessert-fox-*{id}-happy-leg-left {
+        0%   { transform: translate(5px, 5px); }
+        50%  { transform: translate(5px, 5px) rotate(10deg); }
+        100% { transform: translate(5px, 5px); }
+      }
+      @keyframes dessert-fox-*{id}-happy-leg-right {
+        0%   { transform: translate(8px, 5px); }
+        50%  { transform: translate(8px, 5px) rotate(-10deg); }
+        100% { transform: translate(8px, 5px); }
+      }
+      /* delta-only head nod */
+      @keyframes dessert-fox-*{id}-happy-head-nod {
+        0%   { transform: translate(0, 0) rotate(0deg); }
+        50%  { transform: translate(2px, -1px) rotate(10deg); }
+        100% { transform: translate(0, 0) rotate(0deg); }
+      }
+      /* big bounce jump + squash */
+      @keyframes dessert-fox-*{id}-happy-obj {
+        0%, 15%, 100% { transform: translate(0, 0) scaleY(1); }
+        20%  { transform: translate(0, 0) scaleY(0.9); }
+        40%  { transform: translate(0, -10px) scaleY(1.05); }
+        50%  { transform: translate(0, -12px) scaleY(1); }
+        60%  { transform: translate(0, -10px) scaleY(1.05); }
+        80%  { transform: translate(0, 0) scaleY(0.9); }
+        85%  { transform: translate(0, 0) scaleY(1); }
+      }
+      /* shadow shrinks in air */
+      @keyframes dessert-fox-*{id}-happy-shadow {
+        0%, 15%, 100% { transform: translate(3px, 7px) scaleX(1);    opacity: 0.8; }
+        20%           { transform: translate(3px, 7px) scaleX(1.1);  opacity: 0.9; }
+        40%           { transform: translate(3px, 7px) scaleX(0.55); opacity: 0.25; }
+        50%           { transform: translate(3px, 7px) scaleX(0.5);  opacity: 0.2; }
+        60%           { transform: translate(3px, 7px) scaleX(0.55); opacity: 0.25; }
+        80%           { transform: translate(3px, 7px) scaleX(1.1);  opacity: 0.9; }
+        85%           { transform: translate(3px, 7px) scaleX(1);    opacity: 0.8; }
+      }
+      /* sparkle: center dot */
+      @keyframes dessert-fox-*{id}-happy-spark-center {
+        0%   { opacity: 0; }
+        10%  { opacity: 1; }
+        30%  { opacity: 0; }
+        100% { opacity: 0; }
+      }
+      /* sparkle: outer cross arms */
+      @keyframes dessert-fox-*{id}-happy-spark-outer {
+        0%   { opacity: 0; }
+        20%  { opacity: 1; }
+        40%  { opacity: 0; }
+        100% { opacity: 0; }
+      }
+
+      #dessert-fox-*{id}-happy-shadow {
+        animation: dessert-fox-*{id}-happy-shadow 1.5s ease-in-out infinite;
+      }
+      #dessert-fox-*{id}-happy-obj {
+        animation: dessert-fox-*{id}-happy-obj 1.5s ease-in-out infinite;
+      }
+      #dessert-fox-*{id}-happy-leg-left {
+        animation: dessert-fox-*{id}-happy-leg-left 0.8s ease-in-out infinite;
+      }
+      #dessert-fox-*{id}-happy-leg-right {
+        animation: dessert-fox-*{id}-happy-leg-right 0.8s ease-in-out infinite;
+      }
+      #dessert-fox-*{id}-happy-head-nod {
+        animation: dessert-fox-*{id}-happy-head-nod 1s ease-in-out infinite;
+      }
+      /* eyes toggle: normal ↔ ^^ in sync with bounce (1.5s) */
+      @keyframes dessert-fox-*{id}-happy-eyes-normal {
+        0%, 20%    { opacity: 1; }
+        25%        { opacity: 0; }
+        65%        { opacity: 0; }
+        70%, 100%  { opacity: 1; }
+      }
+      @keyframes dessert-fox-*{id}-happy-eyes-arc {
+        0%, 20%    { opacity: 0; }
+        25%        { opacity: 1; }
+        65%        { opacity: 1; }
+        70%, 100%  { opacity: 0; }
+      }
+      #dessert-fox-*{id}-happy-eyes-n {
+        animation: dessert-fox-*{id}-happy-eyes-normal 1.5s steps(1, end) infinite;
+      }
+      #dessert-fox-*{id}-happy-eyes-a {
+        animation: dessert-fox-*{id}-happy-eyes-arc 1.5s steps(1, end) infinite;
+      }
+      .dessert-fox-*{id}-happy-spark-c {
+        opacity: 0;
+        animation: dessert-fox-*{id}-happy-spark-center 1.5s infinite step-end;
+        animation-delay: var(--d, 0s);
+      }
+      .dessert-fox-*{id}-happy-spark-o {
+        opacity: 0;
+        animation: dessert-fox-*{id}-happy-spark-outer 1.5s infinite step-end;
+        animation-delay: var(--d, 0s);
+      }
+    </style>
+
+    <!-- Reusable pixel-art sparkle (+) -->
+    <g id="dessert-fox-*{id}-happy-px-sparkle">
+      <rect class="dessert-fox-*{id}-happy-spark-c" x="-0.5" y="-0.5" width="1" height="1"/>
+      <g class="dessert-fox-*{id}-happy-spark-o">
+        <rect x="-0.5" y="-1.5" width="1" height="1"/>
+        <rect x="-0.5" y="0.5"  width="1" height="1"/>
+        <rect x="-1.5" y="-0.5" width="1" height="1"/>
+        <rect x="0.5"  y="-0.5" width="1" height="1"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- Shadow -->
+  <g id="dessert-fox-*{id}-happy-shadow" transform="translate(3, 7)">
+    <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+  </g>
+
+  <!-- obj: legs + body + head (bounce jump group) -->
+  <g id="dessert-fox-*{id}-happy-obj">
+    <!-- Legs (0.8s — slightly faster, happy) -->
+    <g id="dessert-fox-*{id}-happy-leg-left" transform="translate(5, 5)">
+      <rect width="2" height="3" fill="#DDD7B5"/>
+    </g>
+    <g id="dessert-fox-*{id}-happy-leg-right" transform="translate(8, 5)">
+      <rect width="2" height="3" fill="#DDD7B5"/>
+    </g>
+
+    <!-- Body -->
+    <g transform="translate(-2, 2)">
+      <rect x="2" y="2" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="3" y="3" width="3" height="1" fill="#F5F5F7"/>
+      <rect y="3" width="2" height="1" fill="#F5F5F7"/>
+      <rect x="3" y="2" width="8" height="1" fill="#DDD7B5"/>
+      <rect x="7" width="6" height="4" fill="#DDD7B5"/>
+      <rect x="7" y="2" width="6" height="2" fill="#DDD7B5"/>
+      <rect x="4" y="2" width="8" height="2" fill="#DDD7B5"/>
+      <rect x="6" y="1" width="7" height="3" fill="#DDD7B5"/>
+      <rect x="6" y="3" width="7" height="2" fill="#DDD7B5"/>
+      <rect x="9" y="2" width="3" height="3" fill="#F5F5F7"/>
+      <rect x="8" y="3" width="3" height="2" fill="#F5F5F7"/>
+      <rect x="7" y="4" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="2" y="1" width="2" height="1" fill="#DDD7B5"/>
+      <rect x="1" y="2" width="1" height="1" fill="#DDD7B5"/>
+      <rect y="3" width="1" height="1" fill="#DDD7B5"/>
+      <rect x="4" y="3" width="2" height="1" fill="black" fill-opacity="0.1"/>
+      <rect x="6" y="4" width="2" height="1" fill="black" fill-opacity="0.1"/>
+      <rect x="3" y="2" width="1" height="1" fill="black" fill-opacity="0.1"/>
+    </g>
+
+    <!-- Head: outer = static position, inner = delta only -->
+    <g transform="translate(0, -5)">
+      <g id="dessert-fox-*{id}-happy-head-nod">
+        <rect x="7" y="2" width="4" height="5" fill="#DDD7B5"/>
+        <rect x="9" y="5" width="2" height="2" fill="#F5F5F7"/>
+        <rect x="6" y="3" width="6" height="4" fill="#DDD7B5"/>
+        <rect x="8" y="6" width="4" height="1" fill="#F5F5F7"/>
+        <rect x="8" y="6" width="3" height="2" fill="#F5F5F7"/>
+        <rect x="6" y="3" width="6" height="1" fill="#DDD7B5"/>
+        <rect x="3" y="4" width="12" height="1" fill="#DDD7B5"/>
+        <rect x="5" y="3" width="8" height="3" fill="#DDD7B5"/>
+        <rect x="7" y="7" width="4" height="1" fill="#DDD7B5"/>
+        <!-- Left ear -->
+        <rect x="1" y="2" width="4" height="1" fill="#DDD7B5"/>
+        <rect y="1" width="4" height="1" fill="#DDD7B5"/>
+        <rect x="1" width="2" height="3" fill="#DDD7B5"/>
+        <rect x="1" y="1" width="2" height="1" fill="#FBB3BE"/>
+        <rect x="2" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="2" y="2" width="2" height="2" fill="#FBB3BE"/>
+        <rect x="3" y="3" width="2" height="2" fill="#FBB3BE"/>
+        <rect x="3" y="4" width="3" height="1" fill="#FBB3BE"/>
+        <!-- Right ear -->
+        <rect x="13" y="2" width="4" height="1" fill="#DDD7B5"/>
+        <rect x="14" y="1" width="4" height="1" fill="#DDD7B5"/>
+        <rect x="15" width="2" height="3" fill="#DDD7B5"/>
+        <rect x="15" y="1" width="2" height="1" fill="#FBB3BE"/>
+        <rect x="15" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="14" y="2" width="2" height="2" fill="#FBB3BE"/>
+        <rect x="13" y="3" width="2" height="2" fill="#FBB3BE"/>
+        <rect x="12" y="4" width="3" height="1" fill="#FBB3BE"/>
+        <!-- Nose -->
+        <rect x="10" y="6" width="1" height="1" fill="black"/>
+        <!-- Muzzle highlight -->
+        <rect x="7" y="7" width="4" height="1" fill="#F5F5F7"/>
+        <rect x="9" y="5" width="3" height="1" fill="#F5F5F7"/>
+        <!-- Shadow under muzzle -->
+        <rect x="7" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <!-- Normal eyes (shown by default, hides when ^^ shows) -->
+        <g id="dessert-fox-*{id}-happy-eyes-n">
+          <rect x="8"  y="4" width="1" height="2" fill="black"/>
+          <rect x="11" y="4" width="1" height="2" fill="black"/>
+        </g>
+        <!-- ^^ arc eyes (hidden by default, shows on happy moment) -->
+        <g id="dessert-fox-*{id}-happy-eyes-a" opacity="0">
+          <!-- Left ^ (center x=8.5) -->
+          <rect x="8.0"  y="5.0" width="0.52" height="0.52" fill="black"/>
+          <rect x="8.25" y="4.4" width="0.52" height="0.52" fill="black"/>
+          <rect x="8.5"  y="4.0" width="0.52" height="0.52" fill="black"/>
+          <rect x="8.75" y="4.4" width="0.52" height="0.52" fill="black"/>
+          <rect x="9.0"  y="5.0" width="0.52" height="0.52" fill="black"/>
+          <!-- Right ^ (center x=11.5) -->
+          <rect x="11.0"  y="5.0" width="0.52" height="0.52" fill="black"/>
+          <rect x="11.25" y="4.4" width="0.52" height="0.52" fill="black"/>
+          <rect x="11.5"  y="4.0" width="0.52" height="0.52" fill="black"/>
+          <rect x="11.75" y="4.4" width="0.52" height="0.52" fill="black"/>
+          <rect x="12.0"  y="5.0" width="0.52" height="0.52" fill="black"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Sparkles (outside obj — fixed in world space) -->
+  <use href="#dessert-fox-*{id}-happy-px-sparkle" x="-4"  y="-10" fill="#FFD700" style="--d: 0.0s"/>
+  <use href="#dessert-fox-*{id}-happy-px-sparkle" x="19"  y="-8"  fill="#FFA000" style="--d: 0.3s"/>
+  <use href="#dessert-fox-*{id}-happy-px-sparkle" x="21"  y="2"   fill="#FFF59D" style="--d: 0.6s"/>
+  <use href="#dessert-fox-*{id}-happy-px-sparkle" x="8"   y="-15" fill="#FFC107" style="--d: 0.9s"/>
+  <use href="#dessert-fox-*{id}-happy-px-sparkle" x="-3"  y="4"   fill="#FFD700" style="--d: 1.2s"/>
+</svg>
