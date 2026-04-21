@@ -1,6 +1,6 @@
 <style>
   *{act}
-
+  *{emotion-style}
 
   @keyframes little-chick-move-head {
   0% {
@@ -126,6 +126,7 @@
 
 <svg width="600" height="300" viewBox="0 0 300 150" fill="none" overflow="visible"
   xmlns="http://www.w3.org/2000/svg">
+  <g id="little-chick-*{id}-base">
   <g id="little-chick-shadow" transform="translate(-2, 2)">
     <rect width="12" height="3"
       transform="matrix(0.707107 0.707107 0.707107 -0.707107 1.41422 2.12132)" fill="#6F6F6F"
@@ -211,5 +212,7 @@
     <rect x="8.05104" y="4.02853" width="0.428571" height="0.428571"
       transform="rotate(-13.8199 8.05104 4.02853)" fill="white"/>
   </g>
+  </g>
+  *{emotions}
 </svg>
 </g>

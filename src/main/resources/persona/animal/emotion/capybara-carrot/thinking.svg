@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <!--
+    Capybara Carrot — thinking
+    Static body + thought bubble with sequential loading dots
+  -->
+  <style>
+    @keyframes cap-think-bubble {
+      0%   { transform: translate(13px, -10px); }
+      50%  { transform: translate(13px, -10.3px); }
+      100% { transform: translate(13px, -10px); }
+    }
+    @keyframes cap-think-dot-1 { 0%, 20% { opacity: 0; } 21%, 100% { opacity: 1; } }
+    @keyframes cap-think-dot-2 { 0%, 40% { opacity: 0; } 41%, 100% { opacity: 1; } }
+    @keyframes cap-think-dot-3 { 0%, 60% { opacity: 0; } 61%, 100% { opacity: 1; } }
+
+    #cap-think-bubble { animation: cap-think-bubble 2s ease-in-out infinite; }
+    #cap-think-d1 { opacity: 0; animation: cap-think-dot-1 2s ease-in-out infinite; }
+    #cap-think-d2 { opacity: 0; animation: cap-think-dot-2 2s ease-in-out infinite; }
+    #cap-think-d3 { opacity: 0; animation: cap-think-dot-3 2s ease-in-out infinite; }
+  </style>
+
+  <!-- Shadow -->
+  <g transform="translate(-4.2, 14.5)">
+    <rect width="20" height="2.5" transform="matrix(-1 0 0 1 20 1.83252)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="16.9231" height="0.625" transform="matrix(-1 0 0 1 18.4614 1.20752)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="16.9231" height="0.625" transform="matrix(-1 0 0 1 18.4614 4.33252)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="13.8462" height="0.625" transform="matrix(-1 0 0 1 16.9233 0.58252)" fill="#2B4447" fill-opacity="0.1"/>
+    <rect width="13.8462" height="0.625" transform="matrix(-1 0 0 1 16.9233 4.95752)" fill="#2B4447" fill-opacity="0.1"/>
+  </g>
+
+  <g>
+    <g transform="translate(3.8, 15)">
+      <path d="M8.08245 0.0825195H6.12369V2.62891H8.08245V0.0825195Z" fill="#C17B46"/>
+      <path d="M2.20617 0.0825195H0.247406V2.62891H2.20617V0.0825195Z" fill="#C17B46"/>
+    </g>
+    <g transform="translate(-2, 14)">
+      <path d="M4.28865 0.886719H0.371124V3.62898H4.28865V0.886719Z" fill="#C17B46"/>
+    </g>
+
+    <g transform="translate(-3.2, 6.1)">
+      <path d="M9.98971 0.876343H3.32993V4.59799H9.98971V0.876343Z" fill="#C17B46"/>
+      <path d="M15.0825 2.83508H0V10.6701H15.0825V2.83508Z" fill="#C17B46"/>
+      <path d="M15.0824 6.75256H7.24741V8.71132H15.0824V6.75256Z" fill="#A56235"/>
+      <path d="M13.1237 8.5155H9.20615V10.6701H13.1237V8.5155Z" fill="#A56235"/>
+      <path d="M7.24743 4.79382H5.28867V6.75258H7.24743V4.79382Z" fill="#A56235"/>
+    </g>
+
+    <g transform="translate(5.2, -3.8)">
+      <path d="M4.12371 0H2.16495V2.15464H4.12371V0Z" fill="#4AFF79"/>
+      <path d="M6.08243 1.95874H0.206146V6.07214H6.08243V1.95874Z" fill="#FF8948"/>
+    </g>
+
+    <g transform="translate(0, 0)">
+      <g>
+        <path d="M14.0412 0H11.299V2.54639H14.0412V0Z" fill="#8E654A"/>
+        <path d="M16 1.95886H2.28867V9.79391H16V1.95886Z" fill="#C17B46"/>
+        <path d="M16 9.01038H4.24741V11.7526H16V9.01038Z" fill="#C17B46"/>
+        <path d="M16 7.83508H8.16495V11.7526H16V7.83508Z" fill="#7C4B32"/>
+        <path d="M16 5.87634H10.1237V8.22686H16V5.87634Z" fill="#7C4B32"/>
+        <path d="M4.24745 0H0.329926V3.91752H4.24745V0Z" fill="#8E654A"/>
+        <path d="M7.38144 4.70105H4.4433V5.87631H7.38144V4.70105Z" fill="black"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Thought bubble (outside obj — independent bob) -->
+  <g id="cap-think-bubble" transform="translate(13, -10)">
+    <g fill="white" fill-opacity="0.92">
+      <rect x="1" y="0" width="7" height="6"/>
+      <rect x="0" y="1" width="9" height="4"/>
+      <rect x="1" y="6" width="3" height="1"/>
+      <rect x="0" y="7" width="1" height="1"/>
+    </g>
+    <rect id="cap-think-d1" x="2" y="2.5" width="1" height="1" fill="#888"/>
+    <rect id="cap-think-d2" x="4.5" y="2.5" width="1" height="1" fill="#888"/>
+    <rect id="cap-think-d3" x="7" y="2.5" width="1" height="1" fill="#888"/>
+  </g>
+</svg>

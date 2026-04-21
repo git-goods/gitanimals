@@ -114,6 +114,18 @@ val littleChickLinuxSvg: String = ClassPathResource("persona/animal/little-chick
 val littleChickSpringSvg: String = ClassPathResource("persona/animal/little-chick-spring.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val littleChickIdleFollowEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/little-chick/idle-follow.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val littleChickThinkingEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/little-chick/thinking.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val littleChickTypingEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/little-chick/typing.svg")
+        .getContentAsString(Charset.defaultCharset())
+
 val penguinSvg: String = ClassPathResource("persona/animal/penguin.svg")
     .getContentAsString(Charset.defaultCharset())
 
@@ -376,6 +388,30 @@ val capybaraCarrotSvg: String = ClassPathResource("persona/animal/capybara-carro
 
 val capybaraSwimSvg: String = ClassPathResource("persona/animal/capybara-swim.svg")
     .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotErrorEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/capybara-carrot/error.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotHappyEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/capybara-carrot/happy.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotIdleFollowEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/capybara-carrot/idle-follow.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotNotificationEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/capybara-carrot/notification.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotThinkingEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/capybara-carrot/thinking.svg")
+        .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotTypingEmotionSvg: String =
+    ClassPathResource("persona/animal/emotion/capybara-carrot/typing.svg")
+        .getContentAsString(Charset.defaultCharset())
 
 val littleChickEggOnHatSvg: String = ClassPathResource("persona/animal/evolution/little-chick-egg-on-hat.svg")
     .getContentAsString(Charset.defaultCharset())

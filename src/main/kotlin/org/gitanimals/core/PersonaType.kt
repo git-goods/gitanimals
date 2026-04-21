@@ -267,9 +267,26 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK(weight = 0.9, personaEvolution = PersonaEvolution(weight = 0.3, type = PersonaEvolutionType.LITTLE_CHICK)) {
+    LITTLE_CHICK(weight = 0.9, haveAnimation = true, personaEvolution = PersonaEvolution(weight = 0.3, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val emotion = buildEmotionAnimation(
+                idPrefix = "little-chick",
+                animationId = animationId,
+                totalDuration = 180.0,
+                emotionDuration = 3.0,
+                emotionSvgs = listOf(
+                    littleChickIdleFollowEmotionSvg,
+                    littleChickThinkingEmotionSvg,
+                    littleChickTypingEmotionSvg,
+                ),
+                emotionYOffsets = listOf(0.0, 0.0, 0.0),
+                minGap = 1.0,
+                maxGap = 1.0,
+            )
+
             val littleChick = littleChickSvg.replace("*{act}", act(animationId))
+                .replace("*{emotion-style}", emotion.css)
+                .replace("*{emotions}", emotion.content)
                 .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
                 .replace("*{level}", level.toSvg(14.0, 2.0))
@@ -293,9 +310,26 @@ enum class PersonaType(
             .toString()
     },
 
-    LITTLE_CHICK_SUNGLASSES(weight = 0.4, personaEvolution = PersonaEvolution(weight = 0.4, type = PersonaEvolutionType.LITTLE_CHICK)) {
+    LITTLE_CHICK_SUNGLASSES(weight = 0.4, haveAnimation = true, personaEvolution = PersonaEvolution(weight = 0.4, type = PersonaEvolutionType.LITTLE_CHICK)) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val emotion = buildEmotionAnimation(
+                idPrefix = "little-chick",
+                animationId = animationId,
+                totalDuration = 180.0,
+                emotionDuration = 3.0,
+                emotionSvgs = listOf(
+                    littleChickIdleFollowEmotionSvg,
+                    littleChickThinkingEmotionSvg,
+                    littleChickTypingEmotionSvg,
+                ),
+                emotionYOffsets = listOf(0.0, 0.0, 0.0),
+                minGap = 1.0,
+                maxGap = 1.0,
+            )
+
             val littleChick = littleChickSunglassesSvg.replace("*{act}", act(animationId))
+                .replace("*{emotion-style}", emotion.css)
+                .replace("*{emotions}", emotion.content)
                 .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
                 .replace("*{level}", level.toSvg(14.0, 2.0))
@@ -2459,9 +2493,29 @@ enum class PersonaType(
             .toString()
     },
 
-    CAPYBARA_CARROT(0.6) {
+    CAPYBARA_CARROT(0.6, haveAnimation = true) {
         override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
+            val emotion = buildEmotionAnimation(
+                idPrefix = "capybara-carrot",
+                animationId = animationId,
+                totalDuration = 180.0,
+                emotionDuration = 3.0,
+                emotionSvgs = listOf(
+                    capybaraCarrotErrorEmotionSvg,
+                    capybaraCarrotHappyEmotionSvg,
+                    capybaraCarrotIdleFollowEmotionSvg,
+                    capybaraCarrotNotificationEmotionSvg,
+                    capybaraCarrotThinkingEmotionSvg,
+                    capybaraCarrotTypingEmotionSvg,
+                ),
+                emotionYOffsets = listOf(0.0, 0.0, 0.0, 0.0, 0.0, 0.0),
+                minGap = 1.0,
+                maxGap = 1.0,
+            )
+
             return capybaraCarrotSvg.replace("*{act}", act(animationId))
+                .replace("*{emotion-style}", emotion.css)
+                .replace("*{emotions}", emotion.content)
                 .replace("*{id}", animationId.toString())
                 .replace("*{leg-iteration-count}", "360")
                 .replace("*{level}", level.toSvg(14.0, 2.0))

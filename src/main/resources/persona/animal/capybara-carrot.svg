@@ -1,5 +1,6 @@
 <style>
   *{act}
+  *{emotion-style}
 
   @keyframes capybara-*{id}-carrot-move {
   0% {
@@ -140,6 +141,7 @@
 </g>
 
 <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+  <g id="capybara-carrot-*{id}-base">
   <g id="capybara-*{id}-shadow" transform="translate(-4.2, 14.5)">
     <rect width="20" height="2.5" transform="matrix(-1 0 0 1 20 1.83252)" fill="#2B4447"
       fill-opacity="0.1"/>
@@ -179,5 +181,7 @@
     <path d="M4.24745 0H0.329926V3.91752H4.24745V0Z" fill="#8E654A"/>
     <path d="M7.38144 4.70105H4.4433V5.87631H7.38144V4.70105Z" fill="black"/>
   </g>
+  </g>
+  *{emotions}
 </svg>
 </g>
