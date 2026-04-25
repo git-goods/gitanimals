@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <style>
+    @keyframes rabbit-idle-head {
+      0%   { transform: translate(0, -10px); }
+      50%  { transform: translate(0, -11px); }
+      100% { transform: translate(0, -10px); }
+    }
+    #rabbit-idle-head { animation: rabbit-idle-head 1s ease-in-out infinite; }
+  </style>
+
+  <g transform="translate(1, 7)">
+    <!-- Shadow -->
+    <g id="rabbit-idle-shadow" transform="translate(-2, 0)">
+      <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+    </g>
+
+    <!-- obj -->
+    <g id="rabbit-idle-obj">
+      <g transform="translate(-4, -4)">
+        <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+        <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+        <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+        <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+        <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+      </g>
+      <g id="rabbit-idle-head" transform="translate(0, -10)">
+        <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect width="2" height="3" fill="#FFF2F4"/>
+        <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+        <rect x="3" y="6" width="2" height="1" fill="black"/>
+        <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="1" height="1" fill="black"/>
+        <rect x="5" y="4" width="1" height="1" fill="black"/>
+      </g>
+    </g>
+  </g>
+</svg>

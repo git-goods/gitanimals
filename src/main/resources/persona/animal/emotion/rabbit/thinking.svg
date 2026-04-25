@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <style>
+    @keyframes rabbit-think-head {
+      0%   { transform: translate(0, -10px); }
+      50%  { transform: translate(0, -11px); }
+      100% { transform: translate(0, -10px); }
+    }
+    @keyframes rabbit-think-dot-1 {
+      0%, 20%  { opacity: 0.2; }
+      30%, 60% { opacity: 1; }
+      70%, 100%{ opacity: 0.2; }
+    }
+    @keyframes rabbit-think-dot-2 {
+      0%, 30%  { opacity: 0.2; }
+      40%, 70% { opacity: 1; }
+      80%, 100%{ opacity: 0.2; }
+    }
+    @keyframes rabbit-think-dot-3 {
+      0%, 40%  { opacity: 0.2; }
+      50%, 80% { opacity: 1; }
+      90%, 100%{ opacity: 0.2; }
+    }
+
+    #rabbit-think-head { animation: rabbit-think-head 1s ease-in-out infinite; }
+    #rabbit-think-d1 { animation: rabbit-think-dot-1 2s ease-in-out infinite; }
+    #rabbit-think-d2 { animation: rabbit-think-dot-2 2s ease-in-out infinite; }
+    #rabbit-think-d3 { animation: rabbit-think-dot-3 2s ease-in-out infinite; }
+  </style>
+
+  <g transform="translate(1, 7)">
+    <!-- Shadow -->
+    <g id="rabbit-think-shadow" transform="translate(-2, 0)">
+      <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+    </g>
+
+    <!-- obj -->
+    <g id="rabbit-think-obj">
+      <g transform="translate(-4, -4)">
+        <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+        <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+        <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+        <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+        <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+      </g>
+      <g id="rabbit-think-head" transform="translate(0, -10)">
+        <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect width="2" height="3" fill="#FFF2F4"/>
+        <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+        <rect x="3" y="6" width="2" height="1" fill="black"/>
+        <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="1" height="1" fill="black"/>
+        <rect x="5" y="4" width="1" height="1" fill="black"/>
+      </g>
+    </g>
+
+  </g>
+
+  <!-- Thought bubble (outside scale group for free positioning) -->
+  <g id="rabbit-think-bubble" transform="translate(12, -18)">
+    <g fill="white" fill-opacity="0.92">
+      <rect x="1" y="0" width="7" height="6"/>
+      <rect x="0" y="1" width="9" height="4"/>
+    </g>
+    <rect x="0" y="5" width="2" height="1" fill="white" fill-opacity="0.92"/>
+    <rect x="-1" y="6" width="1" height="1" fill="white" fill-opacity="0.92"/>
+    <rect id="rabbit-think-d1" x="1" y="2.25" width="1.5" height="1.5" fill="#0082FC"/>
+    <rect id="rabbit-think-d2" x="3.75" y="2.25" width="1.5" height="1.5" fill="#0082FC"/>
+    <rect id="rabbit-think-d3" x="6.5" y="2.25" width="1.5" height="1.5" fill="#0082FC"/>
+  </g>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <style>
+    @keyframes rabbit-happy-obj {
+      0%   { transform: translate(0, 0); }
+      10%  { transform: translate(0, 1px); }
+      30%  { transform: translate(0, -8px); }
+      50%  { transform: translate(0, 0); }
+      60%  { transform: translate(0, -3px); }
+      75%  { transform: translate(0, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes rabbit-happy-shadow {
+      0%   { transform: translate(-2px, 0px) scaleX(1); }
+      10%  { transform: translate(-2px, 0px) scaleX(1.2); }
+      30%  { transform: translate(-2px, 0px) scaleX(0.5); }
+      50%  { transform: translate(-2px, 0px) scaleX(1.1); }
+      60%  { transform: translate(-2px, 0px) scaleX(0.7); }
+      75%  { transform: translate(-2px, 0px) scaleX(1); }
+      100% { transform: translate(-2px, 0px) scaleX(1); }
+    }
+    @keyframes rabbit-happy-sparkle-1 {
+      0%, 100% { opacity: 0; transform: translate(10px, -14px) scale(0.5); }
+      20%, 60% { opacity: 1; transform: translate(10px, -14px) scale(1); }
+    }
+    @keyframes rabbit-happy-sparkle-2 {
+      0%, 100% { opacity: 0; transform: translate(-5px, -10px) scale(0.5); }
+      30%, 70% { opacity: 1; transform: translate(-5px, -10px) scale(1); }
+    }
+    @keyframes rabbit-happy-sparkle-3 {
+      0%, 100% { opacity: 0; transform: translate(8px, -4px) scale(0.5); }
+      40%, 80% { opacity: 1; transform: translate(8px, -4px) scale(1); }
+    }
+
+    #rabbit-happy-obj { animation: rabbit-happy-obj 1.5s ease-in-out infinite; }
+    #rabbit-happy-shadow { animation: rabbit-happy-shadow 1.5s ease-in-out infinite; }
+    #rabbit-happy-sparkle-1 { animation: rabbit-happy-sparkle-1 1.5s ease-in-out infinite; }
+    #rabbit-happy-sparkle-2 { animation: rabbit-happy-sparkle-2 1.5s ease-in-out infinite 0.3s; }
+    #rabbit-happy-sparkle-3 { animation: rabbit-happy-sparkle-3 1.5s ease-in-out infinite 0.6s; }
+  </style>
+
+  <g transform="translate(1, 7)">
+    <!-- Shadow -->
+    <g id="rabbit-happy-shadow" transform="translate(-2, 0)">
+      <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+    </g>
+
+    <!-- obj: big bounce -->
+    <g id="rabbit-happy-obj">
+      <g transform="translate(-4, -4)">
+        <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+        <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+        <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+        <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+        <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+      </g>
+      <g transform="translate(0, -10)">
+        <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect width="2" height="3" fill="#FFF2F4"/>
+        <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+        <rect x="3" y="6" width="2" height="1" fill="black"/>
+        <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <!-- ^^ eyes -->
+        <rect x="1.5" y="4.3" width="0.6" height="0.6" fill="black"/>
+        <rect x="2.1" y="3.7" width="0.8" height="0.6" fill="black"/>
+        <rect x="2.9" y="4.3" width="0.6" height="0.6" fill="black"/>
+        <rect x="4.5" y="4.3" width="0.6" height="0.6" fill="black"/>
+        <rect x="5.1" y="3.7" width="0.8" height="0.6" fill="black"/>
+        <rect x="5.9" y="4.3" width="0.6" height="0.6" fill="black"/>
+      </g>
+    </g>
+
+    <!-- Sparkles -->
+    <g id="rabbit-happy-sparkle-1" transform="translate(10, -14)">
+      <rect x="1" y="0" width="1" height="3" fill="#FFD700"/>
+      <rect x="0" y="1" width="3" height="1" fill="#FFD700"/>
+    </g>
+    <g id="rabbit-happy-sparkle-2" transform="translate(-5, -10)">
+      <rect x="0.5" y="0" width="1" height="2" fill="#FFD700"/>
+      <rect x="0" y="0.5" width="2" height="1" fill="#FFD700"/>
+    </g>
+    <g id="rabbit-happy-sparkle-3" transform="translate(8, -4)">
+      <rect x="0.5" y="0" width="1" height="2" fill="#FFD700"/>
+      <rect x="0" y="0.5" width="2" height="1" fill="#FFD700"/>
+    </g>
+  </g>
+</svg>

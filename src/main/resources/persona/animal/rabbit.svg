@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" overflow="visible">
   <style>
     *{act}
+    *{emotion-style}
 
     @keyframes rabbit-head-*{id}-move {
     0% {
@@ -127,6 +128,7 @@
     </g>
 
     <svg width="600" height="300" viewBox="0 0 200 100" fill="none" overflow="visible">
+      <g id="rabbit-*{id}-base">
       <g id="rabbit-shadow-*{id}" transform="translate(-2, 9)">
         <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447"
           fill-opacity="0.1"/>
@@ -170,6 +172,8 @@
           <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
         </g>
       </g>
+      </g>
+      *{emotions}
     </svg>
   </g>
 </svg>

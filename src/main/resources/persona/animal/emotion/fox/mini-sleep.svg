@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <!--
+    Dessert Fox — mini sleep (peeking from edge, asleep)
+    Head + ears + partial body, closed eyes + Zzz
+    Keyframe prefix: dfox-msleep-
+  -->
+  <defs>
+    <style>
+      @keyframes dfox-msleep-breathe {
+        0%, 100% { transform: translate(0, 0); }
+        50%      { transform: translate(0, -0.3px); }
+      }
+      #dfox-msleep-body { animation: dfox-msleep-breathe 4.5s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <g id="dfox-msleep-body">
+    <!-- Partial body (upper portion peeking) -->
+    <g transform="translate(-2, 6)">
+      <rect x="3" y="2" width="8" height="1" fill="#DDD7B5"/>
+      <rect x="7" width="6" height="4" fill="#DDD7B5"/>
+      <rect x="4" y="2" width="8" height="2" fill="#DDD7B5"/>
+      <rect x="6" y="1" width="7" height="3" fill="#DDD7B5"/>
+      <rect x="9" y="2" width="3" height="3" fill="#F5F5F7"/>
+      <rect x="8" y="3" width="3" height="2" fill="#F5F5F7"/>
+      <rect x="7" y="4" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="2" y="1" width="2" height="1" fill="#DDD7B5"/>
+      <rect x="2" y="2" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="3" y="3" width="3" height="1" fill="#F5F5F7"/>
+    </g>
+
+    <!-- Head -->
+    <g transform="translate(0, -1)">
+      <rect x="7" y="2" width="4" height="5" fill="#DDD7B5"/>
+      <rect x="9" y="5" width="2" height="2" fill="#F5F5F7"/>
+      <rect x="6" y="3" width="6" height="4" fill="#DDD7B5"/>
+      <rect x="8" y="6" width="4" height="1" fill="#F5F5F7"/>
+      <rect x="8" y="6" width="3" height="2" fill="#F5F5F7"/>
+      <rect x="6" y="3" width="6" height="1" fill="#DDD7B5"/>
+      <rect x="3" y="4" width="12" height="1" fill="#DDD7B5"/>
+      <rect x="5" y="3" width="8" height="3" fill="#DDD7B5"/>
+      <rect x="7" y="7" width="4" height="1" fill="#DDD7B5"/>
+      <!-- Left ear -->
+      <rect x="1" y="2" width="4" height="1" fill="#DDD7B5"/>
+      <rect y="1" width="4" height="1" fill="#DDD7B5"/>
+      <rect x="1" width="2" height="3" fill="#DDD7B5"/>
+      <rect x="1" y="1" width="2" height="1" fill="#FBB3BE"/>
+      <rect x="2" y="1" width="1" height="2" fill="#FBB3BE"/>
+      <rect x="2" y="2" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="3" y="3" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="3" y="4" width="3" height="1" fill="#FBB3BE"/>
+      <!-- Right ear -->
+      <rect x="13" y="2" width="4" height="1" fill="#DDD7B5"/>
+      <rect x="14" y="1" width="4" height="1" fill="#DDD7B5"/>
+      <rect x="15" width="2" height="3" fill="#DDD7B5"/>
+      <rect x="15" y="1" width="2" height="1" fill="#FBB3BE"/>
+      <rect x="15" y="1" width="1" height="2" fill="#FBB3BE"/>
+      <rect x="14" y="2" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="13" y="3" width="2" height="2" fill="#FBB3BE"/>
+      <rect x="12" y="4" width="3" height="1" fill="#FBB3BE"/>
+      <!-- Nose -->
+      <rect x="10" y="6" width="1" height="1" fill="black"/>
+      <!-- Muzzle highlight -->
+      <rect x="7" y="7" width="4" height="1" fill="#F5F5F7"/>
+      <rect x="9" y="5" width="3" height="1" fill="#F5F5F7"/>
+      <!-- Shadow under muzzle -->
+      <rect x="7" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+      <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+      <!-- Closed eyes (dashes) -->
+      <rect x="7.6" y="4.6" width="1.8" height="0.8" fill="black"/>
+      <rect x="10.6" y="4.6" width="1.8" height="0.8" fill="black"/>
+    </g>
+  </g>
+
+  <!-- Zzz injected via shared accessory (acc-zzz.svg) -->
+</svg>

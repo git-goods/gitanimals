@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <style>
+    @keyframes rabbit-wake-obj {
+      0%, 4%   { transform: translate(0, 0) scaleX(1); }
+      10%      { transform: translate(1.5px, -5px) scaleX(1); }
+      20%      { transform: translate(3px, 0) scaleX(1); }
+      30%      { transform: translate(3px, -5px) scaleX(1); }
+      38%      { transform: translate(3px, 0) scaleX(1); }
+      42%      { transform: translate(3px, 0) scaleX(0.3); }
+      44%      { transform: translate(3px, 0) scaleX(0); }
+      46%      { transform: translate(3px, 0) scaleX(-0.3); }
+      50%      { transform: translate(3px, 0) scaleX(-1); }
+      58%      { transform: translate(0, -5px) scaleX(-1); }
+      68%      { transform: translate(-3px, 0) scaleX(-1); }
+      76%      { transform: translate(-3px, -5px) scaleX(-1); }
+      82%      { transform: translate(-3px, 0) scaleX(-1); }
+      84%      { transform: translate(-3px, 0) scaleX(-0.3); }
+      86%      { transform: translate(-3px, 0) scaleX(0); }
+      88%      { transform: translate(-3px, 0) scaleX(0.3); }
+      90%      { transform: translate(-3px, 0) scaleX(1); }
+      95%      { transform: translate(-1.5px, -5px) scaleX(1); }
+      100%     { transform: translate(0, 0) scaleX(1); }
+    }
+    @keyframes rabbit-wake-shadow {
+      0%, 4%   { transform: translate(-2px, 0px); opacity: 0.8; }
+      20%      { transform: translate(1px, 0px); opacity: 0.7; }
+      50%      { transform: translate(1px, 0px); opacity: 0.8; }
+      68%      { transform: translate(-5px, 0px); opacity: 0.7; }
+      90%      { transform: translate(-5px, 0px); opacity: 0.8; }
+      100%     { transform: translate(-2px, 0px); opacity: 0.8; }
+    }
+    @keyframes rabbit-wake-head {
+      0%, 4%   { transform: translate(0, -10px); }
+      10%      { transform: translate(0, -11px); }
+      18%      { transform: translate(0, -10px); }
+      26%      { transform: translate(0, -11px); }
+      34%      { transform: translate(0, -10px); }
+      40%, 50% { transform: translate(0, -10px); }
+      56%      { transform: translate(0, -11px); }
+      64%      { transform: translate(0, -10px); }
+      72%      { transform: translate(0, -11px); }
+      80%      { transform: translate(0, -10px); }
+      90%, 100%{ transform: translate(0, -10px); }
+    }
+    @keyframes rabbit-wake-eyes-open {
+      0%, 15%  { opacity: 1; }
+      20%, 80% { opacity: 0; }
+      85%, 100%{ opacity: 1; }
+    }
+    @keyframes rabbit-wake-eyes-closed {
+      0%, 15%  { opacity: 0; }
+      20%, 80% { opacity: 1; }
+      85%, 100%{ opacity: 0; }
+    }
+
+    #rabbit-wake-obj {
+      animation: rabbit-wake-obj 5s ease-in-out forwards 1;
+      transform-origin: 2px -4px;
+    }
+    #rabbit-wake-shadow { animation: rabbit-wake-shadow 5s ease-in-out forwards 1; }
+    #rabbit-wake-head { animation: rabbit-wake-head 5s ease-in-out forwards 1; }
+    #rabbit-wake-eyes-open { animation: rabbit-wake-eyes-open 5s steps(1, end) forwards 1; }
+    #rabbit-wake-eyes-closed { animation: rabbit-wake-eyes-closed 5s steps(1, end) forwards 1; }
+  </style>
+
+  <g transform="translate(1, 7)">
+    <!-- Shadow -->
+    <g id="rabbit-wake-shadow" transform="translate(-2, 0)">
+      <rect width="8" height="1" transform="matrix(-1 0 0 1 8 0.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 0.25)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="6.76923" height="0.25" transform="matrix(-1 0 0 1 7.38452 1.5)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 0)" fill="#2B4447" fill-opacity="0.1"/>
+      <rect width="5.53846" height="0.25" transform="matrix(-1 0 0 1 6.76929 1.75)" fill="#2B4447" fill-opacity="0.1"/>
+    </g>
+
+    <!-- obj: walk cycle one-shot -->
+    <g id="rabbit-wake-obj">
+      <g transform="translate(-4, -4)">
+        <rect x="4" width="6" height="4" fill="#FFF2F4"/>
+        <rect x="2" y="1" width="8" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="2" width="8" height="2" fill="#FFF2F4"/>
+        <rect x="2" y="3" width="8" height="2" fill="#FFF2F4"/>
+        <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+        <rect x="1" y="3" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="2" y="4" width="2" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="6" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="8" y="3" width="1" height="2" fill="#FF6666" fill-opacity="0.1"/>
+      </g>
+      <g id="rabbit-wake-head" transform="translate(0, -10)">
+        <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect width="2" height="3" fill="#FFF2F4"/>
+        <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+        <rect x="3" y="6" width="2" height="1" fill="black"/>
+        <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <!-- Open eyes -->
+        <g id="rabbit-wake-eyes-open">
+          <rect x="2" y="4" width="1" height="1" fill="black"/>
+          <rect x="5" y="4" width="1" height="1" fill="black"/>
+        </g>
+        <!-- Closed eyes -->
+        <g id="rabbit-wake-eyes-closed" opacity="0">
+          <rect x="1.6" y="4.1" width="1.8" height="0.8" fill="black"/>
+          <rect x="4.6" y="4.1" width="1.8" height="0.8" fill="black"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
