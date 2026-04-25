@@ -419,6 +419,84 @@ val dessertFoxThinkingEmotionSvg: String = ClassPathResource("persona/animal/emo
 val dessertFoxTypingEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/typing.svg")
     .getContentAsString(Charset.defaultCharset())
 
+val dessertFoxMiniIdleEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/mini-idle.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val dessertFoxMiniSleepEmotionSvg: String = ClassPathResource("persona/animal/emotion/fox/mini-sleep.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotErrorEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/error.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotHappyEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/happy.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotIdleFollowEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/idle-follow.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotNotificationEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/notification.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotThinkingEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/thinking.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotTypingEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/typing.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotMiniIdleEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/mini-idle.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val capybaraCarrotMiniSleepEmotionSvg: String = ClassPathResource("persona/animal/emotion/capybara-carrot/mini-sleep.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickErrorEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/error.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickHappyEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/happy.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickIdleFollowEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/idle-follow.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickNotificationEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/notification.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickThinkingEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/thinking.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickTypingEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/typing.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickMiniIdleEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/mini-idle.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val littleChickMiniSleepEmotionSvg: String = ClassPathResource("persona/animal/emotion/little-chick/mini-sleep.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitErrorEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/error.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitHappyEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/happy.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitIdleFollowEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/idle-follow.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitNotificationEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/notification.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitThinkingEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/thinking.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitTypingEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/typing.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitMiniIdleEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/mini-idle.svg")
+    .getContentAsString(Charset.defaultCharset())
+
+val rabbitMiniSleepEmotionSvg: String = ClassPathResource("persona/animal/emotion/rabbit/mini-sleep.svg")
+    .getContentAsString(Charset.defaultCharset())
+
 val largeTextSvgs = lazy {
     val map = mutableMapOf<String, String>()
     for (i in 'A'..'Z') {

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <style>
+    @keyframes rabbit-mini-ear {
+      0%, 80%  { transform: translate(0, 0); }
+      85%      { transform: translate(0, -0.5px); }
+      90%      { transform: translate(0, 0); }
+      95%      { transform: translate(0, -0.3px); }
+      100%     { transform: translate(0, 0); }
+    }
+    @keyframes rabbit-mini-head {
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(0.4px, 0); }
+    }
+
+    #rabbit-mini-ear-left { animation: rabbit-mini-ear 3s ease-in-out infinite; }
+    #rabbit-mini-group { animation: rabbit-mini-head 2s ease-in-out infinite; }
+  </style>
+
+  <g transform="translate(1, 5)">
+    <g id="rabbit-mini-group">
+      <!-- Upper body -->
+      <g transform="translate(-4, -4)">
+        <rect x="4" width="6" height="3" fill="#FFF2F4"/>
+        <rect x="2" y="1" width="8" height="2" fill="#FFF2F4"/>
+        <rect x="1" y="2" width="8" height="1" fill="#FFF2F4"/>
+        <rect y="2" width="8" height="1" fill="#FFF2F4"/>
+      </g>
+      <!-- Head -->
+      <g transform="translate(0, -10)">
+        <rect x="1" y="3" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="4" width="7" height="3" fill="#FFF2F4"/>
+        <rect x="1" y="4" width="5" height="4" fill="#FFF2F4"/>
+        <rect y="2" width="3" height="5" fill="#FFF2F4"/>
+        <rect x="4" y="2" width="3" height="5" fill="#FFF2F4"/>
+        <!-- Left ear (animated) -->
+        <g id="rabbit-mini-ear-left">
+          <rect width="2" height="3" fill="#FFF2F4"/>
+          <rect x="1" y="1" width="1" height="2" fill="#FBB3BE"/>
+        </g>
+        <!-- Right ear -->
+        <rect x="5" width="2" height="3" fill="#FFF2F4"/>
+        <rect x="5" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <!-- Cheeks -->
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 2 5)" fill="#FF778F"/>
+        <rect width="2" height="1" transform="matrix(-1 0 0 1 8 5)" fill="#FF778F"/>
+        <!-- Mouth -->
+        <rect x="3" y="6" width="2" height="1" fill="black"/>
+        <rect y="6" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <rect x="1" y="7" width="1" height="1" fill="#FF6666" fill-opacity="0.1"/>
+        <!-- Eyes -->
+        <rect x="2" y="4" width="1" height="1" fill="black"/>
+        <rect x="5" y="4" width="1" height="1" fill="black"/>
+      </g>
+    </g>
+  </g>
+</svg>

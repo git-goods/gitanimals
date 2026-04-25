@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" shape-rendering="crispEdges">
+  <!--
+    Little Chick — mini sleep (peeking from edge, closed eyes)
+  -->
+
+  <!-- Partial body (upper portion) -->
+  <g>
+    <rect width="9" height="3" transform="matrix(-1 0 0 1 12 4)" fill="#FFD600"/>
+    <rect width="6" height="1" transform="matrix(-1 0 0 1 7 4)" fill="#FFD600"/>
+    <rect width="7" height="1" transform="matrix(-1 0 0 1 11 7)" fill="#FFD600"/>
+    <rect width="6" height="1" transform="matrix(-1 0 0 1 7 1)" fill="#FFD600"/>
+    <rect width="3" height="1" transform="matrix(-1 0 0 1 5 0)" fill="#FFD600"/>
+    <rect width="7" height="2" transform="matrix(-1 0 0 1 7 2)" fill="#FFD600"/>
+    <rect x="1" y="2" width="5" height="2" fill="#FFD600"/>
+    <rect x="2" y="1" width="3" height="2" fill="#FFD600"/>
+    <rect x="2" y="3" width="5" height="2" fill="#FFD600"/>
+    <rect x="3" y="5" width="5" height="2" fill="#FFD600"/>
+    <rect x="4" y="2" width="7" height="5" fill="#FFD600"/>
+    <rect x="5" y="7" width="5" height="1" fill="#FFD600"/>
+  </g>
+
+  <!-- Head (static, closed eyes — accessory anchor) -->
+  <g id="little-chick-head" transform="translate(6, -2)">
+    <rect x="1" y="1" width="4" height="6" fill="#FFD600"/>
+    <rect width="1" height="4" transform="matrix(-1 0 0 1 1 1)" fill="#FFD600"/>
+    <rect width="1" height="1" transform="matrix(-1 0 0 1 5 1)" fill="#FFD600"/>
+    <rect width="1" height="4" transform="matrix(-1 0 0 1 6 2)" fill="#FFD600"/>
+    <rect width="3" height="1" transform="matrix(-1 0 0 1 4 0)" fill="#FFD600"/>
+    <!-- Beak -->
+    <rect x="4" y="4" width="2" height="2" fill="#FF6F0F"/>
+    <rect x="5" y="5" width="2" height="1" fill="#FF6F0F"/>
+    <!-- Closed eyes -->
+    <rect x="1.5" y="3" width="2" height="0.8" fill="black"/>
+    <rect x="3.5" y="2" width="2" height="0.8" fill="black"/>
+  </g>
+</svg>

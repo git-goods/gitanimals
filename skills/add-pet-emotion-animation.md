@@ -21,7 +21,6 @@ src/main/resources/persona/animal/
 
 src/main/kotlin/org/gitanimals/core/
 ├── PersonaType.kt        # 펫 enum (loadSvg, act, addEmotions)
-├── PersonaEmotionType.kt # emotion 타입 enum (ERROR, HAPPY, IDLE_FOLLOW, NOTIFICATION, THINKING, TYPING)
 └── Svgs.kt               # SVG 파일 로딩
 ```
 
@@ -147,7 +146,7 @@ base 콘텐츠 `</g>` 닫힘 태그 바로 뒤, `</svg>` 앞에 추가합니다.
 `buildEmotionAnimation()` 공통 메서드를 사용합니다.
 
 ```kotlin
-{PET_NAME}(weight) {
+{ PET_NAME }(weight) {
     override fun loadSvg(name: String, animationId: Long, level: Long, mode: Mode): String {
         val emotion = buildEmotionAnimation(
             idPrefix = "{pet-name}",          // base SVG의 ID prefix와 동일해야 함
@@ -155,12 +154,12 @@ base 콘텐츠 `</g>` 닫힘 태그 바로 뒤, `</svg>` 앞에 추가합니다.
             totalDuration = 180.0,            // 전체 애니메이션 사이클 (초)
             emotionDuration = 3.0,            // 각 emotion 재생 시간 (초)
             emotionSvgs = listOf(
-                {petName}ErrorEmotionSvg,        // index 0
-                {petName}HappyEmotionSvg,        // index 1
-                {petName}IdleFollowEmotionSvg,   // index 2
-                {petName}NotificationEmotionSvg, // index 3
-                {petName}ThinkingEmotionSvg,     // index 4
-                {petName}TypingEmotionSvg,       // index 5
+                { petName } ErrorEmotionSvg,        // index 0
+                { petName } HappyEmotionSvg,        // index 1
+                { petName } IdleFollowEmotionSvg,   // index 2
+                { petName } NotificationEmotionSvg, // index 3
+                { petName } ThinkingEmotionSvg,     // index 4
+                { petName } TypingEmotionSvg,       // index 5
             ),
             emotionYOffsets = listOf(
                 5.0,  // error     (standing)
@@ -174,8 +173,8 @@ base 콘텐츠 `</g>` 닫힘 태그 바로 뒤, `</svg>` 앞에 추가합니다.
             maxGap = 30.0,                    // emotion 사이 최대 간격 (초)
         )
 
-        return {petName}Svg
-            .replace("*{act}", act(animationId))
+        return { petName } Svg
+                .replace("*{act}", act(animationId))
             .replace("*{emotion-style}", emotion.css)
             .replace("*{emotions}", emotion.content)
             .replace("*{id}", animationId.toString())
@@ -183,17 +182,6 @@ base 콘텐츠 `</g>` 닫힘 태그 바로 뒤, `</svg>` 앞에 추가합니다.
             .replace("*{levelx}", (-3 + (-1 * (level.toString().length))).toString())
             .replace("*{username}", name.toSvg(14.0, 25.0))
             .replace("*{usernamex}", (23 + (-3 * name.length)).toString())
-    }
-
-    override fun addEmotions(emotionType: PersonaEmotionType): String {
-        return when (emotionType) {
-            ERROR -> {petName}ErrorEmotionSvg
-            HAPPY -> {petName}HappyEmotionSvg
-            IDLE_FOLLOW -> {petName}IdleFollowEmotionSvg
-            NOTIFICATION -> {petName}NotificationEmotionSvg
-            THINKING -> {petName}ThinkingEmotionSvg
-            TYPING -> {petName}TypingEmotionSvg
-        }
     }
 }
 ```
@@ -301,19 +289,6 @@ data object {PetClassName} : PersonaEmotionAssets {
         offsetX = -0.45,
         offsetY = -0.25
     )
-
-    // 실제 SVG 컨텐츠 반환 로직 구현
-    override fun getAsset(emotion: String): String {
-        return when (emotion) {
-            "error" -> {petName}ErrorEmotionSvg
-            "happy" -> {petName}HappyEmotionSvg
-            "idleFollow" -> {petName}IdleFollowEmotionSvg
-            "notification" -> {petName}NotificationEmotionSvg
-            "thinking" -> {petName}ThinkingEmotionSvg
-            "typing" -> {petName}TypingEmotionSvg
-            else -> throw IllegalArgumentException("Invalid emotion: $emotion")
-        }
-    }
 }
 ```
 

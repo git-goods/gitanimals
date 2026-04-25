@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45">
+  <!--
+    Dessert Fox — mini idle (peeking from edge)
+    Head + ears + partial body, gentle ear flick
+    Keyframe prefix: dfox-mini-
+  -->
+  <style>
+    @keyframes dfox-mini-ear-left {
+      0%   { transform: translate(0, 0); }
+      40%  { transform: translate(0, 0); }
+      50%  { transform: translate(0, -0.5px); }
+      60%  { transform: translate(0, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes dfox-mini-head-nod {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(0.4px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    #dfox-mini-ear-left { animation: dfox-mini-ear-left 3s ease-in-out infinite; }
+    #dfox-mini-head-nod { animation: dfox-mini-head-nod 2s ease-in-out infinite; }
+  </style>
+
+  <g>
+    <!-- Partial body (upper portion peeking) -->
+    <g transform="translate(-2, 6)">
+      <rect x="3" y="2" width="8" height="1" fill="#DDD7B5"/>
+      <rect x="7" width="6" height="4" fill="#DDD7B5"/>
+      <rect x="4" y="2" width="8" height="2" fill="#DDD7B5"/>
+      <rect x="6" y="1" width="7" height="3" fill="#DDD7B5"/>
+      <rect x="9" y="2" width="3" height="3" fill="#F5F5F7"/>
+      <rect x="8" y="3" width="3" height="2" fill="#F5F5F7"/>
+      <rect x="7" y="4" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="2" y="1" width="2" height="1" fill="#DDD7B5"/>
+      <rect x="2" y="2" width="3" height="1" fill="#F5F5F7"/>
+      <rect x="3" y="3" width="3" height="1" fill="#F5F5F7"/>
+    </g>
+
+    <!-- Head -->
+    <g id="dfox-mini-head-nod">
+      <g transform="translate(0, -1)">
+        <rect x="7" y="2" width="4" height="5" fill="#DDD7B5"/>
+        <rect x="9" y="5" width="2" height="2" fill="#F5F5F7"/>
+        <rect x="6" y="3" width="6" height="4" fill="#DDD7B5"/>
+        <rect x="8" y="6" width="4" height="1" fill="#F5F5F7"/>
+        <rect x="8" y="6" width="3" height="2" fill="#F5F5F7"/>
+        <rect x="6" y="3" width="6" height="1" fill="#DDD7B5"/>
+        <rect x="3" y="4" width="12" height="1" fill="#DDD7B5"/>
+        <rect x="5" y="3" width="8" height="3" fill="#DDD7B5"/>
+        <rect x="7" y="7" width="4" height="1" fill="#DDD7B5"/>
+        <!-- Left ear (with flick) -->
+        <g id="dfox-mini-ear-left">
+          <rect x="1" y="2" width="4" height="1" fill="#DDD7B5"/>
+          <rect y="1" width="4" height="1" fill="#DDD7B5"/>
+          <rect x="1" width="2" height="3" fill="#DDD7B5"/>
+          <rect x="1" y="1" width="2" height="1" fill="#FBB3BE"/>
+          <rect x="2" y="1" width="1" height="2" fill="#FBB3BE"/>
+          <rect x="2" y="2" width="2" height="2" fill="#FBB3BE"/>
+          <rect x="3" y="3" width="2" height="2" fill="#FBB3BE"/>
+          <rect x="3" y="4" width="3" height="1" fill="#FBB3BE"/>
+        </g>
+        <!-- Right ear -->
+        <rect x="13" y="2" width="4" height="1" fill="#DDD7B5"/>
+        <rect x="14" y="1" width="4" height="1" fill="#DDD7B5"/>
+        <rect x="15" width="2" height="3" fill="#DDD7B5"/>
+        <rect x="15" y="1" width="2" height="1" fill="#FBB3BE"/>
+        <rect x="15" y="1" width="1" height="2" fill="#FBB3BE"/>
+        <rect x="14" y="2" width="2" height="2" fill="#FBB3BE"/>
+        <rect x="13" y="3" width="2" height="2" fill="#FBB3BE"/>
+        <rect x="12" y="4" width="3" height="1" fill="#FBB3BE"/>
+        <!-- Nose -->
+        <rect x="10" y="6" width="1" height="1" fill="black"/>
+        <!-- Muzzle highlight -->
+        <rect x="7" y="7" width="4" height="1" fill="#F5F5F7"/>
+        <rect x="9" y="5" width="3" height="1" fill="#F5F5F7"/>
+        <!-- Shadow under muzzle -->
+        <rect x="7" y="7" width="2" height="1" fill="black" fill-opacity="0.1"/>
+        <rect x="6" y="6" width="1" height="1" fill="black" fill-opacity="0.1"/>
+        <!-- Eyes -->
+        <rect x="8" y="4" width="1" height="2" fill="black"/>
+        <rect x="11" y="4" width="1" height="2" fill="black"/>
+      </g>
+    </g>
+  </g>
+</svg>
