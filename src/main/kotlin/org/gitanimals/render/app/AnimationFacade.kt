@@ -47,19 +47,25 @@ class AnimationFacade(
         }
     }
 
-    fun getLineAnimation(username: String, personaId: Long, mode: Mode): String {
+    fun getLineAnimation(
+        username: String,
+        personaId: Long,
+        mode: Mode,
+        backgroundColor: String = "transparent",
+    ): String {
         return when (userService.existsByName(username)) {
             true -> {
                 setUserAuthInfoIfNotSet(username)
 
-                val svgAnimation = userService.getLineAnimationByUsername(username, personaId, mode)
+                val svgAnimation =
+                    userService.getLineAnimationByUsername(username, personaId, mode, backgroundColor)
                 eventPublisher.publishEvent(Visited(username, MDC.get(TRACE_ID)))
                 svgAnimation
             }
 
             false -> {
                 val user = createOrUpdateUser(username)
-                userService.getLineAnimationByUsername(user.getName(), personaId, mode)
+                userService.getLineAnimationByUsername(user.getName(), personaId, mode, backgroundColor)
             }
         }
     }

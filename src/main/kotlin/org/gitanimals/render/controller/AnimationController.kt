@@ -32,6 +32,7 @@ class AnimationController(
         @PathVariable("username") username: String,
         @RequestParam(name = "pet-id", defaultValue = "0") personaId: String,
         @RequestParam(name = "contribution-view", defaultValue = "true") contributionView: Boolean,
+        @RequestParam(name = "background-color", defaultValue = "transparent") backgroundColor: String,
         response: HttpServletResponse,
     ): String {
         response.cacheControl(3600)
@@ -45,6 +46,7 @@ class AnimationController(
             username = username.deleteBrackets(),
             personaId = personaId.trimNotDigitCharacters().toLong(),
             mode = mode,
+            backgroundColor = backgroundColor,
         )
     }
 

@@ -129,6 +129,50 @@ internal class UserTest(
         }
     }
 
+    describe("createLineAnimation 메소드는") {
+        context("personaId와 line mode를 받으면") {
+            val personaId = 1L
+            val user = user().apply {
+                personas.add(persona(id = personaId, user = this))
+            }
+
+            it("배경색을 지정하지 않으면 기존처럼 투명 배경의 line SVG를 생성한다") {
+                val animation = user.createLineAnimation(personaId, Mode.LINE)
+
+                animation.contains("<rect width=\"100%\" height=\"100%\"") shouldBe false
+                animation.contains("<g id=\"cat-$personaId\"") shouldBe true
+            }
+
+            it("white 배경을 지정하면 흰색 배경을 포함한다") {
+                val animation = user.createLineAnimation(personaId, Mode.LINE, "white")
+
+                animation.startsWith(
+                    "<svg fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"white\"/>"
+                ) shouldBe true
+            }
+
+            it("hex 배경색을 지정하면 해당 색상을 포함한다") {
+                val animation = user.createLineAnimation(personaId, Mode.LINE, "0d1117")
+
+                animation.startsWith(
+                    "<svg fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"#0d1117\"/>"
+                ) shouldBe true
+            }
+
+            it("transparent 배경을 지정하면 배경 rect를 추가하지 않는다") {
+                val animation = user.createLineAnimation(personaId, Mode.LINE, "transparent")
+
+                animation.contains("<rect width=\"100%\" height=\"100%\"") shouldBe false
+            }
+
+            it("지원하지 않는 배경색을 지정하면 예외를 던진다") {
+                shouldThrowExactly<IllegalArgumentException> {
+                    user.createLineAnimation(personaId, Mode.LINE, "url(#malicious)")
+                }
+            }
+        }
+    }
+
     describe("mergePersona 메소드는") {
         context("increasePersonaId와 deletePersonaId를 받아서,") {
             val user = User.newUser("devxb", mapOf())

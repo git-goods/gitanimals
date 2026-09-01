@@ -273,8 +273,12 @@ class User(
         visit += 1
     }
 
-    fun createLineAnimation(personaId: Long, mode: Mode): String {
-        val builder = StringBuilder().openLine()
+    fun createLineAnimation(
+        personaId: Long,
+        mode: Mode,
+        backgroundColor: String = "transparent",
+    ): String {
+        val builder = StringBuilder().openLine(backgroundColor.normalizeLineBackgroundColor())
 
         val persona = personas.find { it.id >= personaId }
             ?: throw IllegalArgumentException("Cannot find persona by id \"$personaId\"")
@@ -283,8 +287,33 @@ class User(
         return builder.closeSvg()
     }
 
-    private fun StringBuilder.openLine(): StringBuilder {
-        return this.append("<svg fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
+    private fun StringBuilder.openLine(backgroundColor: String): StringBuilder {
+        this.append("<svg fill=\"none\" overflow=\"visible\" xmlns=\"http://www.w3.org/2000/svg\">")
+
+        if (backgroundColor != "transparent") {
+            this.append("<rect width=\"100%\" height=\"100%\" fill=\"$backgroundColor\"/>")
+        }
+
+        return this
+    }
+
+    private fun String.normalizeLineBackgroundColor(): String {
+        val backgroundColor = trim()
+
+        if (backgroundColor.equals("transparent", ignoreCase = true)) {
+            return "transparent"
+        }
+
+        if (backgroundColor.equals("white", ignoreCase = true)) {
+            return "white"
+        }
+
+        val hexColor = backgroundColor.removePrefix("#")
+        require(hexColor.length in setOf(3, 4, 6, 8) && hexColor.all { it.isDigit() || it.lowercaseChar() in 'a'..'f' }) {
+            "background-color must be 'white', 'transparent', or a 3/4/6/8 digit hex color"
+        }
+
+        return "#$hexColor"
     }
 
 
